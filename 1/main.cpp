@@ -9,6 +9,6 @@
 
 int main(int argc, char** argv)
 {
-
+    std::cin >> std::ostream_iterator<char*>(stderr, "\n");
     P_VEC(in);
 }
