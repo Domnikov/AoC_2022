@@ -17,6 +17,7 @@ int main(int argc, char** argv)
         if(str.length() > 0)
         {
             sum += std::atoi(str.c_str());
+            P(sum);
         }
         else
         {
