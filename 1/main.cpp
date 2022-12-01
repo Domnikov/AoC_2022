@@ -30,5 +30,5 @@ int main(int argc, char** argv)
     P(*(vec.end()-3));
     P(*(vec.end()-2));
     P(vec.back());
-    P(vec.back() + *(vec.end()-2) + *(vec.end()-1));
+    P(vec.back() + *(vec.end()-2) + *(vec.end()-3));
 }
