@@ -9,6 +9,7 @@
 
 int main(int argc, char** argv)
 {
-    std::cin >> std::ostream_iterator<char*>(stderr, "\n");
+    std::string str;
+    std::cin >> str;
     P_VEC(in);
 }
