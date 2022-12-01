@@ -11,4 +11,5 @@ VECS getInput()
     {
         input.push_back(str);
     }
+    return input;
 }
