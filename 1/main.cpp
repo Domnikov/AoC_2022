@@ -11,5 +11,6 @@ int main(int argc, char** argv)
 {
     std::string str;
     std::cin >> str;
+    P(str);
     P_VEC(in);
 }
