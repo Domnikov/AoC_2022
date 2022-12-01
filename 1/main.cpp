@@ -6,13 +6,15 @@
 #else
     #include "in.hpp"
 #endif
+#include <fstream>
 
 int main(int argc, char** argv)
 {
     std::string str;
     int max = 0;
     int sum = 0;
-    while(std::cin >> str)
+    std::ifstream file("input");
+    while(std::getline(file, str))
     {
         if(str.length() > 0)
         {
