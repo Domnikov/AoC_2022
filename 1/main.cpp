@@ -24,14 +24,14 @@ int main(int argc, char** argv)
         }
         else
         {
-            max2 = max1;
-            max1 = max;
-            max = std::max(max, sum);
+            if(sum > max)
+            {
+                max2 = max1;
+                max1 = max;
+                max = sum;
+            }
             sum = 0;
         }
     }
-    P(max2)
-    P(max1)
-    P(max)
     P(max+max1+max2);
 }
