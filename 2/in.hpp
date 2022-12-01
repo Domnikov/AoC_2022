@@ -1,7 +1,7 @@
 #pragma once
 #include "../help_func.hpp"
 
-inline VECS getInput()
+inline auto getInput()
 {
-    return inToVecS();
+    return inToVecI();
 }
