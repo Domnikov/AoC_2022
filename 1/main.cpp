@@ -19,7 +19,7 @@ int main(int argc, char** argv)
         if(str.length() > 0)
         {
             sum += std::atoi(str.c_str());
-            P(sum);
+            // P(sum);
         }
         else
         {
@@ -28,5 +28,5 @@ int main(int argc, char** argv)
             P(max);
         }
     }
-    P(max);
+    // P(max);
 }
