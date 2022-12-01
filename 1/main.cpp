@@ -13,7 +13,7 @@ int main(int argc, char** argv)
     std::string str;
     int max = 0;
     int sum = 0;
-    std::ifstream file("input");
+    std::ifstream file("input2");
     while(std::getline(file, str))
     {
         if(str.length() > 0)
