@@ -12,6 +12,8 @@ int main(int argc, char** argv)
 {
     std::string str;
     int max = 0;
+    int max1 = 0;
+    int max2 = 0;
     int sum = 0;
     std::ifstream file("input2");
     while(std::getline(file, str))
@@ -19,14 +21,14 @@ int main(int argc, char** argv)
         if(str.length() > 0)
         {
             sum += std::atoi(str.c_str());
-            // P(sum);
         }
         else
         {
+            max2 = max1;
+            max1 = max;
             max = std::max(max, sum);
             sum = 0;
-            P(max);
         }
     }
-    // P(max);
+    P(max+max1+max2);
 }
