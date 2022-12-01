@@ -11,9 +11,7 @@
 int main(int argc, char** argv)
 {
     std::string str;
-    int max = 0;
-    int max1 = 0;
-    int max2 = 0;
+    std::vector<int> vec;
     int sum = 0;
     std::ifstream file("input2");
     while(std::getline(file, str))
@@ -24,14 +22,10 @@ int main(int argc, char** argv)
         }
         else
         {
-            if(sum > max)
-            {
-                max2 = max1;
-                max1 = max;
-                max = sum;
-            }
+            vec.push_back(sum);
             sum = 0;
         }
     }
-    P(max+max1+max2);
+    std::sort(vec.begin(), vec.end());
+    P(vec.back() + *(vec.end()-2) + *(vec.end()-1));
 }
