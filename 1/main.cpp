@@ -30,5 +30,8 @@ int main(int argc, char** argv)
             sum = 0;
         }
     }
+    P(max2)
+    P(max1)
+    P(max)
     P(max+max1+max2);
 }
