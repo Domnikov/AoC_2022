@@ -1,4 +1,4 @@
-#define TEST
+//#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
