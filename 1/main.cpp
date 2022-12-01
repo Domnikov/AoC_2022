@@ -1,20 +1,17 @@
 #define TEST
 
-#include "../help_func.hpp"
 #ifdef TEST
     #include "in_test.hpp"
 #else
     #include "in.hpp"
 #endif
-#include <fstream>
 
 int main(int argc, char** argv)
 {
-    std::string str;
-    std::vector<int> vec;
+    auto input = getInput();
+    VECI vec;
     int sum = 0;
-    std::ifstream file("input2");
-    while(std::getline(file, str))
+    for(auto str : input)
     {
         if(str.length() > 0)
         {
@@ -27,8 +24,5 @@ int main(int argc, char** argv)
         }
     }
     std::sort(vec.begin(), vec.end());
-    P(*(vec.end()-3));
-    P(*(vec.end()-2));
-    P(vec.back());
     P(vec.back() + *(vec.end()-2) + *(vec.end()-3));
 }

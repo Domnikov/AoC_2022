@@ -1,12 +1,7 @@
 #pragma once
-#include <vector>
+#include "../help_func.hpp"
 
-
-std::vector<int> in{
-1,
-2,
-3,
-4
-};
-
-
+VECS getInput()
+{
+    return {"1", "", "2", "", "3"};
+}
