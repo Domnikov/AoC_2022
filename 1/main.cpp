@@ -25,6 +25,7 @@ int main(int argc, char** argv)
         {
             max = std::max(max, sum);
             sum = 0;
+            P(max);
         }
     }
     P(max);
