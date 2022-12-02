@@ -11,12 +11,12 @@ int check(std::string A)
 {
     if(A == "A X")return 3+1;
     if(A == "A Y")return 6+2;
-    if(A == "A Z")return 1+3;
-    if(A == "B X")return 1+1;
+    if(A == "A Z")return 0+3;
+    if(A == "B X")return 0+1;
     if(A == "B Y")return 3+2;
     if(A == "B Z")return 6+3;
     if(A == "C X")return 6+1;
-    if(A == "C Y")return 1+2;
+    if(A == "C Y")return 0+2;
     if(A == "C Z")return 3+3;
 
     P("error");
