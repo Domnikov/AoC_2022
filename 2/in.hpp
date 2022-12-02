@@ -3,5 +3,5 @@
 
 inline auto getInput()
 {
-    return inToVecSS();
+    return inToVecS();
 }
