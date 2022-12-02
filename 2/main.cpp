@@ -29,6 +29,8 @@ int main(int argc, char** argv)
     int score = 0;
     for(auto i:input)
     {
+        P(check(i));
+        P(i);
         score += check(i);
     }
     P(score);
