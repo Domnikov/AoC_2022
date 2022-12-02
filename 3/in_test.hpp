@@ -3,5 +3,4 @@
 
 inline VECS getInput()
 {
-    return {"1", "", "2", "", "3"};
 }

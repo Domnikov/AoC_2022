@@ -1,8 +1,7 @@
 #pragma once
 #include "../help_func.hpp"
-#include <fstream>
 
-VECS getInput()
+inline VECS getInput()
 {
     std::ifstream file("input");
     std::string str;
