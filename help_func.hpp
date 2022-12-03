@@ -11,8 +11,10 @@
 #define P_RR(...) fprintf(stderr, __VA_ARGS__);
 #define P(a) std::cerr << #a << " = " << a << std::endl;
 
+#define LL    long long
+#define ULL   unsigned long long
 #define S     std::string
-#define VECI  std::vector<int>
+#define VECI  std::vector<LL>
 #define VECF  std::vector<double>
 #define VECS  std::vector<S>
 #define VECSS std::vector<std::vector<S>>

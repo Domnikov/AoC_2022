@@ -3,4 +3,12 @@
 
 inline VECS getInput()
 {
+    return {
+"vJrwpWtwJgWrhcsFMMfFFhFp",
+"jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+"PmmdzqPrVvPwwTWBwg",
+"wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+"ttgJtRGJQctTZtZT",
+"CrZsJsPPZsGzwwsLwLmpwMDw",
+};
 }
