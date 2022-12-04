@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -22,12 +22,12 @@ int main(int argc, char** argv)
         auto v0 = splitStr(ss[0],'-');
         auto v1 = splitStr(ss[1],'-');
 
-        if(stoi(v1[0]) <= stoi(v0[0]) && stoi(v1[1]) >= stoi(v0[1]))
+        if(stoi(v1[1]) < stoi(v0[0]))
         {
             P_VECH(ss);
             score++;
         }
-        else if(stoi(v0[0]) <= stoi(v1[0]) && stoi(v0[1]) >= stoi(v1[1]))
+        else if(stoi(v0[1]) < stoi(v1[0]))
         {
             P_VECH(ss);
             score++;
@@ -36,4 +36,5 @@ int main(int argc, char** argv)
     }
 
     P(score);
+    P(in.size() - score);
 }
