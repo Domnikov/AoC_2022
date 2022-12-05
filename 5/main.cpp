@@ -37,5 +37,7 @@ int main(int argc, char** argv)
         }
     }
 
+    P_VEC(b);
+
     P(score);
 }
