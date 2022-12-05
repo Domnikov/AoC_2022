@@ -44,6 +44,7 @@ int main(int argc, char** argv)
     b.push_back({'M','S','D','J','R','Q','H','N'});
 #endif
 
+    P(__LINE__);
 
     for(auto s:in)
     {
