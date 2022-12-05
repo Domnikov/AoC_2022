@@ -40,7 +40,10 @@ int main(int argc, char** argv)
         }
     }
 
-    P("done");
+    for(auto v : b)
+    {
+        P(v.back());
+    }
 
     P_VEC(b);
 
