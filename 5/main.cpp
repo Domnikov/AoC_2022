@@ -49,7 +49,9 @@ int main(int argc, char** argv)
     {
     P(__LINE__);
         int m = stoi(s[1]);
+    P(__LINE__);
         int from = stoi(s[3])-1;
+    P(__LINE__);
         int to = stoi(s[5])-1;
         P(m);
         P(from);
