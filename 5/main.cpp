@@ -40,6 +40,8 @@ int main(int argc, char** argv)
         }
     }
 
+    P("done");
+
     P_VEC(b);
 
     P(score);
