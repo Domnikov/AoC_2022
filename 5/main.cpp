@@ -1,4 +1,5 @@
-// #define TEST
+#define TEST
+#include <stack>
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -55,12 +56,17 @@ int main(int argc, char** argv)
         P(from);
         P(to);
 
+        std::stack<char> stack;
         FOR(i, m)
         {
             char c = b[from].back();
-            P(c);
+            stack.emplace(c);
             b[from].erase(b[from].end()-1);
+        }
+        while(auto c = stack.top())
+        {
             b[to].push_back(c);
+            stack.pop();
         }
     }
 
