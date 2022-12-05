@@ -35,6 +35,7 @@ int main(int argc, char** argv)
         FOR(i, m)
         {
             char c = b[from].back();
+            P(c);
             b[from].erase(b[from].end()-1);
             b[to].push_back(c);
         }
