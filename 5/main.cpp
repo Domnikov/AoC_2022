@@ -19,11 +19,22 @@ int main(int argc, char** argv)
 
     std::vector<std::vector<char>> b;
     b.push_back({'N', 'Z'});
+    b.push_back({'D', 'C', 'M'});
+    b.push_back({'P'});
 
 
     for(auto s:in)
     {
+        int m = stoi(s[1]);
+        int from = stoi(s[3]);
+        int to = stoi(s[5]);
 
+        FOR(i, m)
+        {
+            char c = b[from].back();
+            b[from].erase(b[from].end()-1);
+            b[to].push_back(c);
+        }
     }
 
     P(score);
