@@ -48,6 +48,7 @@ int main(int argc, char** argv)
     for(auto s:in)
     {
     P(__LINE__);
+    P_VEC(s);
         int m = stoi(s[1]);
     P(__LINE__);
         int from = stoi(s[3])-1;
