@@ -18,8 +18,8 @@ int main(int argc, char** argv)
     ULL score = 0;
 
     std::vector<std::vector<char>> b;
-    b.push_back({'N', 'Z'});
-    b.push_back({'D', 'C', 'M'});
+    b.push_back({'Z', 'N'});
+    b.push_back({'M', 'C', 'D'});
     b.push_back({'P'});
 
 
