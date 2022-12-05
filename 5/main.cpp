@@ -45,7 +45,6 @@ int main(int argc, char** argv)
         P(v.back());
     }
 
-    P_VEC(b);
 
     P(score);
 }
