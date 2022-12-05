@@ -47,12 +47,9 @@ int main(int argc, char** argv)
 
     for(auto s:in)
     {
-    P(__LINE__);
-    P_VEC(s);
+        P_VEC(s);
         int m = stoi(s[1]);
-    P(__LINE__);
         int from = stoi(s[3])-1;
-    P(__LINE__);
         int to = stoi(s[5])-1;
         P(m);
         P(from);
@@ -71,6 +68,7 @@ int main(int argc, char** argv)
     {
         P(v.back());
     }
+    P_VEC(b);
 
 
     P(score);
