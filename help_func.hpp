@@ -1,10 +1,13 @@
 #pragma once
 
 #include <algorithm>
+#include <bitset>
 #include <fstream>
 #include <iostream>
 #include <iterator>
 #include <map>
+#include <numeric>
+#include <set>
 #include <sstream>
 #include <vector>
 
@@ -88,6 +91,32 @@ inline VECS splitStr(S str, char delim)
     return res;
 }
 
+inline S trunc(S s)
+{
+    while(s[0] == ' ')
+    {
+        s.erase(0, 1);
+    }
+    while(s[s.size()-1] == ' ')
+    {
+        s.erase(s.size()-1, 1);
+    }
+    return s;
+}
+
+template <int N>
+std::string b2s(ULL a)
+{
+    return std::bitset< N >( a ).to_string();
+}
+
+template <int N>
+ULL s2b(S s)
+{
+    std::bitset< N > b(s);
+    return b.to_ulong();
+}
+
 inline VECS inToVecS(const char* fileName = "input")
 {
     std::ifstream file(fileName);
@@ -123,3 +152,4 @@ inline VECSS inToVecSS(char delim = ',', const char* fileName = "input")
     std::transform(in.begin(), in.end(), std::back_inserter(input), [delim](const auto& s){return splitStr(s, delim);});
     return input;
 }
+
