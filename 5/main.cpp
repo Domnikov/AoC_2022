@@ -63,8 +63,9 @@ int main(int argc, char** argv)
             stack.emplace(c);
             b[from].erase(b[from].end()-1);
         }
-        while(auto c = stack.top())
+        while(!stack.empty())
         {
+            auto c = stack.top();
             b[to].push_back(c);
             stack.pop();
         }
