@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -16,6 +16,10 @@ int main(int argc, char** argv)
 {
     auto in = getInput();
     ULL score = 0;
+
+    std::vector<std::vector<char>> b;
+    b.push_back({'N', 'Z'});
+
 
     for(auto s:in)
     {
