@@ -47,9 +47,9 @@ int main(int argc, char** argv)
 
     for(auto s:in)
     {
-        int m = std::stoi(s[1]);
-        int from = std::stoi(s[3])-1;
-        int to = std::stoi(s[5])-1;
+        int m = stoi(s[1]);
+        int from = stoi(s[3])-1;
+        int to = stoi(s[5])-1;
         P(m);
         P(from);
         P(to);
