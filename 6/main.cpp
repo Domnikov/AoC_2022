@@ -54,6 +54,7 @@ int main(int argc, char** argv)
             P(i+1);
             break;
         }
+        P(set.size());
 
     }
 
