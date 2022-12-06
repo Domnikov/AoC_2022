@@ -20,6 +20,7 @@ int main(int argc, char** argv)
 
 
     S s = in[0];
+    ULL marker = 0;
 
     FOR(i,s.size())
     {
@@ -33,11 +34,29 @@ int main(int argc, char** argv)
             if(a != b && b != c && c != d && a != c && a != d && b != d)
                 {
                     P(i+1);
+                    marker = i;
                     break;
                 }
         }
 
     }
+
+    for(int i = marker+14; i < s.length(); i++)
+    {
+        std::set<char> set;
+        FOR(j,14)
+        {
+            set.emplace(s[i-j]);
+        }
+
+        if(set.size() == 14)
+        {
+            P(i+1);
+            break;
+        }
+
+    }
+
 
     P(score);
 }
