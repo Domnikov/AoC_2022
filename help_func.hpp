@@ -12,7 +12,12 @@
 #include <vector>
 
 #define P_RR(...) fprintf(stderr, __VA_ARGS__);
-#define P(a) std::cerr << #a << " = " << a << std::endl;
+#define P1(a) std::cerr << #a << " = " << a << std::endl;
+#define P2(a,b) std::cerr << #a << " = " << a << "; " << #b << " = " << b << std::endl;
+#define P3(a,b,c) std::cerr << #a << " = " << a << "; " << #b << " = " << b << "; " << #c << " = " << c << std::endl;
+#define P4(a,b,c,d) std::cerr << #a << " = " << a << "; " << #b << " = " << b << "; " << #c << " = " << c << "; " << #d << " = " << d << std::endl;
+#define GET_MACRO(_1,_2,_3,_4,NAME,...) NAME
+#define P(...) GET_MACRO(__VA_ARGS__, P4, P3, P2, P1)(__VA_ARGS__)
 
 #define LL    long long
 #define ULL   unsigned long long
@@ -77,6 +82,7 @@ void _P_VECH (const std::vector<T> vec)
 #define P_VECH(a) fprintf(stderr, #a " = ");_P_VECH(a)
 
 #define FOR(i,a) for(decltype(a)  i{};  i != a; ++i)
+#define BE(vec) vec.begin(), vec.end()
 
 inline VECS splitStr(S str, char delim)
 {
