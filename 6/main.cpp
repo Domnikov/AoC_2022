@@ -33,7 +33,7 @@ int main(int argc, char** argv)
             {
                 map[s[i]] = i;
                 P(s[i]);
-                P(i);
+                P(i+1);
             }
         }
 
