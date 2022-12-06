@@ -41,6 +41,7 @@ int main(int argc, char** argv)
 
     }
 
+    marker = 0;
     for(int i = marker+14; i < s.length(); i++)
     {
         std::set<char> set;
