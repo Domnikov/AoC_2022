@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 #include <stack>
 
 #ifdef TEST
@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 
             if(a != b && b != c && c != d && a != c && a != d && b != d)
                 {
-                    P(i);
+                    P(i+1);
                     break;
                 }
         }
