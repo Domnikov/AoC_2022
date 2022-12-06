@@ -19,22 +19,22 @@ int main(int argc, char** argv)
     ULL score = 0;
 
 
-    std::map<char,ULL> map;
     S s = in[0];
 
     FOR(i,s.size())
     {
-        if(map.size() < 3)
+        if(i>4)
         {
-            map[s[i]] = 0;
-        }
-        else{
-            if(map.count(s[i]) && map[s[i]] == 0)
-            {
-                map[s[i]] = i;
-                P(s[i]);
-                P(i+1);
-            }
+            char a = s[i-3];
+            char b = s[i-2];
+            char c = s[i-1];
+            char d = s[i-0];
+
+            if(a != b && b != c && c != d && a != c && a != d && b != d)
+                {
+                    P(i);
+                    break;
+                }
         }
 
     }
