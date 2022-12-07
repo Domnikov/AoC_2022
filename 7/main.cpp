@@ -79,7 +79,7 @@ int main(int argc, char** argv)
         S dir = p.first;
         ULL size = p.second;
         P(dir,size);
-        if(size > 100000)score += size;
+        if(size <= 100000)score += size;
     }
 
     P(score);
