@@ -42,14 +42,14 @@ int main(int argc, char** argv)
         else if(s.find("$ cd /") == 0)
         {
     P(__LINE__);
-            S dir = s.substr(3);
+            S dir = s.substr(5);
             pwd.clear();
             pwd.push_back(dir);
         }
         else if(s.find("$ cd ") == 0)
         {
     P(__LINE__);
-            S dir = s.substr(3);
+            S dir = s.substr(5);
             pwd.push_back("/" + dir);
         }
         else if (s == "$ ls")
