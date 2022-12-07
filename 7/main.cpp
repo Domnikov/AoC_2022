@@ -54,7 +54,9 @@ int main(int argc, char** argv)
             {
                 size += stoi(splitStr(in[i],' ')[0]);
             }
-            fs[get_path(pwd)] = size;
+            S path = get_path(pwd);
+            P(path,size);
+            fs[path] = size;
             --i;
         }
     }
