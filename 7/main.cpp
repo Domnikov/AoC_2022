@@ -106,6 +106,10 @@ int main(int argc, char** argv)
             min = size;
         }
     }
+    VECI vec;
+    std::transform(BE(sizes),std::back_inserter(vec),[](auto p){return p.second;});
+
+    std::sort(BE(vec));
 
     P(score);
 }
