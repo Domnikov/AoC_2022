@@ -111,6 +111,9 @@ int main(int argc, char** argv)
 
     std::sort(BE(vec));
 
+    P_VECV(vec);
+    P(need);
+
     P(score);
 }
 
