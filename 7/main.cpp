@@ -60,7 +60,10 @@ int main(int argc, char** argv)
             {
     P(__LINE__);
     P(in[i]);
-                size += stoi(splitStr(in[i],' ')[0]);
+                if(in[i].find("dir ") != 0)
+                {
+                    size += stoi(splitStr(in[i],' ')[0]);
+                }
             }
             S path = get_path(pwd);
             P(path,size);
