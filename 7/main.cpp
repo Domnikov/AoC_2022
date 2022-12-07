@@ -27,6 +27,7 @@ int check(char c)
 int main(int argc, char** argv)
 {
     auto in = getInput();
+    ULL score = 0;
 
     std::map<S, ULL> fs;
     VECS pwd;
@@ -78,9 +79,9 @@ int main(int argc, char** argv)
         S dir = p.first;
         ULL size = p.second;
         P(dir,size);
+        score += size;
     }
 
-    ULL score = 0;
     P(score);
 }
 
