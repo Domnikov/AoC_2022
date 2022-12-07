@@ -58,6 +58,8 @@ int main(int argc, char** argv)
             ULL size{};
             while(++i < in.size() && in[i][0] != '$')
             {
+    P(__LINE__);
+    P(in[i]);
                 size += stoi(splitStr(in[i],' ')[0]);
             }
             S path = get_path(pwd);
