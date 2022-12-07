@@ -13,6 +13,7 @@ S get_path(VECS pwd)
     for(auto d:pwd)
     {
         res += d;
+        if(res[res.length()-1] != '/')res += '/';
     }
     return res;
 }
