@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 #include <stack>
 
 #ifdef TEST
@@ -92,12 +92,17 @@ int main(int argc, char** argv)
         ULL size = getDirSize(fs, dir);
         sizes[dir] = size;
     }
+    ULL need = 70000000 - sizes["/"];
+    int min = 70000000;
     for(auto p : sizes)
     {
         S dir = p.first;
         ULL size = p.second;
         P(dir,size);
-        if(size <= 100000)score += size;
+        if( need <= size && min > need)
+        {
+            P(dir, size);
+        }
     }
 
     P(score);
