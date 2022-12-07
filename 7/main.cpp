@@ -92,7 +92,7 @@ int main(int argc, char** argv)
         ULL size = getDirSize(fs, dir);
         sizes[dir] = size;
     }
-    for(auto p : fs)
+    for(auto p : sizes)
     {
         S dir = p.first;
         ULL size = p.second;
