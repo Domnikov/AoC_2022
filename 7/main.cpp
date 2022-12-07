@@ -102,6 +102,8 @@ int main(int argc, char** argv)
         if( need <= size && min > need)
         {
             P(dir, size);
+            score = size;
+            min = size;
         }
     }
 
