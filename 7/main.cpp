@@ -19,6 +19,17 @@ S get_path(VECS pwd)
     return res;
 }
 
+ULL getDirSize(std::map<S,ULL>fs, S dir)
+{
+    return std::accumulate(BE(fs),0,[&dir](auto sum, auto d){
+                if(d.first.find(dir) == 0)
+                {
+                    sum += d.second;
+                }
+                return sum;
+            });
+}
+
 int check(char c)
 {
     return -1;
@@ -73,6 +84,13 @@ int main(int argc, char** argv)
             fs[path] = size;
             --i;
         }
+    }
+    std::map<S,ULL> sizes;
+    for(auto p:fs)
+    {
+        S dir = p.first;
+        ULL size = getDirSize(fs, dir);
+        sizes[dir] = size;
     }
     for(auto p : fs)
     {
