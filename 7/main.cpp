@@ -29,6 +29,7 @@ int main(int argc, char** argv)
     std::map<S, ULL> fs;
     VECS pwd;
 
+    P(__LINE__);
     FOR(i,in.size())
     {
         S s = in[i];
