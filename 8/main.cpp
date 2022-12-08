@@ -86,6 +86,7 @@ int main(int argc, char** argv)
             }
             else
             {
+                P(left(r,c),right(r,c),top(r,c),bottom(r,c));
                 P(r,c,in[r][c],cur,score, "REJECTED");
             }
         }
