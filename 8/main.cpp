@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 #include <stack>
 
 #ifdef TEST
@@ -7,84 +7,77 @@
     #include "in.hpp"
 #endif
 
+auto in = getInput();
 
 int check(char c)
 {
     return -1;
 }
 
+ULL left(ULL R, ULL C)
+{
+    int height = in[R][C];
+    ULL res = 0;
+    for(ULL c = C-1; c >= 0; --c)
+    {
+        if(in[R][c] < height) res++;
+    }
+    return res;
+}
+
+
+ULL right(ULL R, ULL C)
+{
+    if(C == in[R].size()-1)
+        return 0;
+    int height = in[R][C];
+    ULL res = 0;
+    for(ULL c = C+1; c < in[R].size(); c++)
+    {
+        if(in[R][c] < height) res++;
+    }
+    return res;
+}
+
+
+ULL top(ULL R, ULL C)
+{
+    int height = in[R][C];
+    ULL res = 0;
+    for(ULL r = R-1; r >= 0; --r)
+    {
+        if(in[r][C] < height) res++;
+    }
+    return res;
+}
+
+
+ULL bottom(ULL R, ULL C)
+{
+    if(R == in.size()-1)
+        return 0;
+    int height = in[R][C];
+    ULL res = 0;
+    for(ULL r = R+1; r < in.size(); r++)
+    {
+        if(in[r][C] < height) res++;
+    }
+    return res;
+}
+
 
 int main(int argc, char** argv)
 {
-    auto in = getInput();
     ULL score = 0;
-
-    std::set<std::pair<ULL,ULL>> vis;
 
     FOR(r,in.size())
     {
-        char max = 0;
         FOR(c,in[r].size())
         {
-            if(in[r][c] > max)
-            {
-                // if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(">",r,c,in[r][c],max);
-                max = in[r][c];
-                vis.emplace(std::pair<ULL,ULL>{r,c});
-            }
-            // else break;
-        }
-        max = 0;
-        for(int c = in[r].size()-1; c >= 0; --c)
-        {
-            if(in[r][c] > max)
-            {
-                // if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P("<",r,c,in[r][c],max);
-                max = in[r][c];
-                vis.emplace(std::pair<ULL,ULL>{r,c});
-            }
-            // else break;
+            score = std::max(score, left(r,c)*right(r,c)*top(r,c)*bottom(r,c));
         }
     }
-    P(" ");
 
-    FOR(c,in[0].size())
-    {
-        char max = 0;
-        FOR(r,in.size())
-        {
-            if(in[r][c] > max)
-            {
-                // if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(r,c,in[r][c],max);
-                max = in[r][c];
-                vis.emplace(std::pair<ULL,ULL>{r,c});
-            }
-            // else break;
-        }
-        max = 0;
-        for(int r = in.size()-1; r >= 0; --r)
-        {
-            if(in[r][c] > max)
-            {
-                // if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(r,c,in[r][c],max);
-                max = in[r][c];
-                vis.emplace(std::pair<ULL,ULL>{r,c});
-            }
-            // else break;
-        }
-    }
-    P(" ");
-
-    for(auto v : vis)
-    {
-        ULL r = v.first;
-        ULL c = v.second;
-        if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1)
-            P(r,c,in[r][c]);
-    }
-
-
-    P(vis.size());
     P(score);
 }
 
