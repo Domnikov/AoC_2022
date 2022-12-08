@@ -12,12 +12,72 @@
 #include <vector>
 
 #define P_RR(...) fprintf(stderr, __VA_ARGS__);
-#define P1(a) std::cerr << #a << " = " << a << std::endl;
-#define P2(a,b) std::cerr << #a << " = " << a << "; " << #b << " = " << b << std::endl;
-#define P3(a,b,c) std::cerr << #a << " = " << a << "; " << #b << " = " << b << "; " << #c << " = " << c << std::endl;
-#define P4(a,b,c,d) std::cerr << #a << " = " << a << "; " << #b << " = " << b << "; " << #c << " = " << c << "; " << #d << " = " << d << std::endl;
-#define GET_MACRO(_1,_2,_3,_4,NAME,...) NAME
-#define P(...) GET_MACRO(__VA_ARGS__, P4, P3, P2, P1)(__VA_ARGS__)
+
+
+#define COLOR_LINE "\033[1;33m"
+#define COLOR_VAR "\033[1;36m"
+#define COLOR_EQ "\033[1;37m"
+#define COLOR_VAL "\033[1;36m"
+#define COLOR_SEP "\033[1;35m"
+#define COLOR_RESET "\033[0m"
+
+// template<typename T> void dout(std::string name, T arg){
+//     std::cerr << COLOR_VAR << name << COLOR_EQ << " = " << COLOR_VAL << arg << COLOR_RESET << std::endl;
+// }
+//
+// template<typename T1, typename... T2> void dout(std::string names, T1 arg, T2... args){
+//     std::cerr << COLOR_VAR << names.substr(0, names.find(',')) << COLOR_EQ << " = " << COLOR_VAL << arg << COLOR_SEP << " ; ";
+//     dout(names.substr(names.find(',') + 1), args...);
+// }
+//
+// #define P(...) std::cerr << COLOR_LINE << "[Line " << __LINE__ << "] ", dout(#__VA_ARGS__, __VA_ARGS__)
+
+#define P1(a)       std::cerr << #a << " = " << a << std::endl;
+
+#define P2(a,b)     std::cerr << #a << " = " << a << ";\t" \
+    << #b << " = " << b << std::endl;
+
+#define P3(a,b,c)           std::cerr << #a << " = " << a << ";\t" \
+    << #b << " = " << b << ";\t" \
+    << #c << " = " << c << std::endl;
+
+#define P4(a,b,c,d)         std::cerr << #a << " = " << a << ";\t" \
+    << #b << " = " << b << ";\t" \
+    << #c << " = " << c << ";\t" \
+    << #d << " = " << d << std::endl;
+
+#define P5(a,b,c,d,e)       std::cerr << #a << " = " << a << ";\t" \
+    << #b << " = " << b << ";\t" \
+    << #c << " = " << c << ";\t" \
+    << #d << " = " << d << ";\t" \
+    << #e << " = " << e << std::endl;
+
+#define P6(a,b,c,d,e,f)     std::cerr << #a << " = " << a << ";\t" \
+    << #b << " = " << b << ";\t" \
+    << #c << " = " << c << ";\t" \
+    << #d << " = " << d << ";\t" \
+    << #e << " = " << e << ";\t" \
+    << #f << " = " << f << std::endl;
+
+#define P7(a,b,c,d,e,f,g)   std::cerr << #a << " = " << a << ";\t" \
+    << #b << " = " << b << ";\t" \
+    << #c << " = " << c << ";\t" \
+    << #d << " = " << d << ";\t" \
+    << #e << " = " << e << ";\t" \
+    << #f << " = " << f << ";\t" \
+    << #g << " = " << g << std::endl;
+
+#define P8(a,b,c,d,e,f,g,h) std::cerr << #a << " = " << a << ";\t" \
+    << #b << " = " << b << ";\t" \
+    << #c << " = " << c << ";\t" \
+    << #d << " = " << d << ";\t" \
+    << #e << " = " << e << ";\t" \
+    << #f << " = " << f << ";\t" \
+    << #g << " = " << g << ";\t" \
+    << #h << " = " << h << std::endl;
+
+#define GET_MACRO(_1,_2,_3,_4,_5,_6,_7,_8,NAME,...) NAME
+#define P(...) GET_MACRO(__VA_ARGS__, P8, P7, P6, P5, P4, P3, P2, P1)(__VA_ARGS__)
 
 #define LL    long long
 #define ULL   unsigned long long
@@ -27,7 +87,7 @@
 #define VECS  std::vector<S>
 #define VECSS std::vector<std::vector<S>>
 
-template<typename T>
+template<typename CONT, typename T>
 void _P_VEC (const std::vector<T> vec)
 {
     std::cerr << " = [";
@@ -80,11 +140,14 @@ void _P_VECH (const std::vector<T> vec)
     std::cerr << "]\n";
 }
 #define P_VECH(a) fprintf(stderr, #a " = ");_P_VECH(a)
+#define P_LINE std::cout<<__PRETTY_FUNCTION__<<":"<<__LINE__<<std::endl;
 
 #define FOR(i,a) for(decltype(a)  i{};  i != a; ++i)
 #define BE(vec) vec.begin(), vec.end()
+#define TRANSFORM(src,dst,func) std::transform(src.begin(), src.end(), std::back_inserter(dst), func);
+#define VECSTOA(src,dst) TRANSFORM(src,dst,[](auto s){return stoi(s);});
 
-inline VECS splitStr(S str, char delim)
+inline VECS splitStr(S str, char delim = ',')
 {
     VECS res;
     std::stringstream ss(str);
