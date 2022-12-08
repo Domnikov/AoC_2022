@@ -24,7 +24,7 @@ int main(int argc, char** argv)
     FOR(r,in.size())
     {
         ULL max = 0;
-        FOR(c,in.size())
+        FOR(c,in[r].size())
         {
             if(in[r][c] > max)
             {
@@ -34,7 +34,31 @@ int main(int argc, char** argv)
             else break;
         }
         max = 0;
-        for(int c = in.size()-1; c >= 0; --c)
+        for(int c = in[r].size()-1; c >= 0; --c)
+        {
+            if(in[r][c] > max)
+            {
+                max = in[r][c];
+                vis.emplace(std::pair<ULL,ULL>{r,c});
+            }
+            else break;
+        }
+    }
+
+    FOR(c,in[0].size())
+    {
+        ULL max = 0;
+        FOR(r,in.size())
+        {
+            if(in[r][c] > max)
+            {
+                max = in[r][c];
+                vis.emplace(std::pair<ULL,ULL>{r,c});
+            }
+            else break;
+        }
+        max = 0;
+        for(int r = in.size()-1; r >= 0; --r)
         {
             if(in[r][c] > max)
             {
