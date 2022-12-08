@@ -22,6 +22,7 @@ ULL left(ULL R, ULL C)
     ULL res = 0;
     for(ULL c = C-1; c >= 0; --c)
     {
+        P(R,c);
         if(in[R][c] < height) res++;
     }
     return res;
