@@ -32,7 +32,7 @@ int main(int argc, char** argv)
                 max = in[r][c];
                 vis.emplace(std::pair<ULL,ULL>{r,c});
             }
-            else break;
+            // else break;
         }
         max = 0;
         for(int c = in[r].size()-1; c >= 0; --c)
@@ -43,7 +43,7 @@ int main(int argc, char** argv)
                 max = in[r][c];
                 vis.emplace(std::pair<ULL,ULL>{r,c});
             }
-            else break;
+            // else break;
         }
     }
     P(" ");
