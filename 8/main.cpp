@@ -18,10 +18,10 @@ ULL left(ULL R, ULL C)
 {
     int height = in[R][C];
     ULL res = 0;
-    // for(ULL c = C-1; c >= 0; --c)
-    // {
-    //     if(in[R][c] < height) res++;
-    // }
+    for(ULL c = C-1; c >= 0; --c)
+    {
+        if(in[R][c] < height) res++;
+    }
     return res;
 }
 
