@@ -69,9 +69,12 @@ int main(int argc, char** argv)
         }
     }
 
-    for(auto c : vis)
+    for(auto v : vis)
     {
-        P(c.first,c.second);
+        ULL r = v.first;
+        ULL c = v.second;
+        if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1)
+            P(r,c);
     }
 
 
