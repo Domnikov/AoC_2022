@@ -34,7 +34,6 @@ int main(int argc, char** argv)
             }
             else break;
         }
-        P(" ");
         max = 0;
         for(int c = in[r].size()-1; c >= 0; --c)
         {
@@ -62,7 +61,6 @@ int main(int argc, char** argv)
             }
             else break;
         }
-        P(" ");
         max = 0;
         for(int r = in.size()-1; r >= 0; --r)
         {
