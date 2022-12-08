@@ -20,7 +20,7 @@ ULL left(ULL R, ULL C)
         return 0;
     int height = in[R][C];
     ULL res = 0;
-    for(ULL c = C-1; c >= 0; --c)
+    for(LL c = C-1; c >= 0; --c)
     {
         P(R,c);
         if(in[R][c] < height) res++;
