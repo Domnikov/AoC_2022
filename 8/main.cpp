@@ -28,7 +28,7 @@ int main(int argc, char** argv)
         {
             if(in[r][c] > max)
             {
-                if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(max,r,c,in[r][c]);
+                if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(r,c,in[r][c],max);
                 max = in[r][c];
                 vis.emplace(std::pair<ULL,ULL>{r,c});
             }
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
         {
             if(in[r][c] > max)
             {
-                if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(max,r,c,in[r][c]);
+                if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(r,c,in[r][c],max);
                 max = in[r][c];
                 vis.emplace(std::pair<ULL,ULL>{r,c});
             }
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
         {
             if(in[r][c] > max)
             {
-                if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(max,r,c,in[r][c]);
+                if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(r,c,in[r][c],max);
                 max = in[r][c];
                 vis.emplace(std::pair<ULL,ULL>{r,c});
             }
@@ -66,7 +66,7 @@ int main(int argc, char** argv)
         {
             if(in[r][c] > max)
             {
-                if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(max,r,c,in[r][c]);
+                if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1) P(r,c,in[r][c],max);
                 max = in[r][c];
                 vis.emplace(std::pair<ULL,ULL>{r,c});
             }
