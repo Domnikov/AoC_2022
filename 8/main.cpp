@@ -18,10 +18,10 @@ ULL left(ULL R, ULL C)
 {
     int height = in[R][C];
     ULL res = 0;
-    for(ULL c = C-1; c >= 0; --c)
-    {
-        if(in[R][c] < height) res++;
-    }
+    // for(ULL c = C-1; c >= 0; --c)
+    // {
+    //     if(in[R][c] < height) res++;
+    // }
     return res;
 }
 
@@ -32,10 +32,10 @@ ULL right(ULL R, ULL C)
         return 0;
     int height = in[R][C];
     ULL res = 0;
-    for(ULL c = C+1; c < in[R].size(); c++)
-    {
-        if(in[R][c] < height) res++;
-    }
+    // for(ULL c = C+1; c < in[R].size(); c++)
+    // {
+    //     if(in[R][c] < height) res++;
+    // }
     return res;
 }
 
@@ -44,10 +44,10 @@ ULL top(ULL R, ULL C)
 {
     int height = in[R][C];
     ULL res = 0;
-    for(ULL r = R-1; r >= 0; --r)
-    {
-        if(in[r][C] < height) res++;
-    }
+    // for(ULL r = R-1; r >= 0; --r)
+    // {
+    //     if(in[r][C] < height) res++;
+    // }
     return res;
 }
 
@@ -58,10 +58,10 @@ ULL bottom(ULL R, ULL C)
         return 0;
     int height = in[R][C];
     ULL res = 0;
-    for(ULL r = R+1; r < in.size(); r++)
-    {
-        if(in[r][C] < height) res++;
-    }
+    // for(ULL r = R+1; r < in.size(); r++)
+    // {
+    //     if(in[r][C] < height) res++;
+    // }
     return res;
 }
 
