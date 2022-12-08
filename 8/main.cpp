@@ -22,7 +22,6 @@ ULL left(ULL R, ULL C)
     ULL res = 0;
     for(LL c = C-1; c >= 0; --c)
     {
-        P(R,c);
         if(in[R][c] < height) res++;
     }
     return res;
@@ -79,7 +78,12 @@ int main(int argc, char** argv)
     {
         FOR(c,in[r].size())
         {
-            score = std::max(score, left(r,c)*right(r,c)*top(r,c)*bottom(r,c));
+            ULL cur = left(r,c)*right(r,c)*top(r,c)*bottom(r,c);
+            if(cur > score)
+            {
+                P(r,c,in[r][c],cur,score);
+                score = cur;
+            }
         }
     }
 
