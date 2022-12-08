@@ -23,6 +23,7 @@ ULL left(ULL R, ULL C)
     for(LL c = C-1; c >= 0; --c)
     {
         if(in[R][c] < height) res++;
+        else {res++;break;}
     }
     return res;
 }
@@ -37,6 +38,7 @@ ULL right(ULL R, ULL C)
     for(ULL c = C+1; c < in[R].size(); c++)
     {
         if(in[R][c] < height) res++;
+        else {res++;break;}
     }
     return res;
 }
@@ -51,6 +53,7 @@ ULL top(ULL R, ULL C)
     for(LL r = R-1; r >= 0; --r)
     {
         if(in[r][C] < height) res++;
+        else {res++;break;}
     }
     return res;
 }
@@ -65,6 +68,7 @@ ULL bottom(ULL R, ULL C)
     for(ULL r = R+1; r < in.size(); r++)
     {
         if(in[r][C] < height) res++;
+        else {res++;break;}
     }
     return res;
 }
