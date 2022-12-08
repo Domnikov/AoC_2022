@@ -74,7 +74,7 @@ int main(int argc, char** argv)
         ULL r = v.first;
         ULL c = v.second;
         if(r != 0 && c != 0 && r < in.size()-1 && c < in[0].size()-1)
-            P(r,c);
+            P(r,c,in[r][c]);
     }
 
 
