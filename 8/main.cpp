@@ -35,10 +35,10 @@ ULL right(ULL R, ULL C)
         return 0;
     int height = in[R][C];
     ULL res = 0;
-    // for(ULL c = C+1; c < in[R].size(); c++)
-    // {
-    //     if(in[R][c] < height) res++;
-    // }
+    for(ULL c = C+1; c < in[R].size(); c++)
+    {
+        if(in[R][c] < height) res++;
+    }
     return res;
 }
 
