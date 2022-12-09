@@ -15,8 +15,8 @@ auto in = getInput();
         {
             case 'U': p.first+=1;break;
             case 'D': p.first-=1;break;
-            case 'L': p.second+=1;break;
-            case 'R': p.second-=1;break;
+            case 'R': p.second+=1;break;
+            case 'L': p.second-=1;break;
         };
     }
 
