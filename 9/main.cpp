@@ -26,9 +26,14 @@ int main(int argc, char** argv)
     const static int N = 10;
     std::pair<int, int> t[N];
 
-    for(int i = 0; i <N; ++i){t[i] = std::pair<int,int>{0,0};}
 
     std::map<std::pair<int, int>, int> v[9];
+
+    for(int i = 0; i <N; ++i)
+    {
+        t[i] = std::pair<int,int>{0,0};
+        v[i][t[i]] = 0;
+    }
 
     for(auto p:in)
     {
