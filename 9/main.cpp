@@ -9,7 +9,7 @@
 
 auto in = getInput();
 
-    void move(std::pair<int, int> p, char c)
+    void move(std::pair<int, int>& p, char c)
     {
         switch(c)
         {
@@ -53,7 +53,7 @@ int main(int argc, char** argv)
                 }
 
             }
-            v[t]++;
+            v[h]++;
         }
 
     }
