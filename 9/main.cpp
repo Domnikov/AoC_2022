@@ -51,8 +51,8 @@ int main(int argc, char** argv)
                     t.second += (h.second > t.second) ? 1 : -1;
                     t.first += (h.first > t.first) ? 1 : -1;
                 }
-                P(h.first, h.second);
             }
+            P(h.first, h.second);
             v[h]++;
         }
 
