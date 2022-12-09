@@ -55,7 +55,7 @@ int main(int argc, char** argv)
                 P_RR("T[%d,%d] \t",t.first,t.second);
             }
             P_RR("\n");
-            v[h]++;
+            v[t]++;
         }
 
     }
