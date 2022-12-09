@@ -32,7 +32,7 @@ int main(int argc, char** argv)
     for(int i = 0; i <N; ++i)
     {
         t[i] = std::pair<int,int>{0,0};
-        v[i][t[i]] = 0;
+        v[i] = std::map<std::pair<int, int>, int>{};
     }
 
     for(auto p:in)
