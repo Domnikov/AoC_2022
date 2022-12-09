@@ -6,10 +6,13 @@
 #include <iostream>
 #include <iterator>
 #include <map>
+#include <memory>
 #include <numeric>
 #include <set>
 #include <sstream>
+#include <stack>
 #include <vector>
+#include <variant>
 
 #define P_RR(...) fprintf(stderr, __VA_ARGS__);
 
@@ -20,6 +23,31 @@
 #define COLOR_VAL "\033[1;36m"
 #define COLOR_SEP "\033[1;35m"
 #define COLOR_RESET "\033[0m"
+
+inline std::ostream& operator<<( std::ostream& dest, __int128_t value )
+{
+    std::ostream::sentry s( dest );
+    if ( s ) {
+        __uint128_t tmp = value < 0 ? -value : value;
+        char buffer[ 128 ];
+        char* d = std::end( buffer );
+        do
+        {
+            -- d;
+            *d = "0123456789"[ tmp % 10 ];
+            tmp /= 10;
+        } while ( tmp != 0 );
+        if ( value < 0 ) {
+            -- d;
+            *d = '-';
+        }
+        int len = std::end( buffer ) - d;
+        if ( dest.rdbuf()->sputn( d, len ) != len ) {
+            dest.setstate( std::ios_base::badbit );
+        }
+    }
+    return dest;
+}
 
 // template<typename T> void dout(std::string name, T arg){
 //     std::cerr << COLOR_VAR << name << COLOR_EQ << " = " << COLOR_VAL << arg << COLOR_RESET << std::endl;
