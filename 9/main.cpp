@@ -36,6 +36,7 @@ int main(int argc, char** argv)
         FOR(i,val)
         {
             move(h, cmd);
+            P_RR("H[%d,%d] \t",h.first,h.second);
             if( abs(h.first-t.first) > 1 || abs(h.second-t.second) > 1 )
             {
                 if(h.first == t.first)
@@ -51,8 +52,9 @@ int main(int argc, char** argv)
                     t.second += (h.second > t.second) ? 1 : -1;
                     t.first += (h.first > t.first) ? 1 : -1;
                 }
+                P_RR("T[%d,%d] \t",t.first,t.second);
             }
-            P(h.first, h.second);
+            P_RR("\n");
             v[h]++;
         }
 
