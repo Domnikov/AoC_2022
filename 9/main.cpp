@@ -9,33 +9,25 @@
 
 auto in = getInput();
 
-struct point
-{
-    int x;
-    int y;
-
-    point& operator+(point s){x+=s.x;y+=s.y;return *this;}
-
-    void move(char c)
+    void move(std::pair<int, int> p, char c)
     {
         switch(c)
         {
-            case 'U': y+=1;break;
-            case 'D': y-=1;break;
-            case 'L': x+=1;break;
-            case 'R': x-=1;break;
+            case 'U': p.first+=1;break;
+            case 'D': p.first-=1;break;
+            case 'L': p.second+=1;break;
+            case 'R': p.second-=1;break;
         };
     }
-};
 
 int main(int argc, char** argv)
 {
     int score = 0;
 
-    point h{0,0};
-    point t{0,0};
+    std::pair<int, int> h{0,0};
+    std::pair<int, int> t{0,0};
 
-    std::map<point, int> v;
+    std::map<std::pair<int, int>, int> v;
 
     for(auto p:in)
     {
@@ -43,21 +35,21 @@ int main(int argc, char** argv)
         int val = stoi(p.substr(2));
         FOR(i,val)
         {
-            h.move(cmd);
-            if( abs(h.x-t.x) > 1 || abs(h.y-t.y) > 1 )
+            move(h, cmd);
+            if( abs(h.first-t.first) > 1 || abs(h.second-t.second) > 1 )
             {
-                if(h.x == t.x)
+                if(h.first == t.first)
                 {
-                    t.y += (h.y > t.y) ? 1 : -1;
+                    t.second += (h.second > t.second) ? 1 : -1;
                 }
-                else if(h.y == t.y)
+                else if(h.second == t.second)
                 {
-                    t.x += (h.x > t.x) ? 1 : -1;
+                    t.first += (h.first > t.first) ? 1 : -1;
                 }
                 else
                 {
-                    t.y += (h.y > t.y) ? 1 : -1;
-                    t.x += (h.x > t.x) ? 1 : -1;
+                    t.second += (h.second > t.second) ? 1 : -1;
+                    t.first += (h.first > t.first) ? 1 : -1;
                 }
 
                 v[t]++;
