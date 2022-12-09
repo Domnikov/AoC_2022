@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 #include <stack>
 
 #ifdef TEST
@@ -23,11 +23,12 @@ auto in = getInput();
 int main(int argc, char** argv)
 {
     int score = 0;
+    const static int N = 10;
+    std::pair<int, int> t[N];
 
-    std::pair<int, int> h{0,0};
-    std::pair<int, int> t{0,0};
+    for(int i = 0; i <N; ++i){t[i] = std::pair<int,int>{0,0};}
 
-    std::map<std::pair<int, int>, int> v;
+    std::map<std::pair<int, int>, int> v[9];
 
     for(auto p:in)
     {
@@ -35,27 +36,31 @@ int main(int argc, char** argv)
         int val = stoi(p.substr(2));
         FOR(i,val)
         {
-            move(h, cmd);
-            P_RR("H[%d,%d] \t",h.first,h.second);
-            if( abs(h.first-t.first) > 1 || abs(h.second-t.second) > 1 )
+            move(t[0], cmd);
+            P_RR("H[%d,%d] \t",t[0].first,t[0].second);
+            for(int i = 1; i <N; ++i)
             {
-                if(h.first == t.first)
+                if( abs(t[i-1].first-t[i].first) > 1 || abs(t[i-1].second-t[i].second) > 1 )
                 {
-                    t.second += (h.second > t.second) ? 1 : -1;
+                    if(t[i-1].first == t[i].first)
+                    {
+                        t[i].second += (t[i-1].second > t[i].second) ? 1 : -1;
+                    }
+                    else if(t[i-1].second == t[i].second)
+                    {
+                        t[i].first += (t[i-1].first > t[i].first) ? 1 : -1;
+                    }
+                    else
+                    {
+                        t[i].second += (t[i-1].second > t[i].second) ? 1 : -1;
+                        t[i].first += (t[i-1].first > t[i].first) ? 1 : -1;
+                    }
+                    P_RR("T[%d,%d] \t",t[i].first,t[i].second);
                 }
-                else if(h.second == t.second)
-                {
-                    t.first += (h.first > t.first) ? 1 : -1;
-                }
-                else
-                {
-                    t.second += (h.second > t.second) ? 1 : -1;
-                    t.first += (h.first > t.first) ? 1 : -1;
-                }
-                P_RR("T[%d,%d] \t",t.first,t.second);
+                v[i][t[i]]++;
             }
             P_RR("\n");
-            v[t]++;
+            v[0][t[0]]++;
         }
 
     }
@@ -66,7 +71,7 @@ int main(int argc, char** argv)
     }
 
 
-    score = v.size();
+    score = v[N-1].size();
     P(score);
 }
 
