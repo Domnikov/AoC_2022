@@ -51,7 +51,7 @@ int main(int argc, char** argv)
                     t.second += (h.second > t.second) ? 1 : -1;
                     t.first += (h.first > t.first) ? 1 : -1;
                 }
-
+                P(t.first, t.second);
             }
             v[h]++;
         }
@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 
     for(auto p : v)
     {
-        P(p.first.first, p.first.second, p.second);
+        // P(p.first.first, p.first.second, p.second);
     }
 
 
