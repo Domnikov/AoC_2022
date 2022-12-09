@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 
     for(auto p : v)
     {
-        P(p.first.first, p.first.second);
+        P(p.first.first, p.first.second, p.second);
     }
 
 
