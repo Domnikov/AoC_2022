@@ -52,8 +52,8 @@ int main(int argc, char** argv)
                     t.first += (h.first > t.first) ? 1 : -1;
                 }
 
-                v[t]++;
             }
+            v[t]++;
         }
 
     }
