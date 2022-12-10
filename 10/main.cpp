@@ -58,9 +58,8 @@ int main(int argc, char** argv)
     {
         auto vec = splitStr(s,' ');
 
-        P(s);
         int addScore{}, addCycle{};
-        score += check(vec[0], vec[1].empty() ? 0 : stoi(vec[1]));
+        score += check(vec[0], (vec.size() == 1) ? 0 : stoi(vec[1]));
     }
 
     P(score);
