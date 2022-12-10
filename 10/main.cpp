@@ -24,8 +24,8 @@ S check(S cmd, int val)
         auto pos = cycle++ % 40;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
         pos = cycle++ % 40;
-        sum += val;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
+        sum += val;
     }
     P(sum, newScore);
     return newScore;
