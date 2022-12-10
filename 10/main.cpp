@@ -15,18 +15,18 @@ S check(S cmd, int val)
     static int sum = 0;
     S newScore;
     S line;
-    FOR(i,40){line += (i >= sum && i <= sum+3) ? "#" : ".";}
+    FOR(i,40){line += (i >= sum && i < sum+3) ? "#" : ".";}
     if(cmd == "noop")
     {
         auto pos = cycle++ % 40;
-        newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
+        newScore += (pos >= sum && pos < sum+3) ? "#" : ".";
     }
     else if(cmd == "addx")
     {
         auto pos = cycle++ % 40;
-        newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
+        newScore += (pos >= sum && pos < sum+3) ? "#" : ".";
         pos = cycle++ % 40;
-        newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
+        newScore += (pos >= sum && pos < sum+3) ? "#" : ".";
         sum += val;
     }
     P(line, sum, newScore);
