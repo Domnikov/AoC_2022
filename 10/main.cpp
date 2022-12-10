@@ -23,8 +23,8 @@ S check(S cmd, int val)
     {
         auto pos = ++cycle % 40;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
-        sum += val;
         pos = ++cycle % 40;
+        sum += val;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
     }
     P(sum, newScore);
@@ -34,7 +34,7 @@ S check(S cmd, int val)
 int main(int argc, char** argv)
 {
     int score = 0;
-    S disp = "#";
+    S disp;
 
     for(auto s:in)
     {
