@@ -27,7 +27,7 @@ S check(S cmd, int val)
         pos = ++cycle % 40;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
     }
-    P(sum);
+    P(sum, newScore);
     return newScore;
 }
 
