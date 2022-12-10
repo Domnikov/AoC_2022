@@ -41,6 +41,7 @@ int check(S cmd, int val)
             newScore = sum;
         }
         sum += val;
+        P(val,sum);
         if(isSpecial(++cycle))
         {
              newScore += sum;
