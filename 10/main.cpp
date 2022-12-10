@@ -24,7 +24,7 @@ bool isSpecial(LL cycle)
 
 int check(S cmd, int val)
 {
-    static int cycle = 0;
+    static int cycle = 1;
     static int sum = 1;
     int newScore = 0;
     if(cmd == "noop")
@@ -32,7 +32,7 @@ int check(S cmd, int val)
         if(isSpecial(++cycle))
         {
             newScore = sum;
-            P(s, cycle, newScore, newScore*cycle);
+            P(cmd, cycle, newScore, newScore*cycle);
             newScore *= cycle;
         }
     }
