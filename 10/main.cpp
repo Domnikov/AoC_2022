@@ -22,36 +22,25 @@ bool isSpecial(LL cycle)
     return false;
 }
 
-int check(S cmd, int val)
+S check(S cmd, int val)
 {
     static int cycle = 1;
     static int sum = 1;
-    int newScore = 0;
+    S newScore;
     if(cmd == "noop")
     {
-        if(isSpecial(++cycle))
+        auto pos = ++cycle % 40;
         {
-            newScore = sum;
-            P(cmd, cycle, newScore, newScore*cycle);
-            newScore *= cycle;
+            newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
         }
     }
     else if(cmd == "addx")
     {
-        if(isSpecial(++cycle))
-        {
-            newScore = sum;
-            P("add before", cycle, newScore, newScore*cycle);
-            newScore *= cycle;
-        }
+        auto pos = ++cycle % 40;
+        newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
         sum += val;
-        if(cycle > 180)P(sum, val);
-        if(isSpecial(++cycle))
-        {
-            newScore += sum;
-            P("add after", cycle, newScore, newScore*cycle);
-            newScore *= cycle;
-        }
+        pos = ++cycle % 40;
+        newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
     }
     return newScore;
 }
@@ -59,16 +48,23 @@ int check(S cmd, int val)
 int main(int argc, char** argv)
 {
     int score = 0;
-
+    S disp;
 
     for(auto s:in)
     {
         auto vec = splitStr(s,' ');
 
         int addScore{}, addCycle{};
-        score += check(vec[0], (vec.size() == 1) ? 0 : stoi(vec[1]));
+        disp += check(vec[0], (vec.size() == 1) ? 0 : stoi(vec[1]));
     }
 
     P(score);
+
+
+    FOR(i, disp.size())
+    {
+        if(i%40 == 0)std::cerr << "\n";
+        std::cerr<<disp[i];
+    }
 }
 
