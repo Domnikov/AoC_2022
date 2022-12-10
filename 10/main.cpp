@@ -11,19 +11,19 @@ auto in = getInput();
 
 S check(S cmd, int val)
 {
-    static int cycle = 0;
+    static int cycle = 1;
     static int sum = 1;
     S newScore;
     if(cmd == "noop")
     {
-        auto pos = ++cycle % 40;
+        auto pos = cycle++ % 40;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
     }
     else if(cmd == "addx")
     {
-        auto pos = ++cycle % 40;
+        auto pos = cycle++ % 40;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
-        pos = ++cycle % 40;
+        pos = cycle++ % 40;
         sum += val;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
     }
