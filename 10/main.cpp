@@ -48,7 +48,7 @@ S check(S cmd, int val)
 int main(int argc, char** argv)
 {
     int score = 0;
-    S disp;
+    S disp = "#";
 
     for(auto s:in)
     {
