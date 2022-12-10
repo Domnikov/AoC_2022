@@ -32,7 +32,8 @@ int check(S cmd, int val)
         if(isSpecial(++cycle))
         {
             newScore = sum;
-            P(cycle, newScore);
+            P(cycle, newScore, newScore*cycle);
+            newScore *= cycle;
         }
     }
     else if(cmd == "addx")
@@ -40,13 +41,15 @@ int check(S cmd, int val)
         if(isSpecial(++cycle))
         {
             newScore = sum;
-            P(cycle, newScore);
+            P(cycle, newScore, newScore*cycle);
+            newScore *= cycle;
         }
         sum += val;
         if(isSpecial(++cycle))
         {
-             newScore += sum;
-            P(cycle, newScore);
+            newScore += sum;
+            P(cycle, newScore, newScore*cycle);
+            newScore *= cycle;
         }
     }
     return newScore;
