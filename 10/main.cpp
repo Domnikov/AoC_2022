@@ -11,7 +11,7 @@ auto in = getInput();
 
 S check(S cmd, int val)
 {
-    static int cycle = 1;
+    static int cycle = 0;
     static int sum = 1;
     S newScore;
     if(cmd == "noop")
