@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 #include <stack>
 
 #ifdef TEST
@@ -9,19 +9,6 @@
 
 auto in = getInput();
 
-bool isSpecial(LL cycle)
-{
-    if(
-            cycle == 20 ||
-            cycle == 60 ||
-            cycle ==100 ||
-            cycle ==140 ||
-            cycle ==180 ||
-            cycle ==220) return true;
-
-    return false;
-}
-
 S check(S cmd, int val)
 {
     static int cycle = 1;
@@ -30,9 +17,7 @@ S check(S cmd, int val)
     if(cmd == "noop")
     {
         auto pos = ++cycle % 40;
-        {
-            newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
-        }
+        newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
     }
     else if(cmd == "addx")
     {
@@ -42,6 +27,7 @@ S check(S cmd, int val)
         pos = ++cycle % 40;
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
     }
+    P(sum);
     return newScore;
 }
 
