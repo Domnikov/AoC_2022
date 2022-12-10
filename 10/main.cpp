@@ -56,6 +56,7 @@ int main(int argc, char** argv)
 
     for(auto s:in)
     {
+        P(s);
         auto vec = splitStr(s,' ');
 
         int addScore{}, addCycle{};
