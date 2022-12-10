@@ -40,9 +40,9 @@ int check(S cmd, int val)
         {
             newScore = sum;
         }
+        sum += val;
         if(isSpecial(++cycle))
         {
-             sum += val;
              newScore += sum;
         }
     }
