@@ -14,6 +14,8 @@ S check(S cmd, int val)
     static int cycle = 0;
     static int sum = 0;
     S newScore;
+    S line;
+    FOR(i,40){line += (i >= sum && i <= sum+3) ? "#" : ".";}
     if(cmd == "noop")
     {
         auto pos = cycle++ % 40;
@@ -27,7 +29,7 @@ S check(S cmd, int val)
         newScore += (pos >= sum && pos <= sum+3) ? "#" : ".";
         sum += val;
     }
-    P(sum, newScore);
+    P(line, sum, newScore);
     return newScore;
 }
 
