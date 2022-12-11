@@ -57,7 +57,7 @@ void check(M& m)
     while(!m.items.empty())
     {
          int it = m.items.front();
-         m.items.erase(0);
+         m.items.erase(m.items.begin());
          it = m.worryCalc(it)/3;
          int to = m.test(it) ? m.ifTrue : m.ifFalse;
          mm[to].items.push_back(it);
