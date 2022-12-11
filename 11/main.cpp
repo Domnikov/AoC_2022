@@ -1,8 +1,9 @@
-// #define TEST
+#define TEST
 #include <stack>
 
 #include <functional>
 #include <vector>
+#include <queue>
 struct M
 {
     M(
@@ -11,20 +12,21 @@ struct M
         int ifTrue_,
         int ifFalse_,
         std::vector<int> items_
-    ):worryCalc(worryCalc_),test(test_),ifTrue(ifTrue_),ifFalse(ifFalse_),items(items_)
+    ):worryCalc(worryCalc_),test(test_),ifTrue(ifTrue_),ifFalse(ifFalse_)
     {
+        for(auto i : items_){items.push(i);}
     }
     std::function<int(int)> worryCalc;
     std::function<int(int)> test;
     int ifTrue;
     int ifFalse;
-    std::vector<int> items;
+    std::queue<int> items;
 };
 #ifdef TEST
     #include "in_test.hpp"
 
 
-    std::vector<M> m{
+    std::vector<M> mm{
     {[](int old){return old*19 ;}, [](int old){return old%23 == 0;},2, 3, {79,98}},
     {[](int old){return old+6  ;}, [](int old){return old%19 == 0;},2, 0, {54, 65, 75, 74}},
     {[](int old){return old*old;}, [](int old){return old%13 == 0;},1, 3, {79, 60, 97}},
@@ -32,7 +34,7 @@ struct M
     };
 
 #else
-    std::vector<M> m{
+    std::vector<M> mm{
     {[](int old){return old*7  ;}, [](int old){return old%19 == 0;}, 6,  4, {65, 58, 93, 57, 66}},
     {[](int old){return old+4  ;}, [](int old){return old%3  == 0;}, 7,  5, {76, 97, 58, 72, 57, 92, 82}},
     {[](int old){return old*5  ;}, [](int old){return old%13 == 0;}, 5,  1, {90, 89, 96}},
@@ -49,11 +51,32 @@ struct M
 
 auto in = getInput();
 
-
+void check(M& m)
+{
+    FOR(i, m.items.size())
+    {
+        auto& it = m.items.front();
+        m.items.pop();
+        it = m.worryCalc(it)/3;
+        int to = m.test(it) ? m.ifTrue : m.ifFalse;
+        mm[to].items.push(to);
+    }
+}
 
 int main(int argc, char** argv)
 {
     int score = 0;
+    int N = 10;
+    FOR(n, N)
+    {
+        int i{};
+        for(auto& m:mm)
+        {
+            i++;
+            check(m);
+            P_RR("m: %d\t %llu", i, m.items.size());
+        }
+    }
 
     P(score);
 }
