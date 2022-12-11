@@ -76,8 +76,10 @@ int main(int argc, char** argv)
             i++;
             check(m);
         }
+        i=0;
         for(auto& m:mm)
         {
+            i++;
             P_RR("m: %d\t %lu\n", i, m.items.size());
         }
         P_RR("\n");
