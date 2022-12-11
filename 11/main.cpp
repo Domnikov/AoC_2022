@@ -4,23 +4,24 @@
 #include <functional>
 #include <vector>
 #include <list>
+#define ULL unsigned long long
 struct M
 {
     M(
-        std::function<int(int)> worryCalc_,
-        std::function<int(int)> test_,
+        std::function<ULL(ULL)> worryCalc_,
+        std::function<ULL(ULL)> test_,
         int ifTrue_,
         int ifFalse_,
-        std::vector<int> items_
+        std::vector<ULL> items_
     ):worryCalc(worryCalc_),test(test_),ifTrue(ifTrue_),ifFalse(ifFalse_)
     {
         for(auto i : items_){items.push_back(i);}
     }
-    std::function<int(int)> worryCalc;
-    std::function<int(int)> test;
+    std::function<ULL(ULL)> worryCalc;
+    std::function<ULL(ULL)> test;
     int ifTrue;
     int ifFalse;
-    std::vector<int> items;
+    std::vector<ULL> items;
     int counter{};
 };
 #ifdef TEST
@@ -28,22 +29,22 @@ struct M
 
 
     std::vector<M> mm{
-    {[](int old){return old*19 ;}, [](int old){return old%23 == 0;},2, 3, {79,98}},
-    {[](int old){return old+6  ;}, [](int old){return old%19 == 0;},2, 0, {54, 65, 75, 74}},
-    {[](int old){return old*old;}, [](int old){return old%13 == 0;},1, 3, {79, 60, 97}},
-    {[](int old){return old+3  ;}, [](int old){return old%17 == 0;},0, 1, {74}},
+    {[](ULL old){return old*19 ;}, [](ULL old){return old%23 == 0;},2, 3, {79,98}},
+    {[](ULL old){return old+6  ;}, [](ULL old){return old%19 == 0;},2, 0, {54, 65, 75, 74}},
+    {[](ULL old){return old*old;}, [](ULL old){return old%13 == 0;},1, 3, {79, 60, 97}},
+    {[](ULL old){return old+3  ;}, [](ULL old){return old%17 == 0;},0, 1, {74}},
     };
 
 #else
     std::vector<M> mm{
-    {[](int old){return old*7  ;}, [](int old){return old%19 == 0;}, 6,  4, {65, 58, 93, 57, 66}},
-    {[](int old){return old+4  ;}, [](int old){return old%3  == 0;}, 7,  5, {76, 97, 58, 72, 57, 92, 82}},
-    {[](int old){return old*5  ;}, [](int old){return old%13 == 0;}, 5,  1, {90, 89, 96}},
-    {[](int old){return old*old;}, [](int old){return old%17 == 0;}, 0,  4, {72, 63, 72, 99}},
-    {[](int old){return old+1  ;}, [](int old){return old%2  == 0;}, 6,  2, {65}},
-    {[](int old){return old+8  ;}, [](int old){return old%11 == 0;}, 7,  3, {97, 71}},
-    {[](int old){return old+2  ;}, [](int old){return old%5  == 0;}, 2,  1, {83, 68, 88, 55, 87, 67}},
-    {[](int old){return old+5  ;}, [](int old){return old%7  == 0;}, 3,  0, {64, 81, 50, 96, 82, 53, 62, 92}},
+    {[](ULL old){return old*7  ;}, [](ULL old){return old%19 == 0;}, 6,  4, {65, 58, 93, 57, 66}},
+    {[](ULL old){return old+4  ;}, [](ULL old){return old%3  == 0;}, 7,  5, {76, 97, 58, 72, 57, 92, 82}},
+    {[](ULL old){return old*5  ;}, [](ULL old){return old%13 == 0;}, 5,  1, {90, 89, 96}},
+    {[](ULL old){return old*old;}, [](ULL old){return old%17 == 0;}, 0,  4, {72, 63, 72, 99}},
+    {[](ULL old){return old+1  ;}, [](ULL old){return old%2  == 0;}, 6,  2, {65}},
+    {[](ULL old){return old+8  ;}, [](ULL old){return old%11 == 0;}, 7,  3, {97, 71}},
+    {[](ULL old){return old+2  ;}, [](ULL old){return old%5  == 0;}, 2,  1, {83, 68, 88, 55, 87, 67}},
+    {[](ULL old){return old+5  ;}, [](ULL old){return old%7  == 0;}, 3,  0, {64, 81, 50, 96, 82, 53, 62, 92}},
     };
 
 #include "in.hpp"
@@ -57,9 +58,9 @@ void check(M& m)
 {
     while(!m.items.empty())
     {
-         int it = m.items.front();
+         ULL it = m.items.front();
          m.items.erase(m.items.begin());
-         it = m.worryCalc(it)/3;
+         it = m.worryCalc(it);
          int to = m.test(it) ? m.ifTrue : m.ifFalse;
          mm[to].items.push_back(it);
          m.counter++;
