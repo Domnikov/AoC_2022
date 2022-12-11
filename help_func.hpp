@@ -116,7 +116,7 @@ inline std::ostream& operator<<( std::ostream& dest, __int128_t value )
 #define VECSS std::vector<std::vector<S>>
 
 template<typename T>
-void _P_VEC (const std::vector<T> vec)
+void _P_VEC (const std::vector<T>& vec)
 {
     std::cerr << " = [";
 
@@ -131,7 +131,7 @@ void _P_VEC (const std::vector<T> vec)
 
 
 template<typename T>
-void _P_VEC (const std::vector<std::vector<T>> vec)
+void _P_VEC (const std::vector<std::vector<T>>& vec)
 {
     std::cout << ":" << std::endl;
     for(size_t i = 0; i < vec.size(); i++)
@@ -183,7 +183,7 @@ inline VECS splitStr(S str, char delim = ',')
     {
         std::string sub;
         std::getline(ss, sub, delim);
-        res.push_back(sub);
+        if(!sub.empty())res.push_back(sub);
     }
     return res;
 }
