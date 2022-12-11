@@ -66,7 +66,7 @@ void check(M& m)
 int main(int argc, char** argv)
 {
     int score = 0;
-    int N = 10;
+    int N = 2;
     FOR(n, N)
     {
         int i{};
