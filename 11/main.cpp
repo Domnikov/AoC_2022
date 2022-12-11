@@ -21,6 +21,7 @@ struct M
     int ifTrue;
     int ifFalse;
     std::vector<int> items;
+    int counter{};
 };
 #ifdef TEST
     #include "in_test.hpp"
@@ -61,6 +62,7 @@ void check(M& m)
          it = m.worryCalc(it)/3;
          int to = m.test(it) ? m.ifTrue : m.ifFalse;
          mm[to].items.push_back(it);
+         m.counter++;
          // P(i, it, to, m.items.size(), mm[to].items.size());
     }
 }
@@ -86,7 +88,15 @@ int main(int argc, char** argv)
         }
         P_RR("\n");
     }
+    VECI ins;
+        for(auto& m:mm)
+        {
+            p(m.counter);
+            ins.push_back(m.counter);
+        }
 
-    P(score);
+    std::sort(BE(ins));
+
+    P(*(ins.rbegin()) * *(ins.rbegin()+1));
 }
 
