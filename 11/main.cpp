@@ -77,6 +77,7 @@ int main(int argc, char** argv)
             check(m);
         }
         i=0;
+        P(n);
         for(auto& m:mm)
         {
             i++;
