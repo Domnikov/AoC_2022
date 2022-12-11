@@ -61,14 +61,14 @@ void check(M& m)
          it = m.worryCalc(it)/3;
          int to = m.test(it) ? m.ifTrue : m.ifFalse;
          mm[to].items.push(it);
-         P(i, it, to, m.items.size(), mm[to].items.size());
+         // P(i, it, to, m.items.size(), mm[to].items.size());
     }
 }
 
 int main(int argc, char** argv)
 {
     int score = 0;
-    int N = 2;
+    int N = 20;
     FOR(n, N)
     {
         for(auto& m:mm)
