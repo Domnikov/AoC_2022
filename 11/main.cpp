@@ -51,6 +51,7 @@ struct M
 
 auto in = getInput();
 
+        int i{};
 void check(M& m)
 {
     while(!m.items.empty())
@@ -60,7 +61,7 @@ void check(M& m)
          it = m.worryCalc(it)/3;
          int to = m.test(it) ? m.ifTrue : m.ifFalse;
          mm[to].items.push(to);
-         // P(to, m.items.size(), mm[to].items.size());
+         P(i, to, m.items.size(), mm[to].items.size());
     }
 }
 
@@ -70,7 +71,6 @@ int main(int argc, char** argv)
     int N = 2;
     FOR(n, N)
     {
-        int i{};
         for(auto& m:mm)
         {
             i++;
