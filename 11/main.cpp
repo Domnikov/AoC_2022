@@ -80,14 +80,14 @@ int main(int argc, char** argv)
             check(m);
         }
         i=0;
-        P(n);
+        if(n%1000 == 0)P(n);
         for(auto& m:mm)
         {
             i++;
-            // P_RR("m: %d\t %lu ", i, m.items.size());
-            // P_VEC(m.items);
+            if(n%1000 == 0)P_RR("m: %d\t %lu ", i, m.items.size());
+            if(n%1000 == 0)P_VEC(m.items);
         }
-        // P_RR("\n");
+        if(n%1000 == 0)P_RR("\n");
     }
     VECI ins;
         for(auto& m:mm)
