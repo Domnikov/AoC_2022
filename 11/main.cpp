@@ -80,11 +80,12 @@ int main(int argc, char** argv)
             check(m);
         }
         i=0;
-        if(n == 20 || n%1000 == 0)P(n);
+        int nn = n+1;
+        if(nn == 20 || nn%1000 == 0)P(nn);
         for(auto& m:mm)
         {
             i++;
-            if(n == 20 || n%1000 == 0)P_RR("m: %d\t %lu c=%d\n", i, m.items.size(), m.counter);
+            if(nn == 20 || nn%1000 == 0)P_RR("m: %d\t %lu c=%d\n", i, m.items.size(), m.counter);
             // if(n%1000 == 0)P_VEC(m.items);
         }
         if(n%1000 == 0)P_RR("\n");
