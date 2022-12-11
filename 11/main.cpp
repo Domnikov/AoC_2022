@@ -70,7 +70,7 @@ void check(M& m)
 int main(int argc, char** argv)
 {
     int score = 0;
-    int N = 20;
+    int N = 10000;
     FOR(n, N)
     {
         for(auto& m:mm)
