@@ -80,7 +80,7 @@ int main(int argc, char** argv)
             check(m);
         }
         i=0;
-        if(n%1000 == 0)P(n);
+        if(n == 20 || n%1000 == 0)P(n);
         for(auto& m:mm)
         {
             i++;
