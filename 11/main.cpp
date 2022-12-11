@@ -83,10 +83,10 @@ int main(int argc, char** argv)
         for(auto& m:mm)
         {
             i++;
-            P_RR("m: %d\t %lu ", i, m.items.size());
-            P_VEC(m.items);
+            // P_RR("m: %d\t %lu ", i, m.items.size());
+            // P_VEC(m.items);
         }
-        P_RR("\n");
+        // P_RR("\n");
     }
     VECI ins;
         for(auto& m:mm)
