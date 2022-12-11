@@ -115,7 +115,7 @@ inline std::ostream& operator<<( std::ostream& dest, __int128_t value )
 #define VECS  std::vector<S>
 #define VECSS std::vector<std::vector<S>>
 
-template<typename CONT, typename T>
+template<typename T>
 void _P_VEC (const std::vector<T> vec)
 {
     std::cerr << " = [";
