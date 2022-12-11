@@ -85,7 +85,7 @@ int main(int argc, char** argv)
         {
             i++;
             if(n%1000 == 0)P_RR("m: %d\t %lu ", i, m.items.size());
-            if(n%1000 == 0)P_VEC(m.items);
+            // if(n%1000 == 0)P_VEC(m.items);
         }
         if(n%1000 == 0)P_RR("\n");
     }
