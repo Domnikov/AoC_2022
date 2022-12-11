@@ -60,7 +60,7 @@ void check(M& m)
     {
          ULL it = m.items.front();
          m.items.erase(m.items.begin());
-         it = m.worryCalc(it);
+         it = m.worryCalc(it)%(23*19*17*13);
          int to = m.test(it) ? m.ifTrue : m.ifFalse;
          mm[to].items.push_back(it);
          m.counter++;
