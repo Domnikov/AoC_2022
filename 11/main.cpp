@@ -91,7 +91,7 @@ int main(int argc, char** argv)
     VECI ins;
         for(auto& m:mm)
         {
-            p(m.counter);
+            P(m.counter);
             ins.push_back(m.counter);
         }
 
