@@ -34,7 +34,7 @@ struct M
     {[](ULL old){return old*old;}, [](ULL old){return old%13 == 0;},1, 3, {79, 60, 97}},
     {[](ULL old){return old+3  ;}, [](ULL old){return old%17 == 0;},0, 1, {74}},
     };
-
+    int DIV = (23*19*17*13);
 #else
     std::vector<M> mm{
     {[](ULL old){return old*7  ;}, [](ULL old){return old%19 == 0;}, 6,  4, {65, 58, 93, 57, 66}},
@@ -46,6 +46,7 @@ struct M
     {[](ULL old){return old+2  ;}, [](ULL old){return old%5  == 0;}, 2,  1, {83, 68, 88, 55, 87, 67}},
     {[](ULL old){return old+5  ;}, [](ULL old){return old%7  == 0;}, 3,  0, {64, 81, 50, 96, 82, 53, 62, 92}},
     };
+    int DIV = 19*3*13*17*2*11*5*7;
 
 #include "in.hpp"
 #endif
@@ -60,7 +61,7 @@ void check(M& m)
     {
          ULL it = m.items.front();
          m.items.erase(m.items.begin());
-         it = m.worryCalc(it)%(23*19*17*13);
+         it = m.worryCalc(it)%DIV;
          int to = m.test(it) ? m.ifTrue : m.ifFalse;
          mm[to].items.push_back(it);
          m.counter++;
