@@ -71,7 +71,8 @@ void check(M& m)
 int main(int argc, char** argv)
 {
     int score = 0;
-    int N = 10000;
+    // int N = 10000;
+    int N = 20;
     FOR(n, N)
     {
         for(auto& m:mm)
@@ -86,7 +87,7 @@ int main(int argc, char** argv)
         {
             i++;
             if(nn == 20 || nn%1000 == 0)P_RR("m: %d\t %lu c=%d\n", i, m.items.size(), m.counter);
-            // if(n%1000 == 0)P_VEC(m.items);
+            if(n%1000 == 0)P_VEC(m.items);
         }
         if(n%1000 == 0)P_RR("\n");
     }
