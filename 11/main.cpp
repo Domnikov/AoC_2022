@@ -55,11 +55,11 @@ void check(M& m)
 {
     FOR(i, m.items.size())
     {
-        auto& it = m.items.front();
-        m.items.pop();
-        it = m.worryCalc(it)/3;
-        int to = m.test(it) ? m.ifTrue : m.ifFalse;
-        mm[to].items.push(to);
+        // auto& it = m.items.front();
+        // m.items.pop();
+        // it = m.worryCalc(it)/3;
+        // int to = m.test(it) ? m.ifTrue : m.ifFalse;
+        // mm[to].items.push(to);
     }
 }
 
