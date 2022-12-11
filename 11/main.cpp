@@ -53,7 +53,7 @@ auto in = getInput();
 
 void check(M& m)
 {
-    FOR(i, m.items.size())
+    while(!m.items.empty())
     {
          int it = m.items.front();
          m.items.pop();
