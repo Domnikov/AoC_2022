@@ -74,8 +74,9 @@ int main(int argc, char** argv)
         {
             i++;
             check(m);
-            P_RR("m: %d\t %lu", i, m.items.size());
+            P_RR("m: %d\t %lu\n", i, m.items.size());
         }
+        P_RR("\n");
     }
 
     P(score);
