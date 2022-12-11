@@ -81,7 +81,8 @@ int main(int argc, char** argv)
         for(auto& m:mm)
         {
             i++;
-            P_RR("m: %d\t %lu\n", i, m.items.size());
+            P_RR("m: %d\t %lu ", i, m.items.size());
+            P_VEC(m.items);
         }
         P_RR("\n");
     }
