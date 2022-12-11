@@ -3,7 +3,7 @@
 
 #include <functional>
 #include <vector>
-#include <queue>
+#include <list>
 struct M
 {
     M(
@@ -14,13 +14,13 @@ struct M
         std::vector<int> items_
     ):worryCalc(worryCalc_),test(test_),ifTrue(ifTrue_),ifFalse(ifFalse_)
     {
-        for(auto i : items_){items.push(i);}
+        for(auto i : items_){items.push_back(i);}
     }
     std::function<int(int)> worryCalc;
     std::function<int(int)> test;
     int ifTrue;
     int ifFalse;
-    std::queue<int> items;
+    std::vector<int> items;
 };
 #ifdef TEST
     #include "in_test.hpp"
@@ -57,10 +57,10 @@ void check(M& m)
     while(!m.items.empty())
     {
          int it = m.items.front();
-         m.items.pop();
+         m.items.erase(0);
          it = m.worryCalc(it)/3;
          int to = m.test(it) ? m.ifTrue : m.ifFalse;
-         mm[to].items.push(it);
+         mm[to].items.push_back(it);
          // P(i, it, to, m.items.size(), mm[to].items.size());
     }
 }
