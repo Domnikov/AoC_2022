@@ -70,7 +70,7 @@ int main(int argc, char** argv)
 
     FOR(n,40000)
     {
-        P(n);
+        P(n, loc.size());
         score++;
         for(auto& l:loc)
         {
