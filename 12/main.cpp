@@ -76,7 +76,7 @@ int main(int argc, char** argv)
         {
             auto res = inv(l.first, l.second);
             // P(res.size());
-            std::copy(BE(res), std::inserter(next, next.begin()));
+            std::copy_if(BE(res), std::inserter(next, next.begin()), [&loc](const auto& p){return std::find(BE(loc), p) == loc.end();});
         }
         loc = next;
         next.clear();
