@@ -4,7 +4,11 @@
 inline auto getInput()
 {
     VECS input {
-
+"Sabqponm",
+"abcryxxl",
+"accszExk",
+"acctuvwj",
+"abdefghi",
    };
 
     return input;
