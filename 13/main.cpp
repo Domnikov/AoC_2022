@@ -1,5 +1,4 @@
 #define TEST
-#include <stack>
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -7,19 +6,25 @@
     #include "in.hpp"
 #endif
 
+#include <cmath>
+
 auto in = getInput();
-int score = 0;
+
+using INT = __int128;
 
 int main(int argc, char** argv)
 {
+    LL score = 0;
     FOR(i, in.size())
     {
         auto& s = in[i];
-
-
-
     }
+    P_RR("Part1: %lld\n", score);
 
-    P(score);
+    score = 0;
+    FOR(i, in.size())
+    {
+        auto& s = in[i];
+    }
+    P_RR("Part2: %lld\n", score);
 }
-
