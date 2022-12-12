@@ -23,6 +23,7 @@ struct pair_hash
         return h1 ^ h2;
     }
 };
+std::unordered_set<std::pair<int,int>, pair_hash> loc;
 
 std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
 {
@@ -44,6 +45,11 @@ std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
                 if(in[y][x] == 'E' && cur == 'z')
                 {
                     P(score);
+                    FOR(y, in.size())
+                        FOR(x,in[y].size())
+                        {
+                            if(std::find(BE(loc), std::make_pair<int,int>(x,y)) != loc.end()) in[y][x] = in[y][x] - 'a' + 'A';
+                        }
                     exit(0);
                 }
             }
@@ -53,7 +59,6 @@ std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
 
 int main(int argc, char** argv)
 {
-    std::unordered_set<std::pair<int,int>, pair_hash> loc;
     std::unordered_set<std::pair<int,int>, pair_hash> next;
 
     FOR(y, in.size())
@@ -79,7 +84,6 @@ int main(int argc, char** argv)
             auto res = inv(l.first, l.second);
             min = std::min(min, in[l.second][l.first]);
             max = std::max(max, in[l.second][l.first]);
-            // P(res.size());
             std::copy(BE(res), std::inserter(next, next.begin()));
         }
         std::copy(BE(next), std::inserter(loc, loc.begin()));
