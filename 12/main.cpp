@@ -86,10 +86,13 @@ int main(int argc, char** argv)
         std::copy(BE(next), std::inserter(loc, loc.begin()));
         next.clear();
     }
+    FOR(y, in.size())
+        FOR(x,in[y].size())
+        {
+            if(std::find(BE(loc), std::make_pair<int,int>(x,y)) != loc.end()) in[y][x] = '.';
+        }
     for(auto& line: in)
     {
-        for(auto&c: line)
-            if(c >= min && c <= max) c = '.';
         P(line);
     }
     P(min, max);
