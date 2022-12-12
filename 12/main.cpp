@@ -22,10 +22,10 @@ std::set<std::pair<int,int>> inv(int X, int Y)
             if(((abs(X-x)+abs(Y-y)) ==1))
             {
             int dif = in[y][x]-cur;
-            P_RR("%d[%c] ", dif, in[y][x]);
+            // P_RR("%d[%c] ", dif, in[y][x]);
                 if( (in[y][x]-cur) == 1 || in[y][x] == cur)
                 {
-                    P(x,y);
+                    // P(x,y);
                     res.emplace(std::make_pair(x,y));
                 }
                 if(in[y][x] == 'E')
