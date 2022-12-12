@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 #include <stack>
 
 #ifdef TEST
@@ -56,7 +56,7 @@ int main(int argc, char** argv)
     }
 
 
-    FOR(n,40)
+    FOR(n,4000)
     {
         P(n);
         score++;
