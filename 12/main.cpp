@@ -28,7 +28,7 @@ std::set<std::pair<int,int>> inv(int X, int Y)
                     // P(x,y);
                     res.emplace(std::make_pair(x,y));
                 }
-                if(in[y][x] == 'E')
+                if(in[y][x] == 'E' && cur == 'z')
                 {
                     P(score);
                     exit(0);
