@@ -89,7 +89,7 @@ int main(int argc, char** argv)
     {
         for(auto&c: line)
             if(c >= min && c <= max) c = '.';
-        P_VEC(line);
+        P_VECH(line);
     }
     P_RR("NOT FOUND\n");
 }
