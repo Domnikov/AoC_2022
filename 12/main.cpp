@@ -82,7 +82,6 @@ int main(int argc, char** argv)
             // P(res.size());
             std::copy(BE(res), std::inserter(next, next.begin()));
         }
-        loc = next;
         std::copy(BE(next), std::inserter(loc, loc.begin()));
         next.clear();
     }
