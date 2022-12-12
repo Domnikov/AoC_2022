@@ -58,12 +58,12 @@ int main(int argc, char** argv)
 
     FOR(n,4000)
     {
-        P(n);
+        // P(n);
         score++;
         for(auto& l:loc)
         {
             auto res = inv(l.first, l.second);
-            P(res.size());
+            // P(res.size());
             std::copy(BE(res), std::inserter(next, next.begin()));
         }
         loc = next;
