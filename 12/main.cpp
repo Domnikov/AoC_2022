@@ -28,13 +28,14 @@ std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
 {
     std::unordered_set<std::pair<int,int>, pair_hash> res;
     char cur = in[Y][X];
+    if(cur == 'l')P(in[X-1][Y],in[X+1][Y],in[X][Y-1],in[X][Y+1]);
     for(int y = std::max<int>(0, Y-1); y <= std::min<int>(Y+1, in.size()-1);y++)
         for(int x = std::max<int>(0, X-1); x <= std::min<int>(X+1, in[y].size()-1);x++)
         {
             if(((abs(X-x)+abs(Y-y)) ==1))
             {
             int dif = in[y][x]-cur;
-                if(cur == 'l'){ P_RR("%d[%c] ", dif, in[y][x]);}
+                // if(cur == 'l'){ P_RR("%d[%c] ", dif, in[y][x]);}
                 if( abs(in[y][x]-cur) < 2)
                 {
                     // P(x,y);
