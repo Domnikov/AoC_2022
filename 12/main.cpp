@@ -58,7 +58,7 @@ int main(int argc, char** argv)
 
     FOR(n,4000)
     {
-        // P(n);
+        P(n);
         score++;
         for(auto& l:loc)
         {
