@@ -68,13 +68,16 @@ int main(int argc, char** argv)
     }
 
 
-    FOR(n,40000)
+    char max = 'a',min = 'z';
+    FOR(n,120)
     {
         P(n, loc.size());
         score++;
         for(auto& l:loc)
         {
             auto res = inv(l.first, l.second);
+            min = std::min(min, in[l.second][l.first]);
+            max = std::max(max, in[l.second][l.first]);
             // P(res.size());
             std::copy(BE(res), std::inserter(next, next.begin()));
         }
@@ -82,6 +85,10 @@ int main(int argc, char** argv)
         std::copy(BE(next), std::inserter(loc, loc.begin()));
         next.clear();
     }
+    for(auto& line: in)
+        for(auto&c: line)
+            if(c >= min && c <= max) c = '.';
+    P_VEC(in);
     P_RR("NOT FOUND\n");
 }
 
