@@ -15,8 +15,8 @@ int score = 0;
 std::set<std::pair<int,int>> inv(int X, int Y, char cur)
 {
     std::set<std::pair<int,int>> res;
-    for(int y = std::max<int>(0, Y-1); y <= std::min<int>(Y+1, in.size());y++)
-        for(int x = std::max<int>(0, X-1); x <= std::min<int>(X+1, in[y].size());x++)
+    for(int y = std::max<int>(0, Y-1); y <= std::min<int>(Y+1, in.size()-1);y++)
+        for(int x = std::max<int>(0, X-1); x <= std::min<int>(X+1, in[y].size()-1);x++)
         {
             if(((abs(X-x)+abs(Y-y)) ==1))
             {
