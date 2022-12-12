@@ -18,8 +18,7 @@ std::set<std::pair<int,int>> inv(int X, int Y, char cur)
     for(int y = std::max<int>(0, Y-1); y <= std::min<int>(Y+1, in.size());y++)
         for(int x = std::max<int>(0, X-1); x <= std::min<int>(X+1, in[y].size());x++)
         {
-            P(X, Y, x, y,((abs(X-x)+abs(Y-y)) ==1));
-            if(x != X && y != Y && ((abs(X-x)+abs(Y-y)) ==1))
+            if(((abs(X-x)+abs(Y-y)) ==1))
             {
             int dif = in[y][x]-cur;
             P_RR("%d[%c] ", dif, in[y][x]);
