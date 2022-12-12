@@ -44,6 +44,7 @@ int main(int argc, char** argv)
     {
         if(auto x = in[y].find('S') != S::npos)
         {
+            --x;
             P(x,y);
             loc.emplace(std::make_pair(x,y));
             break;
