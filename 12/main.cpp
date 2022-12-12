@@ -34,8 +34,8 @@ std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
             if(((abs(X-x)+abs(Y-y)) ==1))
             {
             int dif = in[y][x]-cur;
-            // P_RR("%d[%c] ", dif, in[y][x]);
-                if( abs(in[y][x]-cur) < 2)
+            P_RR("%d[%c] ", dif, in[y][x]);
+                if( abs(in[y][x]-cur) < 3)
                 {
                     // P(x,y);
                     res.emplace(std::make_pair(x,y));
