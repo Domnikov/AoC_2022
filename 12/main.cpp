@@ -44,12 +44,12 @@ std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
                 }
                 if(in[y][x] == 'E' && cur == 'z')
                 {
-                    P(score);
                     FOR(y, in.size())
                         FOR(x,in[y].size())
                         {
                             if(std::find(BE(loc), std::make_pair<int,int>(x,y)) != loc.end()) in[y][x] = in[y][x] - 'a' + 'A';
                         }
+                    P(score);
                     exit(0);
                 }
             }
