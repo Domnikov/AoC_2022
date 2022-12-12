@@ -40,7 +40,6 @@ std::set<std::pair<int,int>> inv(int X, int Y)
 
 int main(int argc, char** argv)
 {
-    int score = 0;
     std::set<std::pair<int,int>> loc;
     std::set<std::pair<int,int>> next;
 
