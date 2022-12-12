@@ -62,7 +62,6 @@ int main(int argc, char** argv)
         loc = next;
         next.clear();
     }
-
-    P(score);
+    P_RR("NOT FOUND\n");
 }
 
