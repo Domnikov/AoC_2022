@@ -91,6 +91,7 @@ int main(int argc, char** argv)
             if(c >= min && c <= max) c = '.';
         P(line);
     }
+    P(min, max);
     P_RR("NOT FOUND\n");
 }
 
