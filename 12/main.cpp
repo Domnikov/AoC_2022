@@ -69,7 +69,7 @@ int main(int argc, char** argv)
 
 
     char max = 'a',min = 'z';
-    FOR(n,220)
+    FOR(n,320)
     {
         P(n, loc.size());
         score++;
