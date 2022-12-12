@@ -12,9 +12,10 @@ int score = 0;
 
 
 
-std::set<std::pair<int,int>> inv(int X, int Y, char cur)
+std::set<std::pair<int,int>> inv(int X, int Y)
 {
     std::set<std::pair<int,int>> res;
+    char cur = in[Y][X];
     for(int y = std::max<int>(0, Y-1); y <= std::min<int>(Y+1, in.size()-1);y++)
         for(int x = std::max<int>(0, X-1); x <= std::min<int>(X+1, in[y].size()-1);x++)
         {
@@ -49,10 +50,10 @@ int main(int argc, char** argv)
             x = x-1;
             P(x,y);
             loc.emplace(std::make_pair(x,y));
+            in[y][x] = 'a'-1;
             break;
         }
     }
-    char cur = 'a'-1;
 
 
     FOR(n,40)
@@ -61,7 +62,7 @@ int main(int argc, char** argv)
         score++;
         for(auto& l:loc)
         {
-            auto res = inv(l.first, l.second, cur);
+            auto res = inv(l.first, l.second);
             P(res.size());
             std::copy(BE(res), std::inserter(next, next.begin()));
         }
