@@ -53,7 +53,7 @@ int main(int argc, char** argv)
     char cur = 'a'-1;
 
 
-    FOR(n,400)
+    FOR(n,40)
     {
         P(n);
         score++;
