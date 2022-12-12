@@ -30,6 +30,7 @@ std::set<std::pair<int,int>> inv(int X, int Y)
                 }
                 if(in[y][x] == 'E')
                 {
+                    P(score);
                     exit(0);
                 }
             }
