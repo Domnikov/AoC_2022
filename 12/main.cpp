@@ -60,6 +60,7 @@ int main(int argc, char** argv)
         for(auto& l:loc)
         {
             auto res = inv(l.first, l.second, cur);
+            P(res.size());
             std::copy(BE(res), std::inserter(next, next.begin()));
         }
         loc = next;
