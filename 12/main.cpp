@@ -9,12 +9,24 @@
 
 auto in = getInput();
 int score = 0;
+#include <unordered_set>
 
 
-
-std::set<std::pair<int,int>> inv(int X, int Y)
+struct pair_hash
 {
-    std::set<std::pair<int,int>> res;
+    template <class T1, class T2>
+    std::size_t operator () (std::pair<T1, T2> const &pair) const
+    {
+        std::size_t h1 = std::hash<T1>()(pair.first);
+        std::size_t h2 = std::hash<T2>()(pair.second);
+
+        return h1 ^ h2;
+    }
+};
+
+std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
+{
+    std::unordered_set<std::pair<int,int>, pair_hash> res;
     char cur = in[Y][X];
     for(int y = std::max<int>(0, Y-1); y <= std::min<int>(Y+1, in.size()-1);y++)
         for(int x = std::max<int>(0, X-1); x <= std::min<int>(X+1, in[y].size()-1);x++)
@@ -23,7 +35,7 @@ std::set<std::pair<int,int>> inv(int X, int Y)
             {
             int dif = in[y][x]-cur;
             // P_RR("%d[%c] ", dif, in[y][x]);
-                if( (in[y][x]-cur) == 1 || in[y][x] == cur)
+                if( abs(in[y][x]-cur) < 2)
                 {
                     // P(x,y);
                     res.emplace(std::make_pair(x,y));
@@ -40,8 +52,8 @@ std::set<std::pair<int,int>> inv(int X, int Y)
 
 int main(int argc, char** argv)
 {
-    std::set<std::pair<int,int>> loc;
-    std::set<std::pair<int,int>> next;
+    std::unordered_set<std::pair<int,int>, pair_hash> loc;
+    std::unordered_set<std::pair<int,int>, pair_hash> next;
 
     FOR(y, in.size())
     {
