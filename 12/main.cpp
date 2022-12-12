@@ -86,9 +86,11 @@ int main(int argc, char** argv)
         next.clear();
     }
     for(auto& line: in)
+    {
         for(auto&c: line)
             if(c >= min && c <= max) c = '.';
-    P_VEC(in);
+        P_VEC(line);
+    }
     P_RR("NOT FOUND\n");
 }
 
