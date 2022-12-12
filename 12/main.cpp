@@ -51,7 +51,7 @@ int main(int argc, char** argv)
     char cur = 'a'-1;
 
 
-    FOR(n,40)
+    FOR(n,400)
     {
         score++;
         for(auto& l:loc)
