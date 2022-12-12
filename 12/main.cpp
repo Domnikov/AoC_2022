@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 #include <stack>
 
 #ifdef TEST
@@ -22,11 +22,11 @@ std::set<std::pair<int,int>> inv(int X, int Y, char cur)
             {
                 if( (in[y][x]-cur) == 1)
                 {
+                    P(x,y);
                     res.emplace(std::make_pair(x,y));
                 }
                 if(in[y][x] == 'E')
                 {
-                    P(score);
                     exit(0);
                 }
             }
@@ -55,6 +55,7 @@ int main(int argc, char** argv)
 
     FOR(n,400)
     {
+        P(n);
         score++;
         for(auto& l:loc)
         {
