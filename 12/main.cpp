@@ -20,7 +20,7 @@ std::set<std::pair<int,int>> inv(int X, int Y, char cur)
         {
             if(x != X && y != Y && ((abs(X-x)+abs(Y-y)) ==1))
             {
-                if( (in[y][x]-cur) == 1)
+                if( (in[y][x]-cur) == 1 || in[y][x] == cur)
                 {
                     P(x,y);
                     res.emplace(std::make_pair(x,y));
