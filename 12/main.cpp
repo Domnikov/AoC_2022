@@ -28,7 +28,7 @@ std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
 {
     std::unordered_set<std::pair<int,int>, pair_hash> res;
     char cur = in[Y][X];
-    if(cur == 'l')P(in[Y-1][X],in[Y+1][X],in[Y][X-1],in[Y][X+1]);
+    // if(cur == 'l')P(in[Y-1][X],in[Y+1][X],in[Y][X-1],in[Y][X+1]);
     for(int y = std::max<int>(0, Y-1); y <= std::min<int>(Y+1, in.size()-1);y++)
         for(int x = std::max<int>(0, X-1); x <= std::min<int>(X+1, in[y].size()-1);x++)
         {
