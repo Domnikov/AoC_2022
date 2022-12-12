@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 #include <stack>
 
 #ifdef TEST
@@ -42,7 +42,7 @@ std::unordered_set<std::pair<int,int>, pair_hash> inv(int X, int Y)
                     // P(x,y);
                     res.emplace(std::make_pair(x,y));
                 }
-                if(in[y][x] == 'E' && cur == 'z')
+                if(in[y][x] == 'E' && (cur == 'z' || cur == 'y'))
                 {
                     FOR(y, in.size())
                         FOR(x,in[y].size())
@@ -66,7 +66,10 @@ int main(int argc, char** argv)
         FOR(x, in[y].size())
         {
             if(in[y][x] == 'S' || in[y][x] == 'a')
+            {
                 loc.emplace(std::make_pair(x,y));
+                in[y][x] = 'a';
+            }
         }
     }
 
