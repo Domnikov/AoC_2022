@@ -63,13 +63,12 @@ int main(int argc, char** argv)
 
     FOR(y, in.size())
     {
-        if(auto x = in[y].find('S') != S::npos)
+        if(auto x = in[y].find('a') != S::npos)
         {
             x = x-1;
             P(x,y);
             loc.emplace(std::make_pair(x,y));
-            in[y][x] = 'a'-1;
-            break;
+            in[y][x] = 'a';
         }
     }
 
