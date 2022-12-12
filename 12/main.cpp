@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 #include <stack>
 
 #ifdef TEST
@@ -89,7 +89,7 @@ int main(int argc, char** argv)
     FOR(y, in.size())
         FOR(x,in[y].size())
         {
-            if(std::find(BE(loc), std::make_pair<int,int>(x,y)) != loc.end()) in[y][x] = '.';
+            if(std::find(BE(loc), std::make_pair<int,int>(x,y)) != loc.end()) in[y][x] = in[y][x] - 'a' + 'A';
         }
     for(auto& line: in)
     {
