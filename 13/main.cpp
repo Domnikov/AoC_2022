@@ -9,7 +9,7 @@
 #include <cmath>
 
 auto in = getInput();
-
+bool D = false;
 using INT = __int128;
 
 bool isDigit(char c)
@@ -67,26 +67,26 @@ VECS getList(S s)
 
 int compareLists(VECS& l1, VECS& l2)
 {
-    P_RR("Compare:\n");
-    P_VEC(l1);
-    P_VEC(l2);
+    if(D)P_RR("Compare:\n");
+    if(D)P_VEC(l1);
+    if(D)P_VEC(l2);
     FOR(i, +std::max(l1.size(), l2.size()))
     {
         if(i == l1.size() || i == l2.size())
         {
             if(l1.size() > l2.size())
             {
-                P_RR("right out of elements\n");
+                if(D)P_RR("right out of elements\n");
                 return 1;
             }
             if(l1.size() < l2.size())
             {
-                P_RR("left out of elements\n");
+                if(D)P_RR("left out of elements\n");
                 return -1;
             }
             else
             {
-                P_RR("Both out of elements");
+                if(D)P_RR("Both out of elements");
                 break;
             }
         }
@@ -98,12 +98,12 @@ int compareLists(VECS& l1, VECS& l2)
                 LL v2 = stoi(l2[i]);
                 if(v1 < v2)
                 {
-                    P_RR("Left lower: %lld < %lld\n", v1, v2);
+                    if(D)P_RR("Left lower: %lld < %lld\n", v1, v2);
                     return -1;
                 }
                 else if(v1 > v2)
                 {
-                    P_RR("Right lover: %lld > %lld\n", v1, v2);
+                    if(D)P_RR("Right lover: %lld > %lld\n", v1, v2);
                     return 1;
                 }
             }
@@ -118,15 +118,15 @@ int compareLists(VECS& l1, VECS& l2)
     }
     if(l2.empty())
     {
-        P_RR("right out of elements\n");
+        if(D)P_RR("right out of elements\n");
         return 1;
     }
     if(l1.empty())
     {
-        P_RR("left out of elements\n");
+        if(D)P_RR("left out of elements\n");
         return -1;
     }
-    P_RR("Equals -> continue\n");
+    if(D)P_RR("Equals -> continue\n");
     return 0;
 }
 
@@ -154,16 +154,20 @@ int main(int argc, char** argv)
     {
         auto s1 = in[i];
         auto s2 = in[i+1];
+        P_RR("%s\n", s1.c_str());
+        P_RR("%s\n", s2.c_str());
         if(in[i+2].size() > 0){P("MUST BE EMPTY");exit(1);}
         auto res = compare(s1, s2);
         if(res)
         {
-            P_RR("Left lower\n");
+            P_RR("+");
+            if(D)P_RR("Left lower\n");
             score += 1+i/3;
         }
         else
         {
-            P_RR("Right lower or equal\n");
+            P_RR("-");
+            if(D)P_RR("Right lower or equal\n");
         }
     }
     P_RR("Part1: %lld\n", score);
