@@ -39,7 +39,6 @@ VECS getList(S s)
     for(size_t i = 0; i < s.size(); ++i)
     {
         char& c = s[i];
-        P(c);
         if(c == '[')
         {
             bCnt++;
