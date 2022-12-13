@@ -189,7 +189,7 @@ int main(int argc, char** argv)
     in.push_back("[[6]]");
     in.shrink_to_fit();
 
-    std::sort(BE(in), [](const auto&a, const auto& b){return compare(a, b);});
+    std::sort(BE(in), compare);//[](const auto&a, const auto& b){return compare(a, b);});
 
 
     P_VECV(in);
