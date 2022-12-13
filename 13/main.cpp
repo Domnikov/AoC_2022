@@ -177,16 +177,20 @@ int main(int argc, char** argv)
 
     D = true;
     score = 0;
+    S add2 = "[[2]]";
+    S add6 = "[[6]]";
 
     in.erase(std::remove_if(BE(in), [](const auto& s){return s.empty();}), in.end());
-    in.push_back("[[2]]");
-    in.push_back("[[6]]");
-    // in.shrink_to_fit();
+    in.push_back(add2);
+    in.push_back(add6);
 
     std::sort(BE(in), [](const S& a, const S&b){return compare(a, b) < 0 ? true : false;});
 
 
     P_VECV(in);
+
+    score = std::distance(in.begin(), std::find(BE(in), add2));
+    score *= std::distance(in.begin(), std::find(BE(in), add6));
 
     P_RR("Part2: %lld\n", score);
 }
