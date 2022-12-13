@@ -36,6 +36,7 @@ VECS getList(const S& s)
     VECS res;
     int bCnt = 0;
     size_t elSt=0;
+    P(s.data());
     P(s.size());
     for(size_t i = 0; i < s.size(); ++i)
     {
