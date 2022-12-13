@@ -123,7 +123,7 @@ int compareLists(VECS& l1, VECS& l2)
         }
         if(l1.empty())
         {
-            if(D)P_RR("left out of elements\n");
+            if(D)P_RR("Left out of elements\n");
             return -1;
         }
     }
