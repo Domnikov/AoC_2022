@@ -175,7 +175,7 @@ int main(int argc, char** argv)
     }
     P_RR("Part1: %lld\n", score);
 
-    D = false;
+    D = true;
     score = 0;
 
     in.erase(std::remove_if(BE(in), [](const auto& s){return s.empty();}), in.end());
@@ -183,8 +183,6 @@ int main(int argc, char** argv)
     in.push_back("[[6]]");
     // in.shrink_to_fit();
 
-    std::sort(BE(in), [](const S& a, const S&b){return compare(a, b) ? false : true;});
-    std::sort(BE(in), [](const S& a, const S&b){return compare(a, b) ? false : true;});
     std::sort(BE(in), [](const S& a, const S&b){return compare(a, b) ? false : true;});
 
 
