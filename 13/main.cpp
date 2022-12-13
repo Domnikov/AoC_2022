@@ -87,8 +87,6 @@ bool isList(S& s)
 VECS getList(S s)
 {
     P(__LINE__);
-    P(__FUNCTION__, s);
-    exit(1);
     VECS res;
     int bCnt = 0;
     size_t elSt{};
@@ -97,6 +95,7 @@ VECS getList(S s)
     {
     P(__LINE__);
         char& c = s[i];
+        P(c);
         if(c == '[')
         {
             bCnt++;
