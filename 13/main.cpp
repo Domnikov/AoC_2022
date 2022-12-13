@@ -43,24 +43,26 @@ VECS getList(S s)
         {
             bCnt++;
         }
-        if(c == ']')
+        else if(c == ']')
         {
             bCnt--;
         }
-        if(bCnt == 0 || i == s.size()-1)
+        else if(bCnt == 0 || i == s.size()-1)
         {
             if(c == ',' || i == s.size()-1)
             {
                 if(i == s.size()-1) i = s.size();
-                res.push_back(s.substr(elSt, i-elSt));
+                S elem = s.substr(elSt, i-elSt);
+                if(elem[0] == '[' && elem[elem.size()-1] == ']') elem = elem.substr(1, elem.size()-2);
+                res.push_back(elem);
                 elSt = i+1;
             }
         }
     }
-    if(res.size() == 1 && !isDigit(res[0]))
-    {
-        res = getList(res[0].substr(1, res[0].size()-2));
-    }
+    // if(res.size() == 1 && !isDigit(res[0]))
+    // {
+    //     res = getList(res[0].substr(1, res[0].size()-2));
+    // }
     // res.erase(std::remove_if(BE(res), [](const auto& s){ return s == "[]";}), res.end());
     return res;
 }
