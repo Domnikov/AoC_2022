@@ -134,9 +134,10 @@ int compareLists(const VECS& l1, const VECS& l2)
 int compare(S s1, S s2)
 {
     if(D){P(s1);P(s2);}
-    auto v1 = getList(s1);
+    S ss1 = s1, ss2 = s2;
+    auto v1 = getList(ss1);
     P_VEC(v1);
-    auto v2 = getList(s2);
+    auto v2 = getList(ss2);
     P_VEC(v2);
     auto res = compareLists(v1, v2);
     P(res);
@@ -148,7 +149,7 @@ int compare(S s1, S s2)
     {
         return res;
     }
-    if(D)P_RR("Equal %s AND %s\n", s1.c_str(), s2.c_str());
+    if(D)P_RR("Equal %s AND %s\n", ss1.c_str(), ss2.c_str());
     return res;
 }
 
