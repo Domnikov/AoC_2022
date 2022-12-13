@@ -141,6 +141,7 @@ int compare(S s1, S s2)
     auto v2 = getList(s2);
     P_VEC(v2);
     auto res = compareLists(v1, v2);
+    P(res);
     if(res < 0)
     {
         return res;
