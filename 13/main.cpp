@@ -17,7 +17,7 @@ bool isDigit(char c)
     return c >= '0' && c <= '9';
 }
 
-bool isDigit(S s)
+bool isDigit(const S& s)
 {
     for(auto c : s)
     {
@@ -26,7 +26,7 @@ bool isDigit(S s)
     return !s.empty();
 }
 
-bool isList(S& s)
+bool isList(const S& s)
 {
     return !isDigit(s);
 }
@@ -63,7 +63,7 @@ VECS getList(const S& s)
 }
 
 
-int compareLists(VECS& l1, VECS& l2)
+int compareLists(const VECS& l1, const VECS& l2)
 {
     if(D)P_RR("Compare:\n");
     if(D){P_VEC(l1);}
