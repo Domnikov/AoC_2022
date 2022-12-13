@@ -133,7 +133,9 @@ int compareLists(VECS& l1, VECS& l2)
 
 int compare(S s1, S s2)
 {
-    if(D)P(s1, s2);
+    if(D){P(s1);P(s2);}
+    P(s1);
+    P(s2);
     auto v1 = getList(s1);
     auto v2 = getList(s2);
     auto res = compareLists(v1, v2);
@@ -175,7 +177,7 @@ int main(int argc, char** argv)
     }
     P_RR("Part1: %lld\n", score);
 
-    D = true;
+    D = false;
     score = 0;
 
     in.erase(std::remove_if(BE(in), [](const auto& s){return s.empty();}), in.end());
