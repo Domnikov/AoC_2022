@@ -131,7 +131,7 @@ int compareLists(const VECS& l1, const VECS& l2)
     return 0;
 }
 
-int compare(const S& s1, const S& s2)
+int compare(S s1, S s2)
 {
     if(D){P(s1);P(s2);}
     auto v1 = getList(s1);
