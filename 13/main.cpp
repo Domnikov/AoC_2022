@@ -111,7 +111,7 @@ VECS getList(S s)
             }
         }
     }
-    if(elSt < s.size()-1)
+    if(elSt < s.size())
     {
         res.push_back(s.substr(elSt, s.size() - elSt - 1));
     }
