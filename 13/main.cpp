@@ -65,6 +65,8 @@ VECS getList(S s)
 
 int compareLists(VECS& l1, VECS& l2)
 {
+    static int cnt = 0;
+    P(cnt++);
     if(D)P_RR("Compare:\n");
     if(D){P_VEC(l1);}
     if(D){P_VEC(l2);}
@@ -75,11 +77,13 @@ int compareLists(VECS& l1, VECS& l2)
             if(l1.size() > l2.size())
             {
                 if(D)P_RR("right out of elements\n");
+                --cnt;
                 return 1;
             }
             if(l1.size() < l2.size())
             {
                 if(D)P_RR("left out of elements\n");
+                --cnt;
                 return -1;
             }
             else
@@ -97,11 +101,13 @@ int compareLists(VECS& l1, VECS& l2)
                 if(v1 < v2)
                 {
                     if(D)P_RR("Left lower: %lld < %lld\n", v1, v2);
+                --cnt;
                     return -1;
                 }
                 else if(v1 > v2)
                 {
                     if(D)P_RR("Right lover: %lld > %lld\n", v1, v2);
+                --cnt;
                     return 1;
                 }
             }
@@ -119,15 +125,18 @@ int compareLists(VECS& l1, VECS& l2)
         if(l2.empty())
         {
             if(D)P_RR("Right out of elements\n");
+                --cnt;
             return 1;
         }
         if(l1.empty())
         {
             if(D)P_RR("Left out of elements\n");
+                --cnt;
             return -1;
         }
     }
     if(D)P_RR("Equals -> continue\n");
+                --cnt;
     return 0;
 }
 
