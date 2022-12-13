@@ -119,15 +119,18 @@ int compareLists(VECS& l1, VECS& l2)
             }
         }
     }
-    if(l2.empty())
+    if(l1.size() != l2.size())
     {
-        if(D)P_RR("right out of elements\n");
-        return 1;
-    }
-    if(l1.empty())
-    {
-        if(D)P_RR("left out of elements\n");
-        return -1;
+        if(l2.empty())
+        {
+            if(D)P_RR("right out of elements\n");
+            return 1;
+        }
+        if(l1.empty())
+        {
+            if(D)P_RR("left out of elements\n");
+            return -1;
+        }
     }
     if(D)P_RR("Equals -> continue\n");
     return 0;
