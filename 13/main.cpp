@@ -116,7 +116,7 @@ int compareLists(VECS& l1, VECS& l2)
                 VECS list1 = getList(l1[i]);
                 VECS list2 = getList(l2[i]);
                 auto res = compareLists(list1, list2);
-                if(res != 0){return res;}
+                if(res != 0){--cnt;return res;}
             }
         }
     }
