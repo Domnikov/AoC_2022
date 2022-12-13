@@ -47,6 +47,7 @@ S getNext(S& s)
     {
         int len{};
         while (isDigit(len++)){}
+        P(len);
         S res = s.substr(0, len);
         s = s.substr(len);
         return res;
