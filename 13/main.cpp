@@ -31,59 +31,6 @@ bool isList(S& s)
     return !isDigit(s);
 }
 
-// S getNext(S& s)
-// {
-//     if(s.empty()) return {};
-//     if(s[0] == ',')
-//     {
-//         s = s.substr(1);
-//     }
-//     if(s[0] == '[')
-//     {
-//         s = s.substr(1);
-//         return "[";
-//     }
-//     if(s[0] == ']')
-//     {
-//         s = s.substr(1);
-//         return {};
-//     }
-//     if(isDigit(s[0]))
-//     {
-//         int len{};
-//         while (isDigit(s[++len])){}
-//         S res = s.substr(0, len);
-//         s = s.substr(len);
-//         return res;
-//     }
-//     P_RR("Oops. Nothing to do!!!\n");
-//     exit(1);
-// }
-//
-// VECI getList(S& s)
-// {
-//     VECS res;
-//     if(s.empty())return res;
-//     bool isList = (s[0] == '[');
-//     P(isList, s[0]);
-//     S next = getNext(s);
-//     while(!next.empty())
-//     {
-//         if(isDigit(next)) res.push_back(stoi(next));
-//         if(!res.empty() && next == "[")
-//         {
-//             break;
-//         }
-//         if(!isList)
-//         {
-//             break;
-//         }
-//         next = getNext(s);
-//     }
-//     return res;
-// }
-
-
 VECS getList(S s)
 {
     VECS res;
@@ -107,7 +54,6 @@ VECS getList(S s)
             {
                 if(i == s.size()-1) i = s.size();
                 res.push_back(s.substr(elSt, i-elSt));
-                P_VEC(res);
                 elSt = i+1;
             }
         }
@@ -116,8 +62,6 @@ VECS getList(S s)
     {
         res = getList(res[0].substr(1, res[0].size()-2));
     }
-    P_VEC(res);
-    exit(1);
     return res;
 }
 
