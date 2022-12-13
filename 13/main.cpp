@@ -119,13 +119,13 @@ VECS getList(S s)
         res.push_back(s.substr(elSt));
     }
     P(__LINE__);
+    P_VEC(res);
+    exit(1);
     if(res.size() == 1 && !isDigit(res[0]))
     {
         res = getList(res[0]);
     }
     P(__LINE__);
-    P_VEC(res);
-    exit(1);
     return res;
 }
 
