@@ -34,7 +34,6 @@ bool isList(const S& s)
 VECS getList(const S& s)
 {
     VECS res;
-    if(s.empty())return {};
     int bCnt = 0;
     size_t elSt=0;
     for(size_t i = 0; i < s.size(); ++i)
@@ -186,8 +185,8 @@ int main(int argc, char** argv)
     in.push_back("[[2]]");
     in.push_back("[[6]]");
     // in.shrink_to_fit();
-
-    std::sort(BE(in), compare);
+    VECS vec = in;
+    std::sort(BE(vec), compare);
 
 
     P_VECV(in);
