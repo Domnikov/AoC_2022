@@ -116,7 +116,7 @@ VECS getList(S s)
     }
     if(elSt != s.size()-1)
     {
-        res.push_back(s.substr(elSt, s.size() - elSt - 2));
+        res.push_back(s.substr(elSt, s.size() - elSt - 1));
     }
     P(__LINE__);
     P_VEC(res);
