@@ -105,6 +105,7 @@ VECS getList(S s)
         {
             if(c == ',' || i == s.size()-1)
             {
+                if(i == s.size()-1) i = s.size();
                 res.push_back(s.substr(elSt, i-elSt));
                 P_VEC(res);
                 elSt = i+1;
