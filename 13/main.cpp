@@ -9,7 +9,7 @@
 #include <cmath>
 
 auto in = getInput();
-bool D = true;
+bool D = false;
 using INT = __int128;
 
 bool isDigit(char c)
