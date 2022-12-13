@@ -186,11 +186,11 @@ int main(int argc, char** argv)
 
     D = true;
     score = 0;
-    P_VECV(in);exit(0);
 
     in.erase(std::remove_if(BE(in), [](const auto& s){return s.empty();}));
     in.push_back("[[2]]");
     in.push_back("[[6]]");
+    P_VECV(in);exit(0);
 
     std::sort(BE(in), [](const auto&a, const auto& b){return compare(a, b);});
 
