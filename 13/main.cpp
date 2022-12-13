@@ -34,10 +34,9 @@ bool isList(const S& s)
 VECS getList(const S& s)
 {
     VECS res;
+    if(s.empty())return {};
     int bCnt = 0;
     size_t elSt=0;
-    for(int i = 0; i < 10; ++i)std::cerr << s.data();
-    P(s.size());
     for(size_t i = 0; i < s.size(); ++i)
     {
         const char& c = s[i];
