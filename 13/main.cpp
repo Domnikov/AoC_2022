@@ -136,6 +136,7 @@ int compare(S s1, S s2)
     if(D){P(s1);P(s2);}
     P(s1);
     P(s2);
+    return s1 < s2;
     auto v1 = getList(s1);
     auto v2 = getList(s2);
     auto res = compareLists(v1, v2);
@@ -185,7 +186,7 @@ int main(int argc, char** argv)
     in.push_back("[[6]]");
     in.shrink_to_fit();
 
-    std::sort(BE(in), [](const auto&a, const auto& b){P(a);P(b);return a<b;/*return compare(a, b)*/;});
+    std::sort(BE(in), [](const auto&a, const auto& b){return compare(a, b);});
 
 
     P_VECV(in);
