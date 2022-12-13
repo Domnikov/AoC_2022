@@ -152,6 +152,7 @@ int compare(S s1, S s2)
 int main(int argc, char** argv)
 {
     LL score = 0;
+    D = false;
     for(int i{}; i < in.size();i+=3)
     {
         auto s1 = in[i];
@@ -173,7 +174,8 @@ int main(int argc, char** argv)
         }
     }
     P_RR("Part1: %lld\n", score);
-    exit(0);
+
+    D = true;
     score = 0;
 
     in.erase(std::remove_if(BE(in), [](const auto& s){return s.empty();}));
