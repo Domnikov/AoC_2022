@@ -133,7 +133,7 @@ int compareLists(const VECS& l1, const VECS& l2)
 
 int compare(const S& s1, const S& s2)
 {
-    return s1 < s2;
+    return s1 < s2 ? -1 : 1;
     if(D){P(s1);P(s2);}
     auto v1 = getList(s1);
     P_VEC(v1);
