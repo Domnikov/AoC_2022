@@ -180,6 +180,7 @@ int compareLists(VECS& l1, VECS& l2)
         return -1;
     }
     P_RR("Equals -> continue\n");
+    return 0;
 }
 
 bool compare(S s1, S s2)
