@@ -110,6 +110,16 @@ bool compare(S s1, S s2)
                 return false;
             }
         }
+        if(s2.empty())
+        {
+            P_RR("right out of elements\n");
+            return false;
+        }
+        if(s1.empty())
+        {
+            P_RR("left out of elements\n");
+            return true;
+        }
         P_RR("Equals -> continue\n");
     }
 }
