@@ -58,9 +58,10 @@ S getNext(S& s)
 VECI getList(S& s)
 {
     VECI res;
-    S next = getNext(s);
+    if(s.empty())return res;
     bool isList = (s[0] == '[');
     P(isList, s[0]);
+    S next = getNext(s);
     while(!next.empty())
     {
         if(isDigit(next)) res.push_back(stoi(next));
