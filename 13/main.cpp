@@ -133,14 +133,10 @@ int compareLists(const VECS& l1, const VECS& l2)
 
 int compare(const S& s1, const S& s2)
 {
-    return s1 < s2 ? -1 : 1;
     if(D){P(s1);P(s2);}
     auto v1 = getList(s1);
-    P_VEC(v1);
     auto v2 = getList(s2);
-    P_VEC(v2);
     auto res = compareLists(v1, v2);
-    P(res);
     if(res < 0)
     {
         return res;
@@ -186,8 +182,8 @@ int main(int argc, char** argv)
     in.push_back("[[2]]");
     in.push_back("[[6]]");
     // in.shrink_to_fit();
-    VECS vec = in;
-    std::sort(BE(vec), compare);
+
+    std::sort(BE(in), [](const S& a, const S&b){return compare(a, b) ? false : true;});
 
 
     P_VECV(in);
