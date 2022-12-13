@@ -114,6 +114,7 @@ VECS getList(S s)
         }
     P(__LINE__);
     }
+    exit(1);
     P(__LINE__);
     if(elSt != s.size()-1)
     {
