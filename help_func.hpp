@@ -144,7 +144,7 @@ void _P_VEC (const std::vector<std::vector<T>>& vec)
     }
 }
 
-#define P_VEC(a) fprintf(stderr, #a);_P_VEC(a)
+#define P_VEC(a) {fprintf(stderr, #a);_P_VEC(a);}
 
 template<typename T>
 void _P_VECV (const std::vector<T> vec)
@@ -154,7 +154,7 @@ void _P_VECV (const std::vector<T> vec)
         std::cerr << "\t" << i << "\t" << vec[i] << std::endl;
     }
 }
-#define P_VECV(a) fprintf(stderr, #a ":\n");_P_VECV(a)
+#define P_VECV(a) {fprintf(stderr, #a ":\n");_P_VECV(a);}
 
 template<typename T>
 void _P_VECH (const std::vector<T> vec)
@@ -170,7 +170,7 @@ void _P_VECH (const std::vector<T> vec)
     }
     std::cerr << "]\n";
 }
-#define P_VECH(a) fprintf(stderr, #a " = ");_P_VECH(a)
+#define P_VECH(a) {fprintf(stderr, #a " = ");_P_VECH(a);}
 #define P_LINE std::cout<<__PRETTY_FUNCTION__<<":"<<__LINE__<<std::endl;
 
 #define FOR(i,a) for(decltype(a)  i{};  i != a; ++i)
