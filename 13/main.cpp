@@ -23,7 +23,7 @@ bool isDigit(S s)
     {
         if(!isDigit(c)) return false;
     }
-    return true;
+    return !s.empty();
 }
 
 bool isList(S& s)
@@ -51,14 +51,12 @@ VECS getList(S s)
         {
             if(c == ',' || i == s.size()-1)
             {
-                try{
                 if(i == s.size()-1) i = s.size();
                 S elem = s.substr(elSt, i-elSt);
                 P(elem);
                 if(elem[0] == '[' && elem[elem.size()-1] == ']') elem = elem.substr(1, elem.size()-2);
                 res.push_back(elem);
                 elSt = i+1;
-                }catch(...){P_RR("HERE\n");exit(1);}
             }
         }
     }
