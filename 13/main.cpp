@@ -101,7 +101,13 @@ bool compare(S s1, S s2)
             }
             else if(v1[i] < v2[i])
             {
-                P_RR("%lld < %lld\n", v1[i], v2[i]);
+                P_RR("Left lower: %lld < %lld\n", v1[i], v2[i]);
+                return true;
+            }
+            else if(v1[i] > v2[i])
+            {
+                P_RR("Right lover: %lld > %lld\n", v1[i], v2[i]);
+                return false;
             }
         }
         P_RR("Equals -> continue\n");
