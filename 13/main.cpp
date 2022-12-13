@@ -114,8 +114,6 @@ VECS getList(S s)
         }
     P(__LINE__);
     }
-    exit(1);
-    P(__LINE__);
     if(elSt != s.size()-1)
     {
         res.push_back(s.substr(elSt));
@@ -126,6 +124,8 @@ VECS getList(S s)
         res = getList(res[0]);
     }
     P(__LINE__);
+    P_VEC(res);
+    exit(1);
     return res;
 }
 
