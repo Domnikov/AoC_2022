@@ -131,7 +131,7 @@ int compareLists(VECS& l1, VECS& l2)
     return 0;
 }
 
-bool compare(S s1, S s2)
+int compare(S s1, S s2)
 {
     if(D)P(s1, s2);
     auto v1 = getList(s1);
@@ -139,14 +139,14 @@ bool compare(S s1, S s2)
     auto res = compareLists(v1, v2);
     if(res < 0)
     {
-        return true;
+        return res;
     }
     if(res > 0)
     {
-        return false;
+        return res;
     }
     if(D)P_RR("Equal %s AND %s\n", s1.c_str(), s2.c_str());
-    exit(1);
+    return res;
 }
 
 int main(int argc, char** argv)
@@ -160,7 +160,7 @@ int main(int argc, char** argv)
         if(D)P_RR("%s\n", s2.c_str());
         if(in[i+2].size() > 0){if(D)P("MUST BE EMPTY");exit(1);}
         auto res = compare(s1, s2);
-        if(res)
+        if(res<0)
         {
             if(D)P_RR("+\n");
             if(D)P_RR("Left lower\n");
