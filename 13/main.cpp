@@ -134,7 +134,7 @@ int compareLists(const VECS& l1, const VECS& l2)
 int compare(const S& s1, const S& s2)
 {
     if(D){P(s1);P(s2);}
-    try{        S ss1 = s1; } catch(...){P("s1 catch");exit(1);}
+    try{        S ss1 = s1; } catch(const std::exception& E){P("s1 catch", E.what());exit(1);}
     try{        S ss2 = s2; } catch(...){P("s2 catch");exit(1);}
     auto v1 = getList(s1);
     P_VEC(v1);
