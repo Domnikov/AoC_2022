@@ -137,7 +137,9 @@ int compare(S s1, S s2)
     P(s1);
     P(s2);
     auto v1 = getList(s1);
+    P_VEC(v1);
     auto v2 = getList(s2);
+    P_VEC(v2);
     auto res = compareLists(v1, v2);
     if(res < 0)
     {
