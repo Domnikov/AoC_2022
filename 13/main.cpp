@@ -107,7 +107,7 @@ VECS getList(S s)
             {
                 res.push_back(s.substr(elSt, i-elSt));
                 P_VEC(res);
-                elSt = i;
+                elSt = i+1;
             }
         }
     }
