@@ -101,19 +101,15 @@ VECS getList(S s)
         {
             bCnt--;
         }
-        if(bCnt == 0)
+        if(bCnt == 0 || i == s.size()-1)
         {
-            if(c == ',')
+            if(c == ',' || i == s.size()-1)
             {
                 res.push_back(s.substr(elSt, i-elSt));
                 P_VEC(res);
                 elSt = i+1;
             }
         }
-    }
-    if(elSt < s.size())
-    {
-        res.push_back(s.substr(elSt, s.size() - elSt - 1));
     }
     if(res.size() == 1 && !isDigit(res[0]))
     {
