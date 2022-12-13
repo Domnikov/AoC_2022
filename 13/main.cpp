@@ -173,17 +173,21 @@ int main(int argc, char** argv)
         }
     }
     P_RR("Part1: %lld\n", score);
-
+P(__LINE__);
     score = 0;
 
+P(__LINE__);
     in.erase(std::remove_if(BE(in), [](const auto& s){return s.empty();}));
     in.push_back("[[2]]");
     in.push_back("[[6]]");
 
+P(__LINE__);
     std::sort(BE(in), [](const auto&a, const auto& b){return compare(a, b);});
 
+P(__LINE__);
 
     P_VECV(in);
 
+P(__LINE__);
     P_RR("Part2: %lld\n", score);
 }
