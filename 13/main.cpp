@@ -67,6 +67,9 @@ VECS getList(S s)
 
 int compareLists(VECS& l1, VECS& l2)
 {
+    P_RR("Compare:\n");
+    P_VEC(l1);
+    P_VEC(l2);
     FOR(i, +std::max(l1.size(), l2.size()))
     {
         if(i == l1.size() || i == l2.size())
@@ -132,9 +135,6 @@ bool compare(S s1, S s2)
     P(s1, s2);
     auto v1 = getList(s1);
     auto v2 = getList(s2);
-    P_RR("Compare:\n");
-    P_VEC(v1);
-    P_VEC(v2);
     if(compareLists(v1, v2) < 0)
     {
         return true;
