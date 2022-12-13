@@ -86,11 +86,14 @@ bool isList(S& s)
 
 VECS getList(S s)
 {
+    P(__LINE__);
     VECS res;
     int bCnt = 0;
     size_t elSt{};
+    P(__LINE__);
     FOR(i, s.size())
     {
+    P(__LINE__);
         char& c = s[i];
         if(c == '[')
         {
@@ -108,15 +111,19 @@ VECS getList(S s)
                 elSt = i;
             }
         }
+    P(__LINE__);
     }
+    P(__LINE__);
     if(elSt != s.size()-1)
     {
         res.push_back(s.substr(elSt));
     }
+    P(__LINE__);
     if(res.size() == 1 && !isDigit(res[0]))
     {
         res = getList(res[0]);
     }
+    P(__LINE__);
     return res;
 }
 
