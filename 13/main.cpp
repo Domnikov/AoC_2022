@@ -61,6 +61,7 @@ VECI getList(S& s)
     S next = getNext(s);
     while(!next.empty())
     {
+        P(next);exit(1);
         if(isDigit(next)) res.push_back(stoi(next));
         next = getNext(s);
     }
