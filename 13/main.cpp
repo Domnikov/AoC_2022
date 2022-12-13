@@ -89,7 +89,7 @@ VECS getList(S s)
     P(__LINE__);
     VECS res;
     int bCnt = 0;
-    size_t elSt=1;
+    size_t elSt=0;
     P(__LINE__);
     FOR(i, s.size())
     {
@@ -121,7 +121,7 @@ VECS getList(S s)
     P(__LINE__);
     if(res.size() == 1 && !isDigit(res[0]))
     {
-        res = getList(res[0]);
+        res = getList(res[0].substr(1, res[0].size()-2));
     }
     P_VEC(res);
     exit(1);
