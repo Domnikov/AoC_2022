@@ -136,7 +136,7 @@ int compare(const S& s1, const S& s2)
     if(D){P(s1);P(s2);}
     P(s1);
     P(s2);
-    return s1 < s2;
+    // return s1 < s2;
     auto v1 = getList(s1);
     P_VEC(v1);
     auto v2 = getList(s2);
