@@ -61,6 +61,7 @@ VECS getList(S s)
     {
         res = getList(res[0].substr(1, res[0].size()-2));
     }
+    res.erase(std::remove_if(BE(res), [](const auto& s){ return s == "[]";}), res.end());
     return res;
 }
 
