@@ -49,7 +49,7 @@ S getNext(S& s)
         while (isDigit(len++)){}
         S res = s.substr(0, len);
         s = s.substr(len);
-        return s;
+        return res;
     }
     P_RR("Oops. Nothing to do!!!\n");
     exit(1);
