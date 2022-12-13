@@ -132,8 +132,16 @@ int main(int argc, char** argv)
         auto s1 = in[i].substr(1, in[i].size()-2);
         auto s2 = in[i+1].substr(1, in[i+1].size()-2);
         if(in[i+2].size() > 0){P("MUST BE EMPTY");exit(1);}
-
-        score += compare(s1,s2) ? (1+i/3) : 0;
+        auto res = compare(s1, s2);
+        if(res)
+        {
+            P_RR("Left lower\n");
+            score += 1+i/3;
+        }
+        else
+        {
+            P_RR("Right lower or equal\n");
+        }
     }
     P_RR("Part1: %lld\n", score);
 
