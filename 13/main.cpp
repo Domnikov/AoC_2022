@@ -136,7 +136,6 @@ int compare(S s1, S s2)
     if(D){P(s1);P(s2);}
     P(s1);
     P(s2);
-    return s1 < s2;
     auto v1 = getList(s1);
     auto v2 = getList(s2);
     auto res = compareLists(v1, v2);
