@@ -143,7 +143,7 @@ bool compare(S s1, S s2)
     {
         return false;
     }
-    P_RR("Equal\n");
+    if(D)P_RR("Equal\n");
     exit(1);
 }
 
@@ -156,7 +156,7 @@ int main(int argc, char** argv)
         auto s2 = in[i+1];
         // P_RR("%s\n", s1.c_str());
         // P_RR("%s\n", s2.c_str());
-        if(in[i+2].size() > 0){P("MUST BE EMPTY");exit(1);}
+        if(in[i+2].size() > 0){if(D)P("MUST BE EMPTY");exit(1);}
         auto res = compare(s1, s2);
         if(res)
         {
