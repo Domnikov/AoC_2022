@@ -140,7 +140,7 @@ int compare(const S& s1, const S& s2)
     P_VEC(v1);
     auto v2 = getList(s2);
     P_VEC(v2);
-    auto res = compareLists(v1, v2);
+    auto res = v1<v2 ? -1 : 1;//compareLists(v1, v2);
     P(res);
     if(res < 0)
     {
