@@ -135,11 +135,12 @@ bool compare(S s1, S s2)
     if(D)P(s1, s2);
     auto v1 = getList(s1);
     auto v2 = getList(s2);
-    if(compareLists(v1, v2) < 0)
+    auto res = compareLists(v1, v2);
+    if(res < 0)
     {
         return true;
     }
-    if(compareLists(v1, v2) > 0)
+    if(res > 0)
     {
         return false;
     }
