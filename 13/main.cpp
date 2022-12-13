@@ -43,11 +43,11 @@ VECS getList(S s)
         {
             bCnt++;
         }
-        else if(c == ']')
+        if(c == ']')
         {
             bCnt--;
         }
-        else if(bCnt == 0 || i == s.size()-1)
+        if(bCnt == 0 || i == s.size()-1)
         {
             if(c == ',' || i == s.size()-1)
             {
