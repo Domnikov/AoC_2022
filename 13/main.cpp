@@ -9,7 +9,7 @@
 #include <cmath>
 
 auto in = getInput();
-bool D = true;
+bool D = false;
 using INT = __int128;
 
 bool isDigit(char c)
@@ -181,6 +181,9 @@ int main(int argc, char** argv)
     in.push_back("[[6]]");
 
     std::sort(BE(in), [](const auto&a, const auto& b){return compare(a, b);});
+
+
+    P_VECV(in);
 
     P_RR("Part2: %lld\n", score);
 }
