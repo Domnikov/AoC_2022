@@ -160,13 +160,13 @@ int main(int argc, char** argv)
         auto res = compare(s1, s2);
         if(res)
         {
-            P_RR("+");
+            P_RR("+\n");
             if(D)P_RR("Left lower\n");
             score += 1+i/3;
         }
         else
         {
-            P_RR("-");
+            P_RR("-\n");
             if(D)P_RR("Right lower or equal\n");
         }
     }
