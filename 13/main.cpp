@@ -89,7 +89,7 @@ VECS getList(S s)
     VECS res;
     int bCnt = 0;
     size_t elSt=0;
-    FOR(i, s.size())
+    for(size_t i = 0; i < s.size(); ++i)
     {
         char& c = s[i];
         P(c);
