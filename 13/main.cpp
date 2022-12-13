@@ -9,7 +9,7 @@
 #include <cmath>
 
 auto in = getInput();
-bool D = true;
+bool D = false;
 using INT = __int128;
 
 bool isDigit(char c)
@@ -68,8 +68,8 @@ VECS getList(S s)
 int compareLists(VECS& l1, VECS& l2)
 {
     if(D)P_RR("Compare:\n");
-    if(D)P_VEC(l1);
-    if(D)P_VEC(l2);
+    if(D){P_VEC(l1);}
+    if(D){P_VEC(l2);}
     FOR(i, +std::max(l1.size(), l2.size()))
     {
         if(i == l1.size() || i == l2.size())
