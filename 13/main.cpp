@@ -132,7 +132,7 @@ int compareLists(VECS& l1, VECS& l2)
 
 bool compare(S s1, S s2)
 {
-    P(s1, s2);
+    if(D)P(s1, s2);
     auto v1 = getList(s1);
     auto v2 = getList(s2);
     if(compareLists(v1, v2) < 0)
