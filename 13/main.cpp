@@ -89,7 +89,7 @@ VECS getList(S s)
     P(__LINE__);
     VECS res;
     int bCnt = 0;
-    size_t elSt{};
+    size_t elSt=1;
     P(__LINE__);
     FOR(i, s.size())
     {
@@ -108,7 +108,7 @@ VECS getList(S s)
         {
             if(c == ',')
             {
-                res.push_back(s.substr(elSt, i-elSt));
+                res.push_back(s.substr(elSt, i-elSt-1));
                 elSt = i;
             }
         }
@@ -116,7 +116,7 @@ VECS getList(S s)
     }
     if(elSt != s.size()-1)
     {
-        res.push_back(s.substr(elSt));
+        res.push_back(s.substr(elSt, s.size() - elSt - 2));
     }
     P(__LINE__);
     P_VEC(res);
