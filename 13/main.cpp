@@ -175,7 +175,7 @@ int main(int argc, char** argv)
     }
     P_RR("Part1: %lld\n", score);
 
-    D = true;
+    D = false;
     score = 0;
     S add2 = "[[2]]";
     S add6 = "[[6]]";
@@ -189,8 +189,8 @@ int main(int argc, char** argv)
 
     P_VECV(in);
 
-    score = std::distance(in.begin(), std::find(BE(in), add2));
-    score *= std::distance(in.begin(), std::find(BE(in), add6));
+    score = std::distance(in.begin(), std::find(BE(in), add2))+1;
+    score *= std::distance(in.begin(), std::find(BE(in), add6))+1;
 
     P_RR("Part2: %lld\n", score);
 }
