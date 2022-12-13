@@ -187,7 +187,7 @@ int main(int argc, char** argv)
     D = true;
     score = 0;
 
-    in.erase(std::remove_if(BE(in), [](const auto& s){return s.size() < 2;}));
+    in.erase(std::remove_if(BE(in), [](const auto& s){return s.empty();}), in.end());
     in.push_back("[[2]]");
     in.push_back("[[6]]");
     P_VECV(in);exit(0);
