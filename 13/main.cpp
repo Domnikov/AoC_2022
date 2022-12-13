@@ -187,7 +187,7 @@ int main(int argc, char** argv)
     std::sort(BE(in), [](const S& a, const S&b){return compare(a, b) < 0 ? true : false;});
 
 
-    P_VECV(in);
+    if(D)P_VECV(in);
 
     score = std::distance(in.begin(), std::find(BE(in), add2))+1;
     score *= std::distance(in.begin(), std::find(BE(in), add6))+1;
