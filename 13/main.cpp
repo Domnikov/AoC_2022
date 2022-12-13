@@ -154,19 +154,19 @@ int main(int argc, char** argv)
     {
         auto s1 = in[i];
         auto s2 = in[i+1];
-        P_RR("%s\n", s1.c_str());
-        P_RR("%s\n", s2.c_str());
+        // P_RR("%s\n", s1.c_str());
+        // P_RR("%s\n", s2.c_str());
         if(in[i+2].size() > 0){P("MUST BE EMPTY");exit(1);}
         auto res = compare(s1, s2);
         if(res)
         {
-            P_RR("+\n");
+            // P_RR("+\n");
             if(D)P_RR("Left lower\n");
             score += 1+i/3;
         }
         else
         {
-            P_RR("-\n");
+            // P_RR("-\n");
             if(D)P_RR("Right lower or equal\n");
         }
     }
