@@ -53,7 +53,6 @@ VECS getList(S s)
             {
                 if(i == s.size()-1) i = s.size();
                 S elem = s.substr(elSt, i-elSt);
-                P(elem);
                 if(elem[0] == '[' && elem[elem.size()-1] == ']') elem = elem.substr(1, elem.size()-2);
                 res.push_back(elem);
                 elSt = i+1;
