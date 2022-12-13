@@ -118,7 +118,7 @@ int compareLists(VECS& l1, VECS& l2)
     {
         if(l2.empty())
         {
-            if(D)P_RR("right out of elements\n");
+            if(D)P_RR("Right out of elements\n");
             return 1;
         }
         if(l1.empty())
