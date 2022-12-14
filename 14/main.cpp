@@ -16,6 +16,7 @@ int main(int argc, char** argv)
 {
     LL score = 0;
     D = false;
+    LL minX = grid[0].size(), maxX = 0, minY = grid.size(), maxY = 0;
     for(int i{}; i < in.size();i++ )
     {
         S line = in[i];
@@ -27,9 +28,8 @@ int main(int argc, char** argv)
             else {cur = line.substr(0, pos); line = line.substr(pos+4);}
             P(cur,line);
         }
-        P("end");
     }
-    P_VECV(grid);
+    // P_VECV(grid);
     P_RR("Part1: %lld\n", score);
 
     D = false;
