@@ -126,6 +126,7 @@ int main(int argc, char** argv)
         score++;
         // drawGrid();
     }
+    drawGrid();
 
     P_RR("Part2: %lld\n", score);
 }
