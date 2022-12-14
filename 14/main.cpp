@@ -30,7 +30,12 @@ int main(int argc, char** argv)
             else {cur = line.substr(0, pos); line = line.substr(pos+4);}
             auto ab = splitStr(cur, ',');
             int nextX = stoi(ab[0]), nextY = stoi(ab[1]);
-            if(curX != nextX && curY != nextY){P("PROBLEM");exit(1);}
+            if(curX != -1)
+            {
+                if(curX != nextX && curY != nextY){P("PROBLEM");exit(1);}
+            }
+            curX = nextX;
+            curY = nextY;
         }
     }
     // P_VECV(grid);
