@@ -102,6 +102,7 @@ int main(int argc, char** argv)
             maxY = std::max<size_t>(maxY, nextY);
         }
     }
+    auto gridCopy = grid;
 
     for(int i = 0; i < 20000; i++)
     {
@@ -110,11 +111,12 @@ int main(int argc, char** argv)
         // drawGrid();
     }
 
-    drawGrid();
+    // drawGrid();
     P_RR("Part1: %lld\n", score);
 
     D = false;
     score = 0;
+    grid = gridCopy;
 
     P_RR("Part2: %lld\n", score);
 }
