@@ -61,9 +61,9 @@ bool nextDrop()
     bool can{};
     do
     {
-        auto [nX, nY, can] = whereCanGo(x, y);
+        auto [nX, nY, canGo] = whereCanGo(x, y);
         if(nY == maxY) break;
-        P(x, y, nX, nY);
+        can = canGo;
         grid[y][x] = ' ';
         x = nX;
         y = nY;
