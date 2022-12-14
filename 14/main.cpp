@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -47,8 +47,25 @@ void drawLine(int x1, int x2, int y1, int y2)
     }
 }
 
+std::tuple<int, int, bool> whereCanGo(int x, int y)
+{
+    if(grid[x][y+1] == ' ') return {x, y+1, true};
+    if(grid[x-1][y-1] == ' ') return {x-1, y+1, true};
+    if(grid[x+1][y-1] == ' ') return {x+1, y+1, true};
+    return {x, y, false};
+}
+
 bool nextDrop()
 {
+    int x = 500, y = minY;
+    bool can{};
+    do
+    {
+        auto [nX, nY, can] = whereCanGo(x, y);
+        x = nX;
+        y = nY;
+    }
+    while(can);
     return false;
 }
 
