@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -29,7 +29,6 @@ void drawGrid()
 
 void drawLine(int x1, int x2, int y1, int y2)
 {
-    P(__FUNCTION__, x1, x2, y1, y2);
     if(x1 == x2)
     {
         if(y1 > y2)std::swap(y1, y2);
@@ -46,7 +45,11 @@ void drawLine(int x1, int x2, int y1, int y2)
             grid[y1][x] = '#';
         }
     }
-    drawGrid();
+}
+
+bool nextDrop()
+{
+    return false;
 }
 
 int main(int argc, char** argv)
@@ -78,6 +81,13 @@ int main(int argc, char** argv)
             maxY = std::max<size_t>(maxY, nextY);
         }
     }
+
+    for(int i = 0; i < 2; i++)
+    {
+        if(!nextDrop())break;
+        drawGrid();
+    }
+
     drawGrid();
     P_RR("Part1: %lld\n", score);
 
