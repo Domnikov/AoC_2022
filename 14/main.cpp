@@ -123,8 +123,8 @@ int main(int argc, char** argv)
     drawLine(minX, grid[0].size()-1, maxY, maxY);
     for(int i = 0; i < 20000; i++)
     {
-        if(!nextDrop()){P("DONE");break;}
         score++;
+        if(!nextDrop()){P("DONE");break;}
         // drawGrid();
     }
     drawGrid();
