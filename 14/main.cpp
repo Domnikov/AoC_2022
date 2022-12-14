@@ -56,8 +56,8 @@ int main(int argc, char** argv)
             curY = nextY;
             minX = std::min<size_t>(minX, nextX);
             minY = std::min<size_t>(minY, nextY);
-            maxX = std::min<size_t>(maxX, nextX);
-            maxY = std::min<size_t>(maxY, nextY);
+            maxX = std::max<size_t>(maxX, nextX);
+            maxY = std::max<size_t>(maxY, nextY);
         }
     }
     P(minX, maxX, minY, maxY);
