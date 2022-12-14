@@ -120,11 +120,11 @@ int main(int argc, char** argv)
     maxY *= 2;
     minX = 0;
     drawLine(minX, grid[0].size(), maxY, maxY);
-    for(int i = 0; i < 200; i++)
+    for(int i = 0; i < 20000; i++)
     {
         if(!nextDrop()){P("DONE");break;}
         score++;
-        drawGrid();
+        // drawGrid();
     }
 
     P_RR("Part2: %lld\n", score);
