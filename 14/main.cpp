@@ -23,8 +23,9 @@ int main(int argc, char** argv)
         {
             auto pos = line.find(" -> ");
             if(pos == S::npos) pos = line.size();
-            S cur = line.substr(0, pos);
-            line = line.substr(pos+4);
+            S cur;
+            if(pos == S::npos){ cur = line; line.clear();}
+            else {cur = line.substr(0, pos); line = line.substr(pos+4);}
             P(cur,line);
         }
         P("");
