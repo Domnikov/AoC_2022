@@ -17,7 +17,7 @@ void drawGrid()
 {
     P(minX, maxX, minY, maxY);
     P_RR("\n");
-    for(size_t y = minY-10; y < maxY+10; ++y)
+    for(size_t y = 0; y < maxY+10; ++y)
     {
         for(size_t x = minX-10; x < maxX+10; ++x)
         {
