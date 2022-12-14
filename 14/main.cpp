@@ -63,10 +63,10 @@ bool nextDrop()
     {
         auto [nX, nY, can] = whereCanGo(x, y);
         if(nY == maxY) break;
-        grid[x][y] = ' ';
+        grid[y][x] = ' ';
         x = nX;
         y = nY;
-        grid[x][y] = 'o';
+        grid[y][x] = 'o';
         drawGrid();
     }
     while(can);
