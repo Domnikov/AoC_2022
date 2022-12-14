@@ -10,7 +10,7 @@ auto in = getInput();
 bool D = true;
 using INT = __int128;
 
-VECS grid(3000, S(1000, ' '));
+VECS grid(3000, S(3000, ' '));
 LL minX = grid[0].size(), maxX = 0, minY = grid.size(), maxY = 0;
 
 void drawGrid()
