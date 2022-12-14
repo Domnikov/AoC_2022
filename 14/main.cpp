@@ -107,7 +107,7 @@ int main(int argc, char** argv)
     {
         if(!nextDrop()){P("DONE");break;}
         score++;
-        drawGrid();
+        // drawGrid();
     }
 
     drawGrid();
