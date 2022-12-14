@@ -11,6 +11,21 @@ bool D = true;
 using INT = __int128;
 
 VECS grid(1000, S(1000, ' '));
+LL minX = grid[0].size(), maxX = 0, minY = grid.size(), maxY = 0;
+
+void drawGrid()
+{
+    P(minX, maxX, minY, maxY);
+    P_RR("\n");
+    for(size_t y = minY-1; y < maxY+1; ++y)
+    {
+        for(size_t x = minX-1; x < maxX+1; ++x)
+        {
+            P_RR("%c", grid[y][x]);
+        }
+        P_RR("\n");
+    }
+}
 
 void drawLine(int x1, int x2, int y1, int y2)
 {
@@ -29,13 +44,13 @@ void drawLine(int x1, int x2, int y1, int y2)
             grid[y1][x] = '#';
         }
     }
+    drawGrid();
 }
 
 int main(int argc, char** argv)
 {
     LL score = 0;
     D = false;
-    LL minX = grid[0].size(), maxX = 0, minY = grid.size(), maxY = 0;
     for(int i{}; i < in.size();i++ )
     {
         S line = in[i];
@@ -61,17 +76,7 @@ int main(int argc, char** argv)
             maxY = std::max<size_t>(maxY, nextY);
         }
     }
-    P(minX, maxX, minY, maxY);
-    P_RR("\n");
-    for(size_t y = minY-1; y < maxY+1; ++y)
-    {
-        for(size_t x = minX-1; x < maxX+1; ++x)
-        {
-            P_RR("%c", grid[y][x]);
-        }
-        P_RR("\n");
-    }
-    // P_VECV(grid);
+    drawGrid();
     P_RR("Part1: %lld\n", score);
 
     D = false;
