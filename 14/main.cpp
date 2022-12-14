@@ -57,18 +57,19 @@ std::tuple<int, int, bool> whereCanGo(int x, int y)
 
 bool nextDrop()
 {
-    int x = 500, y = minY;
+    int x = 500, y = 0;
     bool can{};
     do
     {
         auto [nX, nY, can] = whereCanGo(x, y);
+        if(nY == maxY) break;
         grid[x][y] = ' ';
         x = nX;
         y = nY;
         grid[x][y] = 'o';
     }
     while(can);
-    return false;
+    return y < maxY;
 }
 
 int main(int argc, char** argv)
