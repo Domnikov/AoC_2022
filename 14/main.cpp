@@ -121,7 +121,7 @@ int main(int argc, char** argv)
     maxX += 2;
     minX = 0;
     drawLine(minX, grid[0].size()-1, maxY, maxY);
-    for(int i = 0; i < 20000; i++)
+    for(int i = 0; i < 2000000; i++)
     {
         score++;
         if(!nextDrop()){P("DONE");break;}
