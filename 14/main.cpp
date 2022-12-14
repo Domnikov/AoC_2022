@@ -119,11 +119,11 @@ int main(int argc, char** argv)
     grid = gridCopy;
     maxY *= 2;
     drawLine(0, grid[0].size(), maxY, maxY);
-    for(int i = 0; i < 20000; i++)
+    for(int i = 0; i < 200; i++)
     {
         if(!nextDrop()){P("DONE");break;}
         score++;
-        // drawGrid();
+        drawGrid();
     }
 
     P_RR("Part2: %lld\n", score);
