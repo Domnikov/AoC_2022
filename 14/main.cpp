@@ -62,8 +62,10 @@ bool nextDrop()
     do
     {
         auto [nX, nY, can] = whereCanGo(x, y);
+        grid[x][y] = ' ';
         x = nX;
         y = nY;
+        grid[x][y] = 'o';
     }
     while(can);
     return false;
