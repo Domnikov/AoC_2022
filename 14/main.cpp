@@ -28,7 +28,7 @@ int main(int argc, char** argv)
             else {cur = line.substr(0, pos); line = line.substr(pos+4);}
             P(cur,line);
         }
-        P("");
+        P("end");
     }
     P_VECV(grid);
     P_RR("Part1: %lld\n", score);
