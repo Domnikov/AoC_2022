@@ -118,7 +118,8 @@ int main(int argc, char** argv)
     score = 0;
     grid = gridCopy;
     maxY *= 2;
-    drawLine(0, grid[0].size(), maxY, maxY);
+    minX = 0;
+    drawLine(minX, grid[0].size(), maxY, maxY);
     for(int i = 0; i < 200; i++)
     {
         if(!nextDrop()){P("DONE");break;}
