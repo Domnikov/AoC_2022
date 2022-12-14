@@ -70,7 +70,7 @@ bool nextDrop()
         grid[y][x] = 'o';
     }
     while(can);
-    return y < maxY;
+    return y < maxY && y != 0;
 }
 
 int main(int argc, char** argv)
