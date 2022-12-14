@@ -32,6 +32,7 @@ void drawLine(int x1, int x2, int y1, int y2)
     P(__FUNCTION__, x1, x2, y1, y2);
     if(x1 == x2)
     {
+        if(y1 > y2)std::swap(y1, y2);
         for(size_t y = y1; y <= y2; y++)
         {
             grid[y][x1] = '#';
@@ -39,6 +40,7 @@ void drawLine(int x1, int x2, int y1, int y2)
     }
     if(y1 == y2)
     {
+        if(x1 > x2)std::swap(x1, x2);
         for(size_t x = x1; x <= x2; x++)
         {
             grid[y1][x] = '#';
