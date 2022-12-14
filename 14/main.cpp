@@ -103,7 +103,7 @@ int main(int argc, char** argv)
         }
     }
 
-    for(int i = 0; i < 200; i++)
+    for(int i = 0; i < 20000; i++)
     {
         if(!nextDrop()){P("DONE");break;}
         score++;
