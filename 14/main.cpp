@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -10,7 +10,7 @@ auto in = getInput();
 bool D = true;
 using INT = __int128;
 
-VECS grid(1000, S(1000, ' '));
+VECS grid(3000, S(1000, ' '));
 LL minX = grid[0].size(), maxX = 0, minY = grid.size(), maxY = 0;
 
 void drawGrid()
@@ -117,6 +117,13 @@ int main(int argc, char** argv)
     D = false;
     score = 0;
     grid = gridCopy;
+    drawLine(0, grid[0].size(), maxY*2, maxY*2);
+    for(int i = 0; i < 20000; i++)
+    {
+        if(!nextDrop()){P("DONE");break;}
+        score++;
+        // drawGrid();
+    }
 
     P_RR("Part2: %lld\n", score);
 }
