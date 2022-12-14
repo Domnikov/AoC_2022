@@ -14,6 +14,7 @@ VECS grid(1000, S(1000, ' '));
 
 void drawLine(int x1, int x2, int y1, int y2)
 {
+    P(__FUNCTION__, x1, x2, y1, y2);
     if(x1 == x2)
     {
         for(size_t y = y1; y <= y2; y++)
