@@ -60,6 +60,7 @@ int main(int argc, char** argv)
             maxY = std::min<size_t>(maxY, nextY);
         }
     }
+    P(minX, maxX, minY, maxY);
     P_RR("\n");
     for(size_t y = minY-1; y < maxY+1; ++y)
     {
