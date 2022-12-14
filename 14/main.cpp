@@ -118,6 +118,7 @@ int main(int argc, char** argv)
     score = 0;
     grid = gridCopy;
     maxY *= 2;
+    maxX *= 2;
     minX = 0;
     drawLine(minX, grid[0].size()-1, maxY, maxY);
     for(int i = 0; i < 20000; i++)
