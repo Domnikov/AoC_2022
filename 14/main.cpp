@@ -57,7 +57,7 @@ std::tuple<int, int, bool> whereCanGo(int x, int y)
 
 bool nextDrop()
 {
-    int x = 500, y = minY;
+    int x = 500, y = 0;
     bool can{};
     do
     {
@@ -68,7 +68,6 @@ bool nextDrop()
         x = nX;
         y = nY;
         grid[y][x] = 'o';
-        drawGrid();
     }
     while(can);
     return y < maxY;
