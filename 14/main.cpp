@@ -108,10 +108,8 @@ int main(int argc, char** argv)
     {
         if(!nextDrop()){P("DONE");break;}
         score++;
-        // drawGrid();
     }
 
-    // drawGrid();
     P_RR("Part1: %lld\n", score);
 
     D = false;
@@ -125,9 +123,7 @@ int main(int argc, char** argv)
     {
         score++;
         if(!nextDrop()){P("DONE");break;}
-        // drawGrid();
     }
-    drawGrid();
 
     P_RR("Part2: %lld\n", score);
 }
