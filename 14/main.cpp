@@ -104,9 +104,9 @@ int main(int argc, char** argv)
     }
     auto gridCopy = grid;
 
-    for(int i = 0; i < 20000; i++)
+    while(true)
     {
-        if(!nextDrop()){P("DONE");break;}
+        if(!nextDrop()){break;}
         score++;
     }
 
@@ -119,10 +119,10 @@ int main(int argc, char** argv)
     maxX += 2;
     minX = 0;
     drawLine(minX, grid[0].size()-1, maxY, maxY);
-    for(int i = 0; i < 2000000; i++)
+    while(true)
     {
         score++;
-        if(!nextDrop()){P("DONE");break;}
+        if(!nextDrop()){break;}
     }
 
     P_RR("Part2: %lld\n", score);
