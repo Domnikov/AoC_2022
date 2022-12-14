@@ -117,7 +117,8 @@ int main(int argc, char** argv)
     D = false;
     score = 0;
     grid = gridCopy;
-    drawLine(0, grid[0].size(), maxY*2, maxY*2);
+    maxY *= 2;
+    drawLine(0, grid[0].size(), maxY, maxY);
     for(int i = 0; i < 20000; i++)
     {
         if(!nextDrop()){P("DONE");break;}
