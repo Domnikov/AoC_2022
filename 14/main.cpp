@@ -62,7 +62,7 @@ bool nextDrop()
     do
     {
         auto [nX, nY, canGo] = whereCanGo(x, y);
-        if(nY == maxY) break;
+        if(nY == grid.size()-1) break;
         can = canGo;
         grid[y][x] = ' ';
         x = nX;
