@@ -106,6 +106,7 @@ int main(int argc, char** argv)
     for(int i = 0; i < 200; i++)
     {
         if(!nextDrop()){P("DONE");break;}
+        score++;
         drawGrid();
     }
 
