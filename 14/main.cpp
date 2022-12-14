@@ -20,13 +20,17 @@ int main(int argc, char** argv)
     for(int i{}; i < in.size();i++ )
     {
         S line = in[i];
+        int curX = -1;
+        int curY = -1;
         while(!line.empty())
         {
             auto pos = line.find(" -> ");
             S cur;
             if(pos == S::npos){ cur = line; line.clear();}
             else {cur = line.substr(0, pos); line = line.substr(pos+4);}
-            P(cur,line);
+            auto ab = splitStr(cur, ',');
+            int nextX = stoi(ab[0]), nextY = stoi(ab[1]);
+            if(curX != nextX && curY != nextY){P("PROBLEM");exit(1);}
         }
     }
     // P_VECV(grid);
