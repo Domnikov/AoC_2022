@@ -111,7 +111,7 @@ int main(int argc, char** argv)
                 LL dist = abs(sx-min) + abs(sy-y);
                 if(dist > senPwr[id])
                 {
-                    min += 1 + senPwr[id] - dist;
+                    min = sx + senPwr[id] - abs(sy-y) + 1;
                     found = false;
                     break;
                     // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
