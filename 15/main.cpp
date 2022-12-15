@@ -20,6 +20,11 @@ VECS grid(40, S(40, ' '));
 LL X(LL x){return x+10;}
 LL Y(LL y){return y+10;}
 
+int dist(std::pair<LL,LL> a, std::pair<LL,LL> b)
+{
+    return abs(a.first-b.first) + abs(a.second-b.second);
+}
+
 int main(int argc, char** argv)
 {
     LL score = 0;
@@ -86,17 +91,16 @@ int main(int argc, char** argv)
     score = 0;
     minx = 999999999, maxx = 0;
     miny = 999999999, maxy = 0;
-    FOR(id, sen.size())
+    FOR(id1, sen.size())
     {
-        LL sx = sen[id].first ;
-        LL sy = sen[id].second;
-        minx = std::min(minx, sx + senPwr[id]);
-        maxx = std::max(maxx, sx - senPwr[id]);
-        miny = std::min(miny, sy + senPwr[id]);
-        maxy = std::max(maxy, sy - senPwr[id]);
+        FOR(id2, sen.size())
+        {
+            if((dist(sen[id1],sen[id2]) - abs(senPwr[id1]-senPwr[id2])) == 1)
+            {
+                P(id1, id2);
+            }
+        }
     }
-    P(minx, maxx, miny, maxy, maxx-minx, maxy-miny);
-    std::vector<std::vector<LL>> igrid{maxy-miny,VECI{maxy-miny, 0}};
     FOR(x,maxx-minx){
     FOR(y,maxy-miny)
     {
