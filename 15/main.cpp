@@ -15,10 +15,10 @@ using INT = __int128;
 std::vector<std::pair<LL, LL>> sen;
 std::vector<std::pair<LL, LL>> bec;
 VECI senPwr;
-VECS grid(30, S(30, ' '));
+VECS grid(40, S(40, ' '));
 
-LL X(LL x){return x+2;}
-LL Y(LL y){return y+2;}
+LL X(LL x){return x+10;}
+LL Y(LL y){return y+10;}
 
 int main(int argc, char** argv)
 {
@@ -54,7 +54,12 @@ int main(int argc, char** argv)
             LL sx = sen[id].first;
             LL sy = sen[id].second;
             LL dist = abs(sx-i) + abs(sy-L);
-            if(dist <= senPwr[id]) score++;
+            if(dist <= senPwr[id])
+            {
+
+                grid[Y(L)][X(i)] = 'O';
+                score++;
+            }
         }
     }
     P_VECV(grid);
