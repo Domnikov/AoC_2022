@@ -1,4 +1,4 @@
-#define TEST
+// #define TES/* T */
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -59,7 +59,7 @@ int main(int argc, char** argv)
             if(dist <= senPwr[id])
             {
                 empty = std::find(BE(bec), std::pair<LL,LL>{i, y}) == bec.end();
-                if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
+                // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
             }
             // else
             // {
@@ -74,7 +74,7 @@ int main(int argc, char** argv)
                     P(i);
                 }
     }
-    P_VECV(grid);
+    // P_VECV(grid);
 
     P_RR("Part1: %lld\n", score);
 
