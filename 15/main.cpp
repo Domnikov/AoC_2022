@@ -1,4 +1,4 @@
-// #define TES/* T */
+#define TES/* T */
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -19,11 +19,6 @@ VECS grid(40, S(40, ' '));
 
 LL X(LL x){return x+10;}
 LL Y(LL y){return y+10;}
-
-int dist(std::pair<LL,LL> a, std::pair<LL,LL> b)
-{
-    return abs(a.first-b.first) + abs(a.second-b.second);
-}
 
 int main(int argc, char** argv)
 {
@@ -91,16 +86,39 @@ int main(int argc, char** argv)
     score = 0;
     minx = 999999999, maxx = 0;
     miny = 999999999, maxy = 0;
-    FOR(id1, sen.size())
+    FOR(id, sen.size())
     {
-        FOR(id2, sen.size())
+        LL sx = sen[id].first ;
+        LL sy = sen[id].second;
+        minx = std::min(minx, sx + senPwr[id]);
+        maxx = std::max(maxx, sx - senPwr[id]);
+        miny = std::min(miny, sy + senPwr[id]);
+        maxy = std::max(maxy, sy - senPwr[id]);
+    }
+    P(minx, maxx, miny, maxy, maxx-minx, maxy-miny);
+    std::vector<std::vector<LL>> igrid{maxy-miny,VECI{maxy-miny, 0}};
+    FOR(y,maxy-miny)
+    {
+        LL min = minx;
+        while(found || min > maxx)
         {
-            FOR(id1, sen.size())
+            bool found = true;
+            FOR(id, sen.size())
             {
-                FOR(id2, sen.size())
+                LL sx = sen[id].first;
+                LL sy = sen[id].second;
+                LL dist = abs(sx-min) + abs(sy-y);
+                if(dist > senPwr[id])
                 {
-                    score++;
+                    min += 1 + senPwr[id] - abs(y-sy);
+                    found = false;
+                    break;
+                    // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
                 }
+            }
+            if(found)
+            {
+                P(min,y);
             }
         }
     }
