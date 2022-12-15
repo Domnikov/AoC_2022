@@ -126,6 +126,11 @@ int main(int argc, char** argv)
                 exit(0);
             }
         }
+            if(found)
+            {
+                P(min,y);
+                exit(0);
+            }
     }
     P("END");
 
