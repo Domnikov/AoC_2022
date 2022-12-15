@@ -101,13 +101,6 @@ int main(int argc, char** argv)
             }
         }
     }
-    FOR(x,maxx-minx){
-    FOR(y,maxy-miny)
-    {
-        if(igrid[y][x] == 1)P("FOUND");
-    }
-    P(x);
-    }
     P("END");
     // FOR(y,28LL)
     // {
