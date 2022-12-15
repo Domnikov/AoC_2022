@@ -95,7 +95,7 @@ int main(int argc, char** argv)
     {
         FOR(id2, sen.size())
         {
-            if((dist(sen[id1],sen[id2]) - abs(senPwr[id1]+senPwr[id2])) == 1)
+            if(abs(senPwr[id1]+senPwr[id2]) - (dist(sen[id1],sen[id2])) == 1)
             {
                 P(id1, id2);
             }
