@@ -47,18 +47,19 @@ int main(int argc, char** argv)
     }
     P(minx, maxx);
     // P_VECV(grid);
+    FOR(y,28)
     for(LL i = minx; i <= maxx;++i)
     {
         FOR(id, sen.size())
         {
             LL sx = sen[id].first;
             LL sy = sen[id].second;
-            LL dist = abs(sx-i) + abs(sy-L);
+            LL dist = abs(sx-i) + abs(sy-y);
             if(dist <= senPwr[id])
             {
 
-                if(grid[Y(L)][X(i)] == ' ')grid[Y(L)][X(i)] = 'O';
-                score++;
+                if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
+                if(y == L)score++;
             }
         }
     }
