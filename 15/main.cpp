@@ -15,7 +15,6 @@ using INT = __int128;
 std::vector<std::pair<LL, LL>> sen;
 std::vector<std::pair<LL, LL>> bec;
 VECI senPwr;
-VECS grid(40, S(40, ' '));
 
 LL X(LL x){return x+10;}
 LL Y(LL y){return y+10;}
@@ -39,9 +38,6 @@ int main(int argc, char** argv)
         bec.push_back({bx, by});
         senPwr.push_back(abs(sx-bx) + abs(sy-by));
 
-        // grid[Y(sy)][X(sx)] = 'S';
-        // grid[Y(by)][X(bx)] = 'B';
-
         minx = std::min(minx, sx-senPwr.back());
         maxx = std::max(maxx, sx+senPwr.back());
         miny = std::min(miny, sy-senPwr.back());
@@ -49,9 +45,7 @@ int main(int argc, char** argv)
 
     }
     P(minx, maxx);
-    // P_VECV(grid);
-    // FOR(y,28LL)
-#if 0
+
     LL y = L;
     for(LL i = minx-2; i <= maxx+2;++i)
     {
@@ -64,22 +58,13 @@ int main(int argc, char** argv)
             if(dist <= senPwr[id])
             {
                 empty = std::find(BE(bec), std::pair<LL,LL>{i, y}) == bec.end();
-                // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
             }
-            // else
-            // {
-            //     grid[Y(y)][X(i)] = ' ';
-            //     empty = false;
-            //     break;
-            // }
         }
         if(empty&&(y == L))
-                {
-                    score++;
-                }
+        {
+            score++;
+        }
     }
-    // P_VECV(grid);
-#endif
     P_RR("Part1: %lld\n", score);
 
     D = false;
@@ -95,8 +80,6 @@ int main(int argc, char** argv)
         miny = std::min(miny, sy);
         maxy = std::max(maxy, sy);
     }
-    P(minx, maxx, miny, maxy, maxx-minx, maxy-miny);
-    // std::vector<std::vector<LL>> igrid{maxy-miny,VECI{maxy-miny, 0}};
     for(LL y = miny; y <= maxy; y++)
     {
         LL min = minx;
@@ -104,7 +87,6 @@ int main(int argc, char** argv)
         while(!found && min < maxx)
         {
             found = true;
-            // P(found);
             FOR(id, sen.size())
             {
                 LL sx = sen[id].first;
@@ -112,24 +94,19 @@ int main(int argc, char** argv)
                 LL dist = abs(sx-min) + abs(sy-y);
                 if(dist <= senPwr[id])
                 {
-                    // P(y, min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
                     min = sx + senPwr[id] - abs(sy-y) + 1;
                     found = false;
                     break;
-                    // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
                 }
             }
-            // P(found);
             if(found)
             {
-                LL freq = 4000000 * min + y;
-                P(min,y, freq);
-                exit(0);
+                score = 4000000 * min + y;
+                P_RR("Part2: %lld\n", score);
+                return 0;
             }
         }
-        // P(min, y);
     }
-    P("END");
-
-    P_RR("Part2: %lld\n", score);
+    P("Didm't find");
+    return 1;
 }
