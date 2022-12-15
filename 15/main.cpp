@@ -47,7 +47,7 @@ int main(int argc, char** argv)
     }
     P(minx, maxx);
     // P_VECV(grid);
-    FOR(y,28)
+    FOR(y,28LL)
     for(LL i = minx-2; i <= maxx+2;++i)
     {
         bool empty = false;
@@ -58,7 +58,7 @@ int main(int argc, char** argv)
             LL dist = abs(sx-i) + abs(sy-y);
             if(dist <= senPwr[id])
             {
-                empty = true;
+                empty = std::none_of(BE(bec), std::make_pair(i, y));
                 if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
             }
             // else
