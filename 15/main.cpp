@@ -38,8 +38,8 @@ int main(int argc, char** argv)
         bec.push_back({bx, by});
         senPwr.push_back(abs(sx-bx) + abs(sy-by));
 
-        grid[Y(sy)][X(sx)] = 'S';
-        grid[Y(by)][X(bx)] = 'B';
+        // grid[Y(sy)][X(sx)] = 'S';
+        // grid[Y(by)][X(bx)] = 'B';
 
         minx = std::min(minx, sx-senPwr.back());
         maxx = std::max(maxx, sx+senPwr.back());
