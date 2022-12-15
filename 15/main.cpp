@@ -96,7 +96,7 @@ int main(int argc, char** argv)
         maxy = std::max(maxy, sy - senPwr[id]);
     }
     P(minx, maxx, miny, maxy, maxx-minx, maxy-miny);
-    std::vector<std::vector<LL>> igrid{maxy-miny,VECI{maxx-miny, 0}};
+    std::vector<std::vector<LL>> igrid{maxy-miny,VECI{maxy-miny, 0}};
     FOR(x,minx+maxx){
     FOR(y,miny+maxy)
     {
