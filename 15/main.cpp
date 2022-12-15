@@ -25,6 +25,7 @@ int main(int argc, char** argv)
     LL score = 0;
     D = false;
     LL minx = 999999999, maxx = 0;
+    LL miny = 999999999, maxy = 0;
     for(int i{}; i < in.size();i++ )
     {
         S line = in[i];
@@ -43,6 +44,8 @@ int main(int argc, char** argv)
 
         minx = std::min(minx, sx-senPwr.back());
         maxx = std::max(maxx, sx+senPwr.back());
+        miny = std::min(miny, sy-senPwr.back());
+        maxy = std::max(maxy, sy+senPwr.back());
 
     }
     P(minx, maxx);
@@ -81,6 +84,7 @@ int main(int argc, char** argv)
 
     D = false;
     score = 0;
+    P(minx, maxx, miny, maxy);
     FOR(y,28LL)
     {
     for(LL i = minx-2; i <= maxx+2;++i)
