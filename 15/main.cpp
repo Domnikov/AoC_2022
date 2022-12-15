@@ -106,6 +106,7 @@ int main(int argc, char** argv)
                 {
                     score++;
                 }
+        P(y, L);
     }
 
     P_RR("Part2: %lld\n", score);
