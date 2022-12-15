@@ -1,4 +1,4 @@
-#define TES/* T */
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
