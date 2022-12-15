@@ -111,7 +111,7 @@ int main(int argc, char** argv)
                 LL dist = abs(sx-min) + abs(sy-y);
                 if(dist <= senPwr[id])
                 {
-                    P(min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
+                    P(y, min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
                     min = sx + senPwr[id] - abs(sy-y) + 1;
                     found = false;
                     continue;
