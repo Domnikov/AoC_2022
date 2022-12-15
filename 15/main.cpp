@@ -37,6 +37,7 @@ int main(int argc, char** argv)
 
         grid[sx][sy] = 'S';
         grid[bx][by] = 'B';
+        P_VECV(grid);
 
     }
     P_VECV(grid);
