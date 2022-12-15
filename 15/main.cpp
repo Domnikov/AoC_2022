@@ -72,7 +72,6 @@ int main(int argc, char** argv)
         if(empty&&(y == L))
                 {
                     score++;
-                    P(i);
                 }
     }
     // P_VECV(grid);
