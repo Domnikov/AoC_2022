@@ -86,14 +86,14 @@ int main(int argc, char** argv)
     score = 0;
     minx = 999999999, maxx = 0;
     miny = 999999999, maxy = 0;
-    for(auto s:sen)
+    FOR(id, sen.size())
     {
-        LL sx = s.first;
-        LL sy = s.second;
-        minx = std::min(minx, sx);
-        maxx = std::max(maxx, sx);
-        miny = std::min(miny, sy);
-        maxy = std::max(maxy, sy);
+        LL sx = sen[id].first ;
+        LL sy = sen[id].second;
+        minx = std::min(minx, sx + senPwr[id]);
+        maxx = std::max(maxx, sx - senPwr[id]);
+        miny = std::min(miny, sy + senPwr[id]);
+        maxy = std::max(maxy, sy - senPwr[id]);
     }
     P(minx, maxx, miny, maxy);
     std::vector<std::vector<LL>> igrid{miny+maxy,VECI{minx+maxy, 0}};
