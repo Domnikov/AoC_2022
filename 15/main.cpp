@@ -101,7 +101,7 @@ int main(int argc, char** argv)
     {
         LL min = minx;
         bool found = true;
-        while(!found || min < maxx)
+        while(found && min < maxx)
         {
             found = true;
             P(found);
@@ -125,12 +125,8 @@ int main(int argc, char** argv)
                 P(min,y);
                 exit(0);
             }
+            P(min);
         }
-            if(found)
-            {
-                P(min,y);
-                exit(0);
-            }
     }
     P("END");
 
