@@ -86,35 +86,41 @@ int main(int argc, char** argv)
     score = 0;
     P(minx, maxx, miny, maxy);
     std::vector<std::vector<LL>> igrid{miny+maxy,VECI{minx+maxy, 0}};
-    FOR(y,28LL)
+    FOR(x,minx+maxx)
+    FOR(y,miny+maxy)
     {
-    for(LL i = minx-2; i <= maxx+2;++i)
-    {
-        bool empty = false;
-        FOR(id, sen.size())
-        {
-            LL sx = sen[id].first;
-            LL sy = sen[id].second;
-            LL dist = abs(sx-i) + abs(sy-y);
-            if(dist <= senPwr[id])
-            {
-                empty = true;
-                // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
-            }
-            // else
-            // {
-            //     grid[Y(y)][X(i)] = ' ';
-            //     empty = false;
-            //     break;
-            // }
-        }
-        if(empty&&(y == L))
-                {
-                    score++;
-                }
+        if(igrid[y][x] == 1)P("FOUND");
     }
-        P(y, L);
-    }
+    P("END");
+    // FOR(y,28LL)
+    // {
+    // for(LL i = minx-2; i <= maxx+2;++i)
+    // {
+    //     bool empty = false;
+    //     FOR(id, sen.size())
+    //     {
+    //         LL sx = sen[id].first;
+    //         LL sy = sen[id].second;
+    //         LL dist = abs(sx-i) + abs(sy-y);
+    //         if(dist <= senPwr[id])
+    //         {
+    //             empty = true;
+    //             // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
+    //         }
+    //         // else
+    //         // {
+    //         //     grid[Y(y)][X(i)] = ' ';
+    //         //     empty = false;
+    //         //     break;
+    //         // }
+    //     }
+    //     if(empty&&(y == L))
+    //             {
+    //                 score++;
+    //             }
+    // }
+    //     P(y, L);
+    // }
 
     P_RR("Part2: %lld\n", score);
 }
