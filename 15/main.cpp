@@ -90,10 +90,10 @@ int main(int argc, char** argv)
     {
         LL sx = sen[id].first ;
         LL sy = sen[id].second;
-        minx = std::min(minx, sx + senPwr[id]);
-        maxx = std::max(maxx, sx - senPwr[id]);
-        miny = std::min(miny, sy + senPwr[id]);
-        maxy = std::max(maxy, sy - senPwr[id]);
+        minx = std::min(minx, sx);
+        maxx = std::max(maxx, sx);
+        miny = std::min(miny, sy);
+        maxy = std::max(maxy, sy);
     }
     P(minx, maxx, miny, maxy, maxx-minx, maxy-miny);
     // std::vector<std::vector<LL>> igrid{maxy-miny,VECI{maxy-miny, 0}};
