@@ -113,7 +113,7 @@ int main(int argc, char** argv)
                 {
                     min = sx + senPwr[id] - abs(sy-y) + 1;
                     found = false;
-                    break;
+                    continue;
                     // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
                 }
             }
