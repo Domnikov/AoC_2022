@@ -33,9 +33,12 @@ int main(int argc, char** argv)
         P(by);
 
         sen.push_back({sx, sy});
+    P_VECV(grid);
         bec.push_back({bx, by});
+    P_VECV(grid);
 
         grid[sx][sy] = 'S';
+    P_VECV(grid);
         grid[bx][by] = 'B';
         P_VECV(grid);
 
