@@ -84,6 +84,17 @@ int main(int argc, char** argv)
 
     D = false;
     score = 0;
+    minx = 999999999, maxx = 0;
+    miny = 999999999, maxy = 0;
+    for(auto s:sen)
+    {
+        LL sx = s.first;
+        LL sy = s.second;
+        minx = std::min(minx, sx);
+        maxx = std::max(maxx, sx);
+        miny = std::min(miny, sy);
+        maxy = std::max(maxy, sy);
+    }
     P(minx, maxx, miny, maxy);
     std::vector<std::vector<LL>> igrid{miny+maxy,VECI{minx+maxy, 0}};
     FOR(x,minx+maxx)
