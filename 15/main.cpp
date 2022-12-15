@@ -125,8 +125,8 @@ int main(int argc, char** argv)
                 P(min,y);
                 exit(0);
             }
-            P(min);
         }
+            P(min);
     }
     P("END");
 
