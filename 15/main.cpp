@@ -1,11 +1,11 @@
 #define TEST
 
 #ifdef TEST
-    LL L = 20;
     #include "in_test.hpp"
+    LL L = 20;
 #else
-    LL L = 2000000;
     #include "in.hpp"
+    LL L = 2000000;
 #endif
 
 auto in = getInput();
