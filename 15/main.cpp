@@ -58,7 +58,7 @@ int main(int argc, char** argv)
             LL dist = abs(sx-i) + abs(sy-y);
             if(dist <= senPwr[id])
             {
-                empty = std::none_of(BE(bec), std::make_pair(i, y));
+                empty = std::find(BE(bec), std::pair<LL,LL>{i, y}) == bec.end();
                 if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
             }
             // else
