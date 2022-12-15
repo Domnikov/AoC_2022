@@ -115,7 +115,7 @@ int main(int argc, char** argv)
                     P(y, min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
                     min = sx + senPwr[id] - abs(sy-y) + 1;
                     found = false;
-                    continue;
+                    break;
                     // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
                 }
             }
@@ -126,7 +126,7 @@ int main(int argc, char** argv)
                 exit(0);
             }
         }
-            P(min, y);
+        P(min, y);
     }
     P("END");
 
