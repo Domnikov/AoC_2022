@@ -100,9 +100,10 @@ int main(int argc, char** argv)
     FOR(y,maxy-miny)
     {
         LL min = minx;
+        bool found = true;
         while(found || min > maxx)
         {
-            bool found = true;
+            found = true;
             FOR(id, sen.size())
             {
                 LL sx = sen[id].first;
