@@ -101,7 +101,7 @@ int main(int argc, char** argv)
     {
         LL min = minx;
         bool found = true;
-        while(found && min > maxx)
+        while(found && min < maxx)
         {
             found = true;
             FOR(id, sen.size())
