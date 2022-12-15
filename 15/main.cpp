@@ -61,12 +61,12 @@ int main(int argc, char** argv)
                 empty = true;
                 if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
             }
-            else
-            {
-                grid[Y(y)][X(i)] = ' ';
-                empty = false;
-                break;
-            }
+            // else
+            // {
+            //     grid[Y(y)][X(i)] = ' ';
+            //     empty = false;
+            //     break;
+            // }
         }
         if(empty&&(y == L))
                 {
