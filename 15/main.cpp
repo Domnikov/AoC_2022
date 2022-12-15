@@ -109,7 +109,7 @@ int main(int argc, char** argv)
                 LL sx = sen[id].first;
                 LL sy = sen[id].second;
                 LL dist = abs(sx-min) + abs(sy-y);
-                if(dist > senPwr[id])
+                if(dist <= senPwr[id])
                 {
                     P(min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
                     min = sx + senPwr[id] - abs(sy-y) + 1;
