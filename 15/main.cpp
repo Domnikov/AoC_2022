@@ -50,7 +50,7 @@ int main(int argc, char** argv)
     FOR(y,28)
     for(LL i = minx-2; i <= maxx+2;++i)
     {
-        bool empty = true;
+        bool empty = false;
         FOR(id, sen.size())
         {
             LL sx = sen[id].first;
