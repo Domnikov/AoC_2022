@@ -82,6 +82,7 @@ int main(int argc, char** argv)
     D = false;
     score = 0;
     FOR(y,28LL)
+    {
     for(LL i = minx-2; i <= maxx+2;++i)
     {
         bool empty = false;
@@ -106,6 +107,7 @@ int main(int argc, char** argv)
                 {
                     score++;
                 }
+    }
         P(y, L);
     }
 
