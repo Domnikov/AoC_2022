@@ -80,6 +80,32 @@ int main(int argc, char** argv)
 
     D = false;
     score = 0;
+    FOR(y,28LL)
+    for(LL i = minx-2; i <= maxx+2;++i)
+    {
+        bool empty = false;
+        FOR(id, sen.size())
+        {
+            LL sx = sen[id].first;
+            LL sy = sen[id].second;
+            LL dist = abs(sx-i) + abs(sy-y);
+            if(dist <= senPwr[id])
+            {
+                empty = true;
+                // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
+            }
+            // else
+            // {
+            //     grid[Y(y)][X(i)] = ' ';
+            //     empty = false;
+            //     break;
+            // }
+        }
+        if(empty&&(y == L))
+                {
+                    score++;
+                }
+    }
 
     P_RR("Part2: %lld\n", score);
 }
