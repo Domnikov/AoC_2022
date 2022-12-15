@@ -48,6 +48,7 @@ int main(int argc, char** argv)
     P(minx, maxx);
     // P_VECV(grid);
     // FOR(y,28LL)
+#if 0
     LL y = L;
     for(LL i = minx-2; i <= maxx+2;++i)
     {
@@ -75,7 +76,7 @@ int main(int argc, char** argv)
                 }
     }
     // P_VECV(grid);
-
+#endif
     P_RR("Part1: %lld\n", score);
 
     D = false;
