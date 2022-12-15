@@ -10,6 +10,9 @@ auto in = getInput();
 bool D = true;
 using INT = __int128;
 
+std::vector<std::pair<int, int>> sen;
+std::vector<std::pair<int, int>> bec;
+VECS grid(25, S(25, ' '));
 
 int main(int argc, char** argv)
 {
@@ -18,7 +21,20 @@ int main(int argc, char** argv)
     for(int i{}; i < in.size();i++ )
     {
         S line = in[i];
+        auto vec = splitStr(line, ' ');
+        int sx = stoi(vec[2].substr(2, vec[2].size() - 3));
+        int sy = stoi(vec[3].substr(2, vec[3].size() - 3));
+        int bx = stoi(vec[8].substr(2, vec[8].size() - 3));
+        int by = stoi(vec[9].substr(2                   ));
+
+        sen.push_back({sx, sy});
+        bec.push_back({bx, by});
+
+        grid[sx][sy] = 'S';
+        grid[bx][by] = 'B';
+
     }
+    P_VECV(grid);
 
     P_RR("Part1: %lld\n", score);
 
