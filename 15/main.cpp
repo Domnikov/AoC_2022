@@ -47,7 +47,7 @@ int main(int argc, char** argv)
     }
     P(minx, maxx);
     // P_VECV(grid);
-    FOR(y,28LL)
+    // FOR(y,28LL)
     for(LL i = minx-2; i <= maxx+2;++i)
     {
         bool empty = false;
