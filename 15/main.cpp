@@ -123,7 +123,7 @@ int main(int argc, char** argv)
             if(found)
             {
                 LL freq = 4000000 * min + y;
-                P(min,y, );
+                P(min,y, freq);
                 exit(0);
             }
         }
