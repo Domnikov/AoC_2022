@@ -45,6 +45,7 @@ int main(int argc, char** argv)
         maxx = std::max(maxx, sx+senPwr.back());
 
     }
+    P(minx, maxx);
     // P_VECV(grid);
     for(LL i = minx; i <= maxx;++i)
     {
