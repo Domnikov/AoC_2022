@@ -57,6 +57,7 @@ int main(int argc, char** argv)
             if(dist <= senPwr[id]) score++;
         }
     }
+    P_VECV(grid);
 
     P_RR("Part1: %lld\n", score);
 
