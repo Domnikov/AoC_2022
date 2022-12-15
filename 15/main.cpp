@@ -104,7 +104,7 @@ int main(int argc, char** argv)
         while(found && min < maxx)
         {
             found = true;
-            P(found);
+            // P(found);
             FOR(id, sen.size())
             {
                 LL sx = sen[id].first;
@@ -112,21 +112,21 @@ int main(int argc, char** argv)
                 LL dist = abs(sx-min) + abs(sy-y);
                 if(dist <= senPwr[id])
                 {
-                    P(y, min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
+                    // P(y, min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
                     min = sx + senPwr[id] - abs(sy-y) + 1;
                     found = false;
                     continue;
                     // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
                 }
             }
-            P(found);
+            // P(found);
             if(found)
             {
                 P(min,y);
                 exit(0);
             }
         }
-            P(min);
+            P(min, y);
     }
     P("END");
 
