@@ -12,7 +12,10 @@ using INT = __int128;
 
 std::vector<std::pair<int, int>> sen;
 std::vector<std::pair<int, int>> bec;
-VECS grid(25, S(25, ' '));
+VECS grid(30, S(30, ' '));
+
+int X(int x){return x+2;}
+int Y(int y){return y+2;}
 
 int main(int argc, char** argv)
 {
@@ -33,14 +36,10 @@ int main(int argc, char** argv)
         P(by);
 
         sen.push_back({sx, sy});
-    P_VECV(grid);
         bec.push_back({bx, by});
-    P_VECV(grid);
 
-        grid[sx][sy] = 'S';
-    P_VECV(grid);
-        grid[bx][by] = 'B';
-        P_VECV(grid);
+        grid[X(sx)][Y(sy)] = 'S';
+        grid[X(bx)][Y(by)] = 'B';
 
     }
     P_VECV(grid);
