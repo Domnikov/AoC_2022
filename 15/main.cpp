@@ -21,11 +21,16 @@ int main(int argc, char** argv)
     for(int i{}; i < in.size();i++ )
     {
         S line = in[i];
+        P(line);
         auto vec = splitStr(line, ' ');
         int sx = stoi(vec[2].substr(2, vec[2].size() - 3));
+        P(sx);
         int sy = stoi(vec[3].substr(2, vec[3].size() - 3));
+        P(sy);
         int bx = stoi(vec[8].substr(2, vec[8].size() - 3));
+        P(bx);
         int by = stoi(vec[9].substr(2                   ));
+        P(by);
 
         sen.push_back({sx, sy});
         bec.push_back({bx, by});
