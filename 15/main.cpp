@@ -57,7 +57,7 @@ int main(int argc, char** argv)
             if(dist <= senPwr[id])
             {
 
-                grid[Y(L)][X(i)] = 'O';
+                if(grid[Y(L)][X(i)] == ' ')grid[Y(L)][X(i)] = 'O';
                 score++;
             }
         }
