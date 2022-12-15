@@ -104,6 +104,7 @@ int main(int argc, char** argv)
         while(found && min < maxx)
         {
             found = true;
+            P(found);
             FOR(id, sen.size())
             {
                 LL sx = sen[id].first;
@@ -118,6 +119,7 @@ int main(int argc, char** argv)
                     // if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
                 }
             }
+            P(found);
             if(found)
             {
                 P(min,y);
