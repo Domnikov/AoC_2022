@@ -97,10 +97,12 @@ int main(int argc, char** argv)
     }
     P(minx, maxx, miny, maxy);
     std::vector<std::vector<LL>> igrid{miny+maxy,VECI{minx+maxy, 0}};
-    FOR(x,minx+maxx)
+    FOR(x,minx+maxx){
     FOR(y,miny+maxy)
     {
         if(igrid[y][x] == 1)P("FOUND");
+    }
+    P(x);
     }
     P("END");
     // FOR(y,28LL)
