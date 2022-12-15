@@ -50,6 +50,7 @@ int main(int argc, char** argv)
     FOR(y,28)
     for(LL i = minx-2; i <= maxx+2;++i)
     {
+        bool empty = true;
         FOR(id, sen.size())
         {
             LL sx = sen[id].first;
@@ -59,13 +60,19 @@ int main(int argc, char** argv)
             {
 
                 if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
-                if(y == L)
+            }
+            else
+            {
+                grid[Y(y)][X(i)] = ' ';
+                empty = false;
+                break;
+            }
+        }
+        if(empty&&(y == L))
                 {
                     score++;
                     P(i);
                 }
-            }
-        }
     }
     P_VECV(grid);
 
