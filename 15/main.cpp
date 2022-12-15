@@ -59,7 +59,11 @@ int main(int argc, char** argv)
             {
 
                 if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
-                if(y == L)score++;
+                if(y == L)
+                {
+                    score++;
+                    P(i);
+                }
             }
         }
     }
