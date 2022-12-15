@@ -44,7 +44,6 @@ int main(int argc, char** argv)
         maxy = std::max(maxy, sy+senPwr.back());
 
     }
-    P(minx, maxx);
 
     LL y = L;
     for(LL i = minx-2; i <= maxx+2;++i)
