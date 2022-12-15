@@ -100,7 +100,7 @@ int main(int argc, char** argv)
     for(LL y = miny; y <= maxy; y++)
     {
         LL min = minx;
-        bool found = true;
+        bool found = false;
         while(!found && min < maxx)
         {
             found = true;
