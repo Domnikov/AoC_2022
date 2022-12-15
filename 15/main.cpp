@@ -112,7 +112,7 @@ int main(int argc, char** argv)
                 LL dist = abs(sx-min) + abs(sy-y);
                 if(dist <= senPwr[id])
                 {
-                    P(y, min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
+                    // P(y, min, sx, senPwr[id], abs(sy-y), sx + senPwr[id] - abs(sy-y) + 1);
                     min = sx + senPwr[id] - abs(sy-y) + 1;
                     found = false;
                     break;
@@ -122,7 +122,8 @@ int main(int argc, char** argv)
             // P(found);
             if(found)
             {
-                P(min,y);
+                LL freq = 4000000 * min + y;
+                P(min,y, );
                 exit(0);
             }
         }
