@@ -2,7 +2,7 @@
 
 #ifdef TEST
     #include "in_test.hpp"
-    LL L = 20;
+    LL L = 10;
 #else
     #include "in.hpp"
     LL L = 2000000;
