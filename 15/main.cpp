@@ -95,9 +95,12 @@ int main(int argc, char** argv)
     {
         FOR(id2, sen.size())
         {
-            if(abs(senPwr[id1]+senPwr[id2]) - (dist(sen[id1],sen[id2])) == 1)
+            FOR(id1, sen.size())
             {
-                P(id1, id2);
+                FOR(id2, sen.size())
+                {
+                    score++;
+                }
             }
         }
     }
