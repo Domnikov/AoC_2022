@@ -58,7 +58,7 @@ int main(int argc, char** argv)
             LL dist = abs(sx-i) + abs(sy-y);
             if(dist <= senPwr[id])
             {
-
+                empty = true;
                 if(grid[Y(y)][X(i)] == ' ')grid[Y(y)][X(i)] = (y == L) ? 'O' : 'o';
             }
             else
