@@ -38,8 +38,8 @@ int main(int argc, char** argv)
         sen.push_back({sx, sy});
         bec.push_back({bx, by});
 
-        grid[X(sx)][Y(sy)] = 'S';
-        grid[X(bx)][Y(by)] = 'B';
+        grid[Y(sy)][X(sx)] = 'S';
+        grid[Y(by)][X(bx)] = 'B';
 
     P_VECV(grid);
     }
