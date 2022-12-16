@@ -107,7 +107,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
             static LL max{};
             LL newScore = score + curP * maxTime-time;
             max = std::max(max, newScore);
-            P(max, newScore);
+            P(max, newScore, score);
             // if(newScore == 3914)exit(1);
             return {0, newScore};
         }
