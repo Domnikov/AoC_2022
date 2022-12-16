@@ -87,6 +87,7 @@ VECS get3MaxClosed(S cur, V_t val)
     VECSS res;
     LL curP = countP(val);
     LL maxLen;
+    P_LINE;
     for(int i = 0; i < std::min<size_t>(NUM, allFlows.size()); ++i)
     {
         LL dst = allFlows.back();
@@ -96,8 +97,10 @@ VECS get3MaxClosed(S cur, V_t val)
         maxLen = std::max<LL>(maxLen, path.size());
         res.push_back(path);
     }
+    P_LINE;
     size_t idx = 0;
     auto countPath = [maxLen, &res, curP](LL i){LL curLen = res[i].size();LL nextP = std::get<1>(V[res[i].back()]);return (curP*(curLen)) + (curP+nextP)*(maxLen-curLen);};
+    P_LINE;
     FOR(i, res.size())
     {
         if(countPath(i) > countPath(idx))
@@ -105,6 +108,7 @@ VECS get3MaxClosed(S cur, V_t val)
             idx = i;
         }
     }
+    P_LINE;
     return res[idx];
 }
 
