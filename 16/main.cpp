@@ -29,10 +29,9 @@ LL countP(const decltype(V)& val)
     return score;
 }
 
-std::pair<LL, LL> stePp(LL prev, S cur, decltype(V) val)
+std::pair<LL, LL> stePp(LL time, S prev, S cur, decltype(V) val)
 {
-    P(prev, cur);
-    if(prev == 30)
+    if(time == 30)
     {
         return {30, 0};
     }
@@ -45,12 +44,12 @@ std::pair<LL, LL> stePp(LL prev, S cur, decltype(V) val)
         decltype(V) copy = val;
         auto& [curAgainCopy, flowCopy, nextCopy, openCopy] = copy[cur];
         openCopy = true;
-        variants.push_back(stePp(prev+1, cur, copy));
+        variants.push_back(stePp(time+1, cur, cur, copy));
     }
     for(auto& n : next)
     {
         decltype(V) copy = val;
-        variants.push_back(stePp(prev+1, n, copy));
+        if(n != prev) variants.push_back(stePp(time+1, cur, n, copy));
     }
 
     std::pair<LL,LL> best{0,0};
@@ -83,7 +82,7 @@ int main(int argc, char** argv)
         V[cur] = {cur, flow, next, false};
     }
 
-    auto [step, newScore] = stePp(0, "AA", V);
+    auto [step, newScore] = stePp(0, "AA", "AA", V);
 
     P_RR("Part1: %lld\n", score);
 //========================================================
