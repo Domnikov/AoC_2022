@@ -14,7 +14,7 @@ using VECC = std::vector<char>;
 
 using V_t = std::map<char, std::tuple<char, LL, VECC, bool>>;
 V_t V;
-LL maxTime = 3;
+LL maxTime = 10;
 
 LL countP(const decltype(V)& val)
 {
