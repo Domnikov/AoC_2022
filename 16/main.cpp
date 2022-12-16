@@ -9,9 +9,10 @@
 auto in = getInput();
 bool D = true;
 using INT = __int128;
+using VECC = std::vector<char>;
 
 
-std::map<char, std::tuple<char, LL, std::vector<char>, bool>> V;
+std::map<char, std::tuple<char, LL, VECC, bool>> V;
 LL maxTime = 30;
 
 LL countP(const decltype(V)& val)
@@ -27,6 +28,43 @@ LL countP(const decltype(V)& val)
         }
     }
     return score;
+}
+
+
+VECC getPathIf(char cur, LL flow)
+{
+    char dst = 0;
+    for(auto& v:V)
+    {
+        if(std::get<1>(v.second) == flow)
+        {
+            dst = v.first;
+        }
+    }
+    if(!dst) return{};
+    std::vector<VECC>paths{{cur}};
+    while(true)
+    {
+        std::vector<VECC>nextPaths{{cur}};
+        for(auto p: paths)
+        {
+            if(p.back() == dst)
+            {
+                P_VEC(p);
+                return p;
+            }
+            for(auto n : std::get<2>(V[p.back()]))
+            {
+                VECC newPath = p;
+                newPath.push_back(n);
+            }
+        }
+        std::swap(paths, nextPaths);
+    }
+
+
+    P_RR("No path %c to %c \n", cur, dst);
+    exit(0);
 }
 
 
@@ -86,20 +124,8 @@ int main(int argc, char** argv)
         V[cur[0]] = {cur[0], flow, next, false};
     }
 
+    getPathIf('B', 21);
     // auto [step, newScore] = stePp(0, 'A', 'A', V);
-
-    std::map<std::pair<decltype(V), char>,LL> moves;
-
-    FOR(time, 30)
-    {
-        for(auto& m : moves)
-        {
-            auto& [pair, score] = m;
-            auto& [val, cur] = pair;
-            auto& [curAgain, flow, next, open] = val[cur];
-
-        }
-    }
 
     P_RR("Part1: %lld\n", score);
 //========================================================
