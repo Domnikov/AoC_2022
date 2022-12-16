@@ -31,16 +31,11 @@ LL countP(const decltype(V)& val)
 
 
 
-std::pair<LL, LL> stePp(LL time, char prev, char cur, decltype(V)& val)
+std::pair<LL, LL> stePp(LL time, char prev, char cur, decltype(V)& val, int onlyMove = 0)
 {
     if(time == 30)
     {
         return {0, 0};
-    }
-
-    if(time > 4 && countP(val) == 0)
-    {
-        return{0,0};
     }
 
     if(time <= 10)P(time, prev, cur, countP(val));
@@ -53,12 +48,12 @@ std::pair<LL, LL> stePp(LL time, char prev, char cur, decltype(V)& val)
         decltype(V) copy = val;
         auto& [curAgainCopy, flowCopy, nextCopy, openCopy] = copy[cur];
         openCopy = true;
-        variants.push_back(stePp(time+1, cur, cur, copy));
+        variants.push_back(stePp(time+1, cur, cur, copy, 0));
     }
-    for(auto& n : next)
+    if(onlyMove < 5)for(auto& n : next)
     {
         decltype(V) copy = val;
-        if(n != prev) variants.push_back(stePp(time+1, cur, n, copy));
+        if(n != prev) variants.push_back(stePp(time+1, cur, n, copy, onlyMove+1));
     }
 
     std::pair<LL,LL> best{0,0};
