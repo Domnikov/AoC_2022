@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -12,7 +12,7 @@ using INT = __int128;
 using VECC = std::vector<char>;
 
 
-using V_t = std::map<char, std::tuple<char, LL, VECC, bool>>;
+using V_t = std::map<S, std::tuple<S, LL, VECS, bool>>;
 V_t V;
 LL maxTime = 30;
 
@@ -32,10 +32,10 @@ LL countP(const decltype(V)& val)
 }
 
 
-VECC getPathIf(char cur, LL flow, const V_t& val)
+VECS getPathIf(S cur, LL flow, const V_t& val)
 {
     P_LINE;
-    char dst = 0;
+    S dst;
     for(auto& v:val)
     {
         if(std::get<1>(v.second) == flow)
@@ -45,15 +45,15 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
     }
     P_LINE;
     P(cur, flow, dst);
-    if(!dst) return{};
-    std::vector<VECC>paths{{cur}};
+    if(dst.empty()) return{};
+    std::vector<VECS>paths{{cur}};
     if(cur == dst) return paths[0];
     P_LINE;
     while(true)
     {
         P(paths.size());
-        std::vector<VECC>nextPaths{{cur}};
-        for(auto p: paths)
+        decltype(paths) nextPaths{{cur}};
+        for(const auto& p: paths)
         {
             if(p.back() == dst)
             {
@@ -63,7 +63,7 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
             {
                 if(std::find(BE(p), n) == p.end())
                 {
-                    VECC newPath = p;
+                    VECS newPath = p;
                     newPath.push_back(n);
                     nextPaths.push_back(newPath);
                 }
@@ -74,7 +74,7 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
 
     P_LINE;
 
-    P_RR("No path %c to %c \n", cur, dst);
+    P_RR("No path %s to %s \n", cur.c_str(), dst.c_str());
     exit(0);
 }
 
@@ -98,8 +98,8 @@ VECI get3MaxClosed(V_t val)
 }
 
 
-std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score);
-std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
+std::pair<LL, LL> steP(S cur, decltype(V) val, LL time, LL score);
+std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
 {
     P_LINE;
     // if(time < 20)P(time);
@@ -143,7 +143,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
 }
 
 
-std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
+std::pair<LL, LL> steP(S cur, decltype(V) val, LL time, LL score)
 {
     P_LINE;
     auto& [curAgain, flow, nexts, open] = val[cur];
@@ -187,10 +187,10 @@ int main(int argc, char** argv)
         {
             next.push_back(replace(splitted[n], ",")[0]);
         }
-        V[cur[0]] = {cur[0], flow, next, false};
+        V[cur] = {cur, flow, next, false};
     }
 
-    auto [step, newScore] = planNext('A', V, 1, 0);
+    auto [step, newScore] = planNext("AA", V, 1, 0);
     score = newScore;
     P_RR("Part1: %lld\n", score);
 //========================================================
