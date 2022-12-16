@@ -69,6 +69,18 @@ VECII getGraph(const Vt& val)
     return res;
 }
 
+LL countScore(VECI path)
+{
+    LL score{};
+    LL time = maxTime;
+    for(LL i = 1; i < path.size(); i++)
+    {
+        time -= graph[path[i-1]][path[i]];
+        score += time * flows[path[i]];
+    }
+    return score;
+}
+
 VECI calc(VECI path, LL time)
 {
     P_VEC(path);
@@ -139,12 +151,7 @@ int main(int argc, char** argv)
     auto path = calc({0}, 0);
     P_VEC(path);
 
-    LL time = maxTime;
-    for(LL i = 1; i < path.size(); i++)
-    {
-        time -= graph[path[i-1]][path[i]];
-        score += time * flows[path[i]];
-    }
+    score = countScore(path);
 
     P_RR("Part1: %lld\n", score);
     //========================================================
