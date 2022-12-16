@@ -100,6 +100,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
     for(auto m : maxFows)
     {
         if(m == 1){return {0,0};}
+    P_LINE;
         auto path = getPathIf(cur, m, val);
     P_LINE;
         if(D)
