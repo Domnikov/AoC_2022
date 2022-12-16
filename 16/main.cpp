@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -72,7 +72,7 @@ VECS getPathIf(S cur, LL flow, const V_t& val)
     exit(0);
 }
 
-VECI get3MaxClosed(V_t val)
+VECS get3MaxClosed(S cur, V_t val)
 {
     VECI allFlows;
     auto it = val.begin();
@@ -84,14 +84,28 @@ VECI get3MaxClosed(V_t val)
     std::transform(BE(val), std::back_inserter(allFlows), [](const auto& a){return std::get<1>(a.second);});
     std::sort(BE(allFlows));
 
-    VECI res;
+    VECSS res;
+    LL curP = countP(val);
+    LL maxLen;
     for(int i = 0; i < std::min<size_t>(NUM, allFlows.size()); ++i)
     {
-        if(allFlows.back() == 0) break;
-        res.push_back(allFlows.back());
+        LL dst = allFlows.back();
+        if(dst == 0) break;
         allFlows.pop_back();
+        auto path = getPathIf(cur, dst, val);
+        maxLen = std::max<LL>(maxLen, path.size());
+        res.push_back(path);
     }
-    return res;
+    size_t idx = 0;
+    auto countPath = [maxLen, &res, curP](LL i){LL curLen = res[i].size();LL nextP = std::get<1>(V[res[i].back()]);return (curP*(curLen)) + (curP+nextP)*(maxLen-curLen);};
+    FOR(i, res.size())
+    {
+        if(countPath(i) > countPath(idx))
+        {
+            idx = i;
+        }
+    }
+    return res[idx];
 }
 
 
@@ -99,17 +113,18 @@ std::pair<LL, LL> steP(S cur, decltype(V) val, LL time, LL score);
 std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
 {
     // if(time < 20)P(time);
-    auto maxFlows = get3MaxClosed(val);
+    auto maxFlows = get3MaxClosed(cur, val);
     if(maxFlows.empty())
     {
         return {0, score + (maxTime-time)*countP(val)};
     }
     std::vector<std::pair<LL, LL>> ress;
     LL curP = countP(val);
-    for(auto m : maxFlows)
+    // for(auto m : maxFlows)
     {
-        if(m == 1){return {0,0};}
-        auto path = getPathIf(cur, m, val);
+        // if(m == 1){return {0,0};}
+        // auto path = getPathIf(cur, m, val);
+        auto& path = maxFlows;
         if(D)
         {
             FOR(i, time)P_RR(" ");
