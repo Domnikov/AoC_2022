@@ -80,6 +80,8 @@ int main(int argc, char** argv)
             next.push_back(replace(splitted[n], ","));
         }
         V[cur] = {cur, flow, next, false};
+        P(cur, flow);
+        P_VEC(next);
     }
 
     auto [step, newScore] = stePp(0, "AA", "AA", V);
