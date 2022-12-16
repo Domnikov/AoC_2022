@@ -89,7 +89,7 @@ VECI get3MaxClosed(V_t val)
 std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score);
 std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
 {
-    if(time < 20)P(time);
+    // if(time < 20)P(time);
     auto maxFows = get3MaxClosed(val);
     std::vector<std::pair<LL, LL>> ress;
     LL curP = countP(val);
@@ -149,7 +149,7 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
 int main(int argc, char** argv)
 {
     LL score = 0;
-    D = false;
+    D = true;
     for(int i{}; i < in.size();i++ )
     {
         auto splitted = splitStr(in[i], ' ');
