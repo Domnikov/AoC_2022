@@ -62,13 +62,11 @@ VECII getGraph(const Vt& val)
             {
                 if(std::get<1>(sub.second) > 0)
                 {
-                    P(v.first, sub.first);
-                    P_VEC(getPath(v.first, sub.first));
+                    res.push_back(getPath(v.first, sub.first));
                 }
             }
         }
     }
-
     return res;
 }
 
@@ -92,6 +90,7 @@ int main(int argc, char** argv)
     }
 
     graph = getGraph(V);
+    P_VEC(graph);
 
     P_RR("Part1: %lld\n", score);
 //========================================================
