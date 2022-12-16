@@ -161,6 +161,8 @@ int main(int argc, char** argv)
             next.push_back(replace(splitted[n], ",")[0]);
         }
         V[cur[0]] = {cur[0], flow, next, false};
+        P(cur[0], flow, false);
+        P_VEC(next);
     }
 
     auto [step, newScore] = planNext('A', V, 1, 0);
