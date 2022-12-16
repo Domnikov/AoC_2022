@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -95,6 +95,14 @@ int main(int argc, char** argv)
     graph = getGraph(V);
     P_VEC(heads);
     P_VEC(graph);
+    VECI vec;
+    FOR(i, heads.size()){vec.push_back(i);}
+
+    do
+    {
+        score++;
+    }
+    while(std::next_permutation(BE(vec)));
 
     P_RR("Part1: %lld\n", score);
 //========================================================
