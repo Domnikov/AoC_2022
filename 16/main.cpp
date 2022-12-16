@@ -99,6 +99,7 @@ VECI calc(VECI path, LL time)
             if(timeLeft >= 0)
             {
                 LL score = timeLeft * flows[i];
+                P(heads[i], timeLeft, score);
                 if(score > maxScore)
                 {
                     maxScore = score;
