@@ -34,7 +34,6 @@ LL countP(const decltype(V)& val)
 
 VECS getPathIf(S cur, LL flow, const V_t& val)
 {
-    P_LINE;
     S dst;
     for(auto& v:val)
     {
@@ -43,12 +42,10 @@ VECS getPathIf(S cur, LL flow, const V_t& val)
             dst = v.first;
         }
     }
-    P_LINE;
     P(cur, flow, dst);
     if(dst.empty()) return{};
     std::vector<VECS>paths{{cur}};
     if(cur == dst) return paths[0];
-    P_LINE;
     while(true)
     {
         P(paths.size());
@@ -72,7 +69,6 @@ VECS getPathIf(S cur, LL flow, const V_t& val)
         std::swap(paths, nextPaths);
     }
 
-    P_LINE;
 
     P_RR("No path %s to %s \n", cur.c_str(), dst.c_str());
     exit(0);
@@ -80,7 +76,6 @@ VECS getPathIf(S cur, LL flow, const V_t& val)
 
 VECI get3MaxClosed(V_t val)
 {
-    P_LINE;
     VECI allFlows;
     auto it = val.begin();
     while((it = std::find_if(BE(val), [](const auto& a){return std::get<3>(a.second);})) != val.end())
@@ -93,7 +88,6 @@ VECI get3MaxClosed(V_t val)
     LL max1 = *(allFlows.end()-1);
     LL max2 = *(allFlows.end()-2);
     LL max3 = *(allFlows.end()-3);
-    P_LINE;
     return{max1, max2, max3};
 }
 
@@ -101,18 +95,14 @@ VECI get3MaxClosed(V_t val)
 std::pair<LL, LL> steP(S cur, decltype(V) val, LL time, LL score);
 std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
 {
-    P_LINE;
     // if(time < 20)P(time);
     auto maxFows = get3MaxClosed(val);
     std::vector<std::pair<LL, LL>> ress;
     LL curP = countP(val);
-    P_LINE;
     for(auto m : maxFows)
     {
         if(m == 1){return {0,0};}
-    P_LINE;
         auto path = getPathIf(cur, m, val);
-    P_LINE;
         if(D)
         {
             FOR(i, time)P_RR(" ");
@@ -120,42 +110,33 @@ std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
         }
         LL pathLen = path.size()-1;
         LL newTime = time+pathLen;
-    P_LINE;
         if(newTime >= maxTime)
         {
             static LL max{};
             LL newScore = score + curP * (maxTime-time);
             max = std::max(max, newScore);
-    P_LINE;
             if(D){FOR(i, time)P_RR(" ");P(max, newScore, score, maxTime-time, curP);}
             // if(newScore == 1512)exit(1);
             return {0, newScore};
         }
         LL newScore = score + curP * pathLen;
-    P_LINE;
         ress.push_back(steP(path.back(), val, newTime, newScore));
-    P_LINE;
     }
-    P_LINE;
     std::sort(BE(ress));
-    P_LINE;
     return {ress.back().first, ress.back().second};
 }
 
 
 std::pair<LL, LL> steP(S cur, decltype(V) val, LL time, LL score)
 {
-    P_LINE;
     auto& [curAgain, flow, nexts, open] = val[cur];
     open = true;
     time++;
     score += countP(val);
-    P_LINE;
     if(D)
     {
         FOR(i, time)P_RR(" ");
         P(cur, time, score, countP(val));
-    P_LINE;
     }
     if(time == maxTime)
     {
@@ -164,11 +145,9 @@ std::pair<LL, LL> steP(S cur, decltype(V) val, LL time, LL score)
             FOR(i, time)P_RR(" ");
             P("Exit after turnon", cur, time, score);
         }
-    P_LINE;
         return {0, score};
     }
     auto res = planNext(cur, val, time, score);
-    P_LINE;
 
     return res;
 }
