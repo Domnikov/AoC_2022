@@ -76,7 +76,9 @@ LL countScore(VECI path)
     for(LL i = 1; i < path.size(); i++)
     {
         time -= graph[path[i-1]][path[i]];
-        score += time * flows[path[i]];
+        LL flow = flows[path[i]];
+        score += time * flow;
+        P(heads[path[i]], time, flow, time*flow, score);
     }
     return score;
 }
@@ -149,7 +151,6 @@ int main(int argc, char** argv)
     P_VEC(graph);
 
     auto path = calc({0}, 0);
-    P_VEC(path);
 
     score = countScore(path);
 
