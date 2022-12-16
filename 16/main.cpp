@@ -33,7 +33,7 @@ std::pair<LL, LL> stePp(LL time, S prev, S cur, decltype(V) val)
 {
     if(time == 30)
     {
-        P(time, prev, cur, countP(val));
+        // P(time, prev, cur, countP(val));
         return {30, 0};
     }
 
