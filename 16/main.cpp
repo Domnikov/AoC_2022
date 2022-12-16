@@ -12,7 +12,8 @@ using INT = __int128;
 using VECC = std::vector<char>;
 
 
-std::map<char, std::tuple<char, LL, VECC, bool>> V;
+using V_t = std::map<char, std::tuple<char, LL, VECC, bool>>;
+V_t V;
 LL maxTime = 30;
 
 LL countP(const decltype(V)& val)
@@ -31,10 +32,10 @@ LL countP(const decltype(V)& val)
 }
 
 
-VECC getPathIf(char cur, LL flow)
+VECC getPathIf(char cur, LL flow, const V_t& val)
 {
     char dst = 0;
-    for(auto& v:V)
+    for(auto& v:val)
     {
         if(std::get<1>(v.second) == flow)
         {
@@ -54,7 +55,7 @@ VECC getPathIf(char cur, LL flow)
                 P_VEC(p);
                 return p;
             }
-            for(auto n : std::get<2>(V[p.back()]))
+            for(const auto& n : std::get<2>(val.at(p.back())))
             {
                 VECC newPath = p;
                 newPath.push_back(n);
@@ -69,9 +70,21 @@ VECC getPathIf(char cur, LL flow)
     exit(0);
 }
 
+VECI get3MaxClosed(V_t& val)
+{
+    VECI allFlows;
+    std::transform(BE(val), std::back_inserter(allFlows), [](const auto& a){return std::get<1>(a.second);});
+    std::sort(BE(allFlows));
+    VECI res;
+
+    LL max1 = *allFlows.begin()+0;
+    LL max2 = *allFlows.begin()+1;
+    LL max3 = *allFlows.begin()+2;
+    return{max1, max2, max3};
+}
 
 
-std::pair<LL, LL> stePp(LL time, char prev, char cur, decltype(V)& val, int onlyMove = 0)
+std::pair<LL, LL> steP(LL time, char prev, char cur, decltype(V)& val, int onlyMove = 0)
 {
     if(time == 30)
     {
@@ -88,12 +101,12 @@ std::pair<LL, LL> stePp(LL time, char prev, char cur, decltype(V)& val, int only
         decltype(V) copy = val;
         auto& [curAgainCopy, flowCopy, nextCopy, openCopy] = copy[cur];
         openCopy = true;
-        variants.push_back(stePp(time+1, cur, cur, copy, 0));
+        variants.push_back(steP(time+1, cur, cur, copy, 0));
     }
     if(onlyMove < 5)for(auto& n : next)
     {
         decltype(V) copy = val;
-        if(n != prev) variants.push_back(stePp(time+1, cur, n, copy, onlyMove+1));
+        if(n != prev) variants.push_back(steP(time+1, cur, n, copy, onlyMove+1));
     }
 
     std::pair<LL,LL> best{0,0};
@@ -126,7 +139,8 @@ int main(int argc, char** argv)
         V[cur[0]] = {cur[0], flow, next, false};
     }
 
-    getPathIf('B', 21);
+    // getPathIf('B', 21);
+    P_VEC(get3MaxClosed(V));
     // auto [step, newScore] = stePp(0, 'A', 'A', V);
 
     P_RR("Part1: %lld\n", score);
