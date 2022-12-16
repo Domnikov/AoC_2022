@@ -113,6 +113,7 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time)
     auto& [curAgain, flow, nexts, open] = val[cur];
     open = true;
     time++;
+    LL score = countP(val);
     auto res = planNext(cur, val, time);
     if(D)
     {
@@ -120,7 +121,7 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time)
         P(cur, time);
     }
 
-    return res;
+    return {res.first, res.second+score};
 }
 
 int main(int argc, char** argv)
