@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -42,13 +42,11 @@ VECS getPathIf(S cur, LL flow, const V_t& val)
             dst = v.first;
         }
     }
-    P(cur, flow, dst);
     if(dst.empty()) return{};
     std::vector<VECS>paths{{cur}};
     if(cur == dst) return paths[0];
     while(true)
     {
-        P(paths.size());
         decltype(paths) nextPaths{{cur}};
         for(const auto& p: paths)
         {
@@ -78,7 +76,7 @@ VECI get3MaxClosed(V_t val)
 {
     VECI allFlows;
     auto it = val.begin();
-    LL NUM = 3;
+    LL NUM = 4;
     while((it = std::find_if(BE(val), [](const auto& a){return std::get<3>(a.second);})) != val.end())
     {
         val.erase(it);
