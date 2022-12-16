@@ -49,7 +49,6 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
     P_LINE;
     while(true)
     {
-    P_LINE;
         std::vector<VECC>nextPaths{{cur}};
         for(auto p: paths)
         {
@@ -64,9 +63,7 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
                 nextPaths.push_back(newPath);
             }
         }
-    P_LINE;
         std::swap(paths, nextPaths);
-    P_LINE;
     }
 
     P_LINE;
