@@ -84,11 +84,9 @@ VECI get3MaxClosed(V_t& val)
 }
 
 
-std::pair<LL, LL> steP(char cur, decltype(V) val, LL time)
+std::pair<LL, LL> steP(char cur, decltype(V) val, LL time);
+std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time)
 {
-    auto& [curAgain, flow, nexts, open] = val[cur];
-    open = true;
-    time++;
     auto maxFows = get3MaxClosed(val);
     std::vector<std::pair<LL, LL>> ress;
     for(auto m : maxFows)
@@ -99,6 +97,15 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time)
     }
     std::sort(BE(ress));
     return ress.back();
+}
+
+
+std::pair<LL, LL> steP(char cur, decltype(V) val, LL time)
+{
+    auto& [curAgain, flow, nexts, open] = val[cur];
+    open = true;
+    time++;
+    return planNext(cur, val, time);
 }
 
 int main(int argc, char** argv)
@@ -118,7 +125,7 @@ int main(int argc, char** argv)
         V[cur[0]] = {cur[0], flow, next, false};
     }
 
-    auto [step, newScore] = steP('A', V, get3MaxClosed(V));
+    auto [step, newScore] = planNext('A', V, 0);
 
     P_RR("Part1: %lld\n", score);
 //========================================================
