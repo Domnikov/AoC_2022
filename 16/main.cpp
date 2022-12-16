@@ -98,9 +98,15 @@ int main(int argc, char** argv)
     VECI vec;
     FOR(i, heads.size()){vec.push_back(i);}
 
+    LL max = 1;
     do
     {
         score++;
+        if(score > max)
+        {
+            P(max);
+            max *= 10;
+        }
     }
     while(std::next_permutation(BE(vec)));
 
