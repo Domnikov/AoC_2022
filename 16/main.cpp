@@ -44,6 +44,7 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
         }
     }
     P_LINE;
+    P(cur, flow, dst);
     if(!dst) return{};
     std::vector<VECC>paths{{cur}};
     if(cur == dst) return paths[0];
