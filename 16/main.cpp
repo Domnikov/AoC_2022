@@ -12,13 +12,28 @@ using INT = __int128;
 
 
 std::map<S, std::tuple<S, LL, VECS, bool>> V;
+LL maxTime = 30;
 
+LL countP(const decltype(V)& val)
+{
+    LL score{};
+    for(const auto& v:val)
+    {
+        const auto& [cur, flow, next, open] = v.second;
+
+        if(open)
+        {
+            score += flow;
+        }
+    }
+    return score;
+}
 
 std::pair<LL, LL> stePp(LL prev, S cur, decltype(V) val)
 {
-    if(prev == 20)
+    if(prev == 30)
     {
-        return {20, 0};
+        return {30, 0};
     }
 
     auto& [curAgain, flow, next, open] = val[cur];
@@ -45,6 +60,8 @@ std::pair<LL, LL> stePp(LL prev, S cur, decltype(V) val)
             best = v;
         }
     }
+    LL thisScore = countP(val);
+    best.second += thisScore;
     return best;
 }
 
