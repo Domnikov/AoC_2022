@@ -108,6 +108,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
             LL newScore = score + curP * maxTime-time;
             max = std::max(max, newScore);
             P(max, newScore);
+            if(newScore == 3914)exit(1);
             return {0, newScore};
         }
         ress.push_back(steP(path.back(), val, time+path.size(), score + path.size()*curP));
@@ -136,7 +137,7 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
 int main(int argc, char** argv)
 {
     LL score = 0;
-    D = false;
+    D = true;
     for(int i{}; i < in.size();i++ )
     {
         auto splitted = splitStr(in[i], ' ');
