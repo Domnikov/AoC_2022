@@ -46,13 +46,11 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
     std::vector<VECC>paths{{cur}};
     while(true)
     {
-                P_VEC(paths);
         std::vector<VECC>nextPaths{{cur}};
         for(auto p: paths)
         {
             if(p.back() == dst)
             {
-                P_VEC(p);
                 return p;
             }
             for(const auto& n : std::get<2>(val.at(p.back())))
@@ -105,7 +103,14 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time)
     auto& [curAgain, flow, nexts, open] = val[cur];
     open = true;
     time++;
-    return planNext(cur, val, time);
+    auto res = planNext(cur, val, time);
+    if(D)
+    {
+        FOR(i, time)P_RR("  ");
+        P(cur, time);
+    }
+
+    return res;
 }
 
 int main(int argc, char** argv)
