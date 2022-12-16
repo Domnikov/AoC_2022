@@ -51,10 +51,16 @@ VECII getGraph(const Vt& val)
 
     for(const auto& v : val)
     {
-        for(const auto& sub : val)
+        if(std::get<1>(v.second) > 0)
         {
-            P(v.first, sub.first);
-            P_VEC(getPath(v.first, sub.first));
+            for(const auto& sub : val)
+            {
+                if(std::get<1>(sub.second) > 0)
+                {
+                    P(v.first, sub.first);
+                    P_VEC(getPath(v.first, sub.first));
+                }
+            }
         }
     }
 
