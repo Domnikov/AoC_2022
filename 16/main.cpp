@@ -79,7 +79,7 @@ VECSS get3MaxClosed(S cur, V_t val)
 {
     VECI allFlows;
     auto it = val.begin();
-    LL N = 3;
+    LL N = 5;
     while((it = std::find_if(BE(val), [](const auto& a){return std::get<3>(a.second);})) != val.end())
     {
         val.erase(it);
