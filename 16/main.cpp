@@ -87,6 +87,7 @@ VECI get3MaxClosed(V_t val)
     VECI res;
     FOR(i, NUM)
     {
+        if(allFlows.empty()) break;
         res.push_back(allFlows.back());
         allFlows.pop_back();
     }
