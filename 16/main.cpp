@@ -87,8 +87,7 @@ VECI get3MaxClosed(V_t val)
     VECI res;
     for(int i = 0; i < std::min<size_t>(NUM, allFlows.size()); ++i)
     {
-        // if(allFlows.empty()) break;
-        // if(allFlows.back() == 0) break;
+        if(allFlows.back() == 0) break;
         res.push_back(allFlows.back());
         allFlows.pop_back();
     }
