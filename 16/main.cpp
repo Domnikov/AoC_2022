@@ -132,6 +132,8 @@ VECS get3MaxClosed(S cur, V_t val)
         }
     }
     P_LINE;
+    P(idx);
+    P_VEC(res);
     return res[idx];
 }
 
