@@ -77,9 +77,9 @@ VECI get3MaxClosed(V_t& val)
     std::sort(BE(allFlows));
     VECI res;
 
-    LL max1 = *allFlows.end()-1;
-    LL max2 = *allFlows.end()-2;
-    LL max3 = *allFlows.end()-3;
+    LL max1 = *(allFlows.end()-1);
+    LL max2 = *(allFlows.end()-2);
+    LL max3 = *(allFlows.end()-3);
     return{max1, max2, max3};
 }
 
