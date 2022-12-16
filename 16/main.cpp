@@ -98,7 +98,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
         auto path = getPathIf(cur, m, val);
         if(D)
         {
-            FOR(i, time)P_RR("  ");
+            FOR(i, time)P_RR(" ");
             P_VEC(path);
         }
         LL newTime = time+path.size();
@@ -136,6 +136,7 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
 int main(int argc, char** argv)
 {
     LL score = 0;
+    D = false;
     for(int i{}; i < in.size();i++ )
     {
         auto splitted = splitStr(in[i], ' ');
