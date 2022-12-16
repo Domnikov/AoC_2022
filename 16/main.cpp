@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -14,6 +14,7 @@ using VECC = std::vector<char>;
 using Vt = std::map<S, std::tuple<S, LL, VECS, bool>>;
 Vt V;
 VECS heads;
+VECI flows;
 
 LL getNum(S s){return std::distance(heads.begin(), (std::find(BE(heads), s)));}
 
@@ -72,6 +73,7 @@ int main(int argc, char** argv)
     D = false;
     VECII graph;
     heads.push_back("AA");
+    flows.push_back(0);
     for(int i{}; i < in.size();i++ )
     {
         auto splitted = splitStr(in[i], ' ');
@@ -83,7 +85,11 @@ int main(int argc, char** argv)
             next.push_back(replace(splitted[n], ","));
         }
         V[cur] = {cur, flow, next, false};
-        if(flow > 0)heads.push_back(cur);
+        if(flow > 0)
+        {
+            heads.push_back(cur);
+            flows.push_back(flow);
+        }
     }
 
     graph = getGraph(V);
