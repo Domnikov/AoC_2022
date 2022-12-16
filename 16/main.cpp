@@ -122,7 +122,7 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
 {
     auto& [curAgain, flow, nexts, open] = val[cur];
     open = true;
-    time++;
+    // time++;
     score += countP(val);
     if(D)
     {
