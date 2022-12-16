@@ -75,10 +75,11 @@ VECS getPathIf(S cur, LL flow)//, const V_t& val)
     exit(0);
 }
 
-VECS get3MaxClosed(S cur, V_t val)
+VECSS get3MaxClosed(S cur, V_t val)
 {
     VECI allFlows;
     auto it = val.begin();
+    LL N = 3;
     while((it = std::find_if(BE(val), [](const auto& a){return std::get<3>(a.second);})) != val.end())
     {
         val.erase(it);
@@ -101,14 +102,18 @@ VECS get3MaxClosed(S cur, V_t val)
     if(res.empty()){return {};}
     size_t idx = 0;
     auto countPath = [maxLen, &res, curP](LL i){LL curLen = res[i].size();LL nextP = std::get<1>(V[res[i].back()]);return (curP*(curLen)) + (curP+nextP)*(maxLen-curLen);};
-    FOR(i, res.size())
+    auto compPath = [countPath, res](const auto& a, const auto& b)
     {
-        if(countPath(i) > countPath(idx))
-        {
-            idx = i;
-        }
+        LL indxA = std::distance(res.begin(), std::find(BE(res), a));
+        LL indxB = std::distance(res.begin(), std::find(BE(res), b));
+        return countPath(indxA) < countPath(indxB);
+    };
+    std::sort(BE(res), compPath);
+    while(res.size() > N)
+    {
+        res.pop_back();
     }
-    return res[idx];
+    return res;
 }
 
 
@@ -123,11 +128,11 @@ std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
     }
     std::vector<std::pair<LL, LL>> ress;
     LL curP = countP(val);
-    // for(auto m : maxFlows)
+    for(auto m : maxFlows)
     {
         // if(m == 1){return {0,0};}
         // auto path = getPathIf(cur, m, val);
-        auto& path = maxFlows;
+        auto& path = m;
         if(D)
         {
             FOR(i, time)P_RR(" ");
