@@ -56,12 +56,12 @@ VECII getGraph(const Vt& val)
     VECII res;
     for(const auto& v : val)
     {
-        if(std::get<1>(v.second) > 0 || v.first == "AA")
+        if(std::get<1>(v.second) > 0)
         {
             res.push_back({});
             for(const auto& sub : val)
             {
-                if(std::get<1>(sub.second) > 0 || v.first == "AA")
+                if(std::get<1>(sub.second) > 0)
                 {
                     auto path = getPath(v.first, sub.first);
                     P(v.first, sub.first);
@@ -79,6 +79,7 @@ int main(int argc, char** argv)
     LL score = 0;
     D = false;
     VECII graph;
+    heads.push_back("AA");
     for(int i{}; i < in.size();i++ )
     {
         auto splitted = splitStr(in[i], ' ');
@@ -90,7 +91,7 @@ int main(int argc, char** argv)
             next.push_back(replace(splitted[n], ","));
         }
         V[cur] = {cur, flow, next, false};
-        heads.push_back(cur);
+        if(flow > 0)heads.push_back(cur);
     }
 
     graph = getGraph(V);
