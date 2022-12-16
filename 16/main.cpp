@@ -136,7 +136,15 @@ int main(int argc, char** argv)
     P_VEC(heads);
     P_VEC(graph);
 
-    P_VEC(calc({0}, 0));
+    auto path = calc({0}, 0);
+    P_VEC(path);
+
+    LL time = maxTime;
+    for(LL i = 1; i < path.size(); i++)
+    {
+        time -= graph[path[i-1]][path[i]];
+        score += time * flows[path[i]];
+    }
 
     P_RR("Part1: %lld\n", score);
     //========================================================
