@@ -49,6 +49,7 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
     P_LINE;
     while(true)
     {
+        P(paths.size());
         std::vector<VECC>nextPaths{{cur}};
         for(auto p: paths)
         {
