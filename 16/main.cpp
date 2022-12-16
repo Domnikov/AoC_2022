@@ -1,9 +1,9 @@
 // #define TEST
 
 #ifdef TEST
-    #include "in_test.hpp"
+#include "in_test.hpp"
 #else
-    #include "in.hpp"
+#include "in.hpp"
 #endif
 
 auto in = getInput();
@@ -59,23 +59,23 @@ VECII getGraph(const Vt& val)
     VECII res;
     for(const auto& v : heads)
     {
-            res.push_back({});
-            for(const auto& sub : heads)
-            {
-                    auto path = getPath(v, sub);
-                    res.back().push_back(path.size());
-            }
+        res.push_back({});
+        for(const auto& sub : heads)
+        {
+            auto path = getPath(v, sub);
+            res.back().push_back(path.size());
+        }
     }
     return res;
 }
 
-LL calc(VECI path, LL time)
+VECI calc(VECI path, LL time)
 {
     P_VEC(path);
-    LL res;
+    VECI res;
 
     int maxScore{};
-    int maxId;
+    int maxId = -1;
 
     FOR(i, heads.size())
     {
@@ -93,9 +93,17 @@ LL calc(VECI path, LL time)
             }
         }
     }
-    time += graph[path.back()][maxId];
-    path.push_back(maxId);
-    res = calc(path, time);
+
+    if(maxId == -1)
+    {
+        res = path;
+    }
+    else
+    {
+        time += graph[path.back()][maxId];
+        path.push_back(maxId);
+        res = calc(path, time);
+    }
 
     return res;
 }
@@ -128,10 +136,10 @@ int main(int argc, char** argv)
     P_VEC(heads);
     P_VEC(graph);
 
-    score = calc({0}, 0);
+    P_VEC(calc({0}, 0));
 
     P_RR("Part1: %lld\n", score);
-//========================================================
+    //========================================================
     score = 0;
     D = false;
 
