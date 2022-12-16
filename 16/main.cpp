@@ -107,7 +107,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
             static LL max{};
             LL newScore = score + curP * maxTime-time;
             max = std::max(max, newScore);
-            P(max, newScore, score);
+            P(max, newScore, score, maxTime-time);
             if(newScore == 3914)exit(1);
             return {0, newScore};
         }
@@ -128,6 +128,15 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
     {
         FOR(i, time)P_RR(" ");
         P(cur, time, score);
+    }
+    if(time == maxTime)
+    {
+        if(D)
+        {
+            FOR(i, time)P_RR(" ");
+            P("Exit after turnon", cur, time, score);
+        }
+        return {0, score};
     }
     auto res = planNext(cur, val, time, score);
 
