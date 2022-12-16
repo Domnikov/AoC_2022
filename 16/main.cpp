@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -13,8 +13,11 @@ using VECC = std::vector<char>;
 
 using Vt = std::map<S, std::tuple<S, LL, VECS, bool>>;
 Vt V;
+VECS heads;
 
-VECS getPath(S src, S dst)
+LL getNum(S s){return std::distance(heads.begin(), (std::find(BE(heads), s)));}
+
+VECI getPath(S src, S dst)
 {
     VECSS paths{{src}};
 
@@ -25,7 +28,10 @@ VECS getPath(S src, S dst)
         {
             if(p.back() == dst)
             {
-                return p;
+                VECI res;
+                auto func = [](const auto& s) -> LL{return getNum(s);};
+                std::transform(p.begin(), p.end(), std::back_inserter(res), func);
+                return res;
             }
             for(const auto& n : std::get<2>(V.at(p.back())))
             {
@@ -48,7 +54,6 @@ VECS getPath(S src, S dst)
 VECII getGraph(const Vt& val)
 {
     VECII res;
-
     for(const auto& v : val)
     {
         if(std::get<1>(v.second) > 0)
@@ -83,6 +88,7 @@ int main(int argc, char** argv)
             next.push_back(replace(splitted[n], ","));
         }
         V[cur] = {cur, flow, next, false};
+        heads.push_back(cur);
     }
 
     graph = getGraph(V);
