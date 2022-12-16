@@ -53,6 +53,7 @@ VECII getGraph(const Vt& val)
     {
         for(const auto& sub : val)
         {
+            P(v.first, sub.first);
             P_VEC(getPath(v.first, sub.first));
         }
     }
