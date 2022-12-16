@@ -109,8 +109,6 @@ VECS get3MaxClosed(S cur, V_t val)
             idx = i;
         }
     }
-    P(idx);
-    P_VEC(res);
     return res[idx];
 }
 
