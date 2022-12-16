@@ -59,7 +59,7 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
             }
             for(const auto& n : std::get<2>(val.at(p.back())))
             {
-                if(p.size() > 2 && *(p.end()-2) == n) continue;
+                if(std::find(BE(p), n) != p.end()) continue;
                 VECC newPath = p;
                 newPath.push_back(n);
                 nextPaths.push_back(newPath);
