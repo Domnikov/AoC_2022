@@ -37,6 +37,11 @@ std::pair<LL, LL> stePp(LL time, const S& prev, const S& cur, decltype(V)& val)
         return {0, 0};
     }
 
+    if(time > 4 && countP(val) == 0)
+    {
+        return{0,0};
+    }
+
     if(time <= 10)P(time, prev, cur, countP(val));
 
     auto& [curAgain, flow, next, open] = val[cur];
