@@ -91,7 +91,6 @@ VECI get3MaxClosed(V_t val)
         res.push_back(allFlows.back());
         allFlows.pop_back();
     }
-    P(res.size());
     return res;
 }
 
@@ -100,10 +99,14 @@ std::pair<LL, LL> steP(S cur, decltype(V) val, LL time, LL score);
 std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
 {
     // if(time < 20)P(time);
-    auto maxFows = get3MaxClosed(val);
+    auto maxFlows = get3MaxClosed(val);
+    if(maxFlows.empty())
+    {
+        return {0, score + (maxTime-time)*countP(val)};
+    }
     std::vector<std::pair<LL, LL>> ress;
     LL curP = countP(val);
-    for(auto m : maxFows)
+    for(auto m : maxFlows)
     {
         if(m == 1){return {0,0};}
         auto path = getPathIf(cur, m, val);
