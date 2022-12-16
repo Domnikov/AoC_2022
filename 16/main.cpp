@@ -31,6 +31,7 @@ LL countP(const decltype(V)& val)
 
 std::pair<LL, LL> stePp(LL time, S prev, S cur, decltype(V) val)
 {
+    P(time, prev, cur);
     if(time == 30)
     {
         return {30, 0};
@@ -80,8 +81,6 @@ int main(int argc, char** argv)
             next.push_back(replace(splitted[n], ","));
         }
         V[cur] = {cur, flow, next, false};
-        P(cur, flow);
-        P_VEC(next);
     }
 
     auto [step, newScore] = stePp(0, "AA", "AA", V);
