@@ -32,10 +32,11 @@ LL countP(const decltype(V)& val)
 }
 
 
-VECS getPathIf(S cur, LL flow, const V_t& val)
+VECS getPathIf(S cur, LL flow)//, const V_t& val)
 {
     S dst;
     P_LINE;
+    auto& val = V;
     for(auto& v:val)
     {
         if(std::get<1>(v.second) == flow)
@@ -112,7 +113,7 @@ VECS get3MaxClosed(S cur, V_t val)
         if(dst == 0) break;
         allFlows.pop_back();
     P_LINE;
-        auto path = getPathIf(cur, dst, val);
+        auto path = getPathIf(cur, dst);//, val);
     P_LINE;
         maxLen = std::max<LL>(maxLen, path.size());
     P_LINE;
