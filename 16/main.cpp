@@ -120,6 +120,7 @@ VECS get3MaxClosed(S cur, V_t val)
         res.push_back(path);
     P_LINE;
     }
+    P_LINE;
     if(res.empty()){return {};}
     P_LINE;
     size_t idx = 0;
