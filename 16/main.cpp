@@ -35,7 +35,6 @@ LL countP(const decltype(V)& val)
 VECS getPathIf(S cur, LL flow)//, const V_t& val)
 {
     S dst;
-    P_LINE;
     auto& val = V;
     for(auto& v:val)
     {
@@ -44,47 +43,33 @@ VECS getPathIf(S cur, LL flow)//, const V_t& val)
             dst = v.first;
         }
     }
-    P_LINE;
     if(dst.empty()) return{};
     std::vector<VECS>paths{{cur}};
     if(cur == dst) return paths[0];
-    P_LINE;
     while(true)
     {
-    P_LINE;
         decltype(paths) nextPaths{{cur}};
         for(const auto& p: paths)
         {
             P(p.back());
-    P_LINE;
             if(p.back() == dst)
             {
-    P_LINE;
                 return p;
             }
-    P_LINE;
             auto& curVal = val.at(p.back());
-    P_LINE;
             auto& allNexts = std::get<2>(curVal);
-    P_LINE;
             for(const auto& n : allNexts)
             {
-    P_LINE;
                 if(std::find(BE(p), n) == p.end())
                 {
-    P_LINE;
                     VECS newPath = p;
                     newPath.push_back(n);
                     nextPaths.push_back(newPath);
                 }
-    P_LINE;
             }
-    P_LINE;
         }
         std::swap(paths, nextPaths);
-    P_LINE;
     }
-    P_LINE;
 
 
     P_RR("No path %s to %s \n", cur.c_str(), dst.c_str());
@@ -106,26 +91,18 @@ VECS get3MaxClosed(S cur, V_t val)
     VECSS res;
     LL curP = countP(val);
     LL maxLen;
-    P_LINE;
     for(int i = 0; i < std::min<size_t>(NUM, allFlows.size()); ++i)
     {
         LL dst = allFlows.back();
         if(dst == 0) break;
         allFlows.pop_back();
-    P_LINE;
         auto path = getPathIf(cur, dst);//, val);
-    P_LINE;
         maxLen = std::max<LL>(maxLen, path.size());
-    P_LINE;
         res.push_back(path);
-    P_LINE;
     }
-    P_LINE;
     if(res.empty()){return {};}
-    P_LINE;
     size_t idx = 0;
     auto countPath = [maxLen, &res, curP](LL i){LL curLen = res[i].size();LL nextP = std::get<1>(V[res[i].back()]);return (curP*(curLen)) + (curP+nextP)*(maxLen-curLen);};
-    P_LINE;
     FOR(i, res.size())
     {
         if(countPath(i) > countPath(idx))
@@ -133,7 +110,6 @@ VECS get3MaxClosed(S cur, V_t val)
             idx = i;
         }
     }
-    P_LINE;
     P(idx);
     P_VEC(res);
     return res[idx];
@@ -145,31 +121,24 @@ std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
 {
     // if(time < 20)P(time);
     auto maxFlows = get3MaxClosed(cur, val);
-    P_LINE;
     if(maxFlows.empty())
     {
         return {0, score + (maxTime-time)*countP(val)};
     }
-    P_LINE;
     std::vector<std::pair<LL, LL>> ress;
-    P_LINE;
     LL curP = countP(val);
-    P_LINE;
     // for(auto m : maxFlows)
     {
         // if(m == 1){return {0,0};}
         // auto path = getPathIf(cur, m, val);
         auto& path = maxFlows;
-    P_LINE;
         if(D)
         {
             FOR(i, time)P_RR(" ");
             P_VEC(path);
         }
-    P_LINE;
         LL pathLen = path.size()-1;
         LL newTime = time+pathLen;
-    P_LINE;
         if(newTime >= maxTime)
         {
             static LL max{};
@@ -179,15 +148,10 @@ std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
             // if(newScore == 1512)exit(1);
             return {0, newScore};
         }
-    P_LINE;
         LL newScore = score + curP * pathLen;
-    P_LINE;
         ress.push_back(steP(path.back(), val, newTime, newScore));
-    P_LINE;
     }
-    P_LINE;
     std::sort(BE(ress));
-    P_LINE;
     return {ress.back().first, ress.back().second};
 }
 
