@@ -58,6 +58,7 @@ VECC getPathIf(char cur, LL flow)
             {
                 VECC newPath = p;
                 newPath.push_back(n);
+                nextPaths.push_back(newPath);
             }
         }
         std::swap(paths, nextPaths);
