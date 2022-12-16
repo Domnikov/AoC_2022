@@ -54,22 +54,16 @@ VECI getPath(S src, S dst)
 VECII getGraph(const Vt& val)
 {
     VECII res;
-    for(const auto& v : val)
+    for(const auto& v : heads)
     {
-        if(std::get<1>(v.second) > 0)
-        {
             res.push_back({});
-            for(const auto& sub : val)
+            for(const auto& sub : heads)
             {
-                if(std::get<1>(sub.second) > 0)
-                {
-                    auto path = getPath(v.first, sub.first);
-                    P(v.first, sub.first);
+                    auto path = getPath(v, sub);
+                    P(v, sub);
                     P_VEC(path);
                     res.back().push_back(path.size());
-                }
             }
-        }
     }
     return res;
 }
