@@ -36,7 +36,7 @@ std::pair<LL, LL> stePp(LL time, S prev, S cur, decltype(V) val)
         return {30, 0};
     }
 
-    if(time == 10)P(time, prev, cur, countP(val));
+    if(time <= 10)P(time, prev, cur, countP(val));
 
     auto& [curAgain, flow, next, open] = val[cur];
     std::vector<std::pair<LL,LL>> variants;
