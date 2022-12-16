@@ -82,16 +82,14 @@ VECI get3MaxClosed(V_t& val)
 }
 
 
-std::pair<LL, LL> steP(char cur, decltype(V) val, LL time);
-std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time)
+std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score);
+std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
 {
-    P_LINE;
     auto maxFows = get3MaxClosed(val);
     std::vector<std::pair<LL, LL>> ress;
-    P_LINE;
+    LL curP = countP(val);
     for(auto m : maxFows)
     {
-    P_LINE;
         if(m == 1){return {0,0};}
         auto path = getPathIf(cur, m, val);
         if(D)
@@ -99,29 +97,32 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time)
             FOR(i, time)P_RR("  ");
             P_VEC(path);
         }
-        ress.push_back(steP(path.back(), val, time+path.size()));
-    P_LINE;
+        LL newTime = time+path.size();
+        if(newTime >= maxTime)
+        {
+            return {0, score + curP * maxTime-time};
+        }
+        ress.push_back(steP(path.back(), val, time+path.size(), score + path.size()*curP));
     }
     std::sort(BE(ress));
-    P_LINE;
     return ress.back();
 }
 
 
-std::pair<LL, LL> steP(char cur, decltype(V) val, LL time)
+std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
 {
     auto& [curAgain, flow, nexts, open] = val[cur];
     open = true;
     time++;
-    LL score = countP(val);
-    auto res = planNext(cur, val, time);
+    score += countP(val);
+    auto res = planNext(cur, val, time, score);
     if(D)
     {
         FOR(i, time)P_RR("  ");
-        P(cur, time);
+        P(cur, time, score);
     }
 
-    return {res.first, res.second+score};
+    return res;
 }
 
 int main(int argc, char** argv)
@@ -140,7 +141,7 @@ int main(int argc, char** argv)
         V[cur[0]] = {cur[0], flow, next, false};
     }
 
-    auto [step, newScore] = planNext('A', V, 0);
+    auto [step, newScore] = planNext('A', V, 0, 0);
 
     P_RR("Part1: %lld\n", score);
 //========================================================
