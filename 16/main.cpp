@@ -106,7 +106,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
         if(newTime >= maxTime)
         {
             static LL max{};
-            LL newScore = score + curP * (maxTime-time-1);
+            LL newScore = score + curP * (maxTime-time);
             max = std::max(max, newScore);
             if(D){FOR(i, time)P_RR(" ");P(max, newScore, score, maxTime-time, curP);}
             // if(newScore == 1512)exit(1);
@@ -162,7 +162,7 @@ int main(int argc, char** argv)
         V[cur[0]] = {cur[0], flow, next, false};
     }
 
-    auto [step, newScore] = planNext('A', V, 0, 0);
+    auto [step, newScore] = planNext('A', V, 1, 0);
     score = newScore;
     P_RR("Part1: %lld\n", score);
 //========================================================
