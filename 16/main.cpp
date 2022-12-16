@@ -13,8 +13,10 @@ using VECC = std::vector<char>;
 
 using Vt = std::map<S, std::tuple<S, LL, VECS, bool>>;
 Vt V;
+VECII graph;
 VECS heads;
 VECI flows;
+LL maxTime = 30;
 
 LL getNum(S s){return std::distance(heads.begin(), (std::find(BE(heads), s)));}
 
@@ -67,11 +69,40 @@ VECII getGraph(const Vt& val)
     return res;
 }
 
+LL calc(VECI path, LL time)
+{
+    LL res;
+
+    int maxScore{};
+    int maxId;
+
+    FOR(i, heads.size())
+    {
+        if(std::find(BE(path), i) == path.end())
+        {
+            LL timeLeft = maxTime - time - graph[i][path.back()];
+            if(timeLeft >= 0)
+            {
+                LL score = timeLeft * flows[i];
+                if(score > maxScore)
+                {
+                    maxScore = score;
+                    maxId = i;
+                }
+            }
+        }
+    }
+    time += graph[path.back()][maxId];
+    path.push_back(maxId);
+    res = calc(path, time);
+
+    return res;
+}
+
 int main(int argc, char** argv)
 {
     LL score = 0;
     D = false;
-    VECII graph;
     heads.push_back("AA");
     flows.push_back(0);
     for(int i{}; i < in.size();i++ )
@@ -95,20 +126,8 @@ int main(int argc, char** argv)
     graph = getGraph(V);
     P_VEC(heads);
     P_VEC(graph);
-    VECI vec;
-    FOR(i, heads.size()){vec.push_back(i);}
 
-    LL max = 1;
-    do
-    {
-        score++;
-        if(score > max)
-        {
-            P(max);
-            max *= 10;
-        }
-    }
-    while(std::next_permutation(BE(vec)));
+    score = calc({0}, 0);
 
     P_RR("Part1: %lld\n", score);
 //========================================================
