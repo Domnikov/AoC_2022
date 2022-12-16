@@ -141,24 +141,31 @@ std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
 {
     // if(time < 20)P(time);
     auto maxFlows = get3MaxClosed(cur, val);
+    P_LINE;
     if(maxFlows.empty())
     {
         return {0, score + (maxTime-time)*countP(val)};
     }
+    P_LINE;
     std::vector<std::pair<LL, LL>> ress;
+    P_LINE;
     LL curP = countP(val);
+    P_LINE;
     // for(auto m : maxFlows)
     {
         // if(m == 1){return {0,0};}
         // auto path = getPathIf(cur, m, val);
         auto& path = maxFlows;
+    P_LINE;
         if(D)
         {
             FOR(i, time)P_RR(" ");
             P_VEC(path);
         }
+    P_LINE;
         LL pathLen = path.size()-1;
         LL newTime = time+pathLen;
+    P_LINE;
         if(newTime >= maxTime)
         {
             static LL max{};
@@ -168,10 +175,15 @@ std::pair<LL, LL> planNext(S cur, decltype(V) val, LL time, LL score)
             // if(newScore == 1512)exit(1);
             return {0, newScore};
         }
+    P_LINE;
         LL newScore = score + curP * pathLen;
+    P_LINE;
         ress.push_back(steP(path.back(), val, newTime, newScore));
+    P_LINE;
     }
+    P_LINE;
     std::sort(BE(ress));
+    P_LINE;
     return {ress.back().first, ress.back().second};
 }
 
