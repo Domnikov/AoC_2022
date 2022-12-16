@@ -14,7 +14,7 @@ using VECC = std::vector<char>;
 
 using V_t = std::map<char, std::tuple<char, LL, VECC, bool>>;
 V_t V;
-LL maxTime = 10;
+LL maxTime = 30;
 
 LL countP(const decltype(V)& val)
 {
@@ -89,6 +89,7 @@ VECI get3MaxClosed(V_t val)
 std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score);
 std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
 {
+    if(time < 10)P(time);
     auto maxFows = get3MaxClosed(val);
     std::vector<std::pair<LL, LL>> ress;
     LL curP = countP(val);
