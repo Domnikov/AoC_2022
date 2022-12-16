@@ -88,8 +88,10 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time)
     P_LINE;
     auto maxFows = get3MaxClosed(val);
     std::vector<std::pair<LL, LL>> ress;
+    P_LINE;
     for(auto m : maxFows)
     {
+    P_LINE;
         if(m == 1){return {0,0};}
         auto path = getPathIf(cur, m, val);
         if(D)
@@ -98,8 +100,10 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time)
             P_VEC(path);
         }
         ress.push_back(steP(path.back(), val, time+path.size()));
+    P_LINE;
     }
     std::sort(BE(ress));
+    P_LINE;
     return ress.back();
 }
 
