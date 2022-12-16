@@ -73,7 +73,7 @@ VECI get3MaxClosed(V_t val)
     VECI allFlows;
     P(val.size());
     auto it = val.begin();
-    while((it = std::find_if(BE(val), [](const auto& a){return !std::get<3>(a.second);})) != val.end())
+    while((it = std::find_if(BE(val), [](const auto& a){return std::get<3>(a.second);})) != val.end())
     {
         P(std::get<0>(it->second));
         P(std::get<1>(it->second));
