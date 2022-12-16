@@ -84,42 +84,21 @@ VECI get3MaxClosed(V_t& val)
 }
 
 
-std::pair<LL, LL> steP(LL time, char prev, char cur, decltype(V)& val, int onlyMove = 0)
+std::pair<LL, LL> steP(char cur, decltype(V) val, LL time)
 {
-    if(time == 30)
+    auto& [curAgain, flow, nexts, open] = val[cur];
+    open = true;
+    time++;
+    auto maxFows = get3MaxClosed(val);
+    std::vector<std::pair<LL, LL>> ress;
+    for(auto m : maxFows)
     {
-        return {0, 0};
+        if(m == 1){return {0,0};}
+        auto path = getPathIf(cur, m, val);
+        ress.push_back(steP(path.back(), val, time+path.size()));
     }
-
-    if(time <= 10)P(time, prev, cur, countP(val));
-
-    auto& [curAgain, flow, next, open] = val[cur];
-    std::vector<std::pair<LL,LL>> variants;
-
-    if(!open)
-    {
-        decltype(V) copy = val;
-        auto& [curAgainCopy, flowCopy, nextCopy, openCopy] = copy[cur];
-        openCopy = true;
-        variants.push_back(steP(time+1, cur, cur, copy, 0));
-    }
-    if(onlyMove < 5)for(auto& n : next)
-    {
-        decltype(V) copy = val;
-        if(n != prev) variants.push_back(steP(time+1, cur, n, copy, onlyMove+1));
-    }
-
-    std::pair<LL,LL> best{0,0};
-    for(const auto& v:variants)
-    {
-        if(best.second < v.second)
-        {
-            best = v;
-        }
-    }
-    LL thisScore = countP(val);
-    best.second += thisScore;
-    return best;
+    std::sort(BE(ress));
+    return ress.back();
 }
 
 int main(int argc, char** argv)
@@ -139,9 +118,7 @@ int main(int argc, char** argv)
         V[cur[0]] = {cur[0], flow, next, false};
     }
 
-    // getPathIf('B', 21);
-    P_VEC(get3MaxClosed(V));
-    // auto [step, newScore] = stePp(0, 'A', 'A', V);
+    auto [step, newScore] = steP('A', V, get3MaxClosed(V));
 
     P_RR("Part1: %lld\n", score);
 //========================================================
