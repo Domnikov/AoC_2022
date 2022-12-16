@@ -180,7 +180,7 @@ std::pair<LL, LL> steP(S cur, decltype(V) val, LL time, LL score)
 int main(int argc, char** argv)
 {
     LL score = 0;
-    D = false;
+    D = true;
     for(int i{}; i < in.size();i++ )
     {
         auto splitted = splitStr(in[i], ' ');
