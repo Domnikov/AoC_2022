@@ -31,6 +31,7 @@ LL countP(const decltype(V)& val)
 
 std::pair<LL, LL> stePp(LL prev, S cur, decltype(V) val)
 {
+    P(prev, cur);
     if(prev == 30)
     {
         return {30, 0};
