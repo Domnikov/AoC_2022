@@ -108,7 +108,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
             LL newScore = score + curP * maxTime-time;
             max = std::max(max, newScore);
             P(max, newScore, score, maxTime-time);
-            if(newScore == 3914)exit(1);
+            if(newScore == 3760)exit(1);
             return {0, newScore};
         }
         ress.push_back(steP(path.back(), val, time+path.size(), score + path.size()*curP));
