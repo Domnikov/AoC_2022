@@ -93,9 +93,13 @@ VECS get3MaxClosed(S cur, V_t val)
         LL dst = allFlows.back();
         if(dst == 0) break;
         allFlows.pop_back();
+    P_LINE;
         auto path = getPathIf(cur, dst, val);
+    P_LINE;
         maxLen = std::max<LL>(maxLen, path.size());
+    P_LINE;
         res.push_back(path);
+    P_LINE;
     }
     P_LINE;
     size_t idx = 0;
