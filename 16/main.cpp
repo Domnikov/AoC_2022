@@ -64,6 +64,7 @@ VECII getGraph(const Vt& val)
                 if(std::get<1>(sub.second) > 0)
                 {
                     auto path = getPath(v.first, sub.first);
+                    P_VEC(path);
                     res.back().push_back(path.size());
                 }
             }
