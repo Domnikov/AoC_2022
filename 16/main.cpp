@@ -161,7 +161,7 @@ int main(int argc, char** argv)
     }
 
     auto [step, newScore] = planNext('A', V, 0, 0);
-
+    score = newScore;
     P_RR("Part1: %lld\n", score);
 //========================================================
     score = 0;
