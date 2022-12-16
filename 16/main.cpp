@@ -92,6 +92,7 @@ int main(int argc, char** argv)
     }
 
     graph = getGraph(V);
+    P_VEC(heads);
     P_VEC(graph);
 
     P_RR("Part1: %lld\n", score);
