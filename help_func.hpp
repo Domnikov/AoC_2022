@@ -115,6 +115,7 @@ inline std::ostream& operator<<( std::ostream& dest, __int128_t value )
 #define ULL   unsigned long long
 #define S     std::string
 #define VECI  std::vector<LL>
+using VECII=std::vector<std::vector<int>>;
 #define VECF  std::vector<double>
 #define VECS  std::vector<S>
 #define VECSS std::vector<std::vector<S>>
