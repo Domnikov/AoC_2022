@@ -86,7 +86,20 @@ int main(int argc, char** argv)
         V[cur[0]] = {cur[0], flow, next, false};
     }
 
-    auto [step, newScore] = stePp(0, 'A', 'A', V);
+    // auto [step, newScore] = stePp(0, 'A', 'A', V);
+
+    std::map<std::pair<decltype(V), char>,LL> moves;
+
+    FOR(time, 30)
+    {
+        for(auto& m : moves)
+        {
+            auto& [pair, score] = m;
+            auto& [val, cur] = pair;
+            auto& [curAgain, flow, next, open] = val[cur];
+
+        }
+    }
 
     P_RR("Part1: %lld\n", score);
 //========================================================
