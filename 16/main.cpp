@@ -60,8 +60,6 @@ VECII getGraph(const Vt& val)
             for(const auto& sub : heads)
             {
                     auto path = getPath(v, sub);
-                    P(v, sub);
-                    P_VEC(path);
                     res.back().push_back(path.size());
             }
     }
