@@ -54,6 +54,7 @@ VECS getPathIf(S cur, LL flow, const V_t& val)
         decltype(paths) nextPaths{{cur}};
         for(const auto& p: paths)
         {
+            P(p.size());
     P_LINE;
             if(p.back() == dst)
             {
