@@ -11,7 +11,42 @@ bool D = true;
 using INT = __int128;
 
 
-std::map<S, std::tuple<S, LL, VECS>> V;
+std::map<S, std::tuple<S, LL, VECS, bool>> V;
+
+
+std::pair<LL, LL> stePp(LL prev, S cur, decltype(V) val)
+{
+    if(prev == 20)
+    {
+        return {20, 0};
+    }
+
+    auto& [curAgain, flow, next, open] = val[cur];
+    std::vector<std::pair<LL,LL>> variants;
+
+    if(!open)
+    {
+        decltype(V) copy = val;
+        auto& [curAgainCopy, flowCopy, nextCopy, openCopy] = copy[cur];
+        openCopy = true;
+        variants.push_back(stePp(prev+1, cur, copy));
+    }
+    for(auto& n : next)
+    {
+        decltype(V) copy = val;
+        variants.push_back(stePp(prev+1, n, copy));
+    }
+
+    std::pair<LL,LL> best{0,0};
+    for(const auto& v:variants)
+    {
+        if(best.second < v.second)
+        {
+            best = v;
+        }
+    }
+    return best;
+}
 
 int main(int argc, char** argv)
 {
@@ -21,15 +56,16 @@ int main(int argc, char** argv)
     {
         auto splitted = splitStr(in[i], ' ');
         S cur = splitted[1];
-        int flow = stoi(replace(replace(splitted[4], "rate="),  ";"));
+        LL flow = stoi(replace(replace(splitted[4], "rate="),  ";"));
         VECS next;
         for(int n = 9; n < splitted.size();++n)
         {
             next.push_back(replace(splitted[n], ","));
         }
-        V[cur] = {cur, flow, next};
-
+        V[cur] = {cur, flow, next, false};
     }
+
+    auto [step, newScore] = stePp(0, "AA", V);
 
     P_RR("Part1: %lld\n", score);
 //========================================================
