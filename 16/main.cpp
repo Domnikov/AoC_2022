@@ -71,13 +71,11 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
 VECI get3MaxClosed(V_t val)
 {
     VECI allFlows;
-    P(val.size());
     auto it = val.begin();
     while((it = std::find_if(BE(val), [](const auto& a){return std::get<3>(a.second);})) != val.end())
     {
         val.erase(it);
     }
-    P(val.size());
     std::transform(BE(val), std::back_inserter(allFlows), [](const auto& a){return std::get<1>(a.second);});
     std::sort(BE(allFlows));
 
