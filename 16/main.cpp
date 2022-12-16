@@ -105,7 +105,7 @@ std::pair<LL, LL> planNext(char cur, decltype(V) val, LL time, LL score)
         ress.push_back(steP(path.back(), val, time+path.size(), score + path.size()*curP));
     }
     std::sort(BE(ress));
-    return ress.back();
+    return {ress.back().first, ress.back().second};
 }
 
 
