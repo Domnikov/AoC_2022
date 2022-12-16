@@ -71,6 +71,7 @@ VECII getGraph(const Vt& val)
 
 LL calc(VECI path, LL time)
 {
+    P_VEC(path);
     LL res;
 
     int maxScore{};
