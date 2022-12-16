@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
     #include "in_test.hpp"
@@ -78,6 +78,7 @@ VECI get3MaxClosed(V_t val)
 {
     VECI allFlows;
     auto it = val.begin();
+    LL NUM = 3;
     while((it = std::find_if(BE(val), [](const auto& a){return std::get<3>(a.second);})) != val.end())
     {
         val.erase(it);
@@ -85,10 +86,13 @@ VECI get3MaxClosed(V_t val)
     std::transform(BE(val), std::back_inserter(allFlows), [](const auto& a){return std::get<1>(a.second);});
     std::sort(BE(allFlows));
 
-    LL max1 = *(allFlows.end()-1);
-    LL max2 = *(allFlows.end()-2);
-    LL max3 = *(allFlows.end()-3);
-    return{max1, max2, max3};
+    VECI res;
+    FOR(i, NUM)
+    {
+        res.push_back(allFlows.back());
+        allFlows.pop_back();
+    }
+    return res;
 }
 
 
