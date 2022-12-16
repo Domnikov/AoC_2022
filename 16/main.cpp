@@ -30,7 +30,7 @@ LL countP(const decltype(V)& val)
 }
 
 
-std::pair<LL, LL> stePp(LL time, S prev, S cur, decltype(V)& val)
+std::pair<LL, LL> stePp(LL time, const S& prev, const S& cur, decltype(V)& val)
 {
     if(time == 30)
     {
