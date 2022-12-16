@@ -120,6 +120,7 @@ VECS get3MaxClosed(S cur, V_t val)
         res.push_back(path);
     P_LINE;
     }
+    if(res.empty()){return {};}
     P_LINE;
     size_t idx = 0;
     auto countPath = [maxLen, &res, curP](LL i){LL curLen = res[i].size();LL nextP = std::get<1>(V[res[i].back()]);return (curP*(curLen)) + (curP+nextP)*(maxLen-curLen);};
