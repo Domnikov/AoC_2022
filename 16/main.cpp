@@ -80,7 +80,6 @@ VECS get3MaxClosed(S cur, V_t val)
 {
     VECI allFlows;
     auto it = val.begin();
-    size_t NUM = 10;
     while((it = std::find_if(BE(val), [](const auto& a){return std::get<3>(a.second);})) != val.end())
     {
         val.erase(it);
@@ -91,7 +90,7 @@ VECS get3MaxClosed(S cur, V_t val)
     VECSS res;
     LL curP = countP(val);
     LL maxLen;
-    for(int i = 0; i < std::min<size_t>(NUM, allFlows.size()); ++i)
+    for(int i = 0; i < allFlows.size(); ++i)
     {
         LL dst = allFlows.back();
         if(dst == 0) break;
