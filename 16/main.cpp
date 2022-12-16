@@ -11,7 +11,7 @@ bool D = true;
 using INT = __int128;
 
 
-std::map<S, std::tuple<S, LL, VECS, bool>> V;
+std::map<char, std::tuple<char, LL, std::vector<char>, bool>> V;
 LL maxTime = 30;
 
 LL countP(const decltype(V)& val)
@@ -30,7 +30,8 @@ LL countP(const decltype(V)& val)
 }
 
 
-std::pair<LL, LL> stePp(LL time, const S& prev, const S& cur, decltype(V)& val)
+
+std::pair<LL, LL> stePp(LL time, char prev, char cur, decltype(V)& val)
 {
     if(time == 30)
     {
@@ -82,15 +83,15 @@ int main(int argc, char** argv)
         auto splitted = splitStr(in[i], ' ');
         S cur = splitted[1];
         LL flow = stoi(replace(replace(splitted[4], "rate="),  ";"));
-        VECS next;
+        std::vector<char> next;
         for(int n = 9; n < splitted.size();++n)
         {
-            next.push_back(replace(splitted[n], ","));
+            next.push_back(replace(splitted[n], ",")[0]);
         }
-        V[cur] = {cur, flow, next, false};
+        V[cur[0]] = {cur[0], flow, next, false};
     }
 
-    auto [step, newScore] = stePp(0, "AA", "AA", V);
+    auto [step, newScore] = stePp(0, 'A', 'A', V);
 
     P_RR("Part1: %lld\n", score);
 //========================================================
