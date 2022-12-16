@@ -127,7 +127,7 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
     if(D)
     {
         FOR(i, time)P_RR(" ");
-        P(cur, time, score);
+        P(cur, time, score, countP(val));
     }
     if(time == maxTime)
     {
