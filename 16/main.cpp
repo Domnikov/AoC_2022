@@ -34,6 +34,7 @@ LL countP(const decltype(V)& val)
 
 VECC getPathIf(char cur, LL flow, const V_t& val)
 {
+    P_LINE;
     char dst = 0;
     for(auto& v:val)
     {
@@ -42,15 +43,20 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
             dst = v.first;
         }
     }
+    P_LINE;
     if(!dst) return{};
     std::vector<VECC>paths{{cur}};
+    P_LINE;
     while(true)
     {
+    P_LINE;
         std::vector<VECC>nextPaths{{cur}};
         for(auto p: paths)
         {
+    P_LINE;
             if(p.back() == dst)
             {
+    P_LINE;
                 return p;
             }
             for(const auto& n : std::get<2>(val.at(p.back())))
@@ -60,9 +66,12 @@ VECC getPathIf(char cur, LL flow, const V_t& val)
                 nextPaths.push_back(newPath);
             }
         }
+    P_LINE;
         std::swap(paths, nextPaths);
+    P_LINE;
     }
 
+    P_LINE;
 
     P_RR("No path %c to %c \n", cur, dst);
     exit(0);
