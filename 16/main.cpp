@@ -56,12 +56,12 @@ VECII getGraph(const Vt& val)
     VECII res;
     for(const auto& v : val)
     {
-        if(std::get<1>(v.second) > 0)
+        if(std::get<1>(v.second) > 0 || v.first == "AA")
         {
             res.push_back({});
             for(const auto& sub : val)
             {
-                if(std::get<1>(sub.second) > 0)
+                if(std::get<1>(sub.second) > 0 || v.first == "AA")
                 {
                     auto path = getPath(v.first, sub.first);
                     P(v.first, sub.first);
