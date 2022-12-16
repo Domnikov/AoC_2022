@@ -10,12 +10,24 @@ auto in = getInput();
 bool D = true;
 using INT = __int128;
 
+
+std::map<S, std::tuple<S, LL, VECS>> V;
+
 int main(int argc, char** argv)
 {
     LL score = 0;
     D = false;
     for(int i{}; i < in.size();i++ )
     {
+        auto splitted = splitStr(in[i], ' ');
+        S cur = splitted[1];
+        int flow = stoi(replace(replace(splitted[4], "rate="),  ";"));
+        VECS next;
+        for(int n = 9; n < splitted.size();++n)
+        {
+            next.push_back(replace(splitted[n], ","));
+        }
+        V[cur] = {cur, flow, next};
 
     }
 

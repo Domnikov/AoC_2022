@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <bitset>
 #include <cmath>
+#include <deque>
 #include <fstream>
 #include <iostream>
 #include <iterator>
@@ -171,6 +172,26 @@ void _P_VECH (const std::vector<T> vec)
     std::cerr << "]\n";
 }
 #define P_VECH(a) {fprintf(stderr, #a " = ");_P_VECH(a);}
+
+template<typename T, typename G>
+void _P_MAPV (const std::map<T, G>& map)
+{
+    std::cerr << " = [\n";
+
+    if(!map.empty())
+    {
+        for(auto& m : map)
+        {
+            std::cout << "\t" << m.first << ": " << m.second << "\n";
+        }
+    }
+
+    std::cerr << "]\n";
+}
+
+#define P_MAPV(a) fprintf(stderr, #a);_P_MAPV(a)
+#define P_MAP  P_MAPV
+
 #define P_LINE std::cout<<__PRETTY_FUNCTION__<<":"<<__LINE__<<std::endl;
 
 #define FOR(i,a) for(decltype(a)  i{};  i != a; ++i)
@@ -253,3 +274,17 @@ inline VECSS inToVecSS(char delim = ',', const char* fileName = "input")
     return input;
 }
 
+
+inline S replace(const S& s, const S& from, const S& to = "")
+{
+    S res = s;
+    if(from.empty()) return s;
+
+    size_t startPos = 0;
+    while((startPos  = res.find(from, startPos)) != S::npos)
+    {
+        res = res.replace(startPos, from.size(), to);
+        startPos = to.size();
+    }
+    return trunc(res);
+}
