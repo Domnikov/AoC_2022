@@ -62,7 +62,9 @@ VECS getPathIf(S cur, LL flow, const V_t& val)
                 return p;
             }
     P_LINE;
-            for(const auto& n : std::get<2>(val.at(p.back())))
+            auto& curVal = val.at(p.back());
+            auto& allNexts = std::get<2>(curVal);
+            for(const auto& n : allNexts)
             {
     P_LINE;
                 if(std::find(BE(p), n) == p.end())
