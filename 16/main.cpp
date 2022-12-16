@@ -29,11 +29,12 @@ LL countP(const decltype(V)& val)
     return score;
 }
 
-std::pair<LL, LL> stePp(LL time, S prev, S cur, decltype(V) val)
+
+std::pair<LL, LL> stePp(LL time, S prev, S cur, decltype(V)& val)
 {
     if(time == 30)
     {
-        return {30, 0};
+        return {0, 0};
     }
 
     if(time <= 10)P(time, prev, cur, countP(val));
