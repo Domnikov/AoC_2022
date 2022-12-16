@@ -182,10 +182,10 @@ int main(int argc, char** argv)
         auto splitted = splitStr(in[i], ' ');
         S cur = splitted[1];
         LL flow = stoi(replace(replace(splitted[4], "rate="),  ";"));
-        std::vector<char> next;
+        VECS next;
         for(int n = 9; n < splitted.size();++n)
         {
-            next.push_back(replace(splitted[n], ",")[0]);
+            next.push_back(replace(splitted[n], ","));
         }
         V[cur] = {cur, flow, next, false};
     }
