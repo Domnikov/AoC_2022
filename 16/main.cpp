@@ -124,12 +124,12 @@ std::pair<LL, LL> steP(char cur, decltype(V) val, LL time, LL score)
     open = true;
     time++;
     score += countP(val);
-    auto res = planNext(cur, val, time, score);
     if(D)
     {
         FOR(i, time)P_RR("  ");
         P(cur, time, score);
     }
+    auto res = planNext(cur, val, time, score);
 
     return res;
 }
