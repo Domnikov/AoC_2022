@@ -106,10 +106,10 @@ VECI calc(VECI path, LL time)
                 LL maxScore = 0;
                 FOR(i, V.size())
                 {
-                    P(i);
+                    // P(i);
                     FOR(ii, V[i].size())
                     {
-                        P(i, ii);
+                        // P(i, ii);
                         auto& v = V[i][ii];
                         if( std::find(BE(v), j) != v.end()) continue;
                         if(i == j) continue;
