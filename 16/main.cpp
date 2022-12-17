@@ -200,7 +200,6 @@ int main(int argc, char** argv)
 
     auto path = calc({0}, 0);
 
-    maxTime = 30;
     auto sc = countScore(path);
     P_VEC(path);
     while(sc.second < 0)
