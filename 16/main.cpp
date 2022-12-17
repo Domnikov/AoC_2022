@@ -202,6 +202,7 @@ int main(int argc, char** argv)
 
     maxTime = 30;
     auto sc = countScore(path);
+    P_VEC(path);
     while(sc.second < 0)
     {
         path.pop_back();
