@@ -103,7 +103,7 @@ VECI calc(VECI path, LL time)
     FOR(i, N){init.push_back(i);}
     FOR(i, N){V.push_back(VECII{init});}
 
-    FOR(k, N)
+    for(LL k = 1; k < N; k++)
     {
         VECII newV;
         // FOR(i, N)
