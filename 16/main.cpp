@@ -125,6 +125,7 @@ VECI calc(VECI path, LL time)
                         P_LINE;
                         if(i == j) continue;
                         P_LINE;
+                        {
                         auto it = std::find(BE(copy), j);
                         P_LINE;
                         copy.erase(it);
@@ -133,6 +134,7 @@ VECI calc(VECI path, LL time)
                         P_LINE;
                         copy.insert(it, j);
                         P_LINE;
+                        }
                         auto score = countScore(copy);
                         P_LINE;
                         if(score.second > 0 && score.first > maxScore)
