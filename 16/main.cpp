@@ -108,7 +108,7 @@ VECI calc(VECI path, LL time)
         VECII newV;
         // FOR(i, N)
         {
-            FOR(j, N)
+            for(LL j = 1; j < N;++j)
             {
                 LL maxScore = 0;
                 VECI maxVector;
