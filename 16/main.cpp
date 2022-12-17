@@ -206,7 +206,7 @@ int main(int argc, char** argv)
     {
         path.pop_back();
         sc = countScore(path);
-        P_PER(path);
+        P_VEC(path);
         P(sc.first, sc.second);
     }
 
