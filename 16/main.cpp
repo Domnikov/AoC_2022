@@ -99,7 +99,9 @@ VECI calc(VECI path, LL time)
     LL N = heads.size();
     LL INF = 99999999;
     std::vector<VECII> V;
-    FOR(i, N){V.push_back(VECII{{0}});}
+    VECI init;
+    FOR(i, N){init.push_back(i);}
+    FOR(i, N){V.push_back(VECII{init});}
 
     FOR(k, N)
     {
@@ -108,43 +110,27 @@ VECI calc(VECI path, LL time)
         {
             FOR(j, N)
             {
-                LL id = -1;
-                LL iid = -1;
                 LL maxScore = 0;
+                VECI maxVector;
                 FOR(i, V.size())
                 {
-                    FOR(ii, V[i].size())
+                    // FOR(ii, V[i].size())
+                    LL ii = V[i].size() - 1;
                     {
-                        auto& v = V[i][ii];
-                        if( std::find(BE(v), j) != v.end()) continue;
+                        auto copy = V[i][ii];
                         if(i == j) continue;
-                        auto copy = v;
+                        auto it = std::find(BE(copy), j);
+                        copy.erase(it);
                         copy.push_back(j);
                         auto score = countScore(copy);
                         if(score.second > 0 && score.first > maxScore)
                         {
                             maxScore = score.first;
-                            id = i;
-                            iid = ii;
+                            maxVector = copy;
                         }
                     }
                 }
-                if(id >= 0)
-                {
-                    auto copy = V[id][iid];
-                    if(D){P(j);P_VEC(copy);}
-                    if(std::find(BE(copy), j) == copy.end())
-                    {
-                        copy.push_back(j);
-                        auto score = countScore(copy);
-                        if(score.second > 0)
-                        {
-                            if(D){P_VEC(copy);}
-                            if(D){P(score.first, score.second);}
-                            newV.push_back(copy);
-                        }
-                    }
-                }
+                newV.push_back(maxVector);
             }
         }
         V.push_back(newV);
