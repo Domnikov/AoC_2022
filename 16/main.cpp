@@ -108,6 +108,7 @@ VECI calc(VECI path, LL time)
                 {
                     FOR(ii, V[i].size())
                     {
+                        P(i, ii);
                         auto& v = V[i][ii];
                         if( std::find(BE(v), j) != v.end()) continue;
                         if(i == j) continue;
