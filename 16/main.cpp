@@ -16,7 +16,7 @@ Vt V;
 VECII graph;
 VECS heads;
 VECI flows;
-LL maxTime = 50;
+LL maxTime = 60;
 
 LL getNum(S s){return std::distance(heads.begin(), (std::find(BE(heads), s)));}
 
