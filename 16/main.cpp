@@ -144,6 +144,7 @@ VECI calc(VECI path, LL time)
                         P_LINE;
                         }
                         P_LINE;
+                        P_VEC(copy);
                     }
                         P_LINE;
                 }
