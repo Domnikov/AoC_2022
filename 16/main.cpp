@@ -101,21 +101,25 @@ VECI calc(VECI path, LL time)
         {
             FOR(j, N)
             {
-                auto fmax = [&V, &j](VECI& a, VECI b){
-                    if(std::find(BE(a), j) != a.end())
-                    {
-                        return false;
-                    }
-                    auto score1 = countScore(a);
-                    if((score1.second - graph[j][a.back()]) < 0) return false;
-                    auto score2 = countScore(b);
-                    return score1.first < score2.first;
-                };
-                auto it = std::max_element(BE(V), fmax);
-                if(it != V.end())
+                LL id = -1;
+                LL maxScore = 0;
+                FOR(i, V.size())
                 {
-                    P(j);P_VEC(*it);
-                    auto copy = *it;
+                    if( std::find(BE(V[i]), j) != V[i].end()) continue;
+                    if(i == j) continue;
+                    auto copy = V[i];
+                    copy.push_back(j);
+                    auto score = countScore(copy);
+                    if(score.second > 0 && score.first > maxScore)
+                    {
+                        maxScore = score.first;
+                        id = i;
+                    }
+                }
+                if(id >= 0)
+                {
+                    auto copy = V[id];
+                    P(j);P_VEC(copy);
                     if(std::find(BE(copy), j) == copy.end())
                     {
                         copy.push_back(j);
