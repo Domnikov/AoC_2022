@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -87,38 +87,73 @@ VECI calc(VECI path, LL time)
 {
     P_VEC(path);
     VECI res;
+    LL N = heads.size();
+    LL INF = 99999999;
+    VECII V;
+    FOR(i, N){V.push_back({0});}
 
-    int maxScore{};
-    int maxId = -1;
-
-    FOR(i, heads.size())
+    bool ok = true;
+    while(ok)
     {
-        if(std::find(BE(path), i) == path.end())
+        ok = false;
+        // FOR(i, N)
         {
-            LL timeLeft = maxTime - time - graph[i][path.back()];
-            if(timeLeft >= 0)
+            FOR(j, N)
             {
-                LL score = timeLeft * flows[i];
-                P(heads[i], timeLeft, score);
-                if(score > maxScore)
+                auto fmax = [&V, j](VECI& a, VECI b){
+                    if(std::find(BE(a), j) != a.end())
+                    {
+                        return true;
+                    }
+                    auto score1 = countScore(a);
+                    auto score2 = countScore(b);
+                    return score1 < score2;
+                };
+                auto it = std::max_element(BE(V), fmax);
+                if(it != V.end())
                 {
-                    maxScore = score;
-                    maxId = i;
+                    ok = true;
+                    auto copy = *it;
+                    copy.push_back(j);
+                    P_VEC(copy);
+                    P(countScore(copy));
+                    V[j] = copy;
                 }
             }
         }
     }
 
-    if(maxId == -1)
-    {
-        res = path;
-    }
-    else
-    {
-        time += graph[path.back()][maxId];
-        path.push_back(maxId);
-        res = calc(path, time);
-    }
+    // int maxScore{};
+    // int maxId = -1;
+    //
+    // FOR(i, heads.size())
+    // {
+    //     if(std::find(BE(path), i) == path.end())
+    //     {
+    //         LL timeLeft = maxTime - time - graph[i][path.back()];
+    //         if(timeLeft >= 0)
+    //         {
+    //             LL score = timeLeft * flows[i];
+    //             P(heads[i], timeLeft, score);
+    //             if(score > maxScore)
+    //             {
+    //                 maxScore = score;
+    //                 maxId = i;
+    //             }
+    //         }
+    //     }
+    // }
+    //
+    // if(maxId == -1)
+    // {
+    //     res = path;
+    // }
+    // else
+    // {
+    //     time += graph[path.back()][maxId];
+    //     path.push_back(maxId);
+    //     res = calc(path, time);
+    // }
 
     return res;
 }
