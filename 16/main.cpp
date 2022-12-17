@@ -129,6 +129,7 @@ VECI calc(VECI path, LL time)
                         {
                         auto it = std::find(BE(copy), j);
                         P_LINE;
+                        if(it == copy.end()) exit(1);
                         copy.erase(it);
                         P_LINE;
                         it = copy.begin() + (copy.size() - k - 2);
