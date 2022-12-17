@@ -135,7 +135,7 @@ VECI calc(VECI path, LL time)
             }
         }
         V.push_back(newV);
-        if(D){P_VEC(V);}
+        // if(D){P_VEC(V);}
     }
 
     LL resScore = 0;
