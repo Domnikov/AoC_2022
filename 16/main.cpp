@@ -113,7 +113,7 @@ VECI calc(VECI path, LL time)
             {
                 LL maxScore = 0;
                 VECI maxVector;
-                FOR(i, V.size())
+                for(LL i = 1; i < V.size(); ++i)
                 {
                     // FOR(ii, V[i].size())
                     LL ii = V[i].size() - 1;
