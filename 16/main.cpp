@@ -101,7 +101,7 @@ VECI calc(VECI path, LL time)
         {
             FOR(j, N)
             {
-                auto fmax = [&V, j](VECI& a, VECI b){
+                auto fmax = [&V, &j](VECI& a, VECI b){
                     if(std::find(BE(a), j) != a.end())
                     {
                         return true;
