@@ -78,14 +78,14 @@ std::pair<LL, LL> countScore(VECI path)
         time -= graph[path[i-1]][path[i]];
         LL flow = flows[path[i]];
         score += time * flow;
-        // P(heads[path[i]], time, flow, time*flow, score);
+        P(heads[path[i]], time, flow, time*flow, score);
     }
     return {score, time};
 }
 
 VECI calc(VECI path, LL time)
 {
-    P_VEC(path);
+    // P_VEC(path);
     VECI res;
     LL N = heads.size();
     LL INF = 99999999;
