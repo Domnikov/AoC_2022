@@ -140,7 +140,7 @@ VECI calc(VECI path, LL time)
     }
 
     LL resScore = 0;
-
+    LL counter{};
     for(auto& k : V)
     {
         for(auto j: k)
@@ -155,6 +155,8 @@ VECI calc(VECI path, LL time)
                 res = j;
             }
         }
+
+        P(counter++);
     }
 
     return res;
