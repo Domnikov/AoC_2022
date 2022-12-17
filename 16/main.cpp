@@ -199,7 +199,6 @@ int main(int argc, char** argv)
     P_VEC(graph);
 
     auto path = calc({0}, 0);
-    P_PER(path);
 
     maxTime = 30;
     auto sc = countScore(path);
@@ -207,7 +206,8 @@ int main(int argc, char** argv)
     {
         path.pop_back();
         sc = countScore(path);
-
+        P_PER(path);
+        P(sc.first, sc.second);
     }
 
     score = countScore(path).first;
