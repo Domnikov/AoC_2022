@@ -201,6 +201,15 @@ int main(int argc, char** argv)
     auto path = calc({0}, 0);
     P_PER(path);
 
+    maxTime = 30;
+    auto sc = countScore(path);
+    while(sc.second < 0)
+    {
+        path.pop_back();
+        sc = countScore(path);
+
+    }
+
     score = countScore(path).first;
 
     P_RR("Part1: %lld\n", score);
