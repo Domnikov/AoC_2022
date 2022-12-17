@@ -184,7 +184,7 @@ VECI calc(VECI path, LL time)
             }
         }
 
-        P(counter++);
+        P(counter++, resScore);
     }
 
     return res;
