@@ -108,7 +108,9 @@ VECI calc(VECI path, LL time)
         VECII newV;
         // FOR(i, N)
         {
+            P_LINE;
             newV.push_back(V.back()[0]);
+            P_LINE;
             for(LL j = 1; j < N;++j)
             {
                 LL maxScore = 0;
@@ -118,13 +120,21 @@ VECI calc(VECI path, LL time)
                     // FOR(ii, V[i].size())
                     LL ii = V[i].size() - 1;
                     {
+                        P_LINE;
                         auto copy = V[i][ii];
+                        P_LINE;
                         if(i == j) continue;
+                        P_LINE;
                         auto it = std::find(BE(copy), j);
+                        P_LINE;
                         copy.erase(it);
+                        P_LINE;
                         it = copy.begin() + (copy.size() - k - 2);
+                        P_LINE;
                         copy.insert(it, j);
+                        P_LINE;
                         auto score = countScore(copy);
+                        P_LINE;
                         if(score.second > 0 && score.first > maxScore)
                         {
                             maxScore = score.first;
@@ -132,10 +142,14 @@ VECI calc(VECI path, LL time)
                         }
                     }
                 }
+                P_LINE;
                 newV.push_back(maxVector);
+                P_LINE;
             }
         }
+        P_LINE;
         V.push_back(newV);
+        P_LINE;
         if(D){P_VEC(V);}
     }
 
