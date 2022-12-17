@@ -173,7 +173,7 @@ VECI calc(VECI path, LL time)
 int main(int argc, char** argv)
 {
     LL score = 0;
-    D = false;
+    D = true;
     heads.push_back("AA");
     flows.push_back(0);
     for(int i{}; i < in.size();i++ )
