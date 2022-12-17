@@ -137,7 +137,7 @@ VECI calc(VECI path, LL time)
                         if(shift < 0 || shift >= copy.size()){P_LINE;exit(1);}
                         it = copy.begin() + (copy.size() - k - 2);
                         P_LINE;
-                        // copy.insert(it, j);
+                        copy.insert(it, j);
                         P_LINE;
                         }
                         auto score = countScore(copy);
