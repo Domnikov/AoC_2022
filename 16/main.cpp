@@ -92,11 +92,9 @@ VECI calc(VECI path, LL time)
     std::vector<VECII> V;
     FOR(i, N){V.push_back(VECII{{0}});}
 
-    bool ok = true;
-    while(ok)
+    FOR(k, N)
     {
         VECII newV;
-        ok = false;
         // FOR(i, N)
         {
             FOR(j, N)
@@ -133,7 +131,6 @@ VECI calc(VECI path, LL time)
                         if(score.second > 0)
                         {
                             if(D){P_VEC(copy);}
-                            ok = true;
                             if(D){P(score.first, score.second);}
                             newV.push_back(copy);
                         }
@@ -144,6 +141,23 @@ VECI calc(VECI path, LL time)
         V.push_back(newV);
         if(D){P_VEC(V);}
     }
+
+    LL resScore = 0;
+
+    for(auto& k : V)
+    {
+        for(auto j: k)
+        {
+            auto jScore = countScore(j);
+
+            if(resScore < jScore.first)
+            {
+                resScore = jScore.first;
+                res = j;
+            }
+        }
+    }
+
     return res;
 }
 
