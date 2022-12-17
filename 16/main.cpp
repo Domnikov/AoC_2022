@@ -120,6 +120,7 @@ VECI calc(VECI path, LL time)
                     // LL ii = V[i].size() - 1;
                     {
                         auto copy = V.back()[i];
+                        P_PER(copy);P(heads[i]);
                         if(i == j) continue;
                         auto it = std::find(BE(copy), j);
                         if(it == copy.end()){P_LINE;exit(1);}
