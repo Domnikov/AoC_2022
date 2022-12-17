@@ -159,11 +159,12 @@ VECI calc(VECI path, LL time)
         {
             auto jScore = countScore(j);
 
+            P_PER(j);
+            P(jScore.first);
             if(resScore < jScore.first)
             {
                 resScore = jScore.first;
                 res = j;
-                P_PER(j);
             }
         }
     }
