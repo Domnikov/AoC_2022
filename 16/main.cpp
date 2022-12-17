@@ -121,7 +121,8 @@ VECI calc(VECI path, LL time)
                         if(i == j) continue;
                         auto it = std::find(BE(copy), j);
                         copy.erase(it);
-                        copy.push_back(j);
+                        it = copy.begin() + k;
+                        copy.insert(it, j);
                         auto score = countScore(copy);
                         if(score.second > 0 && score.first > maxScore)
                         {
