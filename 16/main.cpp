@@ -89,8 +89,8 @@ VECI calc(VECI path, LL time)
     VECI res;
     LL N = heads.size();
     LL INF = 99999999;
-    VECII V;
-    FOR(i, N){V.push_back({0});}
+    std::vector<VECII> V;
+    FOR(i, N){V.push_back(VECII{0});}
 
     bool ok = true;
     while(ok)
@@ -102,23 +102,29 @@ VECI calc(VECI path, LL time)
             FOR(j, N)
             {
                 LL id = -1;
+                LL iid = -1;
                 LL maxScore = 0;
                 FOR(i, V.size())
                 {
-                    if( std::find(BE(V[i]), j) != V[i].end()) continue;
-                    if(i == j) continue;
-                    auto copy = V[i];
-                    copy.push_back(j);
-                    auto score = countScore(copy);
-                    if(score.second > 0 && score.first > maxScore)
+                    FOR(ii, V[i].size())
                     {
-                        maxScore = score.first;
-                        id = i;
+                        auto& v = V[i][ii];
+                        if( std::find(BE(v), j) != v.end()) continue;
+                        if(i == j) continue;
+                        auto copy = v;
+                        copy.push_back(j);
+                        auto score = countScore(copy);
+                        if(score.second > 0 && score.first > maxScore)
+                        {
+                            maxScore = score.first;
+                            id = i;
+                            iid = ii;
+                        }
                     }
                 }
                 if(id >= 0)
                 {
-                    auto copy = V[id];
+                    auto copy = V[id][iid];
                     P(j);P_VEC(copy);
                     if(std::find(BE(copy), j) == copy.end())
                     {
@@ -135,42 +141,9 @@ VECI calc(VECI path, LL time)
                 }
             }
         }
-        V = newV;
+        V.push_back(newV);
         P_VEC(V);
     }
-
-    // int maxScore{};
-    // int maxId = -1;
-    //
-    // FOR(i, heads.size())
-    // {
-    //     if(std::find(BE(path), i) == path.end())
-    //     {
-    //         LL timeLeft = maxTime - time - graph[i][path.back()];
-    //         if(timeLeft >= 0)
-    //         {
-    //             LL score = timeLeft * flows[i];
-    //             P(heads[i], timeLeft, score);
-    //             if(score > maxScore)
-    //             {
-    //                 maxScore = score;
-    //                 maxId = i;
-    //             }
-    //         }
-    //     }
-    // }
-    //
-    // if(maxId == -1)
-    // {
-    //     res = path;
-    // }
-    // else
-    // {
-    //     time += graph[path.back()][maxId];
-    //     path.push_back(maxId);
-    //     res = calc(path, time);
-    // }
-
     return res;
 }
 
