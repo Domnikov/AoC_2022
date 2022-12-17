@@ -108,9 +108,7 @@ VECI calc(VECI path, LL time)
         VECII newV;
         // FOR(i, N)
         {
-            P_LINE;
             newV.push_back(V.back()[0]);
-            P_LINE;
             for(LL j = 1; j < N;++j)
             {
                 LL maxScore = 0;
@@ -120,50 +118,28 @@ VECI calc(VECI path, LL time)
                     // FOR(ii, V[i].size())
                     LL ii = V[i].size() - 1;
                     {
-                        P_LINE;
-                        {
                         auto copy = V[i][ii];
-                        P_LINE;
                         if(i == j) continue;
-                        P_LINE;
-                        {
                         auto it = std::find(BE(copy), j);
-                        P_LINE;
                         if(it == copy.end()){P_LINE;exit(1);}
-                        P_LINE;
                         copy.erase(it);
-                        P_LINE;
                         LL shift = copy.size() - k;
                         if(shift < 0 || shift > copy.size()){P(shift, k, copy.size());P_LINE;exit(1);}
                         it = copy.begin() + shift;
-                        P_LINE;
                         copy.insert(it, j);
-                        P_LINE;
-                        }
                         auto score = countScore(copy);
-                        P_LINE;
+                        P_PER(copy);P(score.first);
                         if(score.second > 0 && score.first > maxScore)
                         {
-                        P_LINE;
                             maxScore = score.first;
-                        P_LINE;
                             maxVector = copy;
-                        P_LINE;
                         }
-                        P_LINE;
-                        }
-                        P_LINE;
                     }
-                        P_LINE;
                 }
-                P_LINE;
                 newV.push_back(maxVector);
-                P_LINE;
             }
         }
-        P_LINE;
         V.push_back(newV);
-        P_LINE;
         if(D){P_VEC(V);}
     }
 
