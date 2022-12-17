@@ -111,6 +111,7 @@ VECI calc(VECI path, LL time)
             newV.push_back(V.back()[0]);
             for(LL j = 1; j < N;++j)
             {
+                P(j);
                 LL maxScore = 0;
                 VECI maxVector;
                 for(LL i = 1; i < V.size(); ++i)
