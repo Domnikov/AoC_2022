@@ -101,7 +101,7 @@ VECI calc(VECI path, LL time)
     std::vector<VECII> V{VECII{}};
     VECI init;
     FOR(i, N){init.push_back(i);}
-    FOR(i, N){V[0].push_back(VECI{init});}
+    FOR(i, N){V.push_back(VECII{init});}
 
     FOR(k, N)
     {
