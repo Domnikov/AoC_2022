@@ -190,7 +190,7 @@ int main(int argc, char** argv)
 
     auto path = calc({0}, 0);
 
-    score = countScore(path);
+    score = countScore(path).first;
 
     P_RR("Part1: %lld\n", score);
     //========================================================
