@@ -131,7 +131,7 @@ VECI calc(VECI path, LL time)
                         copy.insert(it, j);
                         auto score = countScore(copy);
                         if(D){P_PER(copy);P(score.first);}
-                        if(score.second > 0 && score.first > maxScore)
+                        if(/*score.second > 0 &&*/ score.first > maxScore)
                         {
                             maxScore = score.first;
                             maxVector = copy;
