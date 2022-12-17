@@ -69,6 +69,15 @@ VECII getGraph(const Vt& val)
     return res;
 }
 
+void P_PER(VECI vec)
+{
+    for(auto i : vec)
+    {
+        P_RR("%s; ", heads[i].c_str());
+    }
+    P_RR("\n");
+}
+
 std::pair<LL, LL> countScore(VECI path)
 {
     LL score{};
