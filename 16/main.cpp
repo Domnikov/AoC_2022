@@ -115,10 +115,10 @@ VECI calc(VECI path, LL time)
                 {
                     auto copy = *it;
                     copy.push_back(j);
-                    P_VEC(copy);
                     auto score = countScore(copy);
                     if(score.second > 0)
                     {
+                        P_VEC(copy);
                         ok = true;
                         P(score.first, score.second);
                         V[j] = copy;
