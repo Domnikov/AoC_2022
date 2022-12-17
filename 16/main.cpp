@@ -162,6 +162,8 @@ VECI calc(VECI path, LL time)
     return res;
 }
 
+// LL brute()
+
 int main(int argc, char** argv)
 {
     LL score = 0;
