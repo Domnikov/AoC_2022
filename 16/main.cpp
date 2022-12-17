@@ -121,6 +121,7 @@ VECI calc(VECI path, LL time)
                     LL ii = V[i].size() - 1;
                     {
                         P_LINE;
+                        {
                         auto copy = V[i][ii];
                         P_LINE;
                         if(i == j) continue;
@@ -146,7 +147,8 @@ VECI calc(VECI path, LL time)
                         P_LINE;
                         }
                         P_LINE;
-                        P_VEC(copy);
+                        }
+                        P_LINE;
                     }
                         P_LINE;
                 }
