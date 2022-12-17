@@ -108,6 +108,7 @@ VECI calc(VECI path, LL time)
         VECII newV;
         // FOR(i, N)
         {
+            newV.push_back(V.back()[0]);
             for(LL j = 1; j < N;++j)
             {
                 LL maxScore = 0;
