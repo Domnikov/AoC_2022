@@ -95,6 +95,7 @@ VECI calc(VECI path, LL time)
     bool ok = true;
     while(ok)
     {
+        VECII newV;
         ok = false;
         // FOR(i, N)
         {
@@ -123,12 +124,13 @@ VECI calc(VECI path, LL time)
                             P_VEC(copy);
                             ok = true;
                             P(score.first, score.second);
-                            V[j] = copy;
+                            newV.push_back(copy);
                         }
                     }
                 }
             }
         }
+        V = newV;
         P_VEC(V);
     }
 
