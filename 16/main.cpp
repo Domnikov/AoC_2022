@@ -104,10 +104,10 @@ VECI calc(VECI path, LL time)
                 auto fmax = [&V, &j](VECI& a, VECI b){
                     if(std::find(BE(a), j) != a.end())
                     {
-                        return true;
+                        return false;
                     }
                     auto score1 = countScore(a);
-                    if((score1.second - graph[j][a.back()]) < 0) return true;
+                    if((score1.second - graph[j][a.back()]) < 0) return false;
                     auto score2 = countScore(b);
                     return score1.first < score2.first;
                 };
