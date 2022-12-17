@@ -114,7 +114,7 @@ VECI calc(VECI path, LL time)
                 P(k, heads[j],V.back().size());
                 LL maxScore = 0;
                 VECI maxVector;
-                for(LL i = 1; i < V.back().size(); ++i)
+                for(LL i = 0; i < V.back().size(); ++i)
                 {
                     // FOR(ii, V[i].size())
                     // LL ii = V[i].size() - 1;
