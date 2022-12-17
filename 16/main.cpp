@@ -69,7 +69,7 @@ VECII getGraph(const Vt& val)
     return res;
 }
 
-LL countScore(VECI path)
+std::pair<LL, LL> countScore(VECI path)
 {
     LL score{};
     LL time = maxTime;
@@ -78,9 +78,9 @@ LL countScore(VECI path)
         time -= graph[path[i-1]][path[i]];
         LL flow = flows[path[i]];
         score += time * flow;
-        P(heads[path[i]], time, flow, time*flow, score);
+        // P(heads[path[i]], time, flow, time*flow, score);
     }
-    return score;
+    return {score, time};
 }
 
 VECI calc(VECI path, LL time)
@@ -106,17 +106,19 @@ VECI calc(VECI path, LL time)
                         return true;
                     }
                     auto score1 = countScore(a);
+                    if((score1.second - graph[j][a.back()]) < 0) return true;
                     auto score2 = countScore(b);
-                    return score1 < score2;
+                    return score1.first < score2.first;
                 };
                 auto it = std::max_element(BE(V), fmax);
                 if(it != V.end())
                 {
-                    ok = true;
                     auto copy = *it;
                     copy.push_back(j);
                     P_VEC(copy);
-                    P(countScore(copy));
+                    auto score = countScore(copy);
+                    ok = score.second > 0;
+                    P(score.first, score.second);
                     V[j] = copy;
                 }
             }
