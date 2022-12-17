@@ -78,7 +78,7 @@ std::pair<LL, LL> countScore(VECI path)
         time -= graph[path[i-1]][path[i]];
         LL flow = flows[path[i]];
         score += time * flow;
-        P(heads[path[i]], time, flow, time*flow, score);
+        // P(heads[path[i]], time, flow, time*flow, score);
     }
     return {score, time};
 }
@@ -116,7 +116,7 @@ VECI calc(VECI path, LL time)
                     auto copy = *it;
                     copy.push_back(j);
                     auto score = countScore(copy);
-                    if(score.second > 0)
+                    if(score.second > 0 && std::find(BE(copy), j) == copy.end())
                     {
                         P_VEC(copy);
                         ok = true;
