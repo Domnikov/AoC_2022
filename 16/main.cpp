@@ -154,6 +154,7 @@ VECI calc(VECI path, LL time)
             {
                 resScore = jScore.first;
                 res = j;
+                P_VEC(j);
             }
         }
     }
