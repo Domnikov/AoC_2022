@@ -137,10 +137,15 @@ VECI calc(VECI path, LL time)
                         P_LINE;
                         if(score.second > 0 && score.first > maxScore)
                         {
+                        P_LINE;
                             maxScore = score.first;
+                        P_LINE;
                             maxVector = copy;
+                        P_LINE;
                         }
+                        P_LINE;
                     }
+                        P_LINE;
                 }
                 P_LINE;
                 newV.push_back(maxVector);
