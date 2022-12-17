@@ -163,7 +163,7 @@ VECI calc(VECI path, LL time)
             {
                 resScore = jScore.first;
                 res = j;
-                P_VEC(j);
+                P_PER(j);
             }
         }
     }
@@ -200,6 +200,7 @@ int main(int argc, char** argv)
     P_VEC(graph);
 
     auto path = calc({0}, 0);
+    P_PER(path);
 
     score = countScore(path).first;
 
