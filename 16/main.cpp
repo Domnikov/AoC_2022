@@ -134,7 +134,7 @@ VECI calc(VECI path, LL time)
                         copy.erase(it);
                         P_LINE;
                         LL shift = copy.size() -k - 2;
-                        if(shift < 0 || shift >= copy.size()){P_LINE;exit(1);}
+                        if(shift < 0 || shift >= copy.size()){P(shift, k, copy.size());P_LINE;exit(1);}
                         it = copy.begin() + (copy.size() - k - 2);
                         P_LINE;
                         copy.insert(it, j);
