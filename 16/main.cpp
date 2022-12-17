@@ -114,14 +114,17 @@ VECI calc(VECI path, LL time)
                 if(it != V.end())
                 {
                     auto copy = *it;
-                    copy.push_back(j);
-                    auto score = countScore(copy);
-                    if(score.second > 0 && std::find(BE(copy), j) == copy.end())
+                    if(std::find(BE(copy), j) == copy.end())
                     {
-                        P_VEC(copy);
-                        ok = true;
-                        P(score.first, score.second);
-                        V[j] = copy;
+                        copy.push_back(j);
+                        auto score = countScore(copy);
+                        if(score.second > 0)
+                        {
+                            P_VEC(copy);
+                            ok = true;
+                            P(score.first, score.second);
+                            V[j] = copy;
+                        }
                     }
                 }
             }
