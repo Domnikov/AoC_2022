@@ -119,9 +119,9 @@ VECI calc(VECI path, LL time)
                     // FOR(ii, V[i].size())
                     // LL ii = V[i].size() - 1;
                     {
+                        if(i == j) continue;
                         auto copy = V.back()[i];
                         P_PER(copy);P(heads[i], i, j);
-                        if(i == j) continue;
                         auto it = std::find(BE(copy), j);
                         if(it == copy.end()){P_LINE;exit(1);}
                         copy.erase(it);
@@ -142,7 +142,7 @@ VECI calc(VECI path, LL time)
             }
         }
         V.push_back(newV);
-        if(D){P_VEC(V);}
+        if(D){for(auto& v : V){P_VEC(V);}}
     }
 
     LL resScore = 0;
