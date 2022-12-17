@@ -75,7 +75,7 @@ void P_PER(VECI vec)
     {
         P_RR("%s; ", heads[i].c_str());
     }
-    P_RR("\n");
+    P_RR("\t");
 }
 
 std::pair<LL, LL> countScore(VECI path)
