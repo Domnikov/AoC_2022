@@ -121,7 +121,7 @@ VECI calc(VECI path, LL time)
                     {
                         if(i == j) continue;
                         auto copy = V.back()[i];
-                        P_PER(copy);P(heads[i], i, j);
+                        if(D){P_PER(copy);P(heads[i], i, j);}
                         auto it = std::find(BE(copy), j);
                         if(it == copy.end()){P_LINE;exit(1);}
                         copy.erase(it);
@@ -130,7 +130,7 @@ VECI calc(VECI path, LL time)
                         it = copy.begin() + shift;
                         copy.insert(it, j);
                         auto score = countScore(copy);
-                        P_PER(copy);P(score.first);
+                        if(D){P_PER(copy);P(score.first);}
                         if(score.second > 0 && score.first > maxScore)
                         {
                             maxScore = score.first;
@@ -142,7 +142,7 @@ VECI calc(VECI path, LL time)
             }
         }
         V.push_back(newV);
-        {for(auto& v : V){P_VEC(V);}}
+        if(D){for(auto& v : V){P_VEC(V);}}
     }
 
     LL resScore = 0;
