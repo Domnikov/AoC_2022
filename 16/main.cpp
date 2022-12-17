@@ -111,15 +111,15 @@ VECI calc(VECI path, LL time)
             newV.push_back(V.back()[0]);
             for(LL j = 1; j < N;++j)
             {
-                P(heads[j]);
+                P(k, heads[j]);
                 LL maxScore = 0;
                 VECI maxVector;
-                for(LL i = 1; i < V.size(); ++i)
+                for(LL i = 1; i < V.back().size(); ++i)
                 {
                     // FOR(ii, V[i].size())
-                    LL ii = V[i].size() - 1;
+                    // LL ii = V[i].size() - 1;
                     {
-                        auto copy = V[i][ii];
+                        auto copy = V.back()[i];
                         if(i == j) continue;
                         auto it = std::find(BE(copy), j);
                         if(it == copy.end()){P_LINE;exit(1);}
