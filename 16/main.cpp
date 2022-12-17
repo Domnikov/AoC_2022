@@ -129,6 +129,7 @@ VECI calc(VECI path, LL time)
                 }
             }
         }
+        P_VEC(V);
     }
 
     // int maxScore{};
