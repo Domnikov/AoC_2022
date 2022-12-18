@@ -31,7 +31,7 @@ VECSS F{
 {"##",
 "##"}};
 
-VECS C{4022, S(7, ' ') };
+std::deque<S> C{4022, S(7, ' ') };
 
 bool canMove(LL x, LL y, LL shape)
 {
@@ -71,7 +71,7 @@ void fix(LL x, LL y, LL shape, char c = '#')
 
 void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
 {
-    VECS copy;
+    std::deque<S> copy;
     if(shape != -1)
     {
         copy = C;
