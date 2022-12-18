@@ -106,7 +106,7 @@ int main(int argc, char** argv)
         {
             char c = in[0][cmd++];
             LL newX = (x == '<') ? x-1 : x+1;
-            if(D){P(c);draw(y, x, y, shape);}
+            if(D){draw(y, x, y, shape);P(c);}
             if(canMove(newX, y, shape))
             {
                 x = newX;
