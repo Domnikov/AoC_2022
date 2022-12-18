@@ -64,6 +64,7 @@ std::set<std::tuple<LL,LL,LL>> inside(std::tuple<LL,LL,LL> p)
     {
         auto [x, y, z] = p;
         P(x, y, z);
+        for(auto v : vis) {auto [xx, yy, zz] = v; P(xx, yy, zz);}
     }
     return (isInside) ? vis : std::set<std::tuple<LL,LL,LL>>{};
 }
