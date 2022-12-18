@@ -37,7 +37,7 @@ bool canMove(LL x, LL y, LL shape)
 {
     auto& sh = F[shape];
     if(x < 0) {return false;}
-    if( (x+sh[0].size()) > C[0].size() ){return false;}
+    if( (x+sh[0].size()) >= C[0].size() ){return false;}
     if( (y + sh.size()) > C.size() ){return false;}
 
     for(LL xx = 0; xx < sh[0].size(); xx++)
@@ -104,12 +104,12 @@ int main(int argc, char** argv)
         {
             char c = in[0][cmd++];
             LL newX = (x == '<') ? x-1 : x+1;
-            if(D)draw(y, x, y, shape);
+            if(D)draw(y-1, x, y, shape);
             if(canMove(newX, y, shape))
             {
                 x = newX;
             }
-            if(D)draw(y, x, y, shape);
+            if(D)draw(y-1, x, y, shape);
             if(canMove(x, y+1, shape))
             {
                 y++;
