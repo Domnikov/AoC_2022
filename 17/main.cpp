@@ -95,10 +95,11 @@ int main(int argc, char** argv)
     D = true;
 
     LL cmd = 0;
+    LL height = C.size();
     FOR(n, 10)
     {
         auto shape = n%F.size();
-        LL y = score - 3 - F[shape].size();
+        LL y = height - 3 - F[shape].size();
         LL x = 2;
         bool stopped = false;
         while(!stopped)
@@ -118,12 +119,13 @@ int main(int argc, char** argv)
             else
             {
                 stopped = true;
-                score = std::min(y, score);
+                height = std::min(y, height);
                 fix(x, y, shape);
             }
         }
-        if(D)draw(score);
+        if(D)draw(height);
     }
+    score = C.size() - height;
 
     P_RR("Part1: %lld\n", score);
     //========================================================
