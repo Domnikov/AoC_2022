@@ -108,13 +108,6 @@ int main(int argc, char** argv)
     for(auto cb : cubes)
     {
         auto [x,y,z] = cb;
-        if(!cubes.count(lcc(cb))){if(surf.count(lcc(cb)) == 0){surf.emplace(lcc(cb),init);}surf[lcc(cb)][L]++;score++;} P(surf.size());
-        if(!cubes.count(rcc(cb))){if(surf.count(rcc(cb)) == 0){surf.emplace(rcc(cb),init);}surf[rcc(cb)][R]++;score++;} P(surf.size());
-        if(!cubes.count(cuc(cb))){if(surf.count(cuc(cb)) == 0){surf.emplace(cuc(cb),init);}surf[cuc(cb)][U]++;score++;} P(surf.size());
-        if(!cubes.count(cdc(cb))){if(surf.count(cdc(cb)) == 0){surf.emplace(cdc(cb),init);}surf[cdc(cb)][D]++;score++;} P(surf.size());
-        if(!cubes.count(ccf(cb))){if(surf.count(ccf(cb)) == 0){surf.emplace(ccf(cb),init);}surf[ccf(cb)][F]++;score++;} P(surf.size());
-        if(!cubes.count(ccb(cb))){if(surf.count(ccb(cb)) == 0){surf.emplace(ccb(cb),init);}surf[ccb(cb)][B]++;score++;} P(surf.size());
-
 
         {auto t = lub(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
         {auto t = lcb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
@@ -143,6 +136,14 @@ int main(int argc, char** argv)
         {auto t = ruf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
         {auto t = rcf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
         {auto t = rdf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+
+        if(!cubes.count(lcc(cb))){if(surf.count(lcc(cb)) == 0){surf.emplace(lcc(cb),init);}surf[lcc(cb)][L]++;score++;} P(surf.size());
+        if(!cubes.count(rcc(cb))){if(surf.count(rcc(cb)) == 0){surf.emplace(rcc(cb),init);}surf[rcc(cb)][R]++;score++;} P(surf.size());
+        if(!cubes.count(cuc(cb))){if(surf.count(cuc(cb)) == 0){surf.emplace(cuc(cb),init);}surf[cuc(cb)][U]++;score++;} P(surf.size());
+        if(!cubes.count(cdc(cb))){if(surf.count(cdc(cb)) == 0){surf.emplace(cdc(cb),init);}surf[cdc(cb)][D]++;score++;} P(surf.size());
+        if(!cubes.count(ccf(cb))){if(surf.count(ccf(cb)) == 0){surf.emplace(ccf(cb),init);}surf[ccf(cb)][F]++;score++;} P(surf.size());
+        if(!cubes.count(ccb(cb))){if(surf.count(ccb(cb)) == 0){surf.emplace(ccb(cb),init);}surf[ccb(cb)][B]++;score++;} P(surf.size());
+
     }
 
     P_RR("Part1: %lld\n", score);
