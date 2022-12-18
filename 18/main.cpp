@@ -30,6 +30,7 @@ int main(int argc, char** argv)
     {
         VECI vec;
         P(i);
+        P_VEC(splitStr(i, ','));
         VECSTOA(splitStr(i, ','), vec);
         P_VEC(vec);
         cubes.push_back(vec);
