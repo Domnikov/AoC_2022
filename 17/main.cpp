@@ -71,7 +71,7 @@ void fix(LL x, LL y, LL shape, char c = '#')
 void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
 {
     VECS copy;
-    if(shape == -1)
+    if(shape != -1)
     {
         copy = C;
     }
@@ -82,7 +82,7 @@ void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
     }
     P_RR("+-------+");
     P(score, C.size())
-    if(shape == -1)
+    if(shape != -1)
     {
         C = copy;
     }
