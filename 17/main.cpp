@@ -31,7 +31,7 @@ VECSS F{
 {"##",
 "##"}};
 
-VECS C{2022, S(7, ' ') };
+VECS C{4022, S(7, ' ') };
 
 bool canMove(LL x, LL y, LL shape)
 {
