@@ -29,7 +29,9 @@ int main(int argc, char** argv)
     for(auto& i : in)
     {
         VECI vec;
+        P(i);
         VECSTOA(splitStr(i, ','), vec);
+        P_VEC(vec);
         cubes.push_back(vec);
         minX = std::min(minX, vec[0]);
         minY = std::min(minY, vec[1]);
