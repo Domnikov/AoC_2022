@@ -96,6 +96,8 @@ int main(int argc, char** argv)
             auto set = inside(s.first);
             for(auto st : set)
             {
+                auto [x, y, z] = st;
+                P(x, y, z);
                 surf.erase(st);
                 ok = true;
             }
