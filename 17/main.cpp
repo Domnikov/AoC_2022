@@ -98,10 +98,10 @@ LL sim(LL N)
     LL frame = 1000;
     LL maxFrames = 4;
     S templ(7, ' ');
-    LL steps = 1;
+    LL q = 1;
     FOR(n, N)
     {
-        if(n > steps){P(steps);steps *= 10;}
+        if(n > q){P(q);P(N);q *= 10;}
         auto shape = n%F.size();
         LL y = height - 3 - F[shape].size();
         LL x = 2;
