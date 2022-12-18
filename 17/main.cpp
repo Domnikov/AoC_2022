@@ -105,12 +105,12 @@ int main(int argc, char** argv)
         {
             char c = in[0][cmd++];
             LL newX = (c == '<') ? x-1 : x+1;
-            // if(D){draw(y, x, y, shape);P(c);}
+            if(D){draw(y, x, y, shape);P(c);}
             if(canMove(newX, y, shape))
             {
                 x = newX;
             }
-            // if(D)draw(y, x, y, shape);
+            if(D)draw(y, x, y, shape);
             if(canMove(x, y+1, shape))
             {
                 y++;
