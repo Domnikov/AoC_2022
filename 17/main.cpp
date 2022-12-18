@@ -108,12 +108,15 @@ int main(int argc, char** argv)
     LL cmd = 0;
     FOR(n, 1)
     {
+    P_LINE;
         LL y = C.size() - (score + 4);
         LL x = 2;
         auto shape = n%F.size();
         bool stopped = false;
+    P_LINE;
         while(!stopped)
         {
+    P_LINE;
             char c = in[0][cmd++];
             LL newX = (c == '<') ? x-1 : x+1;
             if(D){draw(y, x, y, shape);P(c);}
@@ -133,8 +136,11 @@ int main(int argc, char** argv)
                 score = y;
                 fix(x, y, shape);
             }
+    P_LINE;
         }
+    P_LINE;
         if(D)draw(score);
+    P_LINE;
     }
 
     P_RR("Part1: %lld\n", score);
