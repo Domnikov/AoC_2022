@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -11,7 +11,7 @@ bool D = true;
 using INT = __int128;
 using VECC = std::vector<char>;
 
-VECII cubes;
+std::set<std::tuple<LL,LL,LL>> cubes;
 
 
 int main(int argc, char** argv)
@@ -34,7 +34,7 @@ int main(int argc, char** argv)
         P_VEC(vecS);
         VECSTOA(vecS, vec);
         P_VEC(vec);
-        cubes.push_back(vec);
+        cubes.emplace(vec[0],vec[1],vec[2]);
         minX = std::min(minX, vec[0]);
         minY = std::min(minY, vec[1]);
         minZ = std::min(minZ, vec[2]);
@@ -42,7 +42,16 @@ int main(int argc, char** argv)
         maxY = std::max(maxY, vec[1]);
         maxZ = std::max(maxZ, vec[2]);
     }
-    P( minX, minY, minZ, maxX, maxY, maxZ);
+    for(auto cb : cubes)
+    {
+        auto [x,y,z] = cb;
+        score += cubes.count({x  , y-1, z  });
+        score += cubes.count({x-1, y  , z  });
+        score += cubes.count({x+1, y  , z  });
+        score += cubes.count({x  , y+1, z  });
+        score += cubes.count({x  , y  , z-1});
+        score += cubes.count({x  , y  , z+1});
+    }
 
     P_RR("Part1: %lld\n", score);
     //========================================================
