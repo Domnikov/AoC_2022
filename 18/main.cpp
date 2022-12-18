@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -12,6 +12,8 @@ using INT = __int128;
 using VECC = std::vector<char>;
 
 std::set<std::tuple<LL,LL,LL>> cubes;
+
+std::map<std::tuple<LL,LL,LL>, LL> surf;
 
 
 int main(int argc, char** argv)
@@ -42,18 +44,20 @@ int main(int argc, char** argv)
     for(auto cb : cubes)
     {
         auto [x,y,z] = cb;
-        score += !cubes.count({x  , y-1, z  });
-        score += !cubes.count({x-1, y  , z  });
-        score += !cubes.count({x+1, y  , z  });
-        score += !cubes.count({x  , y+1, z  });
-        score += !cubes.count({x  , y  , z-1});
-        score += !cubes.count({x  , y  , z+1});
+        if(!cubes.count({x  , y-1, z  })){surf[{x  , y-1, z  }]++;score++;if(surf[{x  , y-1, z  }] == 6){surf.erase({x  , y-1, z  });}}
+        if(!cubes.count({x-1, y  , z  })){surf[{x-1, y  , z  }]++;score++;if(surf[{x-1, y  , z  }] == 6){surf.erase({x-1, y  , z  });}}
+        if(!cubes.count({x+1, y  , z  })){surf[{x+1, y  , z  }]++;score++;if(surf[{x+1, y  , z  }] == 6){surf.erase({x+1, y  , z  });}}
+        if(!cubes.count({x  , y+1, z  })){surf[{x  , y+1, z  }]++;score++;if(surf[{x  , y+1, z  }] == 6){surf.erase({x  , y+1, z  });}}
+        if(!cubes.count({x  , y  , z-1})){surf[{x  , y  , z-1}]++;score++;if(surf[{x  , y  , z-1}] == 6){surf.erase({x  , y  , z-1});}}
+        if(!cubes.count({x  , y  , z+1})){surf[{x  , y  , z+1}]++;score++;if(surf[{x  , y  , z+1}] == 6){surf.erase({x  , y  , z+1});}}
     }
 
     P_RR("Part1: %lld\n", score);
     //========================================================
-    score = 0;
+    score = surf.size();
     D = false;
+
+
 
     P_RR("Part2: %lld\n", score);
     return 0;
