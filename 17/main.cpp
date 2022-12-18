@@ -123,16 +123,15 @@ LL sim(LL N)
                 stopped = true;
                 height = std::min(y, height);
                 fix(x, y, shape);
-                if(height > maxFrames*frame)
+                if((C.size() - height) > maxFrames*frame)
                 {
-                    P_LINE;
                     FOR(i, frame)
                     {
                         C.pop_back();
                         C.push_front(templ);
                     }
                     cuts += 1;
-                    height -= frame;
+                    height += frame;
                 }
             }
         }
