@@ -103,7 +103,7 @@ int main(int argc, char** argv)
         bool stopped = false;
         while(!stopped)
         {
-            char c = in[0][(cmd++)%in.size()];
+            char c = in[0][(cmd++)%in[0].size()];
             LL newX = (c == '<') ? x-1 : x+1;
             if(D){draw(y, x, y, shape);P(c);}
             if(canMove(newX, y, shape))
