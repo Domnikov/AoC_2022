@@ -17,22 +17,36 @@ std::map<std::tuple<LL,LL,LL>, VECI> surf;
 
 enum Sides{L,R,U,D,F,B};
 
-
-std::tuple<LL,LL,LL> u(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y+1, z  };}
-std::tuple<LL,LL,LL> l(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y  , z  };}
-std::tuple<LL,LL,LL> r(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y  , z  };}
-std::tuple<LL,LL,LL> d(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y-1, z  };}
-std::tuple<LL,LL,LL> f(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y  , z-1};}
-std::tuple<LL,LL,LL> b(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y  , z+1};}
-
 std::tuple<LL,LL,LL> lub(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y+1, z+1};}
-std::tuple<LL,LL,LL> rub(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y+1, z+1};}
+std::tuple<LL,LL,LL> lcb(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y  , z+1};}
 std::tuple<LL,LL,LL> ldb(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y-1, z+1};}
+std::tuple<LL,LL,LL> cub(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y+1, z+1};}
+std::tuple<LL,LL,LL> ccb(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y  , z+1};}
+std::tuple<LL,LL,LL> cdb(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y-1, z+1};}
+std::tuple<LL,LL,LL> rub(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y+1, z+1};}
+std::tuple<LL,LL,LL> rcb(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y  , z+1};}
 std::tuple<LL,LL,LL> rdb(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y-1, z+1};}
-std::tuple<LL,LL,LL> luf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y+1, z-0};}
-std::tuple<LL,LL,LL> ruf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y+1, z-1};}
+std::tuple<LL,LL,LL> luc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y+1, z  };}
+std::tuple<LL,LL,LL> lcc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y  , z  };}
+std::tuple<LL,LL,LL> ldc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y-1, z  };}
+std::tuple<LL,LL,LL> cuc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y+1, z  };}
+std::tuple<LL,LL,LL> ccc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y  , z  };}
+std::tuple<LL,LL,LL> cdc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y-1, z  };}
+std::tuple<LL,LL,LL> ruc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y+1, z  };}
+std::tuple<LL,LL,LL> rcc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y  , z  };}
+std::tuple<LL,LL,LL> rdc(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y-1, z  };}
+std::tuple<LL,LL,LL> luf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y+1, z-1};}
+std::tuple<LL,LL,LL> lcf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y  , z-1};}
 std::tuple<LL,LL,LL> ldf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y-1, z-1};}
+std::tuple<LL,LL,LL> cuf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y+1, z-1};}
+std::tuple<LL,LL,LL> ccf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y  , z-1};}
+std::tuple<LL,LL,LL> cdf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y-1, z-1};}
+std::tuple<LL,LL,LL> ruf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y+1, z-1};}
+std::tuple<LL,LL,LL> rcf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y  , z-1};}
 std::tuple<LL,LL,LL> rdf(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y-1, z-1};}
+
+
+
 
 void add(VECI& a, const VECI& b)
 {
@@ -49,12 +63,12 @@ VECI sides(std::tuple<LL,LL,LL> p, std::set<std::tuple<LL,LL,LL>>& vis)
         P(x, y, z);
         vec = surf[p];
         // P_VEC(vec);
-        add(vec, sides(u(p), vis));
-        add(vec, sides(l(p), vis));
-        add(vec, sides(r(p), vis));
-        add(vec, sides(d(p), vis));
-        add(vec, sides(f(p), vis));
-        add(vec, sides(b(p), vis));
+        add(vec, sides(lcc(p), vis));
+        add(vec, sides(rcc(p), vis));
+        add(vec, sides(cuc(p), vis));
+        add(vec, sides(cdc(p), vis));
+        add(vec, sides(ccf(p), vis));
+        add(vec, sides(ccb(p), vis));
     }
     return vec;
 }
@@ -94,35 +108,33 @@ int main(int argc, char** argv)
     for(auto cb : cubes)
     {
         auto [x,y,z] = cb;
-        if(!cubes.count(u(cb))){if(surf.count(u(cb)) == 0){surf.emplace(u(cb),init);}surf[u(cb)][U]++;score++;}
-    P(surf.size());
-        if(!cubes.count(l(cb))){if(surf.count(l(cb)) == 0){surf.emplace(l(cb),init);}surf[l(cb)][L]++;score++;}
-    P(surf.size());
-        if(!cubes.count(r(cb))){if(surf.count(r(cb)) == 0){surf.emplace(r(cb),init);}surf[r(cb)][R]++;score++;}
-    P(surf.size());
-        if(!cubes.count(d(cb))){if(surf.count(d(cb)) == 0){surf.emplace(d(cb),init);}surf[d(cb)][D]++;score++;}
-    P(surf.size());
-        if(!cubes.count(f(cb))){if(surf.count(f(cb)) == 0){surf.emplace(f(cb),init);}surf[f(cb)][F]++;score++;}
-    P(surf.size());
-        if(!cubes.count(b(cb))){if(surf.count(b(cb)) == 0){surf.emplace(b(cb),init);}surf[b(cb)][B]++;score++;}
+        if(!cubes.count(lcc(cb))){if(surf.count(lcc(cb)) == 0){surf.emplace(lcc(cb),init);}surf[lcc(cb)][L]++;score++;} P(surf.size());
+        if(!cubes.count(rcc(cb))){if(surf.count(rcc(cb)) == 0){surf.emplace(rcc(cb),init);}surf[rcc(cb)][R]++;score++;} P(surf.size());
+        if(!cubes.count(cuc(cb))){if(surf.count(cuc(cb)) == 0){surf.emplace(cuc(cb),init);}surf[cuc(cb)][U]++;score++;} P(surf.size());
+        if(!cubes.count(cdc(cb))){if(surf.count(cdc(cb)) == 0){surf.emplace(cdc(cb),init);}surf[cdc(cb)][D]++;score++;} P(surf.size());
+        if(!cubes.count(ccf(cb))){if(surf.count(ccf(cb)) == 0){surf.emplace(ccf(cb),init);}surf[ccf(cb)][F]++;score++;} P(surf.size());
+        if(!cubes.count(ccb(cb))){if(surf.count(ccb(cb)) == 0){surf.emplace(ccb(cb),init);}surf[ccb(cb)][B]++;score++;} P(surf.size());
 
-    P(surf.size());
-        if(!cubes.count(lub(cb)) && !surf.count(lub(cb))){surf.emplace(lub(cb),init);}
-    P(surf.size());
-        if(!cubes.count(rub(cb)) && !surf.count(rub(cb))){surf.emplace(rub(cb),init);}
-    P(surf.size());
-        if(!cubes.count(ldb(cb)) && !surf.count(ldb(cb))){surf.emplace(ldb(cb),init);}
-    P(surf.size());
-        if(!cubes.count(rdb(cb)) && !surf.count(rdb(cb))){surf.emplace(rdb(cb),init);}
-    P(surf.size());
-        if(!cubes.count(luf(cb)) && !surf.count(luf(cb))){surf.emplace(luf(cb),init);}
-    P(surf.size());
-        if(!cubes.count(ruf(cb)) && !surf.count(ruf(cb))){surf.emplace(ruf(cb),init);}
-    P(surf.size());
-        if(!cubes.count(ldf(cb)) && !surf.count(ldf(cb))){surf.emplace(ldf(cb),init);}
-    P(surf.size());
-        if(!cubes.count(rdf(cb)) && !surf.count(rdf(cb))){surf.emplace(rdf(cb),init);}
-    P(surf.size());
+        if(!cubes.count(lub(cb)) && !surf.count(lub(cb))){surf.emplace(lub(cb),init);} P(surf.size());
+        if(!cubes.count(lcb(cb)) && !surf.count(rub(cb))){surf.emplace(rub(cb),init);} P(surf.size());
+        if(!cubes.count(ldb(cb)) && !surf.count(ldb(cb))){surf.emplace(ldb(cb),init);} P(surf.size());
+        if(!cubes.count(cub(cb)) && !surf.count(rdb(cb))){surf.emplace(rdb(cb),init);} P(surf.size());
+        if(!cubes.count(cdb(cb)) && !surf.count(luf(cb))){surf.emplace(luf(cb),init);} P(surf.size());
+        if(!cubes.count(rub(cb)) && !surf.count(lub(cb))){surf.emplace(lub(cb),init);} P(surf.size());
+        if(!cubes.count(rcb(cb)) && !surf.count(rub(cb))){surf.emplace(rub(cb),init);} P(surf.size());
+        if(!cubes.count(rdb(cb)) && !surf.count(lub(cb))){surf.emplace(lub(cb),init);} P(surf.size());
+        if(!cubes.count(luc(cb)) && !surf.count(rub(cb))){surf.emplace(rub(cb),init);} P(surf.size());
+        if(!cubes.count(ldc(cb)) && !surf.count(ldb(cb))){surf.emplace(ldb(cb),init);} P(surf.size());
+        if(!cubes.count(ruc(cb)) && !surf.count(rdb(cb))){surf.emplace(rdb(cb),init);} P(surf.size());
+        if(!cubes.count(rdc(cb)) && !surf.count(luf(cb))){surf.emplace(luf(cb),init);} P(surf.size());
+        if(!cubes.count(luf(cb)) && !surf.count(lub(cb))){surf.emplace(lub(cb),init);} P(surf.size());
+        if(!cubes.count(lcf(cb)) && !surf.count(rub(cb))){surf.emplace(rub(cb),init);} P(surf.size());
+        if(!cubes.count(ldf(cb)) && !surf.count(ldb(cb))){surf.emplace(ldb(cb),init);} P(surf.size());
+        if(!cubes.count(cuf(cb)) && !surf.count(rdb(cb))){surf.emplace(rdb(cb),init);} P(surf.size());
+        if(!cubes.count(cdf(cb)) && !surf.count(luf(cb))){surf.emplace(luf(cb),init);} P(surf.size());
+        if(!cubes.count(ruf(cb)) && !surf.count(ruf(cb))){surf.emplace(ruf(cb),init);} P(surf.size());
+        if(!cubes.count(rcf(cb)) && !surf.count(ldf(cb))){surf.emplace(ldf(cb),init);} P(surf.size());
+        if(!cubes.count(rdf(cb)) && !surf.count(rdf(cb))){surf.emplace(rdf(cb),init);} P(surf.size());
     }
 
     P_RR("Part1: %lld\n", score);
