@@ -1,6 +1,7 @@
 #define TEST
 
 #ifdef TEST
+#define GRID
 #include "in_test.hpp"
 #else
 #include "in.hpp"
