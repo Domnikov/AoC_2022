@@ -30,27 +30,31 @@ void add(VECI& a, const VECI& b)
     FOR(i, a.size()){a[i] += b[i];}
 }
 
-VECI sides(std::tuple<LL,LL,LL> p)
+VECI sides(std::tuple<LL,LL,LL> p, std::set<std::tuple<LL,LL,LL>>& vis)
 {
     VECI vec = VECI{0,0,0,0,0,0};
-    if(surf.count(p))
+    if(!vis.count(p))
     {
-        vec = surf[p];
-        add(vec, sides(u(p)));
-        add(vec, sides(l(p)));
-        add(vec, sides(r(p)));
-        add(vec, sides(d(p)));
-        add(vec, sides(f(p)));
-        add(vec, sides(b(p)));
+        vis.insert(p);
+        if(surf.count(p))
+        {
+            vec = surf[p];
+            add(vec, sides(u(p), vis));
+            add(vec, sides(l(p), vis));
+            add(vec, sides(r(p), vis));
+            add(vec, sides(d(p), vis));
+            add(vec, sides(f(p), vis));
+            add(vec, sides(b(p), vis));
+        }
     }
-
     return vec;
 }
 
 bool inside(std::tuple<LL,LL,LL> p)
 {
     LL res{};
-    auto vec = sides(p);
+    std::set<std::tuple<LL,LL,LL>> vis;
+    auto vec = sides(p, vis);
     res += vec[R] - vec[L];
     res += vec[U] - vec[D];
     res += vec[F] - vec[B];
