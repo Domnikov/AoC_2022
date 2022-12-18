@@ -36,10 +36,9 @@ VECS C{2022, S(7, ' ') };
 bool canMove(LL x, LL y, LL shape)
 {
     auto& sh = F[shape];
-    P(C.size(), x, y, shape, sh[0].size(), sh.size());
-    if(x < 0)                           {P(__LINE__);return false;}
-    if( (x+sh[0].size()) > C[0].size() ){P(__LINE__);return false;}
-    if( (y + sh.size()) > C.size() )    {P(__LINE__);return false;}
+    if(x < 0)                           {return false;}
+    if( (x+sh[0].size()) > C[0].size() ){return false;}
+    if( (y + sh.size()) > C.size() )    {return false;}
 
     for(LL xx = 0; xx < sh[0].size(); xx++)
     {
@@ -47,37 +46,27 @@ bool canMove(LL x, LL y, LL shape)
         {
             if(sh[yy][xx] == '#' && C[y+yy][x+xx] == '#')
             {
-                P(__LINE__);
                 return false;
             }
         }
     }
-    P(__LINE__);
     return true;
 }
 
 void fix(LL x, LL y, LL shape, char c = '#')
 {
     auto& sh = F[shape];
-    P_LINE;
     P(C.size(), x, y, shape, sh[0].size(), sh.size());
-    P_LINE;
     for(LL xx = 0; xx < sh[0].size(); xx++)
     {
-    P_LINE;
         for(LL yy = 0; yy < sh.size(); yy++)
         {
-    P_LINE;
             if(sh[yy][xx] == '#')
             {
-    P_LINE;
                 C[y+yy][x+xx] = c;
             }
-    P_LINE;
         }
-    P_LINE;
     }
-    P_LINE;
 }
 
 void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
@@ -108,24 +97,21 @@ int main(int argc, char** argv)
     LL cmd = 0;
     FOR(n, 3)
     {
-    P_LINE;
         auto shape = n%F.size();
         LL y = score - 3 - F[shape].size();
         LL x = 2;
         bool stopped = false;
-    P_LINE;
         while(!stopped)
         {
-    P_LINE;
             char c = in[0][cmd++];
             LL newX = (c == '<') ? x-1 : x+1;
-            if(D){draw(y, x, y, shape);P(c);}
+            // if(D){draw(y, x, y, shape);P(c);}
             if(canMove(newX, y, shape))
             {
                 x = newX;
                 P_RR("MOVE\n");
             }
-            if(D)draw(y, x, y, shape);
+            // if(D)draw(y, x, y, shape);
             if(canMove(x, y+1, shape))
             {
                 y++;
@@ -136,11 +122,8 @@ int main(int argc, char** argv)
                 score = y;
                 fix(x, y, shape);
             }
-    P_LINE;
         }
-    P_LINE;
         if(D)draw(score);
-    P_LINE;
     }
 
     P_RR("Part1: %lld\n", score);
