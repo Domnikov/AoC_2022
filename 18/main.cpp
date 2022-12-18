@@ -37,10 +37,10 @@ VECI sides(std::tuple<LL,LL,LL> p, std::set<std::tuple<LL,LL,LL>>& vis)
         vis.insert(p);
         if(surf.count(p))
         {
-            auto [x, y, z] = p;
-            P(x, y, z);
+            // auto [x, y, z] = p;
+            // P(x, y, z);
             vec = surf[p];
-            P_VEC(vec);
+            // P_VEC(vec);
             add(vec, sides(u(p), vis));
             add(vec, sides(l(p), vis));
             add(vec, sides(r(p), vis));
@@ -56,6 +56,8 @@ std::set<std::tuple<LL,LL,LL>> inside(std::tuple<LL,LL,LL> p)
 {
     std::set<std::tuple<LL,LL,LL>> vis;
     auto vec = sides(p, vis);
+    auto [x, y, z] = p;
+    P(x, y, z);
     LL resRL = vec[R] - vec[L];
     LL resUD = vec[U] - vec[D];
     LL resFB = vec[F] - vec[B];
