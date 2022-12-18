@@ -122,12 +122,15 @@ int main(int argc, char** argv)
         if(insides.count(s.first) == 0)
         {
             auto set = inside(s.first);
+            if(set.empty())
+            {
+                score+= s.second[0] + s.second[1] + s.second[2] + s.second[3] + s.second[4] + s.second[5];
+            }
             for(auto st : set)
             {
                 auto [x, y, z] = st;
                 P(x, y, z);
                 insides.insert(st);
-                score+= s.second[0] + s.second[1] + s.second[2] + s.second[3] + s.second[4] + s.second[5];
             }
         }
     }
