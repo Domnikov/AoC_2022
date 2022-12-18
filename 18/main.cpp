@@ -120,7 +120,7 @@ int main(int argc, char** argv)
     std::set<std::tuple<LL,LL,LL>> insides;
     // for(auto s : surf)
     {
-        auto s = std::make_pair(std::make_tuple<LL,LL,LL>(3,3,3),VECI{0,0,0,0,0,0});
+        auto s = std::make_pair(std::make_tuple<LL,LL,LL>(0,0,0),VECI{0,0,0,0,0,0});
         if(insides.count(s.first) == 0)
         {
             auto set = inside(s.first);
