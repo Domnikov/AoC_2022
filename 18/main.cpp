@@ -50,6 +50,9 @@ bool inside(std::tuple<LL,LL,LL> p)
     res += vec[R] - vec[L];
     res += vec[U] - vec[D];
     res += vec[F] - vec[B];
+    auto [x, y, z] = p;
+
+    P(x, y, x, res);
     return res == 0;
 }
 
