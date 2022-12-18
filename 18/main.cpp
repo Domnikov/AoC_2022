@@ -54,11 +54,9 @@ bool inside(std::tuple<LL,LL,LL> p)
 {
     std::set<std::tuple<LL,LL,LL>> vis;
     auto vec = sides(p, vis);
-    P_VEC(vec);
     LL resRL = vec[R] - vec[L];
     LL resUD = vec[U] - vec[D];
     LL resFB = vec[F] - vec[B];
-    auto [x, y, z] = p; P(x, y, x, resRL, resUD, resFB);
     return !resRL && !resUD && !resFB;
 }
 
