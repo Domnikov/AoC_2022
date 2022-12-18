@@ -72,7 +72,7 @@ void draw(LL score)
 {
     for(size_t s = score; s < C.size(); s++)
     {
-        // P(C[s]);
+        P(C[s]);
     }
     P(score, C.size())
 }
@@ -83,7 +83,7 @@ int main(int argc, char** argv)
     D = true;
 
     LL cmd = 0;
-    FOR(n, 3)
+    FOR(n, 2)
     {
         LL y = C.size() - (score + 3);
         LL x = 2;
