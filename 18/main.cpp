@@ -95,12 +95,12 @@ int main(int argc, char** argv)
     for(auto cb : cubes)
     {
         auto [x,y,z] = cb;
-        if(!cubes.count(u(cb))){if(surf.count(u(cb)) == 0){surf.emplace(u(cb),init);}surf[{x  , y-1, z  }][U]++;score++;}
-        if(!cubes.count(l(cb))){if(surf.count(l(cb)) == 0){surf.emplace(l(cb),init);}surf[{x-1, y  , z  }][L]++;score++;}
-        if(!cubes.count(r(cb))){if(surf.count(r(cb)) == 0){surf.emplace(r(cb),init);}surf[{x+1, y  , z  }][R]++;score++;}
-        if(!cubes.count(d(cb))){if(surf.count(d(cb)) == 0){surf.emplace(d(cb),init);}surf[{x  , y+1, z  }][D]++;score++;}
-        if(!cubes.count(f(cb))){if(surf.count(f(cb)) == 0){surf.emplace(f(cb),init);}surf[{x  , y  , z-1}][F]++;score++;}
-        if(!cubes.count(b(cb))){if(surf.count(b(cb)) == 0){surf.emplace(b(cb),init);}surf[{x  , y  , z+1}][B]++;score++;}
+        if(!cubes.count(u(cb))){if(surf.count(u(cb)) == 0){surf.emplace(u(cb),init);}surf[u(cb)][U]++;score++;}
+        if(!cubes.count(l(cb))){if(surf.count(l(cb)) == 0){surf.emplace(l(cb),init);}surf[l(cb)][L]++;score++;}
+        if(!cubes.count(r(cb))){if(surf.count(r(cb)) == 0){surf.emplace(r(cb),init);}surf[r(cb)][R]++;score++;}
+        if(!cubes.count(d(cb))){if(surf.count(d(cb)) == 0){surf.emplace(d(cb),init);}surf[d(cb)][D]++;score++;}
+        if(!cubes.count(f(cb))){if(surf.count(f(cb)) == 0){surf.emplace(f(cb),init);}surf[f(cb)][F]++;score++;}
+        if(!cubes.count(b(cb))){if(surf.count(b(cb)) == 0){surf.emplace(b(cb),init);}surf[b(cb)][B]++;score++;}
 
         if(!cubes.count(lub(cb)) && !surf.count(lub(cb))){surf.emplace(lub(cb),init);}
         if(!cubes.count(rub(cb)) && !surf.count(rub(cb))){surf.emplace(rub(cb),init);}
