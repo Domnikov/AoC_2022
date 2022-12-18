@@ -74,7 +74,7 @@ std::set<std::tuple<LL,LL,LL>> inside(std::tuple<LL,LL,LL> p)
     if(isInside)
     {
         auto [x, y, z] = p;
-        // P(x, y, z);
+        P(x, y, z);
         P_VEC(vec);
         // for(auto v : vis) {auto [xx, yy, zz] = v; P(xx, yy, zz);P_VEC(surf[v]);}
     }
