@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -16,7 +16,6 @@ std::map<std::tuple<LL,LL,LL>, VECI> surf;
 
 enum Sides{L,R,U,D,F,B};
 
-// bool inside
 
 std::tuple<LL,LL,LL> u(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y-1, z  };}
 std::tuple<LL,LL,LL> l(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y  , z  };}
@@ -50,14 +49,14 @@ VECI sides(std::tuple<LL,LL,LL> p, std::set<std::tuple<LL,LL,LL>>& vis)
     return vec;
 }
 
-bool inside(std::tuple<LL,LL,LL> p)
+std::set<std::tuple<LL,LL,LL>> inside(std::tuple<LL,LL,LL> p)
 {
     std::set<std::tuple<LL,LL,LL>> vis;
     auto vec = sides(p, vis);
     LL resRL = vec[R] - vec[L];
     LL resUD = vec[U] - vec[D];
     LL resFB = vec[F] - vec[B];
-    return !resRL && !resUD && !resFB;
+    return (!resRL && !resUD && !resFB) ? vis : std::set<std::tuple<LL,LL,LL>>{};
 }
 
 int main(int argc, char** argv)
@@ -88,12 +87,25 @@ int main(int argc, char** argv)
     score = 0;
     P(surf.size());
 
+    bool ok = true;
+    while(ok)
+    {
+        ok = false;
+        for(auto s : surf)
+        {
+            auto set = inside(s.first);
+            for(auto st : set)
+            {
+                surf.erase(st);
+                ok = true;
+            }
+            if(ok)break;
+        }
+    }
+
     for(auto s : surf)
     {
-        if(!inside(s.first))
-        {
-            score+= s.second[0] + s.second[1] + s.second[2] + s.second[3] + s.second[4] + s.second[5];
-        }
+        score+= s.second[0] + s.second[1] + s.second[2] + s.second[3] + s.second[4] + s.second[5];
     }
 
 
