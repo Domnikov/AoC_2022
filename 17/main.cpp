@@ -94,6 +94,9 @@ LL sim(LL N)
 {
     LL cmd = 0;
     LL height = C.size();
+    LL cuts;
+    LL frame = 1000;
+    LL maxFrames = 4;
     FOR(n, N)
     {
         auto shape = n%F.size();
@@ -137,6 +140,15 @@ int main(int argc, char** argv)
     //========================================================
     score = 0;
     D = false;
+
+    LL N = 1000000000000;
+    FOR(n, N)
+    {
+        static LL cnt{};
+        static LL ctr = 1;
+        if(cnt > ctr){ctr *= 10;P(cnt);}
+        asm("");
+    }
 
     P_RR("Part2: %lld\n", score);
     return 0;
