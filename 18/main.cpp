@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -7,29 +7,55 @@
 #endif
 
 auto in = getInput();
-bool D = true;
 using INT = __int128;
 using VECC = std::vector<char>;
 
 std::set<std::tuple<LL,LL,LL>> cubes;
 
-std::map<std::tuple<LL,LL,LL>, LL> surf;
+std::map<std::tuple<LL,LL,LL>, VECI> surf;
 
+enum Sides{L,R,U,D,F,B};
 
+// bool inside
 
+std::tuple<LL,LL,LL> u(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y-1, z  };}
+std::tuple<LL,LL,LL> l(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x-1, y  , z  };}
+std::tuple<LL,LL,LL> r(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x+1, y  , z  };}
+std::tuple<LL,LL,LL> d(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y+1, z  };}
+std::tuple<LL,LL,LL> f(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y  , z-1};}
+std::tuple<LL,LL,LL> b(std::tuple<LL, LL, LL> p){auto [x, y, z] = p; return {x  , y  , z+1};}
 
+void add(VECI& a, const VECI& b)
+{
+    FOR(i, a.size()){a[i] += b[i];}
+}
+
+VECI sides(std::tuple<LL,LL,LL> p)
+{
+    VECI vec = surf.count(p) ? surf[p] : VECI{0,0,0,0,0,0};
+    add(vec, sides(u(p)));
+    add(vec, sides(l(p)));
+    add(vec, sides(r(p)));
+    add(vec, sides(d(p)));
+    add(vec, sides(f(p)));
+    add(vec, sides(b(p)));
+
+    return vec;
+}
+
+bool inside(std::tuple<LL,LL,LL> p)
+{
+    LL res{};
+    auto vec = sides(p);
+    res += vec[R] - vec[L];
+    res += vec[U] - vec[D];
+    res += vec[F] - vec[B];
+    return res == 0;
+}
 
 int main(int argc, char** argv)
 {
     LL score = 0;
-    D = false;
-
-    LL minX = 99999;
-    LL minY = 99999;
-    LL minZ = 99999;
-    LL maxX = 0;
-    LL maxY = 0;
-    LL maxZ = 0;
 
     for(auto& i : in)
     {
@@ -37,33 +63,30 @@ int main(int argc, char** argv)
         auto vecS = splitStr(i, ',');
         VECSTOA(vecS, vec);
         cubes.emplace(vec[0],vec[1],vec[2]);
-        minX = std::min(minX, vec[0]);
-        minY = std::min(minY, vec[1]);
-        minZ = std::min(minZ, vec[2]);
-        maxX = std::max(maxX, vec[0]);
-        maxY = std::max(maxY, vec[1]);
-        maxZ = std::max(maxZ, vec[2]);
     }
+    VECI init{{0,0,0,0,0,0}};
     for(auto cb : cubes)
     {
         auto [x,y,z] = cb;
-        if(!cubes.count({x  , y-1, z  })){surf[{x  , y-1, z  }]++;score++;if(surf[{x  , y-1, z  }] == 6){surf.erase({x  , y-1, z  });}}
-        if(!cubes.count({x-1, y  , z  })){surf[{x-1, y  , z  }]++;score++;if(surf[{x-1, y  , z  }] == 6){surf.erase({x-1, y  , z  });}}
-        if(!cubes.count({x+1, y  , z  })){surf[{x+1, y  , z  }]++;score++;if(surf[{x+1, y  , z  }] == 6){surf.erase({x+1, y  , z  });}}
-        if(!cubes.count({x  , y+1, z  })){surf[{x  , y+1, z  }]++;score++;if(surf[{x  , y+1, z  }] == 6){surf.erase({x  , y+1, z  });}}
-        if(!cubes.count({x  , y  , z-1})){surf[{x  , y  , z-1}]++;score++;if(surf[{x  , y  , z-1}] == 6){surf.erase({x  , y  , z-1});}}
-        if(!cubes.count({x  , y  , z+1})){surf[{x  , y  , z+1}]++;score++;if(surf[{x  , y  , z+1}] == 6){surf.erase({x  , y  , z+1});}}
+        if(!cubes.count(u(cb))){if(surf.count(u(cb)) == 0){surf.emplace(u(cb),init);}surf[{x  , y-1, z  }][U]++;score++;}
+        if(!cubes.count(l(cb))){if(surf.count(l(cb)) == 0){surf.emplace(l(cb),init);}surf[{x-1, y  , z  }][L]++;score++;}
+        if(!cubes.count(r(cb))){if(surf.count(r(cb)) == 0){surf.emplace(r(cb),init);}surf[{x+1, y  , z  }][R]++;score++;}
+        if(!cubes.count(d(cb))){if(surf.count(d(cb)) == 0){surf.emplace(d(cb),init);}surf[{x  , y+1, z  }][D]++;score++;}
+        if(!cubes.count(f(cb))){if(surf.count(f(cb)) == 0){surf.emplace(f(cb),init);}surf[{x  , y  , z-1}][F]++;score++;}
+        if(!cubes.count(b(cb))){if(surf.count(b(cb)) == 0){surf.emplace(b(cb),init);}surf[{x  , y  , z+1}][B]++;score++;}
     }
 
     P_RR("Part1: %lld\n", score);
     //========================================================
     score = 0;
-    D = false;
     P(surf.size());
 
     for(auto s : surf)
     {
-        score+= s.second;
+        if(!inside(s.first))
+        {
+            score+= s.second[0] + s.second[1] + s.second[2] + s.second[3] + s.second[4] + s.second[5];
+        }
     }
 
 
