@@ -92,7 +92,7 @@ void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
 int main(int argc, char** argv)
 {
     LL score = C.size();
-    D = true;
+    D = false;
 
     LL cmd = 0;
     LL height = C.size();
