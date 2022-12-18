@@ -95,7 +95,7 @@ LL sim(LL N)
     LL cmd = 0;
     LL height = C.size();
     LL cuts{};
-    LL frame = 1000;
+    LL frame = 100;
     LL maxFrames = 4;
     S templ(7, ' ');
     FOR(n, N)
