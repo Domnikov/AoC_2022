@@ -116,26 +116,26 @@ int main(int argc, char** argv)
         if(!cubes.count(ccb(cb))){if(surf.count(ccb(cb)) == 0){surf.emplace(ccb(cb),init);}surf[ccb(cb)][B]++;score++;} P(surf.size());
 
 
-        {auto t = lub(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = lcb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = ldb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = cub(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = cdb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = rub(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = rcb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = rdb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = luc(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = ldc(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = cdc(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = rdc(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = luf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = lcf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = ldf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = cuf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = cdf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = ruf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = rcf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
-        {auto t = rdf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(surf.size());}
+        {auto t = lub(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = lcb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = ldb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = cub(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = cdb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = rub(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = rcb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = rdb(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = luc(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = ldc(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = cdc(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = rdc(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = luf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = lcf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = ldf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = cuf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = cdf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = ruf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = rcf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
+        {auto t = rdf(cb);if(!cubes.count(t) && !surf.count(t)){surf.emplace(t,init);} P(__LINE__, surf.size());}
     }
 
     P_RR("Part1: %lld\n", score);
