@@ -72,8 +72,9 @@ void draw(LL score)
 {
     for(size_t s = score; s < C.size(); s++)
     {
-        P(C[s]);
+        P_RR("|%s|\n", C[s].c_str());
     }
+    P_RR("+-------+");
     P(score, C.size())
 }
 
