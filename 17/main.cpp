@@ -96,7 +96,7 @@ int main(int argc, char** argv)
     LL cmd = 0;
     FOR(n, 1)
     {
-        LL y = C.size() - (score + 3);
+        LL y = C.size() - (score + 4);
         LL x = 2;
         auto shape = n%F.size();
         bool stopped = false;
