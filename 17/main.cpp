@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -92,11 +92,11 @@ void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
 int main(int argc, char** argv)
 {
     LL score = C.size();
-    D = false;
+    D = true;
 
     LL cmd = 0;
     LL height = C.size();
-    FOR(n, 2022)
+    FOR(n, 17)
     {
         auto shape = n%F.size();
         LL y = height - 3 - F[shape].size();
