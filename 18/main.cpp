@@ -26,10 +26,6 @@ int main(int argc, char** argv)
     LL maxY = 0;
     LL maxZ = 0;
 
-    in.clear();
-    in.push_back("1,1,1");
-    in.push_back("1,1,2");
-
     for(auto& i : in)
     {
         VECI vec;
