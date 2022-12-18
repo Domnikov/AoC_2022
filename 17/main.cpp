@@ -44,7 +44,7 @@ bool canMove(LL x, LL y, LL shape)
     {
         for(LL yy = 0; yy < sh.size(); yy++)
         {
-            if(sh[yy][xx] == '#' && C[x+xx][y+yy] == '#')
+            if(sh[yy][xx] == '#' && C[y+yy][x+xx] == '#')
             {
                 return false;
             }
@@ -62,7 +62,7 @@ void fix(LL x, LL y, LL shape)
         {
             if(sh[yy][xx] == '#')
             {
-                C[x+xx][y+yy] = '#';
+                C[y+yy][x+xx] = '#';
             }
         }
     }
@@ -83,7 +83,7 @@ int main(int argc, char** argv)
     D = true;
 
     LL cmd = 0;
-    FOR(n, 2)
+    FOR(n, 1)
     {
         LL y = C.size() - (score + 3);
         LL x = 2;
