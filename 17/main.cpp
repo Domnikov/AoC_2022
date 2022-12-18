@@ -118,7 +118,7 @@ int main(int argc, char** argv)
             else
             {
                 stopped = true;
-                score = std::max(y, score);
+                score = std::min(y, score);
                 fix(x, y, shape);
             }
         }
