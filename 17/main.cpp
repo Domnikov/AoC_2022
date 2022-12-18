@@ -96,7 +96,7 @@ int main(int argc, char** argv)
 
     LL cmd = 0;
     LL height = C.size();
-    FOR(n, 17)
+    FOR(n, 2022)
     {
         auto shape = n%F.size();
         LL y = height - 3 - F[shape].size();
