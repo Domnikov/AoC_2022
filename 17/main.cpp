@@ -125,6 +125,7 @@ LL sim(LL N)
                 fix(x, y, shape);
                 if(height > maxFrames*frame)
                 {
+                    P_LINE;
                     FOR(i, frame)
                     {
                         C.pop_back();
