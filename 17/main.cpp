@@ -106,7 +106,7 @@ int main(int argc, char** argv)
     D = true;
 
     LL cmd = 0;
-    FOR(n, 1)
+    FOR(n, 2)
     {
     P_LINE;
         LL y = C.size() - (score + 4);
