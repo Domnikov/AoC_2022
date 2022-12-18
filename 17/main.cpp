@@ -59,16 +59,25 @@ bool canMove(LL x, LL y, LL shape)
 void fix(LL x, LL y, LL shape, char c = '#')
 {
     auto& sh = F[shape];
+    P_LINE;
+    P(C.size(), x, y, shape, sh[0].size(), sh.size());
+    P_LINE;
     for(LL xx = 0; xx < sh[0].size(); xx++)
     {
+    P_LINE;
         for(LL yy = 0; yy < sh.size(); yy++)
         {
+    P_LINE;
             if(sh[yy][xx] == '#')
             {
+    P_LINE;
                 C[y+yy][x+xx] = c;
             }
+    P_LINE;
         }
+    P_LINE;
     }
+    P_LINE;
 }
 
 void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
