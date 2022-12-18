@@ -80,7 +80,7 @@ void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
     {
         P_RR("|%s|\n", C[s].c_str());
     }
-    P_RR("+-------+");
+    P_RR("+-------+\n");
     P(score, C.size())
     if(shape != -1)
     {
@@ -104,12 +104,12 @@ int main(int argc, char** argv)
         {
             char c = in[0][cmd++];
             LL newX = (x == '<') ? x-1 : x+1;
-            if(D)draw(y-1, x, y, shape);
+            if(D){P(c);draw(y, x, y, shape);}
             if(canMove(newX, y, shape))
             {
                 x = newX;
             }
-            if(D)draw(y-1, x, y, shape);
+            if(D)draw(y, x, y, shape);
             if(canMove(x, y+1, shape))
             {
                 y++;
