@@ -30,8 +30,9 @@ int main(int argc, char** argv)
     {
         VECI vec;
         P(i);
-        P_VEC(splitStr(i, ','));
-        VECSTOA(splitStr(i, ','), vec);
+        auto vecS = splitStr(i, ',');
+        P_VEC(vecS);
+        VECSTOA(vecS, vec);
         P_VEC(vec);
         cubes.push_back(vec);
         minX = std::min(minX, vec[0]);
