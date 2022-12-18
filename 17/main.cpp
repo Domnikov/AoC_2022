@@ -106,7 +106,7 @@ int main(int argc, char** argv)
     D = true;
 
     LL cmd = 0;
-    FOR(n, 2)
+    FOR(n, 3)
     {
     P_LINE;
         auto shape = n%F.size();
