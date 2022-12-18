@@ -42,15 +42,13 @@ void add(VECI& a, const VECI& b)
 VECI sides(std::tuple<LL,LL,LL> p, std::set<std::tuple<LL,LL,LL>>& vis)
 {
     VECI vec = VECI{0,0,0,0,0,0};
-        auto [x, y, z] = p;
-        P(x, y, z);
     if(!vis.count(p) && surf.count(p))
     {
         vis.insert(p);
         auto [x, y, z] = p;
         P(x, y, z);
         vec = surf[p];
-        P_VEC(vec);
+        // P_VEC(vec);
         add(vec, sides(u(p), vis));
         add(vec, sides(l(p), vis));
         add(vec, sides(r(p), vis));
@@ -72,6 +70,7 @@ std::set<std::tuple<LL,LL,LL>> inside(std::tuple<LL,LL,LL> p)
     bool isInside = (vec[R] + vec[L] + vec[U] + vec[D] + vec[F] + vec[B]) > vis.size();
     if(isInside)
     {
+        P_RR("Inside:\n");
         auto [x, y, z] = p;
         P(x, y, z);
         P_VEC(vec);
