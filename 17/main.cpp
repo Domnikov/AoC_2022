@@ -37,7 +37,7 @@ bool canMove(LL x, LL y, LL shape)
 {
     auto& sh = F[shape];
     if(x < 0) {return false;}
-    if( (x+sh[0].size()) >= C[0].size() ){return false;}
+    if( (x+sh[0].size()) > C[0].size() ){return false;}
     if( (y + sh.size()) > C.size() ){return false;}
 
     for(LL xx = 0; xx < sh[0].size(); xx++)
