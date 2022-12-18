@@ -86,8 +86,8 @@ void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
     if(shape != -1)
     {
         copy = C;
+        fix(x, y, shape, '@');
     }
-    fix(x, y, shape, '@');
     for(size_t s = score; s < C.size(); s++)
     {
         P_RR("|%s|\n", C[s].c_str());
