@@ -146,7 +146,7 @@ int main(int argc, char** argv)
     {
         static LL cnt{};
         static LL ctr = 1;
-        if(cnt++ > ctr){P(ctr);ctr *= 10;}
+        if(cnt++ > ctr){P(ctr);P(N);ctr *= 10;}
         asm("");
     }
 
