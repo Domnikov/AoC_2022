@@ -109,9 +109,9 @@ int main(int argc, char** argv)
     FOR(n, 2)
     {
     P_LINE;
-        LL y = score - 4;
-        LL x = 2;
         auto shape = n%F.size();
+        LL y = score - 3 - F[shape].size();
+        LL x = 2;
         bool stopped = false;
     P_LINE;
         while(!stopped)
