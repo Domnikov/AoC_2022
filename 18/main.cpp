@@ -52,15 +52,14 @@ VECI sides(std::tuple<LL,LL,LL> p, std::set<std::tuple<LL,LL,LL>>& vis)
 
 bool inside(std::tuple<LL,LL,LL> p)
 {
-    LL res{};
     std::set<std::tuple<LL,LL,LL>> vis;
     auto vec = sides(p, vis);
     P_VEC(vec);
-    res += vec[R] - vec[L];
-    res += vec[U] - vec[D];
-    res += vec[F] - vec[B];
-    auto [x, y, z] = p; P(x, y, x, res);
-    return res == 0;
+    LL resRL = vec[R] - vec[L];
+    LL resUD = vec[U] - vec[D];
+    LL resFB = vec[F] - vec[B];
+    auto [x, y, z] = p; P(x, y, x, resRL, resUD, resFB);
+    return !resRL && !resUD && !resFB;
 }
 
 int main(int argc, char** argv)
