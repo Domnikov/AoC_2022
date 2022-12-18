@@ -152,7 +152,7 @@ int main(int argc, char** argv)
     score = 0;
     D = false;
 
-    LL NNN = 1000000000000;
+    LL NNN = 100;//0000000000;
     FOR(n, NNN)
     {
         static LL cnt{};
