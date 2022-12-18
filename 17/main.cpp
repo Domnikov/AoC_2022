@@ -141,12 +141,12 @@ int main(int argc, char** argv)
     score = 0;
     D = false;
 
-    LL N = 1000000000000;
-    FOR(n, N)
+    LL NNN = 1000000000000;
+    FOR(n, NNN)
     {
         static LL cnt{};
         static LL ctr = 1;
-        if(cnt++ > ctr){P(ctr);P(N);ctr *= 10;}
+        if(cnt++ > ctr){P(ctr);P(NNN);ctr *= 10;}
         asm("");
     }
 
