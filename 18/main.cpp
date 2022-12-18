@@ -86,7 +86,7 @@ int main(int argc, char** argv)
 
     for(auto s : surf)
     {
-        if(!inside(s.first))
+        // if(!inside(s.first))
         {
             score+= s.second[0] + s.second[1] + s.second[2] + s.second[3] + s.second[4] + s.second[5];
         }
