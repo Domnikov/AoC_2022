@@ -108,6 +108,7 @@ int main(int argc, char** argv)
             if(canMove(newX, y, shape))
             {
                 x = newX;
+                P_RR("MOVE\n");
             }
             if(D){P(c);draw(y, x, y, shape);}
             if(canMove(x, y+1, shape))
