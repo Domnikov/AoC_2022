@@ -31,7 +31,7 @@ VECSS F{
 {"##",
 "##"}};
 
-std::deque<S> C{4022, S(7, ' ') };
+std::deque<S> C{8000, S(7, ' ') };
 
 bool canMove(LL x, LL y, LL shape)
 {
@@ -94,9 +94,10 @@ LL sim(LL N)
 {
     LL cmd = 0;
     LL height = C.size();
-    LL cuts;
+    LL cuts{};
     LL frame = 1000;
     LL maxFrames = 4;
+    S templ(7, ' ');
     FOR(n, N)
     {
         auto shape = n%F.size();
@@ -122,11 +123,21 @@ LL sim(LL N)
                 stopped = true;
                 height = std::min(y, height);
                 fix(x, y, shape);
+                if(height > maxFrames*frame)
+                {
+                    FOR(i, frame)
+                    {
+                        C.pop_back();
+                        C.push_front(templ);
+                    }
+                    cuts += 1;
+                    height -= frame;
+                }
             }
         }
         if(D)draw(height);
     }
-    return C.size() - height;
+    return (C.size() - height) + cuts * frame;
 }
 
 int main(int argc, char** argv)
