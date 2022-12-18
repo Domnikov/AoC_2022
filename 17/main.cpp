@@ -95,11 +95,13 @@ LL sim(LL N)
     LL cmd = 0;
     LL height = C.size();
     LL cuts{};
-    LL frame = 100;
+    LL frame = 1000;
     LL maxFrames = 4;
     S templ(7, ' ');
+    LL steps = 1;
     FOR(n, N)
     {
+        if(n > steps){P(steps);steps *= 10;}
         auto shape = n%F.size();
         LL y = height - 3 - F[shape].size();
         LL x = 2;
@@ -125,7 +127,6 @@ LL sim(LL N)
                 fix(x, y, shape);
                 if((C.size() - height) > maxFrames*frame)
                 {
-                    P_LINE;
                     FOR(i, frame)
                     {
                         C.pop_back();
@@ -153,14 +154,7 @@ int main(int argc, char** argv)
     score = 0;
     D = false;
 
-    LL NNN = 100;//0000000000;
-    FOR(n, NNN)
-    {
-        static LL cnt{};
-        static LL ctr = 1;
-        if(cnt++ > ctr){P(ctr);P(NNN);ctr *= 10;}
-        asm("");
-    }
+    score = sim(1000000000000);
 
     P_RR("Part2: %lld\n", score);
     return 0;
