@@ -89,14 +89,12 @@ void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
     }
 }
 
-int main(int argc, char** argv)
-{
-    LL score = C.size();
-    D = false;
 
+LL sim(LL N)
+{
     LL cmd = 0;
     LL height = C.size();
-    FOR(n, 2022)
+    FOR(n, N)
     {
         auto shape = n%F.size();
         LL y = height - 3 - F[shape].size();
@@ -125,7 +123,15 @@ int main(int argc, char** argv)
         }
         if(D)draw(height);
     }
-    score = C.size() - height;
+    return C.size() - height;
+}
+
+int main(int argc, char** argv)
+{
+    LL score = C.size();
+    D = false;
+
+    score = sim(2022);
 
     P_RR("Part1: %lld\n", score);
     //========================================================
