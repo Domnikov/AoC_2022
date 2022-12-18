@@ -129,6 +129,7 @@ inline auto getInput()
     "3,5,5",
     "4,5,5",
     "5,5,5",
+    "3,3,6",
     };
 
     return input;
