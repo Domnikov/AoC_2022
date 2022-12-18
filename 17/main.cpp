@@ -53,7 +53,7 @@ bool canMove(LL x, LL y, LL shape)
     return true;
 }
 
-void fix(LL x, LL y, LL shape)
+void fix(LL x, LL y, LL shape, char c = '#')
 {
     auto& sh = F[shape];
     for(LL xx = 0; xx < sh[0].size(); xx++)
@@ -62,20 +62,30 @@ void fix(LL x, LL y, LL shape)
         {
             if(sh[yy][xx] == '#')
             {
-                C[y+yy][x+xx] = '#';
+                C[y+yy][x+xx] = c;
             }
         }
     }
 }
 
-void draw(LL score)
+void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
 {
+    VECS copy;
+    if(shape == -1)
+    {
+        copy = C;
+    }
+    fix(x, y, shape, '@');
     for(size_t s = score; s < C.size(); s++)
     {
         P_RR("|%s|\n", C[s].c_str());
     }
     P_RR("+-------+");
     P(score, C.size())
+    if(shape == -1)
+    {
+        C = copy;
+    }
 }
 
 int main(int argc, char** argv)
@@ -98,6 +108,7 @@ int main(int argc, char** argv)
             {
                 x = newX;
             }
+            if(D)draw(y, x, y, shape);
             if(canMove(x, y+1, shape))
             {
                 y++;
@@ -108,6 +119,7 @@ int main(int argc, char** argv)
                 score = y;
                 fix(x, y, shape);
             }
+            if(D)draw(y, x, y, shape);
         }
         if(D)draw(score);
     }
