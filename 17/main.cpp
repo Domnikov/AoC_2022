@@ -102,14 +102,14 @@ void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
 
 int main(int argc, char** argv)
 {
-    LL score = 0;
+    LL score = C.size();
     D = true;
 
     LL cmd = 0;
     FOR(n, 2)
     {
     P_LINE;
-        LL y = C.size() - (score + 4);
+        LL y = score - 4;
         LL x = 2;
         auto shape = n%F.size();
         bool stopped = false;
