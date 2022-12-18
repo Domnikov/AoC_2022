@@ -95,7 +95,7 @@ int main(int argc, char** argv)
     D = true;
 
     LL cmd = 0;
-    FOR(n, 3)
+    FOR(n, 10)
     {
         auto shape = n%F.size();
         LL y = score - 3 - F[shape].size();
@@ -109,7 +109,6 @@ int main(int argc, char** argv)
             if(canMove(newX, y, shape))
             {
                 x = newX;
-                P_RR("MOVE\n");
             }
             // if(D)draw(y, x, y, shape);
             if(canMove(x, y+1, shape))
