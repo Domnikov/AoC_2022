@@ -59,7 +59,7 @@ std::set<std::tuple<LL,LL,LL>> inside(std::tuple<LL,LL,LL> p)
     LL resRL = vec[R] - vec[L];
     LL resUD = vec[U] - vec[D];
     LL resFB = vec[F] - vec[B];
-    bool isInside = !resRL && !resUD && !resFB;
+    bool isInside = !resRL && !resUD && !resFB && vec[R] > 0 && vec[L] > 0 && vec[U] > 0 && vec[D] > 0 && vec[F] > 0 && vec[B] > 0;
     if(isInside)
     {
         auto [x, y, z] = p;
