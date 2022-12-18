@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -14,6 +14,9 @@ using VECC = std::vector<char>;
 std::set<std::tuple<LL,LL,LL>> cubes;
 
 std::map<std::tuple<LL,LL,LL>, LL> surf;
+
+
+
 
 
 int main(int argc, char** argv)
@@ -56,6 +59,7 @@ int main(int argc, char** argv)
     //========================================================
     score = 0;
     D = false;
+    P(surf.size());
 
     for(auto s : surf)
     {
