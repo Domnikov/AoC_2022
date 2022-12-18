@@ -12,26 +12,27 @@ using INT = __int128;
 using VECC = std::vector<char>;
 
 VECSS F{
-{"####"}
-,
-{" # ",
-"###",
-" # "}
-,
-{
-"  #",
-"  #",
-"###"}
-,
-{"#",
-"#",
-"#",
-"#"}
-,
-{"##",
-"##"}};
+//{"####"}
+//,
+//{" # ",
+//"###",
+//" # "}
+//,
+//{
+//"  #",
+//"  #",
+//"###"}
+//,
+//{"#",
+//"#",
+//"#",
+//"#"}
+//,
+//{"##",
+//"##"}};
+};
 
-std::deque<S> C{8000, S(7, ' ') };
+std::deque<char> C;
 
 bool canMove(LL x, LL y, LL shape)
 {
@@ -71,33 +72,35 @@ void fix(LL x, LL y, LL shape, char c = '#')
 
 void draw(LL score, LL x = -1, LL y = -1, LL shape = -1)
 {
-    std::deque<S> copy;
-    if(shape != -1)
-    {
-        copy = C;
-        fix(x, y, shape, '@');
-    }
-    for(size_t s = score; s < C.size(); s++)
-    {
-        P_RR("|%s|\n", C[s].c_str());
-    }
-    P_RR("+-------+\n");
-    P(score, C.size())
-    if(shape != -1)
-    {
-        C = copy;
-    }
+    // std::deque<S> copy;
+    // if(shape != -1)
+    // {
+    //     copy = C;
+    //     fix(x, y, shape, '@');
+    // }
+    // for(size_t s = score; s < C.size(); s++)
+    // {
+    //     P_RR("|%s|\n", C[s].c_str());
+    // }
+    // P_RR("+-------+\n");
+    // P(score, C.size())
+    // if(shape != -1)
+    // {
+    //     C = copy;
+    // }
 }
 
 
 LL sim(LL N)
 {
+    C.clear();
+    C.resize(8000);
     LL cmd = 0;
     LL height = C.size();
     LL cuts{};
     LL frame = 1000;
     LL maxFrames = 4;
-    S templ(7, ' ');
+    char templ{};
     LL q = 1;
     FOR(n, N)
     {
