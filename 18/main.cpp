@@ -1,7 +1,8 @@
 #define TEST
 
 #ifdef TEST
-#define GRID
+// #define GRID
+#define CUB
 #include "in_test.hpp"
 #else
 #include "in.hpp"
