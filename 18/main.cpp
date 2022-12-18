@@ -32,13 +32,17 @@ void add(VECI& a, const VECI& b)
 
 VECI sides(std::tuple<LL,LL,LL> p)
 {
-    VECI vec = surf.count(p) ? surf[p] : VECI{0,0,0,0,0,0};
-    add(vec, sides(u(p)));
-    add(vec, sides(l(p)));
-    add(vec, sides(r(p)));
-    add(vec, sides(d(p)));
-    add(vec, sides(f(p)));
-    add(vec, sides(b(p)));
+    VECI vec = VECI{0,0,0,0,0,0};
+    if(surf.count(p))
+    {
+        vec = surf[p];
+        add(vec, sides(u(p)));
+        add(vec, sides(l(p)));
+        add(vec, sides(r(p)));
+        add(vec, sides(d(p)));
+        add(vec, sides(f(p)));
+        add(vec, sides(b(p)));
+    }
 
     return vec;
 }
@@ -50,9 +54,7 @@ bool inside(std::tuple<LL,LL,LL> p)
     res += vec[R] - vec[L];
     res += vec[U] - vec[D];
     res += vec[F] - vec[B];
-    auto [x, y, z] = p;
-
-    P(x, y, x, res);
+    auto [x, y, z] = p; P(x, y, x, res);
     return res == 0;
 }
 
