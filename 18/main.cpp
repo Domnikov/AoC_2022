@@ -56,12 +56,16 @@ std::set<std::tuple<LL,LL,LL>> inside(std::tuple<LL,LL,LL> p)
 {
     std::set<std::tuple<LL,LL,LL>> vis;
     auto vec = sides(p, vis);
-    auto [x, y, z] = p;
-    P(x, y, z);
     LL resRL = vec[R] - vec[L];
     LL resUD = vec[U] - vec[D];
     LL resFB = vec[F] - vec[B];
-    return (!resRL && !resUD && !resFB) ? vis : std::set<std::tuple<LL,LL,LL>>{};
+    bool isInside = !resRL && !resUD && !resFB;
+    if(isInside)
+    {
+        auto [x, y, z] = p;
+        P(x, y, z);
+    }
+    return (isInside) ? vis : std::set<std::tuple<LL,LL,LL>>{};
 }
 
 int main(int argc, char** argv)
