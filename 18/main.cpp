@@ -65,6 +65,7 @@ std::set<std::tuple<LL,LL,LL>> inside(std::tuple<LL,LL,LL> p)
 {
     std::set<std::tuple<LL,LL,LL>> vis;
     auto vec = sides(p, vis);
+    if(p == std::make_tuple(3,3,3)) {P_VEC(vec);P(vis.size());}
     LL resRL = vec[R] - vec[L];
     LL resUD = vec[U] - vec[D];
     LL resFB = vec[F] - vec[B];
