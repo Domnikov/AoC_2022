@@ -46,12 +46,12 @@ int main(int argc, char** argv)
     for(auto cb : cubes)
     {
         auto [x,y,z] = cb;
-        score += cubes.count({x  , y-1, z  });
-        score += cubes.count({x-1, y  , z  });
-        score += cubes.count({x+1, y  , z  });
-        score += cubes.count({x  , y+1, z  });
-        score += cubes.count({x  , y  , z-1});
-        score += cubes.count({x  , y  , z+1});
+        score += !cubes.count({x  , y-1, z  });
+        score += !cubes.count({x-1, y  , z  });
+        score += !cubes.count({x+1, y  , z  });
+        score += !cubes.count({x  , y+1, z  });
+        score += !cubes.count({x  , y  , z-1});
+        score += !cubes.count({x  , y  , z+1});
     }
 
     P_RR("Part1: %lld\n", score);
