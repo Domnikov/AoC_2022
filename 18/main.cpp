@@ -41,10 +41,9 @@ void add(VECI& a, const VECI& b)
 VECI sides(std::tuple<LL,LL,LL> p, std::set<std::tuple<LL,LL,LL>>& vis)
 {
     VECI vec = VECI{0,0,0,0,0,0};
-    if(!vis.count(p))
+    if(!vis.count(p) && surf.count(p))
     {
         vis.insert(p);
-        if(surf.count(p))
         {
             // auto [x, y, z] = p;
             // P(x, y, z);
