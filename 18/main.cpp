@@ -101,14 +101,14 @@ int main(int argc, char** argv)
         if(!cubes.count(f(cb))){if(surf.count(f(cb)) == 0){surf.emplace(f(cb),init);}surf[{x  , y  , z-1}][F]++;score++;}
         if(!cubes.count(b(cb))){if(surf.count(b(cb)) == 0){surf.emplace(b(cb),init);}surf[{x  , y  , z+1}][B]++;score++;}
 
-        if(!cubes.count(lub(cb)) && !surf.count(lub(cb))){surf.emplace(u(cb),init);}
-        if(!cubes.count(rub(cb)) && !surf.count(rub(cb))){surf.emplace(u(cb),init);}
-        if(!cubes.count(ldb(cb)) && !surf.count(ldb(cb))){surf.emplace(u(cb),init);}
-        if(!cubes.count(rdb(cb)) && !surf.count(rdb(cb))){surf.emplace(u(cb),init);}
-        if(!cubes.count(luf(cb)) && !surf.count(luf(cb))){surf.emplace(u(cb),init);}
-        if(!cubes.count(ruf(cb)) && !surf.count(ruf(cb))){surf.emplace(u(cb),init);}
-        if(!cubes.count(ldf(cb)) && !surf.count(ldf(cb))){surf.emplace(u(cb),init);}
-        if(!cubes.count(rdf(cb)) && !surf.count(rdf(cb))){surf.emplace(u(cb),init);}
+        // if(!cubes.count(lub(cb)) && !surf.count(lub(cb))){surf.emplace(u(cb),init);}
+        // if(!cubes.count(rub(cb)) && !surf.count(rub(cb))){surf.emplace(u(cb),init);}
+        // if(!cubes.count(ldb(cb)) && !surf.count(ldb(cb))){surf.emplace(u(cb),init);}
+        // if(!cubes.count(rdb(cb)) && !surf.count(rdb(cb))){surf.emplace(u(cb),init);}
+        // if(!cubes.count(luf(cb)) && !surf.count(luf(cb))){surf.emplace(u(cb),init);}
+        // if(!cubes.count(ruf(cb)) && !surf.count(ruf(cb))){surf.emplace(u(cb),init);}
+        // if(!cubes.count(ldf(cb)) && !surf.count(ldf(cb))){surf.emplace(u(cb),init);}
+        // if(!cubes.count(rdf(cb)) && !surf.count(rdf(cb))){surf.emplace(u(cb),init);}
     }
 
     P_RR("Part1: %lld\n", score);
