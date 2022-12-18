@@ -36,9 +36,9 @@ VECS C{2022, S(7, ' ') };
 bool canMove(LL x, LL y, LL shape)
 {
     auto& sh = F[shape];
-    if(x < 0) {return false;}
-    if( (x+sh[0].size()) > C[0].size() ){return false;}
-    if( (y + sh.size()) > C.size() ){return false;}
+    if(x < 0)                           {P(__LINE__);return false;}
+    if( (x+sh[0].size()) > C[0].size() ){P(__LINE__);return false;}
+    if( (y + sh.size()) > C.size() )    {P(__LINE__);return false;}
 
     for(LL xx = 0; xx < sh[0].size(); xx++)
     {
@@ -46,10 +46,12 @@ bool canMove(LL x, LL y, LL shape)
         {
             if(sh[yy][xx] == '#' && C[y+yy][x+xx] == '#')
             {
+                P(__LINE__);
                 return false;
             }
         }
     }
+    P(__LINE__);
     return true;
 }
 
