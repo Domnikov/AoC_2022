@@ -26,14 +26,15 @@ int main(int argc, char** argv)
     LL maxY = 0;
     LL maxZ = 0;
 
+    in.clear();
+    in.push_back("1,1,1");
+    in.push_back("1,1,2");
+
     for(auto& i : in)
     {
         VECI vec;
-        P(i);
         auto vecS = splitStr(i, ',');
-        P_VEC(vecS);
         VECSTOA(vecS, vec);
-        P_VEC(vec);
         cubes.emplace(vec[0],vec[1],vec[2]);
         minX = std::min(minX, vec[0]);
         minY = std::min(minY, vec[1]);
