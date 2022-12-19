@@ -20,7 +20,7 @@ LL calc(VECII cost, VECI strtg)
     P_VEC(cost);
 
     LL next{};
-    FOR(t, T)
+    FOR(t, T+1)
     {
 
         if(
