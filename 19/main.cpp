@@ -39,9 +39,9 @@ LL calc(VECII cost, VECI strtg)
         {
             FOR(i, 4) {res[i] += rob[i];}
         }
-        P(t+1);
-        P(res[0], res[1], res[2], res[3]);
-        P(rob[0], rob[1], rob[2], rob[3]);
+        // P(t+1);
+        // P(res[0], res[1], res[2], res[3]);
+        // P(rob[0], rob[1], rob[2], rob[3]);
     };
 
 
@@ -56,6 +56,7 @@ int main(int argc, char** argv)
     LL num = 0;
     for(auto& i : in)
     {
+        VECI strtg{{0,0,0,1,1,1,1,1,2,2,2,2,3,3,3,3}};
         auto sent = splitStr(i, ' ');
         LL oreCost     = stoi(sent[ 6]);
         LL clayCost    = stoi(sent[12]);
@@ -64,7 +65,12 @@ int main(int argc, char** argv)
         LL geoOreCost  = stoi(sent[27]);
         LL goeObsCost  = stoi(sent[30]);
         VECII cost{{oreCost, 0, 0}, {clayCost, 0, 0}, {obsOreCost, obsClayCost, 0}, {geoOreCost, 0, goeObsCost}};
-        score += ++num * calc(cost, {1, 1, 1, 2, 1, 2, 3, 3, 0, 0});
+        LL max {};
+        do {
+            max = std::max(max, calc(cost, strtg));
+        } while(std::next_permutation(strtg.begin(), strtg.end()));
+
+        score += ++num * max;
     }
 
     P_RR("Part1: %lld\n", score);
