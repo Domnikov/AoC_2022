@@ -16,15 +16,15 @@ LL T = 22;
 
 struct step
 {
-    unsigned char res1 : 8;
-    unsigned char res2 : 8;
-    unsigned char res3 : 8;
-    unsigned char res4 : 8;
-    unsigned char rob1 : 6;
-    unsigned char rob2 : 6;
-    unsigned char rob3 : 6;
-    unsigned char rob4 : 6;
-    unsigned char time : 6;
+    unsigned char res1;
+    unsigned char res2;
+    unsigned char res3;
+    unsigned char res4;
+    unsigned char rob1;
+    unsigned char rob2;
+    unsigned char rob3;
+    unsigned char rob4;
+    unsigned char time;
 };
 
 union St
@@ -60,7 +60,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         unsigned char Nres3 = rob3+res3;
         unsigned char Nres4 = rob4+res4;
         unsigned char Mcmo  = std::max(cr1o , std::max(cr2o , std::max(cr3o , cr4o )));
-        if(time == 15 && res4 > 0){P((int)time, (int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)Nres1, (int)Nres2, (int)Nres3, (int)res4);}
+        if(time == 15 && res4 > 0){P((int)time, (int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)res1, (int)res2, (int)res3, (int)res4, (int)Nres4);}
         // if(time>4)exit(1);
         if(res1 >= cr1o                ){q.push({(unsigned char)(Nres1-cr1o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), rob1++, rob2  , rob3  , rob4  , (unsigned char)(time+1)});}
         if(res1 >= cr2o                ){q.push({(unsigned char)(Nres1-cr2o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), rob1  , rob2++, rob3  , rob4  , (unsigned char)(time+1)});}
