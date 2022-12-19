@@ -47,7 +47,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
     while(!q.empty())
     {
         auto [res1, res2, res3, res4, rob1, rob2, rob3, rob4, time] = q.front();
-        P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max, maxB);
+        P((int)time, (int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)res1, (int)res2, (int)res3);
         if(time>4)exit(1);
         q.pop();
         max = std::max<LL>(max, res4);
