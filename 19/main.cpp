@@ -53,7 +53,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         maxB= std::max<LL>(maxB,res3);
         LL Rsum = (rob1 + rob2 + 2*rob3 + 2*rob4);
         maxR = std::max<LL>(maxR, Rsum);
-        if(time >= 13 && Rsum*3/2 < maxR)continue;
+        if(time >= 13 && Rsum*9/5 < maxR)continue;
         if(time == T) {continue;}
         if(time >= 12 && rob2 == 0) continue;
         if(time >= 21 && rob3 == 0) continue;
