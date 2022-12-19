@@ -43,7 +43,7 @@ LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
     LL max{};
     LL maxB{};
     char count{};
-    P(cr1o, cr2o, cr3o, cr3c, cr4o, cr4b);
+    P((int)cr1o, (int)cr2o, (int)cr3o, (int)cr3c, (int)cr4o, (int)cr4b);
     while(!q.empty())
     {
         auto [rob1, rob2, rob3, rob4, res1, res2, res3, res4, time] = q.front();
