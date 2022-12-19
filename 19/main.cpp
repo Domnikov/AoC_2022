@@ -33,7 +33,7 @@ LL calc(VECII cost, VECI strtg)
             res[0] -= cost[strtg[next]][0];
             res[1] -= cost[strtg[next]][1];
             res[2] -= cost[strtg[next]][2];
-            rob[next++]++;
+            rob[strtg[next++]]++;
         }
         else
         {
