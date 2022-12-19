@@ -15,8 +15,8 @@ LL T = 24;
 
 LL calc(VECII cost, VECI strtg)
 {
-    LL res[4];
-    LL rob[4];
+    LL res[4] = {0, 0, 0, 0};
+    LL rob[4] = {0, 0, 0, 0};
 
 
     LL next{};
