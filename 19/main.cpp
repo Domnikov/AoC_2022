@@ -20,7 +20,7 @@ LL calc(VECII cost, VECI strtg)
     P_VEC(cost);
 
     LL next{};
-    FOR(t, T+1)
+    FOR(t, T)
     {
 
         if(
@@ -64,7 +64,7 @@ int main(int argc, char** argv)
         LL geoOreCost  = stoi(sent[27]);
         LL goeObsCost  = stoi(sent[30]);
         VECII cost{{oreCost, 0, 0}, {clayCost, 0, 0}, {obsOreCost, obsClayCost, 0}, {geoOreCost, 0, goeObsCost}};
-        score += ++num * calc(cost, {1, 1, 1, 2, 1, 2, 3, 3});
+        score += ++num * calc(cost, {1, 1, 1, 2, 1, 2, 3, 3, 0, 0});
     }
 
     P_RR("Part1: %lld\n", score);
