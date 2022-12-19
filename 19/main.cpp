@@ -35,7 +35,7 @@ union St
 
 LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned char cr3c, unsigned char cr4o, unsigned char cr4b)
 {
-    step init{1, 0, 0, 0, 0, 0, 0, 0, 0};
+    step init{0, 0, 0, 0, 1, 0, 0, 0, 0};
 
     std::queue<step> q{{init}};
 
