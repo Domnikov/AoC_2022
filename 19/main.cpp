@@ -60,7 +60,7 @@ int main(int argc, char** argv)
     LL num = 0;
     for(auto& i : in)
     {
-        VECI strtg{{0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,3}};
+        VECI strtg{{0,0,0,0,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3}};
         auto sent = splitStr(i, ' ');
         LL oreCost     = stoi(sent[ 6]);
         LL clayCost    = stoi(sent[12]);
