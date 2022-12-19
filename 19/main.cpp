@@ -17,7 +17,6 @@ LL calc(VECII cost, VECI strtg)
 {
     LL res[4] = {0, 0, 0, 0};
     LL rob[4] = {1, 0, 0, 0};
-    P_VEC(cost);
 
     LL next{};
     FOR(t, T)
