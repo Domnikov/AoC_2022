@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -86,6 +86,7 @@ int main(int argc, char** argv)
     LL score = 0;
 
     LL num = 0;
+#if 0
     for(auto& i : in)
     {
         auto sent = splitStr(i, ' ');
@@ -103,8 +104,27 @@ int main(int argc, char** argv)
     }
 
     P_RR("Part1: %lld\n", score);
+#endif
     //========================================================
     score = 0;
+    num = 0;
+    T = 32;
+    for(int i = 0; i < 3; i++)
+    {
+        const auto& s = in[i];
+        auto sent = splitStr(s, ' ');
+        unsigned char cr1  = stoi(sent[ 6]);
+        unsigned char cr2  = stoi(sent[12]);
+        unsigned char cr3o = stoi(sent[18]);
+        unsigned char cr3c = stoi(sent[21]);
+        unsigned char cr4o = stoi(sent[27]);
+        unsigned char cr4b = stoi(sent[30]);
+        LL max = calc(cr1, cr2, cr3o, cr3c, cr4o, cr4b);
+
+        score += ++num * max;
+        P(num, max, score);
+
+    }
 
     P_RR("Part2: %lld\n", score);
     return 0;
