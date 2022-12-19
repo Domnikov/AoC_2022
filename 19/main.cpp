@@ -16,14 +16,14 @@ LL T = 24;
 
 struct step
 {
-    unsigned char rob1 : 5;
-    unsigned char rob2 : 5;
-    unsigned char rob3 : 5;
-    unsigned char rob4 : 5;
-    unsigned char res1 : 5;
-    unsigned char res2 : 5;
-    unsigned char res3 : 5;
-    unsigned char res4 : 5;
+    unsigned char rob1 : 6;
+    unsigned char rob2 : 6;
+    unsigned char rob3 : 6;
+    unsigned char rob4 : 6;
+    unsigned char res1 : 6;
+    unsigned char res2 : 6;
+    unsigned char res3 : 6;
+    unsigned char res4 : 6;
     unsigned char time : 6;
 };
 
@@ -33,7 +33,7 @@ union St
     step s;
 };
 
-LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
+LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned char cr3c, unsigned char cr4o, unsigned char cr4b)
 {
     step init{1, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -80,12 +80,12 @@ int main(int argc, char** argv)
     for(auto& i : in)
     {
         auto sent = splitStr(i, ' ');
-        char cr1  = stoi(sent[ 6]);
-        char cr2 = stoi(sent[12]);
-        char cr3o = stoi(sent[18]);
-        char cr3c = stoi(sent[21]);
-        char cr4o = stoi(sent[27]);
-        char cr4b = stoi(sent[30]);
+        unsigned char cr1  = stoi(sent[ 6]);
+        unsigned char cr2 = stoi(sent[12]);
+        unsigned char cr3o = stoi(sent[18]);
+        unsigned char cr3c = stoi(sent[21]);
+        unsigned char cr4o = stoi(sent[27]);
+        unsigned char cr4b = stoi(sent[30]);
         LL max = std::max(max, calc(cr1, cr2, cr3o, cr3c, cr4o, cr4b));
 
         P(num, max);
