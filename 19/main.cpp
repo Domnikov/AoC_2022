@@ -16,15 +16,15 @@ LL T = 23;
 
 struct step
 {
-    char rob1 : 5;
-    char rob2 : 5;
-    char rob3 : 5;
-    char rob4 : 5;
-    char res1 : 5;
-    char res2 : 5;
-    char res3 : 5;
-    char res4 : 5;
-    char time : 6;
+    unsigned char rob1 : 5;
+    unsigned char rob2 : 5;
+    unsigned char rob3 : 5;
+    unsigned char rob4 : 5;
+    unsigned char res1 : 5;
+    unsigned char res2 : 5;
+    unsigned char res3 : 5;
+    unsigned char res4 : 5;
+    unsigned char time : 6;
 };
 
 union St
