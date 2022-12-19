@@ -49,15 +49,15 @@ LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
         if(time == T) {max = std::max<LL>(max, res4);P((int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)res4, max);continue;}
         if(time >= 14 && rob3 == 0) continue;
         if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4);count = time;}
-        char Nres1 = rob1+res1;
-        char Nres2 = rob1+res2;
-        char Nres3 = rob1+res3;
-        char Nres4 = rob1+res4;
-        if(res1 > cr1o               ){q.push({rob1++, rob2  , rob3  , rob4  , (char)(Nres1-cr1o), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
-        if(res1 > cr2o               ){q.push({rob1  , rob2++, rob3  , rob4  , (char)(Nres1     ), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
-        if(res1 > cr3o && res2 > cr3c){q.push({rob1  , rob2  , rob3++, rob4  , (char)(Nres1     ), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
-        if(res1 > cr4o && res3 > cr4b){q.push({rob1  , rob2  , rob3  , rob4++, (char)(Nres1     ), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
-                                      {q.push({rob1  , rob2  , rob3  , rob4  , (char)(Nres1     ), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
+        unsigned char Nres1 = rob1+res1;
+        unsigned char Nres2 = rob1+res2;
+        unsigned char Nres3 = rob1+res3;
+        unsigned char Nres4 = rob1+res4;
+        if(res1 > cr1o               ){q.push({rob1++, rob2  , rob3  , rob4  , (unsigned char)(Nres1-cr1o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
+        if(res1 > cr2o               ){q.push({rob1  , rob2++, rob3  , rob4  , (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
+        if(res1 > cr3o && res2 > cr3c){q.push({rob1  , rob2  , rob3++, rob4  , (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
+        if(res1 > cr4o && res3 > cr4b){q.push({rob1  , rob2  , rob3  , rob4++, (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
+                                      {q.push({rob1  , rob2  , rob3  , rob4  , (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
     }
 
 
