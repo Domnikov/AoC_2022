@@ -60,7 +60,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         if(time >= 21 && rob3 == 0) continue;
         if(time >= 123 && rob4 == 0) continue;
         if(rob1 > 11 || rob2 > 11 || rob3 > 11) continue;
-        if(time >= 18 && (res4+4) < max) continue;
+        if(time >= 21 && (res4+2) < max) continue;
         if(time >= 15 && (rob1 >= 5*rob2 || rob2 >= 5*rob1))continue;
         unsigned char Nres1 = rob1+res1;
         unsigned char Nres2 = rob2+res2;
