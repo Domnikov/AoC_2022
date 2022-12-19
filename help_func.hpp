@@ -131,7 +131,7 @@ inline std::ostream& operator<<( std::ostream& dest, __int128_t value )
     << #i << " = " << i << ";\t" \
     << #j << " = " << j << std::endl;
 
-#define GET_MACRO(_1,_2,_3,_4,_5,_6,_7,_8,_9,_X,NAME,...) NAME
+#define GET_MACRO(_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,NAME,...) NAME
 #define P(...) GET_MACRO(__VA_ARGS__, PX, P9, P8, P7, P6, P5, P4, P3, P2, P1)(__VA_ARGS__)
 
 #define LL    long long
