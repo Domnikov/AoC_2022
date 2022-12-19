@@ -55,7 +55,7 @@ int main(int argc, char** argv)
     LL num = 0;
     for(auto& i : in)
     {
-        VECI strtg{{0,0,0,1,1,1,1,1,2,2,2,2,3,3,3,3}};
+        VECI strtg{{0,0,1,1,1,1,2,2,2,3,3,3}};
         auto sent = splitStr(i, ' ');
         LL oreCost     = stoi(sent[ 6]);
         LL clayCost    = stoi(sent[12]);
@@ -66,6 +66,7 @@ int main(int argc, char** argv)
         VECII cost{{oreCost, 0, 0}, {clayCost, 0, 0}, {obsOreCost, obsClayCost, 0}, {geoOreCost, 0, goeObsCost}};
         LL max {};
         do {
+            P_VEC(strtg);
             if(strtg[0] == 2) break;
             max = std::max(max, calc(cost, strtg));
         } while(std::next_permutation(strtg.begin(), strtg.end()));
