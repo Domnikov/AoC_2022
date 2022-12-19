@@ -15,7 +15,6 @@ LL T = 24;
 
 LL calc(VECI cost, VECI rob, VECI res, LL time)
 {
-    P_LINE;
     if(time >= 24){if(res[3]){P(res[3]);} return res[3];}
     LL oreCost     = cost[0];
     LL clayCost    = cost[1];
