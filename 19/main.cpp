@@ -10,11 +10,43 @@ auto in = getInput();
 using INT = __int128;
 using VECC = std::vector<char>;
 
+LL T = 24;
 
-LL calc(LL oreCost , LL clayCost , LL obsOreCost, LL obsClayCost, LL geoOreCost, LL goeObsCost)
+
+LL calc(VECI cost, VECI rob, VECI res, LL time)
 {
-    FOR(i, 24)
-    ;
+    if(time >= 24){P(res[3]);res[3];}
+    LL& oreCost     = cost[0];
+    LL& clayCost    = cost[1];
+    LL& obsOreCost  = cost[2];
+    LL& obsClayCost = cost[3];
+    LL& geoOreCost  = cost[4];
+    LL& goeObsCost  = cost[5];
+    LL& ore = res[0], clay = res[1], obs = res[2], geo = res[3];
+    LL& orR = rob[0], clR = rob[1], obR = rob[2], geR = rob[3];
+
+    LL score{};
+
+    FOR(r, 4){res[r]+=rob[r];}
+    if(ore >= oreCost)
+    {
+        score = std::max(score, calc(cost, {orR+1, clR, obR, geR}, {ore - oreCost, clay, obs, geo}, time+1));
+    }
+    if(ore >= clayCost)
+    {
+        score = std::max(score, calc(cost, {orR, clR+1, obR, geR}, {ore - clayCost, clay, obs, geo}, time+1));
+    }
+    if(ore >= obsOreCost && clay >= obsClayCost)
+    {
+        score = std::max(score, calc(cost, {orR, clR, obR+1, geR}, {ore - obsOreCost, clay - obsClayCost, obs, geo}, time+1));
+    }
+    if(ore >= geoOreCost && obs >= goeObsCost)
+    {
+        score = std::max(score, calc(cost, {orR, clR, obR, geR+1}, {ore - geoOreCost, clay, obs - goeObsCost, geo}, time+1));
+    }
+    score = std::max(score, calc(cost, {orR, clR, obR, geR}, {ore, clay, obs, geo}, time+1));
+
+    return score;
 }
 
 
@@ -32,8 +64,7 @@ int main(int argc, char** argv)
         LL obsClayCost = stoi(sent[21]);
         LL geoOreCost  = stoi(sent[27]);
         LL goeObsCost  = stoi(sent[30]);
-        P(oreCost, clayCost, obsOreCost, obsClayCost, geoOreCost, goeObsCost);
-        // score += calc(oreCost, clayCost, obsOreCost, obsClayCost, geoOreCost, goeObsCost);
+        score += ++num * calc({oreCost, clayCost, obsOreCost, obsClayCost, geoOreCost, goeObsCost}, {1, 0, 0, 0}, {0, 0, 0, 0}, 0);
     }
 
     P_RR("Part1: %lld\n", score);
