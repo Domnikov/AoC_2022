@@ -71,7 +71,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         if(res1 >= cr2o                ){q.push({(unsigned char)(Nres1-cr2o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(rob1 ), (unsigned char)(rob2+1), (unsigned char)(rob3 ), (unsigned char)(rob4 ), (unsigned char)(time+1)});}
         if(res1 >= cr3o && res2 >= cr3c){q.push({(unsigned char)(Nres1-cr3o), (unsigned char)(Nres2-cr3c), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(rob1 ), (unsigned char)(rob2 ), (unsigned char)(rob3+1), (unsigned char)(rob4 ), (unsigned char)(time+1)});}
         if(res1 >= cr4o && res3 >= cr4b){q.push({(unsigned char)(Nres1-cr4o), (unsigned char)(Nres2     ), (unsigned char)(Nres3-cr4b), (unsigned char)(Nres4     ), (unsigned char)(rob1 ), (unsigned char)(rob2 ), (unsigned char)(rob3 ), (unsigned char)(rob4+1), (unsigned char)(time+1)});}
-        if(1/*Mcmo >= res1 && res3 <= cr4b*/){q.push({(unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), rob1  , rob2  , rob3  , rob4  , (unsigned char)(time+1)});}
+        if(Mcmo*2 >= res1 && res3 <= cr4b*2){q.push({(unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), rob1  , rob2  , rob3  , rob4  , (unsigned char)(time+1)});}
     }
 
 
