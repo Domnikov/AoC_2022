@@ -48,7 +48,7 @@ LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
         q.pop();
         if(time == T) {max = std::max<LL>(max, res4);P(rob1, rob2, rob3, rob4, res4, max);continue;}
         if(time >= 14 && rob3 == 0) continue;
-        if(count < time){P((int)time, q.size());count = time;}
+        if(count < time){P((int)time, q.size(), rob1, rob2, rob3, rob4);count = time;}
         char Nres1 = rob1+res1;
         char Nres2 = rob1+res2;
         char Nres3 = rob1+res3;
