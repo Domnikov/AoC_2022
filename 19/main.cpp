@@ -55,9 +55,9 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         maxR = std::max<LL>(maxR, Rsum);
         if(Rsum*2 < maxR)continue;
         if(time == T) {continue;}
-        if(time >= 10 && rob2 == 0) continue;
-        if(time >= 20 && rob3 == 0) continue;
-        if(time >= 22 && rob4 == 0) continue;
+        if(time >= 12 && rob2 == 0) continue;
+        if(time >= 21 && rob3 == 0) continue;
+        if(time >= 23 && rob4 == 0) continue;
         if(rob1 > 9 || rob2 > 9 || rob3 > 9) continue;
         if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max, maxB);count = time;max = 0;maxB = 0;}
         unsigned char Nres1 = rob1+res1;
