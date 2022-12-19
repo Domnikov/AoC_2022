@@ -59,7 +59,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         if(time >= 21 && rob3 == 0) continue;
         if(time >= 123 && rob4 == 0) continue;
         if(rob1 > 11 || rob2 > 11 || rob3 > 11) continue;
-        if(time >= 18 && (res4+6) < max) continue;
+        if(time >= 18 && (res4+4) < max) continue;
         if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max);count = time;}
         unsigned char Nres1 = rob1+res1;
         unsigned char Nres2 = rob2+res2;
