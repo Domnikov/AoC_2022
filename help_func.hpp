@@ -99,15 +99,14 @@ inline std::ostream& operator<<( std::ostream& dest, __int128_t value )
     << #f << " = " << f << ";\t" \
     << #g << " = " << g << std::endl;
 
-#define P8(a,b,c,d,e,f,g,h, i) std::cerr << #a << " = " << a << ";\t" \
+#define P8(a,b,c,d,e,f,g,h) std::cerr << #a << " = " << a << ";\t" \
     << #b << " = " << b << ";\t" \
     << #c << " = " << c << ";\t" \
     << #d << " = " << d << ";\t" \
     << #e << " = " << e << ";\t" \
     << #f << " = " << f << ";\t" \
     << #g << " = " << g << ";\t" \
-    << #h << " = " << h << ";\t" \
-    << #i << " = " << i << std::endl;
+    << #h << " = " << h << std::endl;
 
 
 #define P9(a,b,c,d,e,f,g,h,i) std::cerr << #a << " = " << a << ";\t" \
@@ -120,7 +119,7 @@ inline std::ostream& operator<<( std::ostream& dest, __int128_t value )
     << #h << " = " << h << ";\t" \
     << #i << " = " << i << std::endl;
 
-#define PX(a,b,c,d,e,f,g,h,i,j) std::cerr << #a << " = " << a << ";\t" \
+#define P10(a,b,c,d,e,f,g,h,i,j) std::cerr << #a << " = " << a << ";\t" \
     << #b << " = " << b << ";\t" \
     << #c << " = " << c << ";\t" \
     << #d << " = " << d << ";\t" \
@@ -132,7 +131,7 @@ inline std::ostream& operator<<( std::ostream& dest, __int128_t value )
     << #j << " = " << j << std::endl;
 
 #define GET_MACRO(_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,NAME,...) NAME
-#define P(...) GET_MACRO(__VA_ARGS__, PX, P9, P8, P7, P6, P5, P4, P3, P2, P1)(__VA_ARGS__)
+#define P(...) GET_MACRO(__VA_ARGS__, P10, P9, P8, P7, P6, P5, P4, P3, P2, P1)(__VA_ARGS__)
 
 #define LL    long long
 #define ULL   unsigned long long
