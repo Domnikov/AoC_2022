@@ -44,12 +44,16 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
     LL maxB{};
     char count{};
     P((int)cr1o, (int)cr2o, (int)cr3o, (int)cr3c, (int)cr4o, (int)cr4b);
+    LL maxR{};
     while(!q.empty())
     {
         auto [res1, res2, res3, res4, rob1, rob2, rob3, rob4, time] = q.front();
         q.pop();
         max = std::max<LL>(max, res4);
         maxB= std::max<LL>(maxB,res3);
+        LL Rsum = (rob1 + rob2 + 2*rob3 + 2*rob4);
+        maxR = std::max<LL>(maxR, Rsum);
+        if(Rsum*2 < maxR)continue;
         if(time == T) {continue;}
         if(time >= 10 && rob2 == 0) continue;
         if(time >= 18 && rob3 == 0) continue;
