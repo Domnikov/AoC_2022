@@ -48,7 +48,10 @@ LL calc(VECI cost, VECI rob, VECI res, LL time)
     {
         score = std::max(score, calc(cost, {orR, clR, obR, geR+1}, {ore - geoOreCost, clay, obs - goeObsCost, geo}, time+1));
     }
-    score = std::max(score, calc(cost, {orR, clR, obR, geR}, {ore, clay, obs, geo}, time+1));
+    else
+    {
+        score = std::max(score, calc(cost, {orR, clR, obR, geR}, {ore, clay, obs, geo}, time+1));
+    }
 
     return score;
 }
