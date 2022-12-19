@@ -51,9 +51,9 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         max = std::max<LL>(max, res4);
         maxB= std::max<LL>(maxB,res3);
         if(time == T) {continue;}
-        if(time >= 119 && rob3 == 0) continue;
-        if(time >= 125 && rob4 == 0) continue;
-        if(rob1 > 119 || rob2 > 119 || rob3 > 119) continue;
+        if(time >= 18 && rob3 == 0) continue;
+        if(time >= 20 && rob4 == 0) continue;
+        if(rob1 > 9 || rob2 > 9 || rob3 > 9) continue;
         if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max, maxB);count = time;max = 0;maxB = 0;}
         unsigned char Nres1 = rob1+res1;
         unsigned char Nres2 = rob2+res2;
