@@ -55,13 +55,13 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         if(time >= 119 && rob3 == 0) continue;
         if(time >= 125 && rob4 == 0) continue;
         if(rob1 > 19 || rob2 > 19 || rob3 > 19) continue;
-        // if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max, maxB);count = time;max = 0;maxB = 0;}
+        if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max, maxB);count = time;max = 0;maxB = 0;}
         unsigned char Nres1 = rob1+res1;
         unsigned char Nres2 = rob2+res2;
         unsigned char Nres3 = rob3+res3;
         unsigned char Nres4 = rob4+res4;
         unsigned char Mcmo  = std::max(cr1o , std::max(cr2o , std::max(cr3o , cr4o )));
-        P((int)time, (int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)Nres1, (int)Nres2, (int)Nres3);
+        // P((int)time, (int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)Nres1, (int)Nres2, (int)Nres3);
         if(res1 >= cr1o                ){q.push({(unsigned char)(Nres1-cr1o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), rob1++, rob2  , rob3  , rob4  , (unsigned char)(time+1)});}
         if(res1 >= cr2o                ){q.push({(unsigned char)(Nres1-cr2o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), rob1  , rob2++, rob3  , rob4  , (unsigned char)(time+1)});}
         if(res1 >= cr3o && res2 >= cr3c){q.push({(unsigned char)(Nres1-cr3o), (unsigned char)(Nres2-cr3c), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), rob1  , rob2  , rob3++, rob4  , (unsigned char)(time+1)});}
