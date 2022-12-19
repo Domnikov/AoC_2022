@@ -12,7 +12,7 @@ auto in = getInput();
 using INT = __int128;
 using VECC = std::vector<char>;
 
-LL T = 24;
+LL T = 23;
 
 struct step
 {
@@ -46,7 +46,7 @@ LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
     {
         auto [rob1, rob2, rob3, rob4, res1, res2, res3, res4, time] = q.front();
         q.pop();
-        if(time == T) {max = std::max<LL>(max, res4);P(rob1, rob2, rob3, rob4, res4, max);continue;}
+        if(time == T) {max = std::max<LL>(max, res4);P((int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)res4, max);continue;}
         if(time >= 14 && rob3 == 0) continue;
         if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4);count = time;}
         char Nres1 = rob1+res1;
