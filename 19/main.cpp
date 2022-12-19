@@ -25,7 +25,6 @@ LL calc(VECI cost, VECI rob, VECI res, LL time)
     LL ore = res[0], clay = res[1], obs = res[2], geo = res[3];
     LL orR = rob[0], clR = rob[1], obR = rob[2], geR = rob[3];
 
-    P(orR, clR, obR, geR, ore, time);
 
     LL score{};
 
@@ -34,11 +33,11 @@ LL calc(VECI cost, VECI rob, VECI res, LL time)
     obs += obR;
     geo += geR;
 
-    if(res[0] >= oreCost                             && orR <= (clR+1) * 3                    ) { P_LINE;score = std::max(score, calc(cost, {orR+1, clR, obR, geR}, {ore - oreCost, clay, obs, geo}, time+1)); }
-    if(res[0] >= clayCost                            && clR <= (orR+1) * 3 && clR <= (obR+1)*4) { P_LINE;score = std::max(score, calc(cost, {orR, clR+1, obR, geR}, {ore - clayCost, clay, obs, geo}, time+1)); }
-    if(res[0] >= obsOreCost && res[1] >= obsClayCost && obR <= (geR+1) * 3                    ) { P_LINE;score = std::max(score, calc(cost, {orR, clR, obR+1, geR}, {ore - obsOreCost, clay - obsClayCost, obs, geo}, time+1)); }
-    if(res[0] >= geoOreCost && res[2] >= goeObsCost                                           ) { P_LINE;score = std::max(score, calc(cost, {orR, clR, obR, geR+1}, {ore - geoOreCost, clay, obs - goeObsCost, geo}, time+1)); }
-    if(ore <= std::max(std::max(std::max(oreCost, clayCost), obsOreCost), geoOreCost)         ) { P_LINE;score = std::max(score, calc(cost, {orR, clR, obR, geR}, {ore, clay, obs, geo}, time+1)); }
+    if(res[0] >= oreCost                             && orR <= (clR+1) * 3                    ) { score = std::max(score, calc(cost, {orR+1, clR, obR, geR}, {ore - oreCost, clay, obs, geo}, time+1)); }
+    if(res[0] >= clayCost                            && clR <= (orR+1) * 3 && clR <= (obR+1)*4) { score = std::max(score, calc(cost, {orR, clR+1, obR, geR}, {ore - clayCost, clay, obs, geo}, time+1)); }
+    if(res[0] >= obsOreCost && res[1] >= obsClayCost && obR <= (geR+1) * 3                    ) { score = std::max(score, calc(cost, {orR, clR, obR+1, geR}, {ore - obsOreCost, clay - obsClayCost, obs, geo}, time+1)); }
+    if(res[0] >= geoOreCost && res[2] >= goeObsCost                                           ) { score = std::max(score, calc(cost, {orR, clR, obR, geR+1}, {ore - geoOreCost, clay, obs - goeObsCost, geo}, time+1)); }
+    if(ore <= std::max(std::max(std::max(oreCost, clayCost), obsOreCost), geoOreCost)         ) { score = std::max(score, calc(cost, {orR, clR, obR, geR}, {ore, clay, obs, geo}, time+1)); }
 
     return score;
 }
