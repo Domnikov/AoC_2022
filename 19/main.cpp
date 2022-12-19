@@ -25,7 +25,7 @@ LL calc(VECI cost, VECI rob, VECI res, LL time)
     LL ore = res[0], clay = res[1], obs = res[2], geo = res[3];
     LL orR = rob[0], clR = rob[1], obR = rob[2], geR = rob[3];
 
-    P(orR, clR, obR, geR, ore);
+    P(orR, clR, obR, geR, ore, time);
 
     LL score{};
 
