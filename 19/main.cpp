@@ -19,20 +19,25 @@ LL calc(VECII cost, VECI strtg)
     LL rob[4] = {1, 0, 0, 0};
 
     LL next{};
+    LL n = strtg[0];
     FOR(t, T)
     {
+        if(n == 2 && !rob[1]) return 0;
+        if(n == 3 && !rob[1]) return 0;
+        if(n == 3 && !rob[2]) return 0;
 
         if(
-                res[0] >= cost[strtg[next]][0] &&
-                res[1] >= cost[strtg[next]][1] &&
-                res[2] >= cost[strtg[next]][2]
+                res[0] >= cost[n][0] &&
+                res[1] >= cost[n][1] &&
+                res[2] >= cost[n][2]
                 )
         {
             FOR(i, 4) {res[i] += rob[i];}
-            res[0] -= cost[strtg[next]][0];
-            res[1] -= cost[strtg[next]][1];
-            res[2] -= cost[strtg[next]][2];
+            res[0] -= cost[n][0];
+            res[1] -= cost[n][1];
+            res[2] -= cost[n][2];
             rob[strtg[next++]]++;
+            n = strtg[next];
         }
         else
         {
@@ -55,7 +60,7 @@ int main(int argc, char** argv)
     LL num = 0;
     for(auto& i : in)
     {
-        VECI strtg{{0,0,0,1,1,1,1,2,2,2,3,3,3}};
+        VECI strtg{{0,0,0,1,1,1,1,2,2,2,2,3,3,3,3}};
         auto sent = splitStr(i, ' ');
         LL oreCost     = stoi(sent[ 6]);
         LL clayCost    = stoi(sent[12]);
