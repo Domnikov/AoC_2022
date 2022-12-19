@@ -16,14 +16,14 @@ LL T = 24;
 
 struct step
 {
+    unsigned char res1 : 8;
+    unsigned char res2 : 8;
+    unsigned char res3 : 8;
+    unsigned char res4 : 8;
     unsigned char rob1 : 6;
     unsigned char rob2 : 6;
     unsigned char rob3 : 6;
     unsigned char rob4 : 6;
-    unsigned char res1 : 6;
-    unsigned char res2 : 6;
-    unsigned char res3 : 6;
-    unsigned char res4 : 6;
     unsigned char time : 6;
 };
 
@@ -46,7 +46,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
     P((int)cr1o, (int)cr2o, (int)cr3o, (int)cr3c, (int)cr4o, (int)cr4b);
     while(!q.empty())
     {
-        auto [rob1, rob2, rob3, rob4, res1, res2, res3, res4, time] = q.front();
+        auto [res1, res2, res3, res4, rob1, rob2, rob3, rob4, time] = q.front();
         q.pop();
         max = std::max<LL>(max, res4);
         maxB= std::max<LL>(maxB,res3);
