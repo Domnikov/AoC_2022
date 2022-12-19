@@ -53,9 +53,9 @@ LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
         if(rob1 > 7 || rob2 > 7 || rob3 > 7) continue;
         if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max);count = time;max = 0;}
         unsigned char Nres1 = rob1+res1;
-        unsigned char Nres2 = rob1+res2;
-        unsigned char Nres3 = rob1+res3;
-        unsigned char Nres4 = rob1+res4;
+        unsigned char Nres2 = rob2+res2;
+        unsigned char Nres3 = rob3+res3;
+        unsigned char Nres4 = rob4+res4;
         unsigned char Mcmo  = std::max(cr1o , std::max(cr2o , std::max(cr3o , cr4o )));
         if(res1 >= cr1o                ){q.push({rob1++, rob2  , rob3  , rob4  , (unsigned char)(Nres1-cr1o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
         if(res1 >= cr2o                ){q.push({rob1  , rob2++, rob3  , rob4  , (unsigned char)(Nres1-cr2o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
