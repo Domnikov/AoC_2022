@@ -6,50 +6,59 @@
 #include "in.hpp"
 #endif
 
+#include<queue>
+
 auto in = getInput();
 using INT = __int128;
 using VECC = std::vector<char>;
 
 LL T = 24;
 
-
-LL calc(const VECII& cost, const VECI& strtg)
+struct step
 {
-    LL res[4] = {0, 0, 0, 0};
-    LL rob[4] = {1, 0, 0, 0};
+    char rob1 : 4;
+    char rob2 : 4;
+    char rob3 : 4;
+    char rob4 : 4;
+    char res1 : 4;
+    char res2 : 4;
+    char res3 : 4;
+    char res4 : 4;
+    char time : 5;
+};
+
+union St
+{
+    LL raw;
+    step s;
+};
+
+LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
+{
+    step init{1, 0, 0, 0, 0, 0, 0, 0, 0};
+
+    std::queue<step> q{{init}};
 
     LL next{};
-    LL n = strtg[0];
-    FOR(t, T)
+    LL max{};
+    while(!q.empty())
     {
-        if(n == 2 && !rob[1]) return 0;
-        if(n == 3 && !rob[1]) return 0;
-        if(n == 3 && !rob[2]) return 0;
-
-        if(
-                res[0] >= cost[n][0] &&
-                res[1] >= cost[n][1] &&
-                res[2] >= cost[n][2]
-                )
-        {
-            FOR(i, 4) {res[i] += rob[i];}
-            res[0] -= cost[n][0];
-            res[1] -= cost[n][1];
-            res[2] -= cost[n][2];
-            rob[strtg[next++]]++;
-            n = strtg[next];
-        }
-        else
-        {
-            FOR(i, 4) {res[i] += rob[i];}
-        }
-        // P(t+1);
-        // P(res[0], res[1], res[2], res[3]);
-        // P(rob[0], rob[1], rob[2], rob[3]);
-    };
+        auto [rob1, rob2, rob3, rob4, res1, res2, res3, res4, time] = q.front();
+        q.pop();
+        if(time == T) {max = std::max<LL>(max, res4);P(rob1, rob2, rob3, rob4, res4, max);continue;}
+        char Nres1 = rob1+res1;
+        char Nres2 = rob1+res2;
+        char Nres3 = rob1+res3;
+        char Nres4 = rob1+res4;
+        if(res1 > cr1o               ){q.push({rob1++, rob2  , rob3  , rob4  , (char)(Nres1-cr1o), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
+        if(res1 > cr2o               ){q.push({rob1  , rob2++, rob3  , rob4  , (char)(Nres1     ), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
+        if(res1 > cr3o && res2 > cr3c){q.push({rob1  , rob2  , rob3++, rob4  , (char)(Nres1     ), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
+        if(res1 > cr4o && res3 > cr4b){q.push({rob1  , rob2  , rob3  , rob4++, (char)(Nres1     ), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
+                                      {q.push({rob1  , rob2  , rob3  , rob4  , (char)(Nres1     ), (char)(Nres2     ), (char)(Nres3     ), (char)(Nres4     ), (char)(time+1)});}
+    }
 
 
-    return res[3];
+    return max;
 }
 
 
@@ -60,21 +69,16 @@ int main(int argc, char** argv)
     LL num = 0;
     for(auto& i : in)
     {
-        VECI strtg{{0,0,0,0,1,1,1,1,2,2,2,2,2,3,3,3,3,3}};
         auto sent = splitStr(i, ' ');
-        LL oreCost     = stoi(sent[ 6]);
-        LL clayCost    = stoi(sent[12]);
-        LL obsOreCost  = stoi(sent[18]);
-        LL obsClayCost = stoi(sent[21]);
-        LL geoOreCost  = stoi(sent[27]);
-        LL goeObsCost  = stoi(sent[30]);
-        VECII cost{{oreCost, 0, 0}, {clayCost, 0, 0}, {obsOreCost, obsClayCost, 0}, {geoOreCost, 0, goeObsCost}};
-        LL max {};
-        do {
-            if(strtg[0] == 2) break;
-            max = std::max(max, calc(cost, strtg));
-        } while(std::next_permutation(strtg.begin(), strtg.end()));
-        P(max);
+        char cr1  = stoi(sent[ 6]);
+        char cr2 = stoi(sent[12]);
+        char cr3o = stoi(sent[18]);
+        char cr3c = stoi(sent[21]);
+        char cr4o = stoi(sent[27]);
+        char cr4b = stoi(sent[30]);
+        LL max = std::max(max, calc(cr1, cr2, cr3o, cr3c, cr4o, cr4b));
+
+        P(num, max);
 
         score += ++num * max;
     }
