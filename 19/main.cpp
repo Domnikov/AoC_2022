@@ -95,7 +95,7 @@ int main(int argc, char** argv)
         unsigned char cr3c = stoi(sent[21]);
         unsigned char cr4o = stoi(sent[27]);
         unsigned char cr4b = stoi(sent[30]);
-        LL max = std::max(max, calc(cr1, cr2, cr3o, cr3c, cr4o, cr4b));
+        LL max = calc(cr1, cr2, cr3o, cr3c, cr4o, cr4b);
 
         score += ++num * max;
         P(num, max, score);
