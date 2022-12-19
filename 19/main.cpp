@@ -41,17 +41,19 @@ LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
 
     LL next{};
     LL max{};
+    LL maxB{};
     char count{};
     while(!q.empty())
     {
         auto [rob1, rob2, rob3, rob4, res1, res2, res3, res4, time] = q.front();
         q.pop();
         max = std::max<LL>(max, res4);
+        maxB= std::max<LL>(maxB,res3);
         if(time == T) {if(res4 == 31)P((int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)res4, max);continue;}
         if(time >= 19 && rob3 == 0) continue;
         if(time >= 23 && rob4 == 0) continue;
         if(rob1 > 9 || rob2 > 9 || rob3 > 9) continue;
-        if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max);count = time;max = 0;}
+        if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max, maxB);count = time;max = 0;maxB = 0;}
         unsigned char Nres1 = rob1+res1;
         unsigned char Nres2 = rob2+res2;
         unsigned char Nres3 = rob3+res3;
