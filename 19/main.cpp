@@ -66,6 +66,7 @@ int main(int argc, char** argv)
         VECII cost{{oreCost, 0, 0}, {clayCost, 0, 0}, {obsOreCost, obsClayCost, 0}, {geoOreCost, 0, goeObsCost}};
         LL max {};
         do {
+            if(strtg[0] == 2) break;
             max = std::max(max, calc(cost, strtg));
         } while(std::next_permutation(strtg.begin(), strtg.end()));
 
