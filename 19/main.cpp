@@ -51,6 +51,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         max = std::max<LL>(max, res4);
         maxB= std::max<LL>(maxB,res3);
         if(time == T) {continue;}
+        if(time >= 10 && rob2 == 0) continue;
         if(time >= 18 && rob3 == 0) continue;
         if(time >= 20 && rob4 == 0) continue;
         if(rob1 > 9 || rob2 > 9 || rob3 > 9) continue;
@@ -90,7 +91,7 @@ int main(int argc, char** argv)
         unsigned char cr4b = stoi(sent[30]);
         LL max = std::max(max, calc(cr1, cr2, cr3o, cr3c, cr4o, cr4b));
 
-        P(num, max);
+        P(num+1, max, score);
 
         score += ++num * max;
     }
