@@ -15,7 +15,7 @@ LL T = 24;
 
 LL calc(VECI cost, VECI rob, VECI res, LL time)
 {
-    if(time >= 24){if(res[3] > 7){P(res[3]);} return res[3];}
+    if(time > 24){if(res[3] > 7){P(res[3]);} return res[3];}
     LL oreCost     = cost[0];
     LL clayCost    = cost[1];
     LL obsOreCost  = cost[2];
@@ -32,19 +32,19 @@ LL calc(VECI cost, VECI rob, VECI res, LL time)
     obs += obR;
     geo += geR;
 
-    if(ore >= oreCost)
+    if(res[0] >= oreCost)
     {
         score = std::max(score, calc(cost, {orR+1, clR, obR, geR}, {ore - oreCost, clay, obs, geo}, time+1));
     }
-    if(ore >= clayCost)
+    if(res[0] >= clayCost)
     {
         score = std::max(score, calc(cost, {orR, clR+1, obR, geR}, {ore - clayCost, clay, obs, geo}, time+1));
     }
-    if(ore >= obsOreCost && clay >= obsClayCost)
+    if(res[0] >= obsOreCost && res[1] >= obsClayCost)
     {
         score = std::max(score, calc(cost, {orR, clR, obR+1, geR}, {ore - obsOreCost, clay - obsClayCost, obs, geo}, time+1));
     }
-    if(ore >= geoOreCost && obs >= goeObsCost)
+    if(res[0] >= geoOreCost && res[2] >= goeObsCost)
     {
         score = std::max(score, calc(cost, {orR, clR, obR, geR+1}, {ore - geoOreCost, clay, obs - goeObsCost, geo}, time+1));
     }
