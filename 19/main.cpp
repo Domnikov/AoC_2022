@@ -12,7 +12,7 @@ auto in = getInput();
 using INT = __int128;
 using VECC = std::vector<char>;
 
-LL T = 24;
+LL T = 25;
 
 struct step
 {
