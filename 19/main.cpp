@@ -61,7 +61,7 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
         unsigned char Nres3 = rob3+res3;
         unsigned char Nres4 = rob4+res4;
         unsigned char Mcmo  = std::max(cr1o , std::max(cr2o , std::max(cr3o , cr4o )));
-        P((int)time, (int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)res1, (int)res2, (int)res3);
+        P((int)time, (int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)Nres1, (int)Nres2, (int)Nres3);
         if(res1 >= cr1o                ){q.push({rob1++, rob2  , rob3  , rob4  , (unsigned char)(Nres1-cr1o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
         if(res1 >= cr2o                ){q.push({rob1  , rob2++, rob3  , rob4  , (unsigned char)(Nres1-cr2o), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
         if(res1 >= cr3o && res2 >= cr3c){q.push({rob1  , rob2  , rob3++, rob4  , (unsigned char)(Nres1-cr3o), (unsigned char)(Nres2-cr3c), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
