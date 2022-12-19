@@ -39,7 +39,7 @@ LL calc(VECII cost, VECI strtg)
         {
             FOR(i, 4) {res[i] += rob[i];}
         }
-        P(t);
+        P(t+1);
         P(res[0], res[1], res[2], res[3]);
         P(rob[0], rob[1], rob[2], rob[3]);
     };
