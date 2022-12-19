@@ -13,7 +13,7 @@ using VECC = std::vector<char>;
 LL T = 24;
 
 
-LL calc(VECII cost, VECI strtg)
+LL calc(const VECII& cost, const VECI& strtg)
 {
     LL res[4] = {0, 0, 0, 0};
     LL rob[4] = {1, 0, 0, 0};
