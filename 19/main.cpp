@@ -46,9 +46,10 @@ LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
     {
         auto [rob1, rob2, rob3, rob4, res1, res2, res3, res4, time] = q.front();
         q.pop();
-        if(time == T) {max = std::max<LL>(max, res4);P((int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)res4, max);continue;}
+        if(time == T) {max = std::max<LL>(max, res4);/*P((int)rob1, (int)rob2, (int)rob3, (int)rob4, (int)res4, max);*/continue;}
         if(time >= 14 && rob3 == 0) continue;
         if(time >= 20 && rob4 == 0) continue;
+        if(rob1 > 5 || rob2 > 5 || rob3 > 5) continue;
         if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4);count = time;}
         unsigned char Nres1 = rob1+res1;
         unsigned char Nres2 = rob1+res2;
