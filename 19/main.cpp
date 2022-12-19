@@ -58,7 +58,7 @@ LL calc(char cr1o, char cr2o, char cr3o, char cr3c, char cr4o, char cr4b)
         if(res1 >= cr2o                ){q.push({rob1  , rob2++, rob3  , rob4  , (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
         if(res1 >= cr3o && res2 >= cr3c){q.push({rob1  , rob2  , rob3++, rob4  , (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
         if(res1 >= cr4o && res3 >= cr4b){q.push({rob1  , rob2  , rob3  , rob4++, (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
-        if(Mcmo <= res1 && res3 <= cr4b){q.push({rob1  , rob2  , rob3  , rob4  , (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
+        if(Mcmo >= res1 && res3 <= cr4b){q.push({rob1  , rob2  , rob3  , rob4  , (unsigned char)(Nres1     ), (unsigned char)(Nres2     ), (unsigned char)(Nres3     ), (unsigned char)(Nres4     ), (unsigned char)(time+1)});}
     }
 
 
