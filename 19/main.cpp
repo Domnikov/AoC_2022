@@ -49,15 +49,17 @@ LL calc(unsigned char cr1o, unsigned char cr2o, unsigned char cr3o, unsigned cha
     {
         auto [res1, res2, res3, res4, rob1, rob2, rob3, rob4, time] = q.front();
         q.pop();
+        max = std::max<LL>(max, res4);
         // maxB= std::max<LL>(maxB,res3);
         LL Rsum = (rob1 + rob2 + 2*rob3 + 2*rob4);
         maxR = std::max<LL>(maxR, Rsum);
         if(time >= 13 && Rsum*9/5 < maxR)continue;
-        if(time == T) {max = std::max<LL>(max, res4);continue;}
+        if(time == T) {continue;}
         if(time >= 12 && rob2 == 0) continue;
         if(time >= 21 && rob3 == 0) continue;
         if(time >= 123 && rob4 == 0) continue;
         if(rob1 > 11 || rob2 > 11 || rob3 > 11) continue;
+        if(time >= 18 && res4 < (max+4)) continue;
         if(count < time){P((int)time, q.size(), (int)rob1, (int)rob2, (int)rob3, (int)rob4, max);count = time;}
         unsigned char Nres1 = rob1+res1;
         unsigned char Nres2 = rob2+res2;
