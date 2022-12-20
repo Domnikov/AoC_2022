@@ -24,6 +24,8 @@ int main(int argc, char** argv)
 
     FOR(i, list.size())
     {
+        P_VEC(list);
+        P_VEC(moved);
         if(moved[i] < 0 && list[i] != 0)
         {
             LL num = list[i];
@@ -37,14 +39,12 @@ int main(int argc, char** argv)
                 moved.insert(moved.begin()+pos, -i);
                 i--;
             }
-            else //if(pos < i)
+            else// if(pos < i)
             {
                 list.insert(list.begin()+pos, num);
                 moved.insert(moved.begin()+pos, -i);
             }
         }
-        P_VEC(list);
-        P_VEC(moved);
     }
 
     P_RR("Part1: %lld\n", score);
