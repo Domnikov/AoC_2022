@@ -59,6 +59,7 @@ int main(int argc, char** argv)
     //========================================================
     score = 0;
     {
+        D = true;
         std::vector<LL> list;
         std::transform(BE(in), std::back_inserter(list), [](auto& a){return 811589153*stoi(a);});
         std::vector<LL> moved(list.size(), -1);
@@ -94,7 +95,6 @@ int main(int argc, char** argv)
         auto n2k = list[(beg+2000)%size];
         auto n3k = list[(beg+3000)%size];
         score = n1k+n2k+n3k;
-        P_RR("Part1: %lld\n", score);
     }
 
     P_RR("Part2: %lld\n", score);
