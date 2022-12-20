@@ -92,7 +92,7 @@ int main(int argc, char** argv)
                 LL pos = (1000*size + i + numSmall)%size;
                 // LL pos = (numSmall+i)%size;
                 if(pos == 0){pos = size;}
-                if(D)P(i, num, numSmall, pos);
+                // if(D)P(i, num, numSmall, pos);
                 list.erase(list.begin() + i);
                 moved.erase(moved.begin() + i);
                 order.erase(order.begin() + i);
@@ -104,7 +104,7 @@ int main(int argc, char** argv)
                     small.insert(small.begin()+pos, numSmall);
             }
         }
-        P_RR("%d\n", n);
+        // P_RR("%d\n", n);
         // if(D)P_VEC(list);
         }
         size = list.size();
