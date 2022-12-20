@@ -64,7 +64,7 @@ int main(int argc, char** argv)
         std::transform(BE(in), std::back_inserter(list), [](auto& a){return 811589153*stoll(a);});
         std::vector<LL> moved(list.size(), -1);
         std::vector<LL> order;
-        std::generate_n(order.begin(), list.size(), [n = 0] () mutable { return n++; });
+        std::generate_n(std::back_inserter(order), list.size(), [n = 0] () mutable { return n++; });
 
         LL size = list.size()-1;
         FOR(ii, list.size())
