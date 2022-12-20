@@ -74,7 +74,8 @@ int main(int argc, char** argv)
         P_LINE;
         std::transform(BE(list), std::back_inserter(small), [size = list.size()-1](auto& a){
                 LL res = a;
-                while(res < 0){res += size;}
+                P(res);
+                while(res < 0){res += size;P(res);}
                 return res%size;
                 // return(1000*size + res%size)%size;
                 });
