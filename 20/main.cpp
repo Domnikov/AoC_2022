@@ -63,10 +63,13 @@ int main(int argc, char** argv)
         std::vector<LL> list;
         std::transform(BE(in), std::back_inserter(list), [](auto& a){return 811589153*stoll(a);});
         std::vector<LL> moved(list.size(), -1);
+        std::vector<LL> order;
+        std::generate_n(order.begin(), list.size(), [n = 0] () mutable { return n++; });
 
         LL size = list.size()-1;
-        FOR(i, list.size())
+        FOR(ii, list.size())
         {
+            LL i = std::distance(order.begin(), std::find(BE(order), ii));
             if(moved[i] < 0 && list[i] != 0)
             {
                 if(D)P_VEC(list);
@@ -89,6 +92,7 @@ int main(int argc, char** argv)
                 }
             }
         }
+        if(D)P_VEC(list);
         size = list.size();
         LL beg = std::distance(list.begin(), std::find(BE(list), 0));
 
