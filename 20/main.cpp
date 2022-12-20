@@ -26,10 +26,11 @@ int main(int argc, char** argv)
     {
         P_VEC(list);
         // P_VEC(moved);
+        LL size = list.size()-1;
         if(moved[i] < 0 && list[i] != 0)
         {
             LL num = list[i];
-            LL pos = (1000*list.size() + i + num)%list.size();
+            LL pos = (1000*size + i + num)%size;
             P(num, pos);
             list.erase(list.begin() + i);
             moved.erase(moved.begin() + i);
