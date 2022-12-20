@@ -97,7 +97,7 @@ int main(int argc, char** argv)
                     list.insert(list.begin()+pos, num);
                     moved.insert(moved.begin()+pos, i);
                     order.insert(order.begin()+pos, ii);
-                    small.insert(small.begin()+pos, ii);
+                    small.insert(small.begin()+pos, numSmall);
                     i--;
                 }
                 else// if(pos < i)
@@ -105,7 +105,7 @@ int main(int argc, char** argv)
                     list.insert(list.begin()+pos, num);
                     moved.insert(moved.begin()+pos, i);
                     order.insert(order.begin()+pos, ii);
-                    small.insert(small.begin()+pos, ii);
+                    small.insert(small.begin()+pos, numSmall);
                 }
             }
         }
