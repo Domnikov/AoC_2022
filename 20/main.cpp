@@ -50,13 +50,14 @@ int main(int argc, char** argv)
     }
     P_VEC(list);
     size = list.size();
-    P(1000%size);
-    P(2000%size);
-    P(3000%size);
+    LL beg = std::distance(list.begin(), std::find(BE(list), 0));
+    P((beg+1000)%size);
+    P((beg+2000)%size);
+    P((beg+3000)%size);
 
-    auto n1k = list[1000%size];
-    auto n2k = list[2000%size];
-    auto n3k = list[3000%size];
+    auto n1k = list[(beg+1000)%size];
+    auto n2k = list[(beg+2000)%size];
+    auto n3k = list[(beg+3000)%size];
     P(n1k, n2k, n3k);
     score = n1k+n2k+n3k;
     P_RR("Part1: %lld\n", score);
