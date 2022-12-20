@@ -92,21 +92,11 @@ int main(int argc, char** argv)
                 moved.erase(moved.begin() + i);
                 order.erase(order.begin() + i);
                 small.erase(small.begin() + i);
-                if(pos > i)
-                {
+
                     list.insert(list.begin()+pos, num);
                     moved.insert(moved.begin()+pos, i);
                     order.insert(order.begin()+pos, ii);
                     small.insert(small.begin()+pos, numSmall);
-                    i--;
-                }
-                else// if(pos < i)
-                {
-                    list.insert(list.begin()+pos, num);
-                    moved.insert(moved.begin()+pos, i);
-                    order.insert(order.begin()+pos, ii);
-                    small.insert(small.begin()+pos, numSmall);
-                }
             }
         }
         P_RR("\n");
