@@ -49,6 +49,7 @@ int main(int argc, char** argv)
         }
     }
     P_VEC(list);
+    size = list.size();
     P(1000%size);
     P(2000%size);
     P(3000%size);
