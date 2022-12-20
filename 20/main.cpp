@@ -32,7 +32,7 @@ int main(int argc, char** argv)
             LL num = list[i];
             LL pos = (1000*size + i + num)%size;
             if(pos == 0){pos = list.size();}
-            P(num, pos);
+            P(i, num, pos);
             list.erase(list.begin() + i);
             moved.erase(moved.begin() + i);
             if(pos > i)
