@@ -29,7 +29,7 @@ int main(int argc, char** argv)
         if(moved[i] < 0 && list[i] != 0)
         {
             LL num = list[i];
-            LL pos = (1000*list.size() + num)%list.size();
+            LL pos = (1000*list.size() + i + num)%list.size();
             P(num, pos);
             list.erase(list.begin() + i);
             moved.erase(moved.begin() + i);
