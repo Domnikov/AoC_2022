@@ -50,6 +50,11 @@ int main(int argc, char** argv)
     }
     P_VEC(list);
 
+    auto n1k = list[1000%list.size()];
+    auto n2k = list[2000%list.size()];
+    auto n3k = list[3000%list.size()];
+    P(n1k, n2k, n3k);
+    score = n1k+n2k+n3k;
     P_RR("Part1: %lld\n", score);
     //========================================================
     score = 0;
