@@ -61,17 +61,24 @@ int main(int argc, char** argv)
     {
         D = false;
         std::vector<LL> list;
+        P_LINE;
         std::transform(BE(in), std::back_inserter(list), [](auto& a){return 811589153*stoll(a);});
+        P_LINE;
         std::vector<LL> moved(list.size(), -1);
+        P_LINE;
         std::vector<LL> order;
+        P_LINE;
         std::generate_n(std::back_inserter(order), list.size(), [n = 0] () mutable { return n++; });
+        P_LINE;
         std::vector<LL> small;
+        P_LINE;
         std::transform(BE(list), std::back_inserter(small), [size = list.size()-1](auto& a){
                 LL res = a;
                 while(res < 0){res += size;}
                 return res%size;
                 // return(1000*size + res%size)%size;
                 });
+        P_LINE;
 
         ULL size = list.size()-1;
         if(D)P_VEC(list);
