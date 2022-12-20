@@ -61,7 +61,7 @@ int main(int argc, char** argv)
     {
         D = true;
         std::vector<LL> list;
-        std::transform(BE(in), std::back_inserter(list), [](auto& a){return 811589153*stoi(a);});
+        std::transform(BE(in), std::back_inserter(list), [](auto& a){return 811589153*stoll(a);});
         std::vector<LL> moved(list.size(), -1);
 
         LL size = list.size()-1;
