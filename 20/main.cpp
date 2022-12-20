@@ -13,6 +13,8 @@ auto in = getInput();
 using INT = __int128;
 using VECC = std::vector<char>;
 
+bool D = false;
+
 
 int main(int argc, char** argv)
 {
@@ -25,14 +27,14 @@ int main(int argc, char** argv)
     LL size = list.size()-1;
     FOR(i, list.size())
     {
-        P_VEC(list);
+        if(D){P_VEC(list)};
         // P_VEC(moved);
         if(moved[i] < 0 && list[i] != 0)
         {
             LL num = list[i];
             LL pos = (1000*size + i + num)%size;
             if(pos == 0){pos = size;}
-            P(i, num, pos);
+            if(D){P(i, num, pos)};
             list.erase(list.begin() + i);
             moved.erase(moved.begin() + i);
             if(pos > i)
@@ -48,7 +50,7 @@ int main(int argc, char** argv)
             }
         }
     }
-    P_VEC(list);
+    if(D){P_VEC(list)};
     size = list.size();
     LL beg = std::distance(list.begin(), std::find(BE(list), 0));
     P((beg+1000)%size);
