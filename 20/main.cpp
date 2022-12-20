@@ -75,12 +75,12 @@ int main(int argc, char** argv)
             LL i = std::distance(order.begin(), std::find(BE(order), ii));
             if(/*moved[i] < 0 &&*/ list[i] != 0)
             {
-                if(D)P_VEC(list);
+                // if(D)P_VEC(list);
                 LL num = list[i];
                 LL numSmall = small[i];
                 LL pos = (1000*size + i + numSmall)%size;
                 if(pos == 0){pos = size;}
-                if(D)P(i, num, numSmall, pos);
+                // if(D)P(i, num, numSmall, pos);
                 list.erase(list.begin() + i);
                 moved.erase(moved.begin() + i);
                 order.erase(order.begin() + i);
