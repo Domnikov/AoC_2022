@@ -28,6 +28,7 @@ int main(int argc, char** argv)
         {
             LL num = list[i];
             LL pos = (1000*list.size() + pos)%list.size();
+            P(num, pos);
             list.erase(list.begin() + i);
             moved.erase(moved.begin() + i);
             if(pos > i)
