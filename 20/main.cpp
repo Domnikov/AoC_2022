@@ -72,7 +72,7 @@ int main(int argc, char** argv)
         FOR(ii, list.size())
         {
             LL i = std::distance(order.begin(), std::find(BE(order), ii));
-            if(moved[i] < 0 && list[i] != 0)
+            if(/*moved[i] < 0 &&*/ list[i] != 0)
             {
                 if(D)P_VEC(list);
                 LL num = list[i];
