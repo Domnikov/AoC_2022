@@ -76,6 +76,7 @@ int main(int argc, char** argv)
         ULL size = list.size()-1;
         if(D)P_VEC(list);
         FOR(n, 10){
+            P(n);
         FOR(ii, list.size())
         {
             LL i = std::distance(order.begin(), std::find(BE(order), ii));
@@ -99,7 +100,7 @@ int main(int argc, char** argv)
                     small.insert(small.begin()+pos, numSmall);
             }
         }
-        P_RR("\n");
+        P_RR("%d\n", n);
         if(D)P_VEC(list);
         }
         size = list.size();
