@@ -65,8 +65,10 @@ int main(int argc, char** argv)
         std::vector<LL> moved(list.size(), -1);
         std::vector<LL> order;
         std::generate_n(std::back_inserter(order), list.size(), [n = 0] () mutable { return n++; });
+        std::vector<LL> small;
+        std::transform(BE(list), std::back_inserter(small), [size = list.size()](auto& a){return a%size;});
 
-        LL size = list.size()-1;
+        ULL size = list.size()-1;
         FOR(ii, list.size())
         {
             LL i = std::distance(order.begin(), std::find(BE(order), ii));
@@ -74,17 +76,20 @@ int main(int argc, char** argv)
             {
                 if(D)P_VEC(list);
                 LL num = list[i];
-                LL pos = (1000*size + i + num)%size;
+                LL numSmall = small[i];
+                LL pos = (1000*size + i + numSmall)%size;
                 if(pos == 0){pos = size;}
-                if(D)P(i, num, pos);
+                if(D)P(i, num, numSmall, pos);
                 list.erase(list.begin() + i);
                 moved.erase(moved.begin() + i);
                 order.erase(order.begin() + i);
+                small.erase(small.begin() + i);
                 if(pos > i)
                 {
                     list.insert(list.begin()+pos, num);
                     moved.insert(moved.begin()+pos, i);
                     order.insert(order.begin()+pos, ii);
+                    small.insert(small.begin()+pos, ii);
                     i--;
                 }
                 else// if(pos < i)
@@ -92,6 +97,7 @@ int main(int argc, char** argv)
                     list.insert(list.begin()+pos, num);
                     moved.insert(moved.begin()+pos, i);
                     order.insert(order.begin()+pos, ii);
+                    small.insert(small.begin()+pos, ii);
                 }
             }
         }
