@@ -107,6 +107,7 @@ int main(int argc, char** argv)
                 }
             }
         }
+        P_RR("\n");
         if(D)P_VEC(list);
         }
         size = list.size();
