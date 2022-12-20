@@ -22,11 +22,11 @@ int main(int argc, char** argv)
     std::transform(BE(in), std::back_inserter(list), [](auto& a){return stoi(a);});
     std::vector<LL> moved(list.size(), -1);
 
+    LL size = list.size()-1;
     FOR(i, list.size())
     {
         P_VEC(list);
         // P_VEC(moved);
-        LL size = list.size()-1;
         if(moved[i] < 0 && list[i] != 0)
         {
             LL num = list[i];
@@ -50,9 +50,9 @@ int main(int argc, char** argv)
     }
     P_VEC(list);
 
-    auto n1k = list[1000%list.size()];
-    auto n2k = list[2000%list.size()];
-    auto n3k = list[3000%list.size()];
+    auto n1k = list[1000%size];
+    auto n2k = list[2000%size];
+    auto n3k = list[3000%size];
     P(n1k, n2k, n3k);
     score = n1k+n2k+n3k;
     P_RR("Part1: %lld\n", score);
