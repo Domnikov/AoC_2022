@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 
     FOR(i, list.size())
     {
-        if(moved[i] >= 0 && list[i] != 0)
+        if(moved[i] < 0 && list[i] != 0)
         {
             LL num = list[i];
             LL pos = (1000*list.size() + pos)%list.size();
