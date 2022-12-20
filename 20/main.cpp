@@ -36,7 +36,7 @@ int main(int argc, char** argv)
                 moved.insert(moved.begin()+pos, -i);
                 i--;
             }
-            else if(pos < i)
+            else //if(pos < i)
             {
                 list.insert(list.begin()+pos, num);
                 moved.insert(moved.begin()+pos, -i);
