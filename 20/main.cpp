@@ -79,16 +79,19 @@ int main(int argc, char** argv)
                 if(D)P(i, num, pos);
                 list.erase(list.begin() + i);
                 moved.erase(moved.begin() + i);
+                order.erase(order.begin() + i);
                 if(pos > i)
                 {
                     list.insert(list.begin()+pos, num);
                     moved.insert(moved.begin()+pos, i);
+                    order.insert(order.begin()+pos, ii);
                     i--;
                 }
                 else// if(pos < i)
                 {
                     list.insert(list.begin()+pos, num);
                     moved.insert(moved.begin()+pos, i);
+                    order.insert(order.begin()+pos, ii);
                 }
             }
         }
