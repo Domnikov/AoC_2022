@@ -36,16 +36,17 @@ int main(int argc, char** argv)
             if(pos > i)
             {
                 list.insert(list.begin()+pos, num);
-                moved.insert(moved.begin()+pos, -i);
+                moved.insert(moved.begin()+pos, i);
                 i--;
             }
             else// if(pos < i)
             {
                 list.insert(list.begin()+pos, num);
-                moved.insert(moved.begin()+pos, -i);
+                moved.insert(moved.begin()+pos, i);
             }
         }
     }
+    P_VEC(list);
 
     P_RR("Part1: %lld\n", score);
     //========================================================
