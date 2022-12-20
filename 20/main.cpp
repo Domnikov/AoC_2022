@@ -49,6 +49,9 @@ int main(int argc, char** argv)
         }
     }
     P_VEC(list);
+    P(1000%size);
+    P(2000%size);
+    P(3000%size);
 
     auto n1k = list[1000%size];
     auto n2k = list[2000%size];
