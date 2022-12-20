@@ -69,8 +69,8 @@ int main(int argc, char** argv)
         std::transform(BE(list), std::back_inserter(small), [size = list.size()-1](auto& a){
                 LL res = a;
                 while(res < 0){res += size;}
-                // return res%size;
-                return(1000*size + res%size)%size;
+                return res%size;
+                // return(1000*size + res%size)%size;
                 });
 
         ULL size = list.size()-1;
@@ -84,8 +84,8 @@ int main(int argc, char** argv)
                 if(D)P_VEC(list);
                 LL num = list[i];
                 LL numSmall = small[i];
-                // LL pos = (1000*size + i + numSmall)%size;
-                LL pos = (numSmall+i)%size;
+                LL pos = (1000*size + i + numSmall)%size;
+                // LL pos = (numSmall+i)%size;
                 if(pos == 0){pos = size;}
                 if(D)P(i, num, numSmall, pos);
                 list.erase(list.begin() + i);
