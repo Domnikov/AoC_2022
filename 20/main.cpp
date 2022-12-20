@@ -75,8 +75,8 @@ int main(int argc, char** argv)
         std::transform(BE(list), std::back_inserter(small), [size = list.size()-1](auto& a){
                 LL res = a;
                 P(res);
-                if(res < 0) {res -= (res/size)*size;}
-                while(res < 0){res += size;P(res);}
+                // if(res < 0) {res -= (res/size)*size;}
+                while(res < 0){res += size*100;P(res);}
                 return res%size;
                 // return(1000*size + res%size)%size;
                 });
