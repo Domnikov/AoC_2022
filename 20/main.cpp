@@ -73,7 +73,7 @@ int main(int argc, char** argv)
                 });
 
         ULL size = list.size()-1;
-        FOR(n, 10)
+        // FOR(n, 10)
         FOR(ii, list.size())
         {
             LL i = std::distance(order.begin(), std::find(BE(order), ii));
