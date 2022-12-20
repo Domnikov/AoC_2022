@@ -73,18 +73,18 @@ int main(int argc, char** argv)
                 });
 
         ULL size = list.size()-1;
-        FOR(n, 10)
+        FOR(n, 10){
         FOR(ii, list.size())
         {
             LL i = std::distance(order.begin(), std::find(BE(order), ii));
             if(/*moved[i] < 0 &&*/ list[i] != 0)
             {
-                if(D)P_VEC(list);
+                // if(D)P_VEC(list);
                 LL num = list[i];
                 LL numSmall = small[i];
                 LL pos = (1000*size + i + numSmall)%size;
                 if(pos == 0){pos = size;}
-                if(D)P(i, num, numSmall, pos);
+                // if(D)P(i, num, numSmall, pos);
                 list.erase(list.begin() + i);
                 moved.erase(moved.begin() + i);
                 order.erase(order.begin() + i);
@@ -107,6 +107,7 @@ int main(int argc, char** argv)
             }
         }
         if(D)P_VEC(list);
+        }
         size = list.size();
         LL beg = std::distance(list.begin(), std::find(BE(list), 0));
 
