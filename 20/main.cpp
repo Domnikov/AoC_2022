@@ -66,7 +66,11 @@ int main(int argc, char** argv)
         std::vector<LL> order;
         std::generate_n(std::back_inserter(order), list.size(), [n = 0] () mutable { return n++; });
         std::vector<LL> small;
-        std::transform(BE(list), std::back_inserter(small), [size = list.size()-1](auto& a){return a%size;});
+        std::transform(BE(list), std::back_inserter(small), [size = list.size()-1](auto& a){
+                LL res = a;
+                while(res < 0){res += size;}
+                return res%size;
+                });
 
         ULL size = list.size()-1;
         FOR(n, 10)
