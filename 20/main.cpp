@@ -76,7 +76,7 @@ int main(int argc, char** argv)
                 LL res = a;
                 P(res);
                 // if(res < 0) {res -= (res/size)*size;}
-                while(res < 0){res += size*100;P(res);}
+                while(res < 0){res += size*1000;}
                 return res%size;
                 // return(1000*size + res%size)%size;
                 });
