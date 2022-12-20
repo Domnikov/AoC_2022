@@ -25,7 +25,7 @@ int main(int argc, char** argv)
     FOR(i, list.size())
     {
         P_VEC(list);
-        P_VEC(moved);
+        // P_VEC(moved);
         if(moved[i] < 0 && list[i] != 0)
         {
             LL num = list[i];
