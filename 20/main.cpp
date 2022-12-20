@@ -105,7 +105,7 @@ int main(int argc, char** argv)
             }
         }
         P_RR("%d\n", n);
-        if(D)P_VEC(list);
+        // if(D)P_VEC(list);
         }
         size = list.size();
         LL beg = std::distance(list.begin(), std::find(BE(list), 0));
