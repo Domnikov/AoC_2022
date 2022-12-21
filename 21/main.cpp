@@ -74,6 +74,7 @@ int main(int argc, char** argv)
         {
             for(auto s : in)
             {
+                P(s);
                 auto vec = splitStr(s, ':');
                 S monkey = vec[0];
 
@@ -94,6 +95,7 @@ int main(int argc, char** argv)
 
                         if(monkeys.count(m1) && monkeys.count(m2))
                         {
+                            P(m1, m2);
                             INT num1 = monkeys[m1];
                             INT num2 = monkeys[m2];
                             P(m1, num1, op, num2, m2);
