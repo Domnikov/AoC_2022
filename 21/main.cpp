@@ -69,14 +69,14 @@ int main(int argc, char** argv)
 
     // monkeys["humn"] = [&score]() -> INT {return static_cast<INT>(0);};
     monkeysF["humn"] = [&score]{return score;};
-    while(!monkeys.count(rm1) || !monkeys.count(rm2))
+    while(!monkeysF.count(rm1) || !monkeysF.count(rm2))
     {
         for(auto s : in)
         {
             auto vec = splitStr(s, ':');
             S monkey = vec[0];
 
-            if(!monkeys.count(monkey))
+            if(!monkeysF.count(monkey))
             {
                 try
                 {
@@ -91,7 +91,7 @@ int main(int argc, char** argv)
                     S op = subVec[1];
                     S m2 = subVec[2];
 
-                    if(monkeys.count(m1) && monkeys.count(m2))
+                    if(monkeysF.count(m1) && monkeysF.count(m2))
                     {
                         auto num1 = monkeysF[m1];
                         auto num2 = monkeysF[m2];
