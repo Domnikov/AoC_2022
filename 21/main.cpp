@@ -128,6 +128,7 @@ int main(int argc, char** argv)
                     P_LINE;
             }
                     P_LINE;
+                    P(i);
         }
                     P_LINE;
 
