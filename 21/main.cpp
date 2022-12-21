@@ -113,11 +113,12 @@ int main(int argc, char** argv)
     auto rm2V = monkeysF[rm2]();
 
     INT cnt = 1;
+    score = 1;
     while(true)
     {
-        score++;
+        score*=10;
         if(score > cnt){P(cnt, rm1F(), rm2V);cnt*=10;}
-        if(rm1F() == rm2V)
+        if(rm1F() < rm2V)
         {
             break;
         }
