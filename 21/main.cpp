@@ -65,57 +65,50 @@ int main(int argc, char** argv)
     P("Part1: ", score);
     //========================================================
     score = 0;
+    std::map<S, std::function<INT()>> monkeysF;
 
-    FOR(i, 999999999)
+    // monkeys["humn"] = [&score]() -> INT {return static_cast<INT>(0);};
+    while(!monkeys.count(rm1) || !monkeys.count(rm2))
     {
-        monkeys.clear();
-        monkeys["humn"] = i;
-        while(!monkeys.count(rm1) || !monkeys.count(rm2))
+        for(auto s : in)
         {
-            for(auto s : in)
+            auto vec = splitStr(s, ':');
+            S monkey = vec[0];
+
+            if(!monkeys.count(monkey))
             {
-                auto vec = splitStr(s, ':');
-                S monkey = vec[0];
-
-                if(!monkeys.count(monkey))
+                try
                 {
-                    try
-                    {
-                        LL num = stoll(vec[1]);
-                        monkeys[monkey] = num;
-                    }
-                    catch(const std::invalid_argument& e)
-                    {
-                        auto subVec = splitStr(vec[1], ' ');
+                    INT num = stoll(vec[1]);
+                    monkeysF[monkey] = [&score, num]() -> INT {return num;};
+                }
+                catch(const std::invalid_argument& e)
+                {
+                    auto subVec = splitStr(vec[1], ' ');
 
-                        S m1 = subVec[0];
-                        S op = subVec[1];
-                        S m2 = subVec[2];
+                    S m1 = subVec[0];
+                    S op = subVec[1];
+                    S m2 = subVec[2];
 
-                        if(monkeys.count(m1) && monkeys.count(m2))
+                    if(monkeys.count(m1) && monkeys.count(m2))
+                    {
+                        auto num1 = monkeysF[m1];
+                        auto num2 = monkeysF[m2];
+                        switch(op[0])
                         {
-                            INT num1 = monkeys[m1];
-                            INT num2 = monkeys[m2];
-                            switch(op[0])
-                            {
-                                case '+' : monkeys[monkey] = num1 + num2; break;
-                                case '-' : monkeys[monkey] = num1 - num2; break;
-                                case '*' : monkeys[monkey] = num1 * num2; break;
-                                case '/' : monkeys[monkey] = num1 / num2; break;
-                            }
+                            case '+' : monkeysF[monkey] = [num1, num2]{return num1()+num2();}; break;
+                            case '-' : monkeysF[monkey] = [num1, num2]{return num1()-num2();}; break;
+                            case '*' : monkeysF[monkey] = [num1, num2]{return num1()*num2();}; break;
+                            case '/' : monkeysF[monkey] = [num1, num2]{return num1()/num2();}; break;
                         }
                     }
                 }
             }
         }
-
-        if(monkeys.at(rm1) ==  monkeys.at(rm2))
-        {
-            score = i;
-            break;
-        }
-        P(i);
     }
+    auto rm1F = monkeysF[rm1];
+    auto rm2F = monkeysF[rm2];
+
 
     P("Part2: ", score);
     return 0;
