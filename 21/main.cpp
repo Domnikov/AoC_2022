@@ -107,7 +107,6 @@ int main(int argc, char** argv)
                     }
                 }
             }
-            P(i);
         }
 
         if(monkeys.at(rm1) ==  monkeys.at(rm2))
@@ -115,6 +114,7 @@ int main(int argc, char** argv)
             score = i;
             break;
         }
+        P(i);
     }
 
     P("Part2: ", score);
