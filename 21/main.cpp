@@ -107,7 +107,6 @@ int main(int argc, char** argv)
             }
         }
     }
-    P_LINE;
 
     auto rm1F = monkeysF[rm1];
     auto rm2V = monkeysF[rm2]();
