@@ -121,10 +121,15 @@ int main(int argc, char** argv)
                             }
                     P_LINE;
                         }
+                    P_LINE;
                     }
+                    P_LINE;
                 }
+                    P_LINE;
             }
+                    P_LINE;
         }
+                    P_LINE;
 
         if(monkeys.at(rm1) ==  monkeys.at(rm2))
         {
