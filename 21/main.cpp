@@ -74,7 +74,6 @@ int main(int argc, char** argv)
         {
             for(auto s : in)
             {
-                P(s);
                 auto vec = splitStr(s, ':');
                 S monkey = vec[0];
 
