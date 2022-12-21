@@ -110,14 +110,14 @@ int main(int argc, char** argv)
     P_LINE;
 
     auto rm1F = monkeysF[rm1];
-    auto rm2F = monkeysF[rm2];
+    auto rm2V = monkeysF[rm2]();
 
     INT cnt = 1;
     while(true)
     {
         score++;
-        if(score > cnt){P(cnt, rm1F(), rm2F());cnt*=10;}
-        if(rm1F() == rm2F())
+        if(score > cnt){P(cnt, rm1F(), rm2V);cnt*=10;}
+        if(rm1F() == rm2V)
         {
             break;
         }
