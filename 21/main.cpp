@@ -112,11 +112,10 @@ int main(int argc, char** argv)
     auto rm1F = monkeysF[rm1];
     auto rm2V = monkeysF[rm2]();
 
-    INT cnt = 1;
     score = 1;
     for(score = 100000000000; rm1F() > rm2V; score += 100000000000/10)
     {
-        if(score > cnt){P(cnt, rm1F(), rm2V);cnt*=10;}
+        P(rm1F(), rm2V);
     }
 
     P("Part2: ", score);
