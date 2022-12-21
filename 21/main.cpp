@@ -94,6 +94,7 @@ int main(int argc, char** argv)
 
                         if(monkeys.count(m1) && monkeys.count(m2))
                         {
+                            P(monkeys[m1], op, monkeys[m2]);
                             switch(op[0])
                             {
                                 case '+' : monkeys[monkey] = monkeys[m1] + monkeys[m2]; break;
