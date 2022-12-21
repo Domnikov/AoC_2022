@@ -114,14 +114,9 @@ int main(int argc, char** argv)
 
     INT cnt = 1;
     score = 1;
-    while(true)
+    for(score = 100000000000; rm1F() > rm2V; score += 100000000000/10)
     {
-        score*=10;
         if(score > cnt){P(cnt, rm1F(), rm2V);cnt*=10;}
-        if(rm1F() < rm2V)
-        {
-            break;
-        }
     }
 
     P("Part2: ", score);
