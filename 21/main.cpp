@@ -19,9 +19,9 @@ bool D = false;
 
 int main(int argc, char** argv)
 {
-    LL score = 0;
+    INT score = 0;
 
-    std::map<S, LL> monkeys;
+    std::map<S, INT> monkeys;
 
     while(!monkeys.count("root"))
     {
@@ -34,7 +34,7 @@ int main(int argc, char** argv)
             {
                 try
                 {
-                    LL num = stoll(vec[1]);
+                    INT num = stoll(vec[1]);
                     monkeys[monkey] = num;
                 }
                 catch(const std::invalid_argument& e)
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 
     score = monkeys["root"];
 
-    P_RR("Part1: %lld\n", score);
+    P("Part1: ", score);
     //========================================================
     score = 0;
 
@@ -114,6 +114,6 @@ int main(int argc, char** argv)
         }
     }
 
-    P_RR("Part2: %lld\n", score);
+    P("Part2: ", score);
     return 0;
 }
