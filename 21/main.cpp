@@ -112,8 +112,8 @@ int main(int argc, char** argv)
     auto rm1F = monkeysF[rm1];
     auto rm2V = monkeysF[rm2]();
 
-    score = 100000000000;
-    for(; rm1F() > rm2V; score += 100000000000/100)
+    score = 3588000000000;
+    for(; rm1F() > rm2V; score += 1000000)
     {
         // P(rm1F(), rm2V);
     }
