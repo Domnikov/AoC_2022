@@ -80,25 +80,38 @@ int main(int argc, char** argv)
 
                 if(!monkeys.count(monkey))
                 {
+                    P_LINE;
                     try
                     {
+                    P_LINE;
                         LL num = stoll(vec[1]);
+                    P_LINE;
                         monkeys[monkey] = num;
+                    P_LINE;
                     }
                     catch(const std::invalid_argument& e)
                     {
                         auto subVec = splitStr(vec[1], ' ');
+                    P_LINE;
 
                         S m1 = subVec[0];
+                    P_LINE;
                         S op = subVec[1];
+                    P_LINE;
                         S m2 = subVec[2];
+                    P_LINE;
 
                         if(monkeys.count(m1) && monkeys.count(m2))
                         {
+                    P_LINE;
                             P(m1, m2);
+                    P_LINE;
                             INT num1 = monkeys[m1];
+                    P_LINE;
                             INT num2 = monkeys[m2];
+                    P_LINE;
                             P(m1, num1, op, num2, m2);
+                    P_LINE;
                             switch(op[0])
                             {
                                 case '+' : monkeys[monkey] = monkeys[m1] + monkeys[m2]; break;
@@ -106,6 +119,7 @@ int main(int argc, char** argv)
                                 case '*' : monkeys[monkey] = monkeys[m1] * monkeys[m2]; break;
                                 case '/' : monkeys[monkey] = monkeys[m1] / monkeys[m2]; break;
                             }
+                    P_LINE;
                         }
                     }
                 }
