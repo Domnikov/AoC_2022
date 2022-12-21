@@ -70,7 +70,7 @@ int main(int argc, char** argv)
     {
         monkeys.clear();
         monkeys["humn"] = i;
-        while(!monkeys.count(rm1) && !monkeys.count(rm2))
+        while(!monkeys.count(rm1) || !monkeys.count(rm2))
         {
             for(auto s : in)
             {
