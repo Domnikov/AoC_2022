@@ -68,6 +68,7 @@ int main(int argc, char** argv)
     std::map<S, std::function<INT()>> monkeysF;
 
     // monkeys["humn"] = [&score]() -> INT {return static_cast<INT>(0);};
+    monkeysF["humn"] = [&score]{return score;};
     while(!monkeys.count(rm1) || !monkeys.count(rm2))
     {
         for(auto s : in)
@@ -106,9 +107,20 @@ int main(int argc, char** argv)
             }
         }
     }
+
     auto rm1F = monkeysF[rm1];
     auto rm2F = monkeysF[rm2];
 
+    INT cnt = 1;
+    while(true)
+    {
+        score++;
+        if(score > cnt){P(cnt, rm1F(), rm2F());cnt*=10;}
+        if(rm1F() == rm2F())
+        {
+            break;
+        }
+    }
 
     P("Part2: ", score);
     return 0;
