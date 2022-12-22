@@ -16,7 +16,7 @@ Vt V;
 VECII graph;
 VECS heads;
 VECI flows;
-LL maxTime = 26;
+LL maxTime = 31;
 
 LL getNum(S s){return std::distance(heads.begin(), (std::find(BE(heads), s)));}
 
@@ -104,6 +104,7 @@ std::pair<LL, LL> countScore2(VECI path)
         if(time > 0) {score += time * flow;}
         // P(heads[path[i]], time, flow, time*flow, score);
     }
+    time = maxTime;
     for(LL i = 3; i < path.size(); i+=2)
     {
         time -= graph[path[i-1]][path[i]];
@@ -322,6 +323,7 @@ int main(int argc, char** argv)
     //========================================================
     score = 0;
     D = false;
+    maxTime = 26;
 
     path = calc2({0}, 0);
 
