@@ -326,8 +326,9 @@ int main(int argc, char** argv)
     maxTime = 26;
 
     path = calc2({0}, 0);
-
     sc = countScore2(path);
+
+    D = true;
     if(D){P_VEC(path);}
     while(sc.second < 0)
     {
