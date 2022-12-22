@@ -198,7 +198,7 @@ VECI calc2(VECI path, LL time)
     LL N = heads.size();
     LL INF = 99999999;
     std::vector<VECII> V{VECII{}};
-    VECI init{0,6,14,11,9,3,4,13,2,5,10,15,12,8,7,1};
+    VECI init{0,6,14,3,4,11,9,13,2,5,10,15,12,8,7,1};
     // FOR(i, N){init.push_back(i);}
     FOR(i, N){V.push_back(VECII{init});}
 
