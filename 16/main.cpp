@@ -133,7 +133,7 @@ VECI calc(VECI path, LL time)
             newV.push_back(V.back()[0]);
             for(LL j = 1; j < N;++j)
             {
-                P(k, heads[j],V.back().size());
+                if(D){P(k, heads[j],V.back().size());}
                 LL maxScore = 0;
                 VECI maxVector;
                 for(LL i = 0; i < V.back().size(); ++i)
@@ -175,8 +175,8 @@ VECI calc(VECI path, LL time)
         {
             auto jScore = countScore(j);
 
-            P_PER(j);
-            P(jScore.first);
+            if(D){P_PER(j);}
+            if(D){P(jScore.first);}
             if(resScore < jScore.first)
             {
                 resScore = jScore.first;
@@ -184,7 +184,8 @@ VECI calc(VECI path, LL time)
             }
         }
 
-        P(counter++, resScore);
+        counter++;
+        if(D){P(counter, resScore);}
     }
 
     return res;
@@ -210,7 +211,7 @@ VECI calc2(VECI path, LL time)
             newV.push_back(V.back()[0]);
             for(LL j = 1; j < N;++j)
             {
-                P(k, heads[j],V.back().size());
+                if(D){P(k, heads[j],V.back().size());}
                 LL maxScore = 0;
                 VECI maxVector;
                 for(LL i = 0; i < V.back().size(); ++i)
@@ -252,8 +253,8 @@ VECI calc2(VECI path, LL time)
         {
             auto jScore = countScore2(j);
 
-            P_PER(j);
-            P(jScore.first);
+            if(D){P_PER(j);}
+            if(D){P(jScore.first);}
             if(resScore < jScore.first)
             {
                 resScore = jScore.first;
@@ -261,7 +262,8 @@ VECI calc2(VECI path, LL time)
             }
         }
 
-        P(counter++, resScore);
+        counter++;
+        if(D){P(counter, resScore);}
     }
 
     return res;
@@ -271,7 +273,7 @@ VECI calc2(VECI path, LL time)
 int main(int argc, char** argv)
 {
     LL score = 0;
-    D = true;
+    D = false;
     heads.push_back("AA");
     flows.push_back(0);
     for(int i{}; i < in.size();i++ )
@@ -293,19 +295,25 @@ int main(int argc, char** argv)
     }
 
     graph = getGraph(V);
-    P_VEC(heads);
-    P_VEC(graph);
+    if(D)
+    {
+        P_VEC(heads);
+        P_VEC(graph);
+    }
 
     auto path = calc({0}, 0);
 
     auto sc = countScore(path);
-    P_VEC(path);
+    if(D){P_VEC(path);}
     while(sc.second < 0)
     {
         path.pop_back();
         sc = countScore(path);
-        P_VEC(path);
-        P(sc.first, sc.second);
+        if(D)
+        {
+            P_VEC(path);
+            P(sc.first, sc.second);
+        }
     }
 
     score = countScore(path).first;
@@ -318,13 +326,16 @@ int main(int argc, char** argv)
     path = calc2({0}, 0);
 
     sc = countScore2(path);
-    P_VEC(path);
+    if(D){P_VEC(path);}
     while(sc.second < 0)
     {
         path.pop_back();
         sc = countScore2(path);
-        P_VEC(path);
-        P(sc.first, sc.second);
+        if(D)
+        {
+            P_VEC(path);
+            P(sc.first, sc.second);
+        }
     }
 
     score = countScore2(path).first;
