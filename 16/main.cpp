@@ -310,6 +310,7 @@ int main(int argc, char** argv)
     {
         std::swap(path, newPath);
         P_VEC(newPath);
+        P_VEC(path);
         newPath = calc({0}, newPath, 0);
     }while(path != newPath);
 
