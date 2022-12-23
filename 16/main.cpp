@@ -356,6 +356,6 @@ int main(int argc, char** argv)
     score = countScore2(path).first;
 
     P_RR("Part2: %lld\n", score);
-    P(countScore2({0,2}).first);
+    P(countScore2({0,9,4, 2, 7, 3}).first);
     return 0;
 }
