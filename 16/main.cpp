@@ -296,7 +296,7 @@ int main(int argc, char** argv)
     }
 
     graph = getGraph(V);
-    // if(D)
+    if(D)
     {
         P_VEC(heads);
         P_VEC(graph);
@@ -305,10 +305,11 @@ int main(int argc, char** argv)
     VECI init;
     FOR(i, graph.size()){init.push_back(i);}
     VECI path = init, newPath;
-
+    P_VEC(init);
     do
     {
         std::swap(path, newPath);
+        P_VEC(newPath);
         newPath = calc({0}, newPath, 0);
     }while(path != newPath);
 
