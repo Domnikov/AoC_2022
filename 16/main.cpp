@@ -117,7 +117,6 @@ std::pair<LL, LL> countScore2(VECI path)
 
 VECI calc(VECI path, VECI init,  LL time)
 {
-    P_VEC(init);
     VECI res;
     LL N = heads.size();
     LL INF = 99999999;
@@ -305,12 +304,9 @@ int main(int argc, char** argv)
     VECI init;
     FOR(i, graph.size()){init.push_back(i);}
     VECI newPath = init, path;
-    P_VEC(init);
     do
     {
         std::swap(path, newPath);
-        P_VEC(newPath);
-        P_VEC(path);
         newPath = calc({0}, path, 0);
     }while(path != newPath);
 
@@ -335,11 +331,11 @@ int main(int argc, char** argv)
     D = false;
     maxTime = 26;
 
-    path = init;
+    newPath = init;
     do
     {
         std::swap(path, newPath);
-        newPath = calc2({0}, newPath, 0);
+        newPath = calc2({0}, path, 0);
     }while(path != newPath);
     sc = countScore2(path);
 
