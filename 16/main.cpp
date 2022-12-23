@@ -117,7 +117,7 @@ std::pair<LL, LL> countScore2(VECI path)
 
 VECI calc(VECI path, VECI init,  LL time)
 {
-    // P_VEC(path);
+    P_VEC(path);
     VECI res;
     LL N = heads.size();
     LL INF = 99999999;
