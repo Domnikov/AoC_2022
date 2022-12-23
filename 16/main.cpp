@@ -115,14 +115,14 @@ std::pair<LL, LL> countScore2(VECI path)
     return {score, time};
 }
 
-VECI calc(VECI path, LL time)
+VECI calc(VECI path, VECI init,  LL time)
 {
     // P_VEC(path);
     VECI res;
     LL N = heads.size();
     LL INF = 99999999;
     std::vector<VECII> V{VECII{}};
-    VECI init{0,9,4,14,6,7,11,3,2,1,12,8,13,15,5,10};
+    // VECI init{0,9,4,14,6,7,11,3,2,1,12,8,13,15,5,10};
     // FOR(i, N){init.push_back(i);}
     FOR(i, N){V.push_back(VECII{init});}
 
@@ -193,14 +193,14 @@ VECI calc(VECI path, LL time)
 }
 
 
-VECI calc2(VECI path, LL time)
+VECI calc2(VECI path, VECI init, LL time)
 {
     // P_VEC(path);
     VECI res;
     LL N = heads.size();
     LL INF = 99999999;
     std::vector<VECII> V{VECII{}};
-    VECI init{0,1,14,6,7,4,13,2,5,10,15,12,8,9,11,3};
+    // VECI init{0,1,14,6,7,4,13,2,5,10,15,12,8,9,11,3};
     // FOR(i, N){init.push_back(i);}
     FOR(i, N){V.push_back(VECII{init});}
 
@@ -302,7 +302,15 @@ int main(int argc, char** argv)
         P_VEC(graph);
     }
 
-    auto path = calc({0}, 0);
+    VECI init;
+    FOR(i, graph.size()){init.push_back(i);}
+    VECI path = init, newPath;
+
+    do
+    {
+        std::swap(path, newPath);
+        newPath = calc({0}, newPath, 0);
+    }while(path != newPath);
 
     auto sc = countScore(path);
     if(D){P_VEC(path);}
@@ -325,7 +333,12 @@ int main(int argc, char** argv)
     D = false;
     maxTime = 26;
 
-    path = calc2({0}, 0);
+    path = init;
+    do
+    {
+        std::swap(path, newPath);
+        newPath = calc2({0}, newPath, 0);
+    }while(path != newPath);
     sc = countScore2(path);
 
     D = true;
