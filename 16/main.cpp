@@ -296,7 +296,7 @@ int main(int argc, char** argv)
     }
 
     graph = getGraph(V);
-    if(D)
+    // if(D)
     {
         P_VEC(heads);
         P_VEC(graph);
