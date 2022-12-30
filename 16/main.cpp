@@ -95,7 +95,7 @@ std::pair<LL, LL> countScore(VECI path)
 
 std::pair<LL, LL> countScore2(VECI path)
 {
-    // P_VEC(path);
+    if(D)P_VEC(path);
     LL score{};
     LL time = maxTime;
     LL prev = 0;
@@ -104,7 +104,7 @@ std::pair<LL, LL> countScore2(VECI path)
         time -= graph[prev][path[i]];
         LL flow = flows[path[i]];
         if(time > 0) {score += time * flow;}
-        // P(heads[prev], heads[path[i]], maxTime-time, time, flow, time*flow, score);
+        if(D)P(heads[prev], heads[path[i]], maxTime-time, time, flow, time*flow, score);
         prev = path[i];
     }
     time = maxTime;
@@ -114,7 +114,7 @@ std::pair<LL, LL> countScore2(VECI path)
         time -= graph[prev][path[i]];
         LL flow = flows[path[i]];
         if(time > 0) {score += time * flow;}
-        // P(heads[prev], heads[path[i]], graph[prev][path[i]], maxTime-time, time, flow, time*flow, score);
+        if(D)P(heads[prev], heads[path[i]], graph[prev][path[i]], maxTime-time, time, flow, time*flow, score);
         prev = path[i];
     }
     return {score, time};
