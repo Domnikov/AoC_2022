@@ -342,14 +342,14 @@ int main(int argc, char** argv)
         newPath = init;
         bool debug = false;
         D = debug;
-        P(countScore2(newPath).first);
+        if(D)P(countScore2(newPath).first);
         do
         {
             D = false;
             std::swap(path, newPath);
             newPath = calc2({0}, path, 0);
             D = debug;
-            P(countScore2(newPath).first);
+            if(D)P(countScore2(newPath).first);
         }while(path != newPath);
         sc = countScore2(path);
         score = std::max(score, countScore2(path).first);
