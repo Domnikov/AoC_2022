@@ -336,10 +336,12 @@ int main(int argc, char** argv)
     //========================================================
     score = 0;
     maxTime = 26;
+    std::srand(time(nullptr));
 
     FOR(ii, 1000)
     {
         newPath = init;
+        std::random_shuffle(newPath.begin()+1, newPath.end());
         bool debug = false;
         D = debug;
         if(D)P(countScore2(newPath).first);
