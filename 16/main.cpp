@@ -338,7 +338,7 @@ int main(int argc, char** argv)
     newPath = init;
     D = true;
     score = countScore2(newPath).first;
-    D = false;
+    // D = false;
     do
     {
         std::swap(path, newPath);
