@@ -353,6 +353,7 @@ int main(int argc, char** argv)
         }while(path != newPath);
         sc = countScore2(path);
         score = std::max(score, countScore2(path).first);
+        P(score, sc.first);
     }
 
     D = true;
