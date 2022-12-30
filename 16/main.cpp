@@ -337,22 +337,26 @@ int main(int argc, char** argv)
     score = 0;
     maxTime = 26;
 
-    newPath = init;
-    D = true;
-    P(countScore2(newPath).first);
-    do
+    FOR(ii, 1000)
     {
-        D = false;
-        std::swap(path, newPath);
-        newPath = calc2({0}, path, 0);
-        D = true;
+        newPath = init;
+        bool debug = false;
+        D = debug;
         P(countScore2(newPath).first);
-    }while(path != newPath);
-    sc = countScore2(path);
+        do
+        {
+            D = false;
+            std::swap(path, newPath);
+            newPath = calc2({0}, path, 0);
+            D = debug;
+            P(countScore2(newPath).first);
+        }while(path != newPath);
+        sc = countScore2(path);
+        score = std::max(score, countScore2(path).first);
+    }
 
     D = true;
 
-    score = countScore2(path).first;
 
     P_RR("Part2: %lld\n", score);
     return 0;
