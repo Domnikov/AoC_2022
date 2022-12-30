@@ -342,20 +342,14 @@ int main(int argc, char** argv)
     {
         newPath = init;
         std::random_shuffle(newPath.begin()+1, newPath.end());
-        bool debug = false;
-        D = debug;
-        if(D)P(countScore2(newPath).first);
         do
         {
             D = false;
             std::swap(path, newPath);
             newPath = calc2({0}, path, 0);
-            D = debug;
-            if(D)P(countScore2(newPath).first);
         }while(path != newPath);
         sc = countScore2(path);
         score = std::max(score, countScore2(path).first);
-        P(score, sc.first);
     }
 
     D = true;
