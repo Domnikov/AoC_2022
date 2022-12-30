@@ -333,10 +333,12 @@ int main(int argc, char** argv)
     P_RR("Part1: %lld\n", score);
     //========================================================
     score = 0;
-    D = false;
     maxTime = 26;
 
     newPath = init;
+    D = true;
+    score = countScore2(newPath).first;
+    D = false;
     do
     {
         std::swap(path, newPath);
@@ -345,17 +347,6 @@ int main(int argc, char** argv)
     sc = countScore2(path);
 
     D = true;
-    if(D){P_VEC(path);}
-    while(sc.second < 0)
-    {
-        path.pop_back();
-        sc = countScore2(path);
-        if(D)
-        {
-            P_VEC(path);
-            P(sc.first, sc.second);
-        }
-    }
 
     score = countScore2(path).first;
 
