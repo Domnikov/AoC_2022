@@ -108,6 +108,7 @@ std::pair<LL, LL> countScore2(VECI path)
         prev = path[i];
     }
     time = maxTime;
+    prev = 0;
     for(LL i = 2; i < path.size(); i+=2)
     {
         time -= graph[path[i-1]][path[i]];
