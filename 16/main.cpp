@@ -300,7 +300,7 @@ int main(int argc, char** argv)
     }
 
     graph = getGraph(V);
-    // if(D)
+    if(D)
     {
         P_VEC(heads);
         P_VEC(graph);
@@ -309,7 +309,6 @@ int main(int argc, char** argv)
     VECI init;
     init.push_back(0);
     FOR(i, graph.size()-1){init.push_back(graph.size() - 1 - i);}
-    P_VEC(init);
     VECI newPath = init, path;
     do
     {
@@ -338,7 +337,7 @@ int main(int argc, char** argv)
     maxTime = 26;
     std::srand(time(nullptr));
 
-    FOR(ii, 100)
+    FOR(ii, 10)
     {
         newPath = init;
         std::random_shuffle(newPath.begin()+1, newPath.end());
