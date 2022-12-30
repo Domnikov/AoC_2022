@@ -338,7 +338,7 @@ int main(int argc, char** argv)
     maxTime = 26;
     std::srand(time(nullptr));
 
-    FOR(ii, 1000)
+    FOR(ii, 100)
     {
         newPath = init;
         std::random_shuffle(newPath.begin()+1, newPath.end());
