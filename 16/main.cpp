@@ -337,7 +337,7 @@ int main(int argc, char** argv)
 
     newPath = init;
     D = true;
-    score = countScore2(newPath).first;
+    P(countScore2(newPath).first);
     do
     {
         D = false;
