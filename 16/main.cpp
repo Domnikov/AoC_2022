@@ -309,6 +309,7 @@ int main(int argc, char** argv)
     VECI init;
     init.push_back(0);
     FOR(i, graph.size()-1){init.push_back(graph.size() - 1 - i+1);}
+    P_VEC(init);
     VECI newPath = init, path;
     do
     {
