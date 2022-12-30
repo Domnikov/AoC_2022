@@ -344,7 +344,7 @@ int main(int argc, char** argv)
         std::swap(path, newPath);
         newPath = calc2({0}, path, 0);
         D = true;
-        countScore2(newPath);
+        P(countScore2(newPath).first);
     }while(path != newPath);
     sc = countScore2(path);
 
