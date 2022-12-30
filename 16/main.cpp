@@ -338,11 +338,13 @@ int main(int argc, char** argv)
     newPath = init;
     D = true;
     score = countScore2(newPath).first;
-    // D = false;
     do
     {
+        D = false;
         std::swap(path, newPath);
         newPath = calc2({0}, path, 0);
+        D = true;
+        countScore2(newPath);
     }while(path != newPath);
     sc = countScore2(path);
 
