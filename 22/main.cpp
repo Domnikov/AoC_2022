@@ -78,6 +78,8 @@ void flipUp   ()
     auto posDsh = in.size() - std::distance(in.rend(), std::find_if(in.rend()+2, in.rbegin(), [](const auto& s){return s[x]== '#';}));
     auto posOoo = in.size() - std::distance(in.rend(), std::find_if(in.rend()+2, in.rbegin(), [](const auto& s){return s[x]== 'o';}));
 
+    P(posDot, posDsh, posOoo);
+
     if(posDsh < posDot || posDsh < posOoo)
     {
         y = std::max(posDot, posOoo);
