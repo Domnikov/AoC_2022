@@ -65,7 +65,7 @@ int main(int argc, char** argv)
     while(isNext)
     {
         auto num = getCmdNum();
-        P(cmds);
+        P(num);
         isNext = changeDir();
         P(cmds);
     }
