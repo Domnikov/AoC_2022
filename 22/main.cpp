@@ -21,10 +21,7 @@ enum DIR
 
 auto cmds = *(in.end()-1);
 
-LL x = in[0].find('.')-1;
-LL y = 0;
-LL X = in[0].size();
-LL Y = in.size()-2;
+LL x, y, X, Y;
 LL mx = 1;
 LL my = 0;
 DIR dir = DIR::right;
@@ -78,6 +75,11 @@ bool changeDir()
 int main(int argc, char** argv)
 {
     LL score = 0;
+
+    x = in[0].find('.')-1;
+    y = 0;
+    X = in[0].size();
+    Y = in.size()-2;
 
     FOR(i, in.size()-2)
     {
