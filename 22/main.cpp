@@ -137,7 +137,6 @@ int main(int argc, char** argv)
     X = in[1].size();
     Y = in.size()-2;
 
-    P(in[1],x, y, X, Y, in[y][x]);
 
     FOR(i, in.size()-2)
     {
@@ -149,11 +148,12 @@ int main(int argc, char** argv)
     while(isNext)
     {
         auto num = getCmdNum();
-        P(x, y, num, mx, my);
+        auto f = dir == right ? 'R' : (dir == down ? 'D' : (dir == left ? 'L' : 'U'));
+        in[y][x]='o';
+        P_RR("%c %lld\n", f, num);
         FOR(i, num)
         {
             auto c = in[y+my][x+mx];
-            P(i,in[y+my][x+mx]);
             if(c == '.' || c == 'o')
             {
                 y += my;
@@ -172,6 +172,12 @@ int main(int argc, char** argv)
             }
         }
         isNext = changeDir();
+        in[y][x]='X';
+        FOR(i, in.size()-2)
+        {
+            auto s = in[i];
+            P(s);
+        }
     }
 
     FOR(i, in.size()-2)
