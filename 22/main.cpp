@@ -19,20 +19,41 @@ enum DIR
     up,down,left,right
 };
 
+auto cmds = *(in.end()-1);
+
+LL x = in[0].find('.')-1;
+LL y = 0;
+LL X = in[0].size();
+DIR dir = DIR::right;
+
+
+LL getCmdNum()
+{
+    auto pos = std::min(cmds.size(), std::min(cmds.find('R'), cmds.find('L')));
+    auto numStr = cmds.substr(0, pos);
+    cmds = cmds.substr(pos);
+    return stoll(numStr);
+}
+
+bool changeDir()
+{
+    if(cmds[0] == 'L')
+    {
+    }
+    else if(cmds[0] == 'R')
+    {
+    }
+    else
+    {
+        return false;
+    }
+    cmds = cmds.substr(1);
+    return true;
+}
+
 int main(int argc, char** argv)
 {
     LL score = 0;
-
-    std::map<S, INT> monkeys;
-
-
-    auto cmds = *(in.end()-1);
-
-    LL x = in[0].find('.');
-    LL y = 0;
-    DIR dir = DIR::right;
-
-    in[y][x] = 'X';
 
     FOR(i, in.size()-2)
     {
