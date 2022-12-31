@@ -72,6 +72,36 @@ bool changeDir()
     return true;
 }
 
+void flipUp   (){}
+void flipDown (){}
+void flipLeft ()
+{
+    auto posDot = in[y].rfind('.');
+    auto posDsh = in[y].rfind('#');
+    auto posOoo = in[y].rfind('o');
+
+    if(posDsh < posDot || posDsh < posOoo)
+    {
+        x = std::max(posDot, posOoo);
+        in[y][x] = 'o';
+    }
+}
+
+
+void flipRight()
+{
+    auto posDot = in[y].find('.');
+    auto posDsh = in[y].find('#');
+    auto posOoo = in[y].find('o');
+
+    if(posDsh > posDot || posDsh > posOoo)
+    {
+        x = std::min(posDot, posOoo);
+        in[y][x] = 'o';
+    }
+}
+
+
 int main(int argc, char** argv)
 {
     LL score = 0;
@@ -96,12 +126,23 @@ int main(int argc, char** argv)
         P(x, y, num, mx, my);
         FOR(i, num)
         {
+            auto c = in[y+my][x+mx];
             P(i,in[y+my][x+mx]);
-            if(in[y+my][x+mx] == '.' || in[y+my][x+mx] == 'o')
+            if(c == '.' || c == 'o')
             {
                 y += my;
                 x += mx;
                 in[y][x] = 'o';
+            }
+            else if(c == ' ')
+            {
+                switch(dir)
+                {
+                    case DIR::up   : flipUp   (); break;
+                    case DIR::down : flipDown (); break;
+                    case DIR::left : flipLeft (); break;
+                    case DIR::right: flipRight(); break;
+                }
             }
         }
         isNext = changeDir();
