@@ -72,8 +72,23 @@ bool changeDir()
     return true;
 }
 
-void flipUp   (){}
-void flipDown (){}
+void flipUp   ()
+{}
+
+void flipDown ()
+{
+    auto posDot = std::distance(in.begin(), std::find_if(in.begin(), in.end()-2, [](const auto& s){return s[x]== '.';}));
+    auto posDsh = std::distance(in.begin(), std::find_if(in.begin(), in.end()-2, [](const auto& s){return s[x]== '#';}));
+    auto posOoo = std::distance(in.begin(), std::find_if(in.begin(), in.end()-2, [](const auto& s){return s[x]== 'o';}));
+
+    if(posDsh > posDot || posDsh > posOoo)
+    {
+        y = std::min(posDot, posOoo);
+        in[y][x] = 'o';
+    }
+}
+
+
 void flipLeft ()
 {
     auto posDot = in[y].rfind('.');
