@@ -81,6 +81,8 @@ int main(int argc, char** argv)
     X = in[0].size();
     Y = in.size()-2;
 
+    P(x, y, X, Y);
+
     FOR(i, in.size()-2)
     {
         auto s = in[i];
