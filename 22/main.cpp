@@ -21,8 +21,9 @@ int main(int argc, char** argv)
 
     std::map<S, INT> monkeys;
 
-    for(auto s : in)
+    FOR(s, in.size()-1)
     {
+        P(in[s]);
     }
 
     P(*(in.end()-1));
