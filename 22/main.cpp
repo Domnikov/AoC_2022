@@ -89,7 +89,7 @@ int main(int argc, char** argv)
     while(isNext)
     {
         auto num = getCmdNum();
-        P(num, mx, my);
+        P(x, y, num, mx, my);
         FOR(i, num)
         {
             P(i,in[y+my][x+mx]);
