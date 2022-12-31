@@ -89,8 +89,10 @@ int main(int argc, char** argv)
     while(isNext)
     {
         auto num = getCmdNum();
+        P(num, mx, my);
         FOR(i, num)
         {
+            P(i,in[y+my][x+mx]);
             if(in[y+my][x+mx] == '.' || in[y+my][x+mx] == 'o')
             {
                 y += my;
