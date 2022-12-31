@@ -24,6 +24,9 @@ auto cmds = *(in.end()-1);
 LL x = in[0].find('.')-1;
 LL y = 0;
 LL X = in[0].size();
+LL Y = in.size()-2;
+LL mx = 1;
+LL my = 0;
 DIR dir = DIR::right;
 
 
@@ -39,13 +42,34 @@ bool changeDir()
 {
     if(cmds[0] == 'L')
     {
+        switch(dir)
+        {
+            case up   : dir = left ; break;
+            case down : dir = right; break;
+            case left : dir = down ; break;
+            case right: dir = up   ; break;
+        }
     }
     else if(cmds[0] == 'R')
     {
+        switch(dir)
+        {
+            case up   : dir = right; break;
+            case down : dir = left ; break;
+            case left : dir = up   ; break;
+            case right: dir = down ; break;
+        }
     }
     else
     {
         return false;
+    }
+    switch(dir)
+    {
+        case up   : mx =  0; my = -1; break;
+        case down : mx =  0; my =  1; break;
+        case left : mx = -1; my =  0; break;
+        case right: mx =  1; my =  0; break;
     }
     cmds = cmds.substr(1);
     return true;
@@ -65,9 +89,15 @@ int main(int argc, char** argv)
     while(isNext)
     {
         auto num = getCmdNum();
-        P(num);
+        FOR(i, num)
+        {
+            if(in[y+my][x+mx] == '.')
+            {
+                y += my;
+                x += mx;
+            }
+        }
         isNext = changeDir();
-        P(cmds);
     }
 
 
