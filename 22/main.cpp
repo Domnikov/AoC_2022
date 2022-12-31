@@ -149,7 +149,7 @@ int main(int argc, char** argv)
     {
         auto num = getCmdNum();
         auto f = dir == right ? 'R' : (dir == down ? 'D' : (dir == left ? 'L' : 'U'));
-        in[y][x]='o';
+        if(in[y][x] == 'X')in[y][x]='o';
         P_RR("%c %lld\n", f, num);
         FOR(i, num)
         {
