@@ -138,7 +138,7 @@ int main(int argc, char** argv)
     Y = in.size()-2;
 
 
-    FOR(i, in.size()-2)
+    FOR(i, in.size()-1)
     {
         auto s = in[i];
         P(s);
@@ -173,14 +173,14 @@ int main(int argc, char** argv)
         }
         isNext = changeDir();
         in[y][x]='X';
-        if(D)FOR(i, in.size()-2)
+        if(D)FOR(i, in.size()-1)
         {
             auto s = in[i];
             P(s);
         }
     }
 
-    FOR(i, in.size()-2)
+    FOR(i, in.size()-1)
     {
         auto s = in[i];
         P(s);
