@@ -61,6 +61,14 @@ int main(int argc, char** argv)
         P(s);
     }
 
+    bool isNext = true;
+    while(isNext)
+    {
+        auto num = getCmdNum();
+        P(cmds);
+        isNext = changeDir();
+        P(cmds);
+    }
 
 
     P_RR("Part1: %lld\n", score);
