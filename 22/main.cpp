@@ -181,9 +181,11 @@ int main(int argc, char** argv)
     }
 
     auto f = dir == right ? 0 : (dir == down ? 1 : (dir == left ? 2 : 3));
+    auto row = y;
+    auto col = x;
 
-    P(x, y, f);
-    score = 1000*x + 4*y + f;
+    P(row, col, f);
+    score = 1000*row + 4*col + f;
 
     P_RR("Part1: %lld\n", score);
     //========================================================
