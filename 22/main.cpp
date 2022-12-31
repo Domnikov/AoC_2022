@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -12,7 +12,7 @@
 auto in = getInput();
 using INT = __int128;
 using VECC = std::vector<char>;
-bool D = false;
+bool D = true;
 
 enum DIR
 {
