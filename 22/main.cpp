@@ -91,15 +91,21 @@ int main(int argc, char** argv)
         auto num = getCmdNum();
         FOR(i, num)
         {
-            if(in[y+my][x+mx] == '.')
+            if(in[y+my][x+mx] == '.' || in[y+my][x+mx] == 'o')
             {
                 y += my;
                 x += mx;
+                in[y][x] = 'o';
             }
         }
         isNext = changeDir();
     }
 
+    FOR(i, in.size()-2)
+    {
+        auto s = in[i];
+        P(s);
+    }
 
     P_RR("Part1: %lld\n", score);
     //========================================================
