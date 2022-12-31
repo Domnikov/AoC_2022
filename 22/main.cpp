@@ -76,12 +76,12 @@ int main(int argc, char** argv)
 {
     LL score = 0;
 
-    x = in[1].find('.')-1;
+    x = in[1].find('.');
     y = 0;
     X = in[1].size();
     Y = in.size()-2;
 
-    P(in[1],x, y, X, Y);
+    P(in[1],x, y, X, Y, in[y][x]);
 
     FOR(i, in.size()-2)
     {
