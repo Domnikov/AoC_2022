@@ -73,7 +73,18 @@ bool changeDir()
 }
 
 void flipUp   ()
-{}
+{
+    auto posDot = std::distance(in.rend()+2, std::find_if(in.rend()+2, in.rbegin(), [](const auto& s){return s[x]== '.';}));
+    auto posDsh = std::distance(in.rend()+2, std::find_if(in.rend()+2, in.rbegin(), [](const auto& s){return s[x]== '#';}));
+    auto posOoo = std::distance(in.rend()+2, std::find_if(in.rend()+2, in.rbegin(), [](const auto& s){return s[x]== 'o';}));
+
+    if(posDsh > posDot || posDsh > posOoo)
+    {
+        y = std::min(posDot, posOoo);
+        in[y][x] = 'o';
+    }
+}
+
 
 void flipDown ()
 {
@@ -168,6 +179,11 @@ int main(int argc, char** argv)
         auto s = in[i];
         P(s);
     }
+
+    auto f = dir == right ? 0 : (dir == down ? 1 : (dir == left ? 2 : 3));
+
+    P(x, y, f);
+    score = 1000*x + 4*y + f;
 
     P_RR("Part1: %lld\n", score);
     //========================================================
