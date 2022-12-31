@@ -1,4 +1,4 @@
-// #define TEST
+#define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -21,9 +21,10 @@ int main(int argc, char** argv)
 
     std::map<S, INT> monkeys;
 
-    FOR(s, in.size()-1)
+    FOR(i, in.size()-1)
     {
-        P(in[s]);
+        auto s = in[i];
+        P(s);
     }
 
     P(*(in.end()-1));
