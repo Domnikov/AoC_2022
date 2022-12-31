@@ -77,7 +77,7 @@ int main(int argc, char** argv)
     LL score = 0;
 
     x = in[1].find('.');
-    y = 0;
+    y = 1;
     X = in[1].size();
     Y = in.size()-2;
 
