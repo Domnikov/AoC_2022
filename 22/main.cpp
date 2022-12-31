@@ -17,7 +17,7 @@ bool D = false;
 
 int main(int argc, char** argv)
 {
-    INT score = 0;
+    LL score = 0;
 
     std::map<S, INT> monkeys;
 
@@ -26,12 +26,12 @@ int main(int argc, char** argv)
     }
 
 
-    P("Part1: ", score);
+    P_RR("Part1: %lld\n", score);
     //========================================================
     score = 0;
 
 
 
-    P("Part2: ", score);
+    P_RR("Part2: %lld\n", score);
     return 0;
 }
