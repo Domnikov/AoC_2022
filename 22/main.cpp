@@ -35,6 +35,17 @@ LL getCmdNum()
     return stoll(numStr);
 }
 
+void applyDir()
+{
+    switch(dir)
+    {
+        case up   : mx =  0; my = -1; break;
+        case down : mx =  0; my =  1; break;
+        case left : mx = -1; my =  0; break;
+        case right: mx =  1; my =  0; break;
+    }
+}
+
 bool changeDir()
 {
     if(cmds[0] == 'L')
@@ -61,13 +72,7 @@ bool changeDir()
     {
         return false;
     }
-    switch(dir)
-    {
-        case up   : mx =  0; my = -1; break;
-        case down : mx =  0; my =  1; break;
-        case left : mx = -1; my =  0; break;
-        case right: mx =  1; my =  0; break;
-    }
+    applyDir();
     cmds = cmds.substr(1);
     return true;
 }
@@ -130,6 +135,17 @@ void cubeFlipLeft()
 
 void cubeFlipRight()
 {
+#ifdef TEST
+    if(y < 5)
+    {
+    }
+    else if(y < 9)
+    {
+    }
+    else
+    {
+    }
+#endif
     auto posDot = in[y].find('.');
     auto posDsh = in[y].find('#');
 
