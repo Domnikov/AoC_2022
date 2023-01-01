@@ -155,6 +155,12 @@ void cubeFlipUp()
     }
     else
     {
+        LL n = 1;
+        LL pos = x-1-n*H;
+        LL nPos = H-pos-1;
+        nX = 1+pos;
+        nY = 200;
+        nDir = up;
     }
 #endif
     if(in[nY][nX] == '_') exit(1);
