@@ -306,6 +306,7 @@ int main(int argc, char** argv)
                     case DIR::right: cubeFlipRight(); break;
                 }
             }
+        P_VECV(in);
         }
         P_VECV(in);
         isNext = changeDir();
