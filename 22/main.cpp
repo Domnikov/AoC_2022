@@ -162,7 +162,7 @@ int main(int argc, char** argv)
                 x += mx;
                 in[y][x] = 'o';
             }
-            else if(c == ' ')
+            else if(c == ' ' || c == '_')
             {
                 switch(dir)
                 {
