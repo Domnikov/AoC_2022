@@ -315,10 +315,15 @@ void cubeFlipRight()
         nX = 150;
         nY = 1 + nPos;
         nDir = left;
-        P(x, y, nX, nY, in[nX][nY]);
     }
     else
     {
+        LL n = 3;
+        LL pos = y-1-n*H;
+        LL nPos = H-pos-1;
+        nX = 1 + H + pos;
+        nY = 150;
+        nDir = up;
     }
 #endif
     if(in[nY][nX] == '_') exit(1);
