@@ -218,7 +218,7 @@ void cubeFlipLeft()
     {
         LL n = 0;
         LL pos = y-1-n*H;
-        LL nPos = H-pos+1;
+        LL nPos = H-pos-1;
         nX = 1;
         nY = 1 + 2*H + nPos;
         nDir = down;
