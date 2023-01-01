@@ -138,6 +138,7 @@ void cubeFlipRight()
 {
     LL nX, nY;
     DIR nDir;
+    P(x, y);
 #ifdef TEST
     if(y < 5)
     {
