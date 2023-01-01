@@ -22,11 +22,15 @@ void checkLand()
 
 LL checkScore()
 {
-    auto countDashs = [](LL r, char c) -> LL{LL rr = c == '#'; LL rrr = r + rr; P(rrr, rr, r, c);return rrr;};
-    LL res = std::accumulate(in.begin()+1, in.end()-1, 0, [countDashs](const auto& r, const auto& s){P(s, r, s);return r + std::accumulate(s.begin()+1, s.end()-1, 0, countDashs );});
+    auto countDashs = [](LL r, char c) -> LL{LL rr = c == '#'; LL rrr = r + rr; return rrr;};
+    LL res = std::accumulate(in.begin()+1, in.end()-1, 0, [countDashs](const auto& r, const auto& s){return r + std::accumulate(s.begin()+1, s.end()-1, 0, countDashs );});
     return res;
 }
 
+LL countEmpty()
+{
+    return (in.size()-2)*(in[0].size()-2) - checkScore();
+}
 
 int main(int argc, char** argv)
 {
@@ -36,7 +40,7 @@ int main(int argc, char** argv)
     checkLand();
     P_VECV(in);
 
-    score = checkScore();
+    score = countEmpty();
     P_RR("Part1: %lld\n", score);
     //========================================================
     score = 0;
