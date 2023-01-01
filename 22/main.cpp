@@ -5,6 +5,7 @@
 LL H = 4;
 #else
 #include "in.hpp"
+LL H = 50;
 #endif
 
 #include<queue>
@@ -140,6 +141,22 @@ void cubeFlipUp()
     }
     else if(y < (1+3*H)) { }
     else { }
+#else
+    if(y < (1+1*H))
+    {
+    }
+    else if(y < (1+2*H))
+    {
+        LL n = 1;
+        LL pos = x-1-n*H;
+        LL nPos = H-pos;
+        nX = 1;
+        nY = 1+3*H+pos;
+        nDir = right;
+    }
+    else
+    {
+    }
 #endif
     if(in[nY][nX] != '#')
     {
@@ -312,9 +329,9 @@ int main(int argc, char** argv)
                 }
             }
         }
-        P_VECV(in);
         isNext = changeDir();
         in[y][x]='X';
+        P_VECV(in);
     }
 
 
