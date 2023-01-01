@@ -186,7 +186,7 @@ int main(int argc, char** argv)
             {
                 y += my;
                 x += mx;
-                in[y][x] = 'o';
+                // in[y][x] = 'o';
             }
             else if(c == ' ' || c == '_')
             {
@@ -200,7 +200,7 @@ int main(int argc, char** argv)
             }
         }
         isNext = changeDir();
-        in[y][x]='X';
+        // in[y][x]='X';
     }
 
 
