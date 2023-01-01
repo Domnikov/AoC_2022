@@ -314,7 +314,7 @@ void cubeFlipRight()
         LL pos = y-1-n*H;
         LL nPos = H-pos-1;
         nX = 150;
-        nY = 1 + 3*H + nPos;
+        nY = 1 + nPos;
         nDir = left;
     }
     else
