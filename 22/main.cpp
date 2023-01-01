@@ -1,4 +1,4 @@
-#define TEST
+// #define TEST
 
 #ifdef TEST
 #include "in_test.hpp"
@@ -127,25 +127,19 @@ void flipRight()
 
 void cubeFlipUp()
 {
-    LL nX, nY;
+    LL nX=-1, nY=-1;
     DIR nDir;
     P(x, y);
 #ifdef TEST
-    if(y < (1+1*H))
-    {
-    }
+    if(y < (1+1*H)) { }
     else if(y < (1+2*H))
     {
         nX = 9;
         nY = (x-H);
         nDir = right;
     }
-    else if(y < (1+3*H))
-    {
-    }
-    else
-    {
-    }
+    else if(y < (1+3*H)) { }
+    else { }
 #endif
     if(in[nY][nX] != '#')
     {
@@ -159,25 +153,19 @@ void cubeFlipUp()
 
 void cubeFlipDown()
 {
-    LL nX, nY;
+    LL nX=-1, nY=-1;
     DIR nDir;
     P(x, y);
 #ifdef TEST
-    if(y < (1+1*H))
-    {
-    }
-    else if(y < (1+2*H))
-    {
-    }
+    if(y < (1+1*H)) { }
+    else if(y < (1+2*H)) { }
     else if(y < (1+3*H))
     {
         nX = H-(x-2*H-1);
         nY = 8;
         nDir = up;
     }
-    else
-    {
-    }
+    else { }
 #endif
     if(in[nY][nX] != '#')
     {
@@ -191,7 +179,7 @@ void cubeFlipDown()
 
 void cubeFlipLeft()
 {
-    LL nX, nY;
+    LL nX=-1, nY=-1;
     DIR nDir;
     P(x, y);
 #ifdef TEST
@@ -208,7 +196,7 @@ void cubeFlipLeft()
 
 void cubeFlipRight()
 {
-    LL nX, nY;
+    LL nX=-1, nY=-1;
     DIR nDir;
     P(x, y);
 #ifdef TEST
@@ -321,7 +309,6 @@ int main(int argc, char** argv)
                     case DIR::right: cubeFlipRight(); break;
                 }
             }
-        P_VECV(in);
         }
         P_VECV(in);
         isNext = changeDir();
