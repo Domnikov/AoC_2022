@@ -179,7 +179,7 @@ int main(int argc, char** argv)
         auto num = getCmdNum();
         auto f = dir == right ? 'R' : (dir == down ? 'D' : (dir == left ? 'L' : 'U'));
         P(f, num);
-        P_VEC(in);
+        P_VECV(in);
         if(in[y][x] == 'X')in[y][x]='o';
         FOR(i, num)
         {
