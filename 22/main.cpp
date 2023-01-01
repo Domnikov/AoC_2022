@@ -130,7 +130,6 @@ void cubeFlipUp()
 {
     LL nX=-1, nY=-1;
     DIR nDir;
-    P(x, y);
 #ifdef TEST
     if(x < (1+1*H)) { }
     else if(x < (1+2*H))
@@ -153,7 +152,6 @@ void cubeFlipUp()
         nX = 1;
         nY = 1+3*H+pos;
         nDir = right;
-        P(nX, nY, nDir);
     }
     else
     {
@@ -184,6 +182,16 @@ void cubeFlipDown()
         nDir = up;
     }
     else { }
+#else
+    if(x < (1+1*H))
+    {
+    }
+    else if(x < (1+2*H))
+    {
+    }
+    else
+    {
+    }
 #endif
     if(in[nY][nX] != '#')
     {
@@ -199,8 +207,26 @@ void cubeFlipLeft()
 {
     LL nX=-1, nY=-1;
     DIR nDir;
-    P(x, y);
 #ifdef TEST
+#else
+    if(y < (1+1*H))
+    {
+    }
+    else if(y < (1+2*H))
+    {
+    }
+    else if(y < (1+3*H))
+    {
+    }
+    else
+    {
+        LL n = 3;
+        LL pos = y-1-n*H;
+        LL nPos = H-pos;
+        nX = 1 + H + pos;
+        nY = 1;
+        nDir = down;
+    }
 #endif
     if(in[nY][nX] != '#')
     {
@@ -235,6 +261,19 @@ void cubeFlipRight()
         nX = 12;
         nY = H - (y - 2*H);
         nDir = left;
+    }
+#else
+    if(y < (1+1*H))
+    {
+    }
+    else if(y < (1+2*H))
+    {
+    }
+    else if(y < (1+3*H))
+    {
+    }
+    else
+    {
     }
 #endif
     if(in[nY][nX] != '#')
