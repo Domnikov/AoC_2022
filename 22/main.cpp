@@ -156,7 +156,7 @@ void cubeFlipDown()
     }
     else if(y < (1+3*H))
     {
-        nX = H-(x-2*H);
+        nX = H-(x-2*H-1);
         nY = 8;
         nDir = up;
     }
