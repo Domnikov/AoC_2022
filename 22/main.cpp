@@ -152,7 +152,7 @@ int main(int argc, char** argv)
         auto num = getCmdNum();
         auto f = dir == right ? 'R' : (dir == down ? 'D' : (dir == left ? 'L' : 'U'));
         if(in[y][x] == 'X')in[y][x]='o';
-        P_RR("%c %lld\n", f, num);
+        P_RR("%c %c %lld\n", cmds[0], f, num);
         FOR(i, num)
         {
             auto c = in[y+my][x+mx];
