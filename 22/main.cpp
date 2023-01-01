@@ -148,7 +148,7 @@ void cubeFlipRight()
     }
     else if(y < 9)
     {
-        nX = 12+(H - (x-H));
+        nX = 12+(H - (y-H));
         nY = 9;
         nDir = down;
     }
