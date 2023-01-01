@@ -180,6 +180,8 @@ int main(int argc, char** argv)
     score = 0;
     cmds = *(in.end()-1);
 
+    mx = 1;
+    my = 0;
     dir = DIR::right;
 
     x = in[1].find('.')-1;
