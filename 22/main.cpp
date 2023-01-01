@@ -132,14 +132,14 @@ void cubeFlipUp()
     DIR nDir;
     P(x, y);
 #ifdef TEST
-    if(y < (1+1*H)) { }
-    else if(y < (1+2*H))
+    if(x < (1+1*H)) { }
+    else if(x < (1+2*H))
     {
         nX = 9;
         nY = (x-H);
         nDir = right;
     }
-    else if(y < (1+3*H)) { }
+    else if(x < (1+3*H)) { }
     else { }
 #else
     if(y < (1+1*H))
