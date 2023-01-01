@@ -166,6 +166,7 @@ int main(int argc, char** argv)
         isNext = changeDir();
         in[y][x]='X';
     }
+    in[y][x]='o';
 
 
     auto f = dir == right ? 0 : (dir == down ? 1 : (dir == left ? 2 : 3));
