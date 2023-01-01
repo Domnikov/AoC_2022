@@ -126,13 +126,70 @@ void flipRight()
 }
 
 void cubeFlipUp()
-{}
+{
+    LL nX, nY;
+    DIR nDir;
+    P(x, y);
+#ifdef TEST
+#endif
+    if(in[nY][nX] != '#')
+    {
+        x = nX;
+        y = nY;
+        in[y][x] = 'o';
+        dir = nDir;
+        applyDir();
+    }
+}
 
 void cubeFlipDown()
-{}
+{
+    LL nX, nY;
+    DIR nDir;
+    P(x, y);
+#ifdef TEST
+    if(y < (1+1*H))
+    {
+    }
+    else if(y < (1+2*H))
+    {
+    }
+    else if(y < (1+3*H))
+    {
+        nX = H-(x-2*H);
+        nY = 8;
+        nDir = up;
+    }
+    else
+    {
+    }
+#endif
+    if(in[nY][nX] != '#')
+    {
+        x = nX;
+        y = nY;
+        in[y][x] = 'o';
+        dir = nDir;
+        applyDir();
+    }
+}
 
 void cubeFlipLeft()
-{}
+{
+    LL nX, nY;
+    DIR nDir;
+    P(x, y);
+#ifdef TEST
+#endif
+    if(in[nY][nX] != '#')
+    {
+        x = nX;
+        y = nY;
+        in[y][x] = 'o';
+        dir = nDir;
+        applyDir();
+    }
+}
 
 void cubeFlipRight()
 {
@@ -140,13 +197,13 @@ void cubeFlipRight()
     DIR nDir;
     P(x, y);
 #ifdef TEST
-    if(y < 5)
+    if(y < (1+1*H))
     {
         nX = 16;
         nY = 8 + H - y + 1;
         nDir = left;
     }
-    else if(y < 9)
+    else if(y < (1+2*H))
     {
         nX = 12+(H - (y-H-1));
         nY = 9;
