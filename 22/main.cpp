@@ -138,6 +138,7 @@ void cubeFlipUp()
         nX = 9;
         nY = (x-H);
         nDir = right;
+        P(nX, nY, nDir);
     }
     else if(x < (1+3*H)) { }
     else { }
