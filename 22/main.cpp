@@ -178,6 +178,8 @@ int main(int argc, char** argv)
     {
         auto num = getCmdNum();
         auto f = dir == right ? 'R' : (dir == down ? 'D' : (dir == left ? 'L' : 'U'));
+        P(f, num);
+        P_VEC(in);
         if(in[y][x] == 'X')in[y][x]='o';
         FOR(i, num)
         {
@@ -186,7 +188,7 @@ int main(int argc, char** argv)
             {
                 y += my;
                 x += mx;
-                // in[y][x] = 'o';
+                in[y][x] = 'o';
             }
             else if(c == ' ' || c == '_')
             {
@@ -200,7 +202,7 @@ int main(int argc, char** argv)
             }
         }
         isNext = changeDir();
-        // in[y][x]='X';
+        in[y][x]='X';
     }
 
 
