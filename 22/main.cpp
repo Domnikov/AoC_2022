@@ -21,7 +21,7 @@ enum DIR
 
 auto cmds = *(in.end()-1);
 
-LL x, y, X, Y;
+LL x, y;
 LL mx = 1;
 LL my = 0;
 DIR dir = DIR::right;
@@ -81,7 +81,6 @@ void flipUp   ()
     if(posDsh < posDot || posDsh < posOoo)
     {
         y = std::max(posDot, posOoo);
-        in[y][x] = 'o';
     }
 }
 
@@ -95,7 +94,6 @@ void flipDown ()
     if(posDsh > posDot || posDsh > posOoo)
     {
         y = std::min(posDot, posOoo);
-        in[y][x] = 'o';
     }
 }
 
@@ -109,7 +107,6 @@ void flipLeft ()
     if(posDsh < posDot || posDsh < posOoo)
     {
         x = std::max(posDot, posOoo);
-        in[y][x] = 'o';
     }
 }
 
@@ -123,7 +120,6 @@ void flipRight()
     if(posDsh > posDot || posDsh > posOoo)
     {
         x = std::min(posDot, posOoo);
-        in[y][x] = 'o';
     }
 }
 
@@ -134,8 +130,6 @@ int main(int argc, char** argv)
 
     x = in[1].find('.')-1;
     y = 1;
-    X = in[1].size();
-    Y = in.size()-2;
 
     bool isNext = true;
     while(isNext)
@@ -150,7 +144,6 @@ int main(int argc, char** argv)
             {
                 y += my;
                 x += mx;
-                in[y][x] = 'o';
             }
             else if(c == ' ' || c == '_')
             {
@@ -164,9 +157,7 @@ int main(int argc, char** argv)
             }
         }
         isNext = changeDir();
-        in[y][x]='X';
     }
-    in[y][x]='o';
 
 
     auto f = dir == right ? 0 : (dir == down ? 1 : (dir == left ? 2 : 3));
@@ -186,8 +177,6 @@ int main(int argc, char** argv)
 
     x = in[1].find('.')-1;
     y = 1;
-    X = in[1].size();
-    Y = in.size()-2;
 
     isNext = true;
     while(isNext)
