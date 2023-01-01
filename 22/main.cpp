@@ -136,6 +136,7 @@ void cubeFlipRight()
     if(posDsh > posDot)
     {
         x = posDot;
+        in[y][x] = 'o';
     }
 }
 
