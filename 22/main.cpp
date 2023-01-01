@@ -218,9 +218,9 @@ void cubeFlipLeft()
     {
         LL n = 0;
         LL pos = y-1-n*H;
-        LL nPos = H-pos;
+        LL nPos = H-pos+1;
         nX = 1;
-        nY = 0 + 2*H + nPos;
+        nY = 1 + 2*H + nPos;
         nDir = down;
     }
     else if(y < (1+2*H))
