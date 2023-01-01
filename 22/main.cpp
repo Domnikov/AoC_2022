@@ -242,10 +242,16 @@ void cubeFlipLeft()
         LL nPos = H-pos-1;
         nX = 1;
         nY = 1 + 2*H + nPos;
-        nDir = down;
+        nDir = right;
     }
     else if(y < (1+2*H))
     {
+        LL n = 1;
+        LL pos = y-1-n*H;
+        LL nPos = H-pos-1;
+        nX = 1 + pos;
+        nY = 101;
+        nDir = down;
     }
     else if(y < (1+3*H))
     {
