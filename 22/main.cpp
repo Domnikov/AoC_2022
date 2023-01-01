@@ -206,7 +206,7 @@ void cubeFlipDown()
         LL nPos = H-pos-1;
         nX = 50;
         nY = 1 + 3*H + pos;
-        nDir = down;
+        nDir = left;
     }
     else
     {
