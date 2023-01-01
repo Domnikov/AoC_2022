@@ -163,7 +163,7 @@ void cubeFlipUp()
         nDir = up;
     }
 #endif
-    P(in[nY][nX]);
+    P(nY, nX, in[nY][nX]);
     if(in[nY][nX] == '_') exit(1);
     if(in[nY][nX] == '.' || in[nY][nX] == 'o')
     {
