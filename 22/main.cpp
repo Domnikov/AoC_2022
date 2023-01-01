@@ -269,7 +269,6 @@ void cubeFlipRight()
 {
     LL nX=-1, nY=-1;
     DIR nDir;
-    P(x, y);
 #ifdef TEST
     if(y < (1+1*H))
     {
@@ -316,6 +315,7 @@ void cubeFlipRight()
         nX = 150;
         nY = 1 + nPos;
         nDir = left;
+        P(x, y, nX, nY, in[nX][nY]);
     }
     else
     {
