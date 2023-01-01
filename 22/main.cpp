@@ -169,7 +169,6 @@ void cubeFlipUp()
         nDir = up;
     }
 #endif
-    P(nY, nX, in[nY][nX]);
     if(in[nY][nX] == '_') exit(1);
     if(in[nY][nX] == '.' || in[nY][nX] == 'o')
     {
@@ -422,7 +421,6 @@ int main(int argc, char** argv)
     {
         auto num = getCmdNum();
         auto f = dir == right ? 'R' : (dir == down ? 'D' : (dir == left ? 'L' : 'U'));
-        P(f, num);
         if(in[y][x] == 'X')in[y][x]='o';
         FOR(i, num)
         {
@@ -446,7 +444,6 @@ int main(int argc, char** argv)
         }
         isNext = changeDir();
         in[y][x]='X';
-        P_VECV(in);
     }
 
 
