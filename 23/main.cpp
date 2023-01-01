@@ -23,7 +23,7 @@ void checkLand()
 LL checkScore()
 {
     auto countDashs = [](LL res, char c){return res + c=='#' ? 1 : 0;};
-    LL res = std::accumulate(in.begin()+1, in.end()-1, 0, [countDashs](const auto& res, const auto& s){return res + std::accumulate(s.begin()+1, s.end()-1, 0, countDashs );});
+    LL res = std::accumulate(in.begin()+1, in.end()-1, 0, [countDashs](const auto& res, const auto& s){P(s);return res + std::accumulate(s.begin()+1, s.end()-1, 0, countDashs );});
     return res;
 }
 
