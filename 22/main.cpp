@@ -155,7 +155,7 @@ void cubeFlipUp()
     }
     else
     {
-        LL n = 1;
+        LL n = 2;
         LL pos = x-1-n*H;
         LL nPos = H-pos-1;
         nX = 1+pos;
