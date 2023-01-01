@@ -2,6 +2,7 @@
 
 #ifdef TEST
 #include "in_test.hpp"
+LL H = 4;
 #else
 #include "in.hpp"
 #endif
@@ -135,24 +136,35 @@ void cubeFlipLeft()
 
 void cubeFlipRight()
 {
+    LL nX, nY;
+    DIR nDir;
 #ifdef TEST
     if(y < 5)
     {
+        nX = 16;
+        nY = 8 + H - y;
+        nDir = left;
     }
     else if(y < 9)
     {
+        nX = 12+(H - (x-H));
+        nY = 9;
+        nDir = down;
     }
     else
     {
+        nX = 12;
+        nY = H - (y - 2*H);
+        nDir = left;
     }
 #endif
-    auto posDot = in[y].find('.');
-    auto posDsh = in[y].find('#');
-
-    if(posDsh > posDot)
+    if(in[nY][nX] != '#')
     {
-        x = posDot;
+        x = nX;
+        y = nY;
         in[y][x] = 'o';
+        dir = nDir;
+        applyDir();
     }
 }
 
