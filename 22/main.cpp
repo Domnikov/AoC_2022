@@ -275,6 +275,8 @@ int main(int argc, char** argv)
     //========================================================
     score = 0;
     cmds = *(in.end()-1);
+    in.pop_back();
+    in.pop_back();
 
     mx = 1;
     my = 0;
