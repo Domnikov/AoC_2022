@@ -148,7 +148,7 @@ void cubeFlipUp()
     {
         LL n = 1;
         LL pos = x-1-n*H;
-        LL nPos = H-pos;
+        LL nPos = H-pos-1;
         nX = 1;
         nY = 1+3*H+pos;
         nDir = right;
@@ -192,7 +192,7 @@ void cubeFlipDown()
     {
         LL n = 2;
         LL pos = x-1-n*H;
-        LL nPos = H-pos;
+        LL nPos = H-pos-1;
         nX = 101;
         nY = 1+1*H+pos;
         nDir = left;
@@ -233,7 +233,7 @@ void cubeFlipLeft()
     {
         LL n = 3;
         LL pos = y-1-n*H;
-        LL nPos = H-pos;
+        LL nPos = H-pos-1;
         nX = 1 + H + pos;
         nY = 1;
         nDir = down;
@@ -279,6 +279,12 @@ void cubeFlipRight()
     }
     else if(y < (1+2*H))
     {
+        LL n = 1;
+        LL pos = y-1-n*H;
+        LL nPos = H-pos-1;
+        nX = 1 + 2*H + pos;
+        nY = 51;
+        nDir = up;
     }
     else if(y < (1+3*H))
     {
