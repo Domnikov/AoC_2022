@@ -76,11 +76,10 @@ void flipUp   ()
 {
     auto posDot = std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== '.';}), in.rend()-1);
     auto posDsh = std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== '#';}), in.rend()-1);
-    auto posOoo = std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== 'o';}), in.rend()-1);
 
-    if(posDsh < posDot || posDsh < posOoo)
+    if(posDsh < posDot)
     {
-        y = std::max(posDot, posOoo);
+        y = posDot;
     }
 }
 
@@ -89,11 +88,10 @@ void flipDown ()
 {
     auto posDot = std::distance(in.begin(), std::find_if(in.begin(), in.end()-2, [](const auto& s){return s[x]== '.';}));
     auto posDsh = std::distance(in.begin(), std::find_if(in.begin(), in.end()-2, [](const auto& s){return s[x]== '#';}));
-    auto posOoo = std::distance(in.begin(), std::find_if(in.begin(), in.end()-2, [](const auto& s){return s[x]== 'o';}));
 
-    if(posDsh > posDot || posDsh > posOoo)
+    if(posDsh > posDot)
     {
-        y = std::min(posDot, posOoo);
+        y = posDot;
     }
 }
 
@@ -102,11 +100,10 @@ void flipLeft ()
 {
     auto posDot = in[y].rfind('.');
     auto posDsh = in[y].rfind('#');
-    auto posOoo = in[y].rfind('o');
 
-    if(posDsh < posDot || posDsh < posOoo)
+    if(posDsh < posDot)
     {
-        x = std::max(posDot, posOoo);
+        x = posDot;
     }
 }
 
@@ -115,11 +112,10 @@ void flipRight()
 {
     auto posDot = in[y].find('.');
     auto posDsh = in[y].find('#');
-    auto posOoo = in[y].find('o');
 
-    if(posDsh > posDot || posDsh > posOoo)
+    if(posDsh > posDot)
     {
-        x = std::min(posDot, posOoo);
+        x = posDot;
     }
 }
 
@@ -136,11 +132,10 @@ int main(int argc, char** argv)
     {
         auto num = getCmdNum();
         auto f = dir == right ? 'R' : (dir == down ? 'D' : (dir == left ? 'L' : 'U'));
-        if(in[y][x] == 'X')in[y][x]='o';
         FOR(i, num)
         {
             auto c = in[y+my][x+mx];
-            if(c == '.' || c == 'o')
+            if(c == '.')
             {
                 y += my;
                 x += mx;
