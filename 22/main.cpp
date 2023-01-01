@@ -143,7 +143,7 @@ void cubeFlipRight()
     if(y < 5)
     {
         nX = 16;
-        nY = 8 + H - y;
+        nY = 8 + H - y - 1;
         nDir = left;
     }
     else if(y < 9)
