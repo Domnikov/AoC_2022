@@ -119,6 +119,26 @@ void flipRight()
     }
 }
 
+void cubeFlipUp()
+{}
+
+void cubeFlipDown()
+{}
+
+void cubeFlipLeft()
+{}
+
+void cubeFlipRight()
+{
+    auto posDot = in[y].find('.');
+    auto posDsh = in[y].find('#');
+
+    if(posDsh > posDot)
+    {
+        x = posDot;
+    }
+}
+
 
 int main(int argc, char** argv)
 {
@@ -194,10 +214,10 @@ int main(int argc, char** argv)
             {
                 switch(dir)
                 {
-                    case DIR::up   : flipUp   (); break;
-                    case DIR::down : flipDown (); break;
-                    case DIR::left : flipLeft (); break;
-                    case DIR::right: flipRight(); break;
+                    case DIR::up   : cubeFlipUp   (); break;
+                    case DIR::down : cubeFlipDown (); break;
+                    case DIR::left : cubeFlipLeft (); break;
+                    case DIR::right: cubeFlipRight(); break;
                 }
             }
         }
