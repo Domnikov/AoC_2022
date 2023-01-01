@@ -292,6 +292,12 @@ void cubeFlipRight()
 #else
     if(y < (1+1*H))
     {
+        LL n = 0;
+        LL pos = y-1-n*H;
+        LL nPos = H-pos-1;
+        nX = 100;
+        nY = 1 + 2*H + nPos;
+        nDir = left;
     }
     else if(y < (1+2*H))
     {
