@@ -171,7 +171,6 @@ void cubeFlipDown()
 {
     LL nX=-1, nY=-1;
     DIR nDir;
-    P(x, y);
 #ifdef TEST
     if(y < (1+1*H)) { }
     else if(y < (1+2*H)) { }
@@ -191,6 +190,12 @@ void cubeFlipDown()
     }
     else
     {
+        LL n = 2;
+        LL pos = x-1-n*H;
+        LL nPos = H-pos;
+        nX = 101;
+        nY = 1+1*H+pos;
+        nDir = left;
     }
 #endif
     if(in[nY][nX] != '#')
