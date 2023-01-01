@@ -20,6 +20,14 @@ void checkLand()
 }
 
 
+LL checkScore()
+{
+    auto countDashs = [](LL res, char c){return res + c=='#';};
+    LL res = std::accumulate(in.begin()+1, in.end()-1, res, [countDashs](const auto& res, const auto& s){return res + std::accumulate(s.begin()+1, s.end()-1, 0, countDashs );});
+    return res;
+}
+
+
 int main(int argc, char** argv)
 {
     LL score = 0;
@@ -28,6 +36,7 @@ int main(int argc, char** argv)
     checkLand();
     P_VECV(in);
 
+    score = checkScore();
     P_RR("Part1: %lld\n", score);
     //========================================================
     score = 0;
