@@ -25,6 +25,8 @@ int main(int argc, char** argv)
     LL score = 0;
 
     P_VECV(in);
+    checkLand();
+    P_VECV(in);
 
     P_RR("Part1: %lld\n", score);
     //========================================================
