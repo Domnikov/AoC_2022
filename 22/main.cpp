@@ -78,8 +78,6 @@ void flipUp   ()
     auto posDsh = /*in.size() +*/ std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== '#';}), in.rend()-1);
     auto posOoo = /*in.size() +*/ std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== 'o';}), in.rend()-1);
 
-    P(posDot, posDsh, posOoo);
-
     if(posDsh < posDot || posDsh < posOoo)
     {
         y = std::max(posDot, posOoo);
@@ -152,7 +150,6 @@ int main(int argc, char** argv)
         auto num = getCmdNum();
         auto f = dir == right ? 'R' : (dir == down ? 'D' : (dir == left ? 'L' : 'U'));
         if(in[y][x] == 'X')in[y][x]='o';
-        P_RR("%c %c %lld\n", cmds[0], f, num);
         FOR(i, num)
         {
             auto c = in[y+my][x+mx];
@@ -175,24 +172,13 @@ int main(int argc, char** argv)
         }
         isNext = changeDir();
         in[y][x]='X';
-        if(D)FOR(i, in.size()-1)
-        {
-            auto s = in[i];
-            P(s);
-        }
     }
 
-    FOR(i, in.size()-1)
-    {
-        auto s = in[i];
-        P(s);
-    }
 
     auto f = dir == right ? 0 : (dir == down ? 1 : (dir == left ? 2 : 3));
     auto row = y;
     auto col = x;
 
-    P(row, col, f);
     score = 1000*row + 4*col + f;
 
     P_RR("Part1: %lld\n", score);
