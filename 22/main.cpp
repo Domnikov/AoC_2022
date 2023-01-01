@@ -137,13 +137,6 @@ int main(int argc, char** argv)
     X = in[1].size();
     Y = in.size()-2;
 
-
-    FOR(i, in.size()-1)
-    {
-        auto s = in[i];
-        P(s);
-    }
-
     bool isNext = true;
     while(isNext)
     {
