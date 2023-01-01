@@ -74,9 +74,9 @@ bool changeDir()
 
 void flipUp   ()
 {
-    auto posDot = /*in.size() +*/ std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== '.';}), in.rend());
-    auto posDsh = /*in.size() +*/ std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== '#';}), in.rend());
-    auto posOoo = /*in.size() +*/ std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== 'o';}), in.rend());
+    auto posDot = /*in.size() +*/ std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== '.';}), in.rend()-1);
+    auto posDsh = /*in.size() +*/ std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== '#';}), in.rend()-1);
+    auto posOoo = /*in.size() +*/ std::distance(std::find_if(in.rbegin()+2, in.rend(), [](const auto& s){return s[x]== 'o';}), in.rend()-1);
 
     P(posDot, posDsh, posOoo);
 
