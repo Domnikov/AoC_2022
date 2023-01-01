@@ -192,6 +192,12 @@ void cubeFlipDown()
 #else
     if(x < (1+1*H))
     {
+        LL n = 0;
+        LL pos = x-1-n*H;
+        LL nPos = H-pos-1;
+        nX = 1 + 2*H + pos;
+        nY = 1;
+        nDir = down;
     }
     else if(x < (1+2*H))
     {
