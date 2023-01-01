@@ -143,6 +143,12 @@ void cubeFlipUp()
 #else
     if(x < (1+1*H))
     {
+        LL n = 0;
+        LL pos = x-1-n*H;
+        LL nPos = H-pos-1;
+        nX = 51;
+        nY = 1+H+pos;
+        nDir = right;
     }
     else if(x < (1+2*H))
     {
