@@ -157,7 +157,7 @@ void cubeFlipUp()
     {
     }
 #endif
-    if(in[nY][nX] != '#')
+    if(in[nY][nX] == '.' || in[nY][nX] == 'o')
     {
         x = nX;
         y = nY;
@@ -198,7 +198,7 @@ void cubeFlipDown()
         nDir = left;
     }
 #endif
-    if(in[nY][nX] != '#')
+    if(in[nY][nX] == '.' || in[nY][nX] == 'o')
     {
         x = nX;
         y = nY;
@@ -239,7 +239,7 @@ void cubeFlipLeft()
         nDir = down;
     }
 #endif
-    if(in[nY][nX] != '#')
+    if(in[nY][nX] == '.' || in[nY][nX] == 'o')
     {
         x = nX;
         y = nY;
@@ -293,7 +293,7 @@ void cubeFlipRight()
     {
     }
 #endif
-    if(in[nY][nX] != '#')
+    if(in[nY][nX] == '.' || in[nY][nX] == 'o')
     {
         x = nX;
         y = nY;
