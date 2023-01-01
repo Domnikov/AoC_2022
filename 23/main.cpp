@@ -22,7 +22,7 @@ void checkLand()
 
 LL checkScore()
 {
-    auto countDashs = [](LL r, char c) -> LL{P(r, c);return r + c=='#' ? 1 : 0;};
+    auto countDashs = [](LL r, char c) -> LL{LL rr = c == '#'; LL rrr = r + rr; P(rrr, rr, r, c);return rrr;};
     LL res = std::accumulate(in.begin()+1, in.end()-1, 0, [countDashs](const auto& r, const auto& s){P(s, r, s);return r + std::accumulate(s.begin()+1, s.end()-1, 0, countDashs );});
     return res;
 }
