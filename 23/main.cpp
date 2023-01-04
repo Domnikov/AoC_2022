@@ -11,6 +11,13 @@
 
 auto in = getInput();
 
+enum DIR
+{
+    NN, WW, EE, SS, DIR_CNT
+};
+
+std::map<std::pair<LL,LL>, VECI> elfs;
+
 void checkLand()
 {
     if(in[          0].find('#') != std::string::npos)                            {in.insert(in.begin(), S(in[          0].size(), '.'));}
@@ -32,13 +39,70 @@ LL countEmpty()
     return (in.size()-2)*(in[0].size()-2) - checkScore();
 }
 
+LL ifN(std::pair<LL,LL> p)
+{
+    auto [y,x] = p;
+    LL nw = in[y-1][x-1] == '.';
+    LL nn = in[y-1][x  ] == '.';
+    LL ne = in[y-1][x+1] == '.';
+    return (nw+nn+ne) == 0;
+}
+
+LL ifS(std::pair<LL,LL> p)
+{
+    auto [y,x] = p;
+    LL nw = in[y+1][x-1] == '.';
+    LL nn = in[y+1][x  ] == '.';
+    LL ne = in[y+1][x+1] == '.';
+    return (nw+nn+ne) == 0;
+}
+
+LL ifW(std::pair<LL,LL> p)
+{
+    auto [y,x] = p;
+    LL nw = in[y-1][x-1] == '.';
+    LL nn = in[y  ][x-1] == '.';
+    LL ne = in[y+1][x-1] == '.';
+    return (nw+nn+ne) == 0;
+}
+
+LL ifE(std::pair<LL,LL> p)
+{
+    auto [y,x] = p;
+    LL nw = in[y-1][x+1] == '.';
+    LL nn = in[y  ][x+1] == '.';
+    LL ne = in[y+1][x+1] == '.';
+    return (nw+nn+ne) == 0;
+}
+
 int main(int argc, char** argv)
 {
     LL score = 0;
-
-    P_VECV(in);
     checkLand();
-    P_VECV(in);
+    FOR(y, in.size())
+    {
+        FOR(x, in[y].size())
+        {
+            if(in[y][x] == '#')
+            {
+                elfs[std::make_pair(y, x)] = VECI(DIR_CNT, 0LL);
+            }
+        }
+    }
+    FOR(i, 10)
+    {
+        std::map<std::pair<LL,LL>, std::pair<LL,LL>> plan;
+        FOR(y, in.size())
+        {
+            FOR(x, in[y].size())
+            {
+                if(in[y][x] == '#')
+                {
+                }
+            }
+        }
+        checkLand();
+    }
 
     score = countEmpty();
     P_RR("Part1: %lld\n", score);
